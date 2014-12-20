@@ -1,0 +1,17 @@
+[user]
+  name = Suvash Thapaliya
+  email = suvash@gmail.com
+[core]
+  excludesfile = /home/suvash/.gitignore
+  editor = vim
+[color]
+  branch = auto
+  diff = auto
+  interactive = auto
+  status = auto
+[push]
+  default = simple
+[branch "master"]
+  mergeoptions = --no-ff
+[branch "develop"]
+  mergeoptions = --no-ff
