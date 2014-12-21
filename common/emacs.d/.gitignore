@@ -4,3 +4,4 @@ eshell*
 el-get/
 auto-save-list/
 ac-*.dat
+smex-item

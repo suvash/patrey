@@ -130,7 +130,7 @@
     name = "suvash";
     createHome = true;
     home = "/home/suvash";
-    shell = "/run/current-system/sw/bin/bash";
+    shell = "/run/current-system/sw/bin/fish";
   };
 
   # Define members for wheel group
