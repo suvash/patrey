@@ -143,6 +143,12 @@
 
   # Enable acpi daemon
   services.acpid.enable = true;
+  services.acpid.lidEventCommands = ''
+    LID_STATE=/proc/acpi/button/lid/LID0/state
+    if [ $(/run/current-system/sw/bin/awk '{print $2}' $LID_STATE) = 'closed' ]; then
+      systemctl suspend
+    fi
+  '';
 
   # Users ================================================
 
