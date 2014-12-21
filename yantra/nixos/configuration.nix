@@ -1,7 +1,3 @@
-# Edit this configuration file to define what should be installed on
-# your system.  Help is available in the configuration.nix(5) man page
-# and in the NixOS manual (accessible by running ‘nixos-help’).
-
 { config, pkgs, ... }:
 
 {
@@ -14,16 +10,24 @@
   boot.loader.gummiboot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  # Networking
+  # Hardware =============================================
+
+  # Hostname
   networking.hostName = "yantra"; # Define your hostname.
+
   # Wireless
   networking.wireless.enable = true;  # Enables wireless.
   networking.wireless.interfaces = [ "wlp2s0" ];
+
   # Enables users to control via wpa_cli/gui
   networking.wireless.userControlled.enable = true;
 
   # Sounds & Audio
   hardware.pulseaudio.enable = true;
+
+  # Regional/Locale ======================================
+
+  time.timeZone = "Europe/Stockholm";
 
   # Select internationalisation properties.
   i18n = {
@@ -32,6 +36,8 @@
     defaultLocale = "en_US.UTF-8";
   };
 
+  # Packages =============================================
+
   # List packages installed in system profile. To search by name, run:
   # -env -qaP | grep wget
   environment.systemPackages = with pkgs; [
@@ -39,25 +45,34 @@
     curl
     xclip
     tree
+    file
+    autojump # autolearn jump from cd
+    axel # better than wget
+    silver-searcher
 
     htop
     iotop
     iftop
+    powertop
 
     pavucontrol
     alsaUtils
 
     dmenu
+    scrot
     firefox
     chromium    
     vlc
+    evince
+    mplayer
 
     fish
     vim
     emacs
+    mg # micro gnu emacs
     git
     tig
-    silver-searcher
+    vagrant
     weechat
   ];
 
@@ -68,7 +83,7 @@
   nixpkgs.config.firefox.enableAdobeFlash = false;
   nixpkgs.config.chromium.enableAdobeFlash = false;
 
-  # List services that you want to enable:
+  # Services =============================================
 
   # Enable the OpenSSH daemon.
   # services.openssh.enable = true;
@@ -76,14 +91,8 @@
   # Enable CUPS to print documents.
   # services.printing.enable = true;
 
-  # Enable the X11 windowing system.
-  # services.xserver.enable = true;
-  # services.xserver.layout = "us";
-  # services.xserver.xkbOptions = "eurosign:e";
-
-  # Enable the KDE Desktop Environment.
+  # Maybe try out KDM instead of slim sometime
   # services.xserver.displayManager.kdm.enable = true;
-  # services.xserver.desktopManager.kde4.enable = true;
 
   # XServer configuration
   services.xserver = {
@@ -102,13 +111,26 @@
   services.xserver.synaptics.enable = true;
   services.xserver.synaptics.twoFingerScroll = true;
 
+  # Enable virtualbox
+  services.virtualboxHost.enable = true;
+  # services.virtualboxHost.enableHardening = true;
+
+  # Users ================================================
+
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.extraUsers.suvash = {
     name = "suvash";
     createHome = true;
     home = "/home/suvash";
-    extraGroups = [ "wheel" ];
     shell = "/run/current-system/sw/bin/bash";
   };
+
+  # Define members for wheel group
+  users.extraGroups.wheel.members = [ "suvash" ];
+
+  # Define members for vboxusers group
+  users.extraGroups.vboxusers.members = [ "suvash" ];
+
+  # Programs =============================================
 
 }
