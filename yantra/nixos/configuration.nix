@@ -53,11 +53,13 @@
     htop
     iotop
     iftop
-    powertop
+    # powertop
     acpi
 
     pavucontrol
     alsaUtils
+    # paprefs
+    pamixer
 
     dmenu
     scrot
