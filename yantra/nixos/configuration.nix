@@ -105,7 +105,7 @@
     xkbOptions = "ctrl:nocaps";
     windowManager.xmonad.enable = true;
     windowManager.default = "xmonad";
-    desktopManager.xterm.enable = true;
+    desktopManager.xterm.enable = false;
     desktopManager.default = "none";
     displayManager.slim.enable = true; 
   };
