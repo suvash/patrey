@@ -1,0 +1,6 @@
+elpa/
+\#*
+eshell*
+el-get/
+auto-save-list/
+ac-*.dat
