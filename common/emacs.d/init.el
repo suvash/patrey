@@ -4,7 +4,7 @@
 (require 'setup-scratch-message)
 (require 'personalize)
 (require 'sanity)
-(require 'osx-setup)
+(when (string-equal system-type "darwin") (require 'osx-setup))
 (require 'setup-elpa-packages)
 
 ;; Load Config Path

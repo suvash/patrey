@@ -5,3 +5,5 @@ el-get/
 auto-save-list/
 ac-*.dat
 smex-item
+projectile-bookmarks.eld
+smex-items
