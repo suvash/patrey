@@ -66,7 +66,7 @@
     firefox
     chromium    
     vlc
-    evince
+    zathura
     mplayer
 
     lilyterm
