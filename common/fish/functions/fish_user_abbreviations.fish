@@ -64,6 +64,8 @@ function fish_user_abbreviations
     t='tig' \
     tf='tail -f' \
     \
+    ns='nix-search' \
+    \
     v='vim' \
     emd='emacs --daemon' \
     em='emacsclient -nw' \
