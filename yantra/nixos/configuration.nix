@@ -54,6 +54,7 @@
     iotop
     iftop
     powertop
+    acpi
 
     pavucontrol
     alsaUtils
@@ -114,6 +115,9 @@
   # Enable virtualbox
   services.virtualboxHost.enable = true;
   # services.virtualboxHost.enableHardening = true;
+
+  # Enable acpi daemon
+  services.acpid.enable = true;
 
   # Users ================================================
 
