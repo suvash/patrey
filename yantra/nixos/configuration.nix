@@ -104,17 +104,38 @@
     enable = true;
     autorun = true;
     layout = "us";
+
+    # X Keyboard options
     xkbOptions = "ctrl:nocaps";
+
+    # Just use xmonad, what's the problem ?
     windowManager.xmonad.enable = true;
     windowManager.default = "xmonad";
+
+    # No need for desktop manager
     desktopManager.xterm.enable = false;
     desktopManager.default = "none";
-    displayManager.slim.enable = true; 
-  };
 
-  # Enable Touchpad support
-  services.xserver.synaptics.enable = true;
-  services.xserver.synaptics.twoFingerScroll = true;
+    # Login manager
+    displayManager.slim.enable = true; 
+
+    # Enable Touchpad support using synaptics driver
+    # https://wiki.archlinux.org/index.php/Touchpad_Synaptics
+    synaptics.enable = true;
+    synaptics.tapButtons = true;
+    synaptics.buttonsMap = [ 1 3 2 ];
+    synaptics.fingersMap = [ 1 3 2 ];
+    synaptics.palmDetect = true;
+    synaptics.twoFingerScroll = true;
+    synaptics.vertEdgeScroll = false;
+
+    # Natural scrolling
+    synaptics.additionalOptions = ''
+      Option "VertScrollDelta"  "-111"
+      Option "HorizScrollDelta" "-111"
+    '';
+
+  };
 
   # Enable virtualbox
   services.virtualboxHost.enable = true;
