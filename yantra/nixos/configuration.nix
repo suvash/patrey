@@ -67,7 +67,9 @@
     evince
     mplayer
 
+    lilyterm
     fish
+
     vim
     emacs
     mg # micro gnu emacs
