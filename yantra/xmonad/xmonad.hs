@@ -13,6 +13,12 @@ keysToAdd _ =
            ((0, 0x1008ff02), spawn "xbacklight -inc 10")
         -- Monitor brightness down key
         ,  ((0, 0x1008ff03), spawn "xbacklight -dec 10")
+        -- Toggle Mute
+        ,  ((0, 0x1008ff12), spawn "pamixer --toggle-mute")
+        -- Increase Volume
+        ,  ((0, 0x1008ff13), spawn "pamixer --increase 10")
+        -- Decrease Volume
+        ,  ((0, 0x1008ff11), spawn "pamixer --decrease 10")
     ]
 
 -- Define keys to remove
