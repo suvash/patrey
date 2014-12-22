@@ -71,6 +71,7 @@
     vlc
     zathura
     mplayer
+    libnotify
 
     lilyterm
     fish
