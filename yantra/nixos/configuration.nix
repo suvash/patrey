@@ -50,6 +50,9 @@
     axel # better than wget
     silver-searcher
 
+    xlibs.xev
+    xlibs.xbacklight
+
     htop
     iotop
     iftop
@@ -79,6 +82,10 @@
     tig
     vagrant
     weechat
+
+    haskellPackages.xmonad
+    haskellPackages.xmonadExtras
+    haskellPackages.xmonadContrib
   ];
 
   # Allow unfree packages
@@ -110,6 +117,7 @@
 
     # Just use xmonad, what's the problem ?
     windowManager.xmonad.enable = true;
+    windowManager.xmonad.enableContribAndExtras = true;
     windowManager.default = "xmonad";
 
     # No need for desktop manager
