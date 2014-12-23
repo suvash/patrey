@@ -44,11 +44,13 @@
     wget
     curl
     xclip
+    xcape
     tree
     file
     autojump # autolearn jump from cd
     axel # better than wget
     silver-searcher
+    keychain
 
     xlibs.xev
     xlibs.xbacklight
@@ -58,6 +60,8 @@
     iftop
     # powertop
     acpi
+    ncdu # ncurses interactive file usage
+    dfc # simple pretty file usage
 
     pavucontrol
     alsaUtils
@@ -72,9 +76,19 @@
     zathura
     mplayer
     libnotify
+    baobab # view files usage
+
+    xfce.xfce4icontheme
+    xfce.xfce4notifyd
+
+    gnome.gnome_icon_theme
+    gnome3.gnome_icon_theme
+    gnome3.gnome_icon_theme_symbolic
 
     lilyterm
     fish
+
+    ruby_2_1_2
 
     vim
     emacs
