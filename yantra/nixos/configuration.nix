@@ -141,6 +141,10 @@
 
     # Login manager
     displayManager.slim.enable = true; 
+    displayManager.slim.theme = pkgs.fetchurl {
+      url = "mirror://sourceforge/slim.berlios/slim-wave.tar.gz";
+      sha256 = "0ndr419i5myzcylvxb89m9grl2xyq6fbnyc3lkd711mzlmnnfxdy";
+    };
 
     # Enable Touchpad support using synaptics driver
     # https://wiki.archlinux.org/index.php/Touchpad_Synaptics
