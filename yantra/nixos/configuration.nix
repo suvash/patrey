@@ -51,6 +51,8 @@
     axel # better than wget
     silver-searcher
     keychain
+    unzip
+    unrar
 
     xlibs.xev
     xlibs.xbacklight
