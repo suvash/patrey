@@ -65,6 +65,7 @@ function fish_user_abbreviations
     tf='tail -f' \
     \
     ns='nix-search' \
+    rb='sudo nixos-rebuild switch' \
     \
     v='vim' \
     emd='emacs --daemon' \
