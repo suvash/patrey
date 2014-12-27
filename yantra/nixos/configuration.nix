@@ -70,6 +70,13 @@
     # paprefs
     pamixer
 
+    # iphone tethering and mounting
+    # sudo usbmuxd ; turn on personal hotspot; turn off wifi/wpa-cli; idevicepair pair/unpair
+    libimobiledevice
+    usbmuxd
+    # same as above; unlock screen; ifuse /mount/point; fusermount -u /mount/point
+    ifuse
+
     dmenu
     scrot
     firefox
