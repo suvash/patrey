@@ -110,7 +110,7 @@
 
   # Flash only on chromium
   nixpkgs.config.firefox.enableAdobeFlash = false;
-  nixpkgs.config.chromium.enableAdobeFlash = false;
+  nixpkgs.config.chromium.enableAdobeFlash = true;
 
   # Services =============================================
 
