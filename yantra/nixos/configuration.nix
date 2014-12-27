@@ -87,13 +87,6 @@
     libnotify
     baobab # view files usage
 
-    xfce.xfce4icontheme
-    xfce.xfce4notifyd
-
-    gnome.gnome_icon_theme
-    gnome3.gnome_icon_theme
-    gnome3.gnome_icon_theme_symbolic
-
     lilyterm
     fish
 
@@ -106,6 +99,13 @@
     tig
     vagrant
     weechat
+
+    xfce.xfce4icontheme
+    xfce.xfce4notifyd
+
+    gnome.gnome_icon_theme
+    gnome3.gnome_icon_theme
+    gnome3.gnome_icon_theme_symbolic
 
     haskellPackages.xmonad
     haskellPackages.xmonadExtras
