@@ -86,6 +86,7 @@
     mplayer
     libnotify
     baobab # view files usage
+    feh
 
     lilyterm
     fish
