@@ -91,6 +91,8 @@
     fish
 
     ruby_2_1_2
+    leiningen
+    elixir
 
     vim
     emacs
