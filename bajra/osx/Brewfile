@@ -18,17 +18,20 @@ install tig
 install tmux
 install unrar
 install reattach-to-user-namespace
+install fish
 install vim --override-system-vi
+install emacs --cocoa
 
 # from dupes
-install awk
-install file-formula
 install gzip
 install less
 install lsof
 install make
 install whois
 install unzip
+
+# link apps
+linkapps --local
 
 # cleanup
 cleanup
