@@ -1,0 +1,61 @@
+# brew tap homebrew/boneyard
+# brew bundle in directory with Brewfile
+
+# update and upgrade
+update --rebase
+upgrade
+
+# good taps
+# tap homebrew/versions
+tap homebrew/dupes
+
+install dfc
+install git
+install ag
+install tree
+install htop-osx
+install tig
+install tmux
+install unrar
+install reattach-to-user-namespace
+install vim --override-system-vi
+
+# from dupes
+install awk
+install file-formula
+install gzip
+install less
+install lsof
+install make
+install whois
+install unzip
+
+# cleanup
+cleanup
+
+# Cask all the things
+
+tap caskroom/cask
+install brew-cask
+
+cask install airfoil 
+cask install caffeine 
+cask install iterm2 
+cask install clipmenu 
+cask install plex-home-theater 
+cask install startninja 
+cask install viber 
+cask install vlc 
+
+cask install betterzipql 
+cask install qlcolorcode 
+cask install qlmarkdown 
+cask install qlprettypatch 
+cask install qlstephen 
+cask install quicklook-csv 
+cask install quicklook-json 
+cask install suspicious-package 
+cask install webpquicklook 
+
+# cask cleanup
+cask cleanup
