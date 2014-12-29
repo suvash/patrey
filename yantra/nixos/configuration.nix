@@ -83,6 +83,7 @@
     vlc
     zathura
     mplayer
+    dunst
     libnotify
     baobab # view files usage
     feh
@@ -103,9 +104,6 @@
 
     xlibs.xev
     xlibs.xbacklight
-
-    xfce.xfce4icontheme
-    xfce.xfce4notifyd
 
     gnome.gnome_icon_theme
     gnome3.gnome_icon_theme
