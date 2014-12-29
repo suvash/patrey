@@ -54,8 +54,7 @@
     unzip
     unrar
 
-    xlibs.xev
-    xlibs.xbacklight
+    # pal
 
     htop
     iotop
@@ -88,13 +87,12 @@
     baobab # view files usage
     feh
 
-    lilyterm
-    fish
-
     ruby_2_1_2
     leiningen
     elixir
 
+    lilyterm
+    fish
     vim
     emacs
     mg # micro gnu emacs
@@ -102,6 +100,9 @@
     tig
     vagrant
     weechat
+
+    xlibs.xev
+    xlibs.xbacklight
 
     xfce.xfce4icontheme
     xfce.xfce4notifyd
