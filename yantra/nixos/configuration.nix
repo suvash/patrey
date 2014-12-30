@@ -53,8 +53,7 @@
     keychain
     unzip
     unrar
-
-    # pal
+    vifm
 
     htop
     iotop
@@ -68,6 +67,8 @@
     alsaUtils
     # paprefs
     pamixer
+
+    autofs5
 
     # iphone tethering and mounting
     # sudo usbmuxd ; turn on personal hotspot; turn off wifi/wpa-cli; idevicepair pair/unpair
@@ -104,6 +105,7 @@
 
     xlibs.xev
     xlibs.xbacklight
+    xlibs.xkill
 
     gnome.gnome_icon_theme
     gnome3.gnome_icon_theme
