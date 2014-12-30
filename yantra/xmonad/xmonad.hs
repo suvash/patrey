@@ -34,6 +34,7 @@ myKeys x = M.union (strippedKeys x) (M.fromList (keysToAdd x))
 
 main = do
    xmonad $ defaultConfig {
-       terminal = myTerminal
+       modMask = mod4Mask
+     , terminal = myTerminal
      , keys = myKeys
    }
