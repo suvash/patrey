@@ -19,11 +19,15 @@ echo "Brew bundling dependencies"
 brew bundle $HOME/Developer/scaffold/bajra/osx/Brewfile
 
 # Add fish to shell list if not already
-if ! $(cat /etc/shells | grep -q 'fish'); then
-  echo 'Setting fish as default shell, will need sudo privilege'
+if ! $(cat /etc/shells | grep -q '/usr/local/bin/fish'); then
+  echo 'Adding fish to available shells, will need privileges.'
 
   echo '/usr/local/bin/fish' | sudo tee -a /etc/shells > /dev/null
 fi
 
 # Make fish default shell
-chsh -s /usr/local/bin/fish
+if ! $(finger $USER | grep -q '/usr/local/bin/fish'); then
+  echo 'Setting fish as default shell, will need privileges.'
+
+  chsh -s /usr/local/bin/fish
+fi

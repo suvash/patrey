@@ -51,6 +51,8 @@ cask install viber
 cask install vlc 
 cask install karabiner
 cask install seil
+cask install flash-player
+cask install amethyst
 
 cask install betterzipql 
 cask install qlcolorcode 
