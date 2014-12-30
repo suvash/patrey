@@ -5,6 +5,7 @@
 (require 'personalize)
 (require 'sanity)
 (when (string-equal system-type "darwin") (require 'osx-setup))
+(when (string-equal system-type "gnu/linux") (require 'linux-setup))
 (require 'setup-elpa-packages)
 
 ;; Load Config Path
