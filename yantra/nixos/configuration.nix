@@ -96,7 +96,7 @@
     lilyterm
     fish
     vim
-    vimPlugins.ctrlp
+    # vimPlugins.ctrlp #install this with users own config/cli
     emacs
     mg # micro gnu emacs
     git
