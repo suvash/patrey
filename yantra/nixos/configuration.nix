@@ -80,7 +80,7 @@
     dmenu
     scrot
     firefox
-    chromium    
+    chromium
     vlc
     zathura
     mplayer
@@ -156,7 +156,7 @@
     desktopManager.default = "none";
 
     # Login manager
-    displayManager.slim.enable = true; 
+    displayManager.slim.enable = true;
     displayManager.slim.theme = pkgs.fetchurl {
       url = "mirror://sourceforge/slim.berlios/slim-wave.tar.gz";
       sha256 = "0ndr419i5myzcylvxb89m9grl2xyq6fbnyc3lkd711mzlmnnfxdy";
