@@ -9,8 +9,10 @@ myTerminal = "lilyterm"
 -- Define keys to add
 keysToAdd x =
     [
+        -- Recompile xmonad and reload
+           (((modMask x .|. controlMask), xK_x), spawn "xmonad --recompile && xmonad --restart")
         -- Monitor brightness up key
-           ((0, 0x1008ff02), spawn "xbacklight -inc 10")
+        ,  ((0, 0x1008ff02), spawn "xbacklight -inc 10")
         -- Monitor brightness down key
         ,  ((0, 0x1008ff03), spawn "xbacklight -dec 10")
         -- Toggle Mute
@@ -21,6 +23,12 @@ keysToAdd x =
         ,  ((0, 0x1008ff11), spawn "pamixer --decrease 10")
         -- Screensaver and Lock
         ,  (((modMask x .|. controlMask), xK_l), spawn "xscreensaver-command -lock")
+        -- Battery
+        ,  (((modMask x .|. controlMask), xK_b), spawn "notify-send -t 4000 Battery \"$(acpi)\" ")
+        -- Date and Time
+        ,  (((modMask x .|. controlMask), xK_d), spawn "notify-send -t 4000 Date/Time \"$(date)\" ")
+        -- Network
+        ,  (((modMask x .|. controlMask), xK_n), spawn "notify-send -t 4000 Network \"$(ip -4 -o addr show | cut -d' ' -f2,7)\"")
     ]
 
 -- Define keys to remove
