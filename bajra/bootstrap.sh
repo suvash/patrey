@@ -1,9 +1,35 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # OSX-only stuff. Abort if not OSX.
 [[ "$OSTYPE" =~ ^darwin ]] || return 1
 
-# Install Homebrew.
+# Run common_symlinks
+
+# ============= Install nix =====================
+sudo rm -rf /etc/nix 2> /dev/null
+curl https://nixos.org/nix/install | sh
+export PATH=$HOME/.nix-profile/bin:$PATH
+
+# For your corresponding shell
+# Set PATH to $HOME/.nix-profile/bin:$PATH
+# Set NIX_PATH to $HOME/Developer/nixpkgs:nixpkgs=$HOME/Developer/nixpkgs
+
+# Use a darwin nixpkgs repo
+git clone https://github.com/joelteon/nixpkgs.git $HOME/Developer/nixpkgs
+nix-channel --remove nixpkgs
+cd $HOME/.nix-defexpr
+rm -rf *
+ln -s $HOME/Developer/nixpkgs .
+sudo mkdir /etc/nix
+echo "# /etc/nix/nix.conf" | sudo tee -a /etc/nix/nix.conf > /dev/null
+echo "" | sudo tee -a /etc/nix/nix.conf > /dev/null
+echo "binary-caches = http://zalora-public-nix-cache.s3-website-ap-southeast-1.amazonaws.com/ http://cache.nixos.org/" | sudo tee -a /etc/nix/nix.conf > /dev/null
+nix-env -i nix
+
+# ============= End nix =========================
+
+# ============= Install brew ====================
+
 if [[ "$OSTYPE" =~ ^darwin ]] && [[ ! "$(type -P brew)" ]]; then
     echo "Installing Homebrew"
 
@@ -31,3 +57,5 @@ if ! $(finger $USER | grep -q '/usr/local/bin/fish'); then
 
   chsh -s /usr/local/bin/fish
 fi
+
+# ============= End brew ========================
