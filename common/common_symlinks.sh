@@ -25,3 +25,13 @@ if [ ! -L $HOME/.weechat ]; then
   rm -rf $HOME/.weechat/ 2> /dev/null
   ln -s $HOME/Developer/scaffold/common/weechat $HOME/.weechat
 fi
+
+if [ ! -L $HOME/.ghci ]; then
+  rm -rf $HOME/.ghci 2> /dev/null
+  ln -s $HOME/Developer/scaffold/common/dotfiles/ghci $HOME/.ghci
+fi
+
+if [ ! -L $HOME/.gemrc ]; then
+  rm -rf $HOME/.gemrc 2> /dev/null
+  ln -s $HOME/Developer/scaffold/common/dotfiles/gemrc $HOME/.gemrc
+fi
