@@ -2,7 +2,7 @@
   name = Suvash Thapaliya
   email = suvash@gmail.com
 [core]
-  excludesfile = /home/suvash/.gitignore
+  excludesfile = ~/.gitignore
   editor = vim
 [color]
   branch = auto
