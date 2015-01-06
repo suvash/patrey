@@ -7,7 +7,7 @@ myTerminal = "lilyterm"
 -- | Keys begin -------------------
 
 -- Define keys to add
-keysToAdd _ =
+keysToAdd x =
     [
         -- Monitor brightness up key
            ((0, 0x1008ff02), spawn "xbacklight -inc 10")
@@ -19,6 +19,8 @@ keysToAdd _ =
         ,  ((0, 0x1008ff13), spawn "pamixer --increase 10")
         -- Decrease Volume
         ,  ((0, 0x1008ff11), spawn "pamixer --decrease 10")
+        -- Screensaver and Lock
+        ,  (((modMask x .|. controlMask), xK_l), spawn "xscreensaver-command -lock")
     ]
 
 -- Define keys to remove
