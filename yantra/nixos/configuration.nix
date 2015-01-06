@@ -50,10 +50,10 @@
     autojump # autolearn jump from cd
     axel # better than wget
     silver-searcher
-    keychain
     unzip
     unrar
     vifm
+    tty-clock
 
     htop
     iotop
@@ -106,8 +106,8 @@
     xlibs.xev
     xlibs.xbacklight
     xlibs.xkill
+    xlibs.xclock
 
-    gnome.gnome_icon_theme
     gnome3.gnome_icon_theme
     gnome3.gnome_icon_theme_symbolic
 
