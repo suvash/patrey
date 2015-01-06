@@ -21,6 +21,11 @@ if [ ! -L $HOME/.emacs.d ]; then
   ln -s $HOME/Developer/scaffold/common/emacs.d $HOME/.emacs.d
 fi
 
+if [ ! -L $HOME/.vim ]; then
+  rm -rf $HOME/.vim 2> /dev/null
+  ln -s $HOME/Developer/scaffold/common/vim $HOME/.vim
+fi
+
 if [ ! -L $HOME/.weechat ]; then
   rm -rf $HOME/.weechat/ 2> /dev/null
   ln -s $HOME/Developer/scaffold/common/weechat $HOME/.weechat

@@ -1,0 +1,33 @@
+set autoindent                          " set autoindeting on
+set nocompatible                        " sanely reset when resourcing
+set esckeys                             " arrow keys begin with esc
+set ruler                               " show the cursor position all the time
+set showcmd                             " display incomplete commands
+set wildmenu                            " use "status line" to show possible completions
+set encoding=utf-8                      " set default encoding
+set noexpandtab                        " do not expand tabs to spaces
+set noerrorbells                        " do not use bells for errors
+set visualbell                          " visual bell
+set nostartofline                       " Prevent the cursor from changing the current column when jumping to other lines
+set number                              " show line numbers
+set title                               " show title in console title bar
+set noswapfile                          " disable swap file
+set copyindent                          " copy the previous indentation on autoindenting
+set nobackup                            " no backup files
+set showmatch                           " show matching parenthesis
+
+set hlsearch                            " highlight matches
+set incsearch                           " incremental searching
+set ignorecase                          " searches are case insensitive...
+set smartcase                           " ... unless they contain at least one capital letter
+
+set clipboard=unnamed                   " share system clipboard
+
+syntax enable                           " enable syntax higlighting
+filetype plugin indent on               " load file type plugins + indentation
+
+set list listchars=tab:»·,trail:·       " display special characters
+
+set comments=b:#,:%,n:>                 " parse comments prefix so vim can reformat text and preserve comments
+
+let mapleader=","                       " remap leader to comma
