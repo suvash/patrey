@@ -156,12 +156,16 @@
     desktopManager.xterm.enable = false;
     desktopManager.default = "none";
 
-    # Login manager
+    # Display/Login manager
     displayManager.slim.enable = true;
     displayManager.slim.theme = pkgs.fetchurl {
       url = "mirror://sourceforge/slim.berlios/slim-wave.tar.gz";
       sha256 = "0ndr419i5myzcylvxb89m9grl2xyq6fbnyc3lkd711mzlmnnfxdy";
     };
+    displayManager.sessionCommands = ''
+      ${pkgs.xlibs.xset}/bin/xset r rate 200 60   # set the keyboard repeat rate
+      ${pkgs.xcape}/bin/xcape                     # use xcape
+    '';
 
     # Enable Touchpad support using synaptics driver
     # https://wiki.archlinux.org/index.php/Touchpad_Synaptics
