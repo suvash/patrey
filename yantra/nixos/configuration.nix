@@ -49,29 +49,20 @@
     fortune
     tree
     file
-    autojump # autolearn jump from cd
-    axel # better than wget
     silver-searcher
     unzip
     unrar
     vifm
     tty-clock
-    psmisc
 
     htop
     iotop
     iftop
-    # powertop
     acpi
-    ncdu # ncurses interactive file usage
-    dfc # simple pretty file usage
 
     pavucontrol
     alsaUtils
-    # paprefs
     pamixer
-
-    autofs5
 
     # iphone tethering and mounting
     # sudo usbmuxd ; turn on personal hotspot; turn off wifi/wpa-cli; idevicepair pair/unpair
@@ -89,7 +80,7 @@
     mplayer
     dunst
     libnotify
-    baobab # view files usage
+    baobab
     feh
     unclutter
 
@@ -102,9 +93,6 @@
     vim
     # vimPlugins.ctrlp #install this with users own config/cli
     emacs
-    mg # micro gnu emacs
-    git
-    tig
     vagrant
     weechat
 
