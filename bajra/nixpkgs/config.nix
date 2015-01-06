@@ -6,6 +6,9 @@
         ncdu
         dfc
 
+        wget
+        curl
+
         htop
         lsof
 
