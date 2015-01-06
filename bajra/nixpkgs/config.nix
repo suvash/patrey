@@ -22,7 +22,9 @@
         unzip
 
         tmux
+
         vim
+        vimPlugins.ctrlp
 
         gitAndTools.gitFull
       ];
