@@ -8,7 +8,6 @@ switch (uname)
     set PATH $HOME/.nix-profile/bin $PATH
     set -x NIX_PATH $HOME/Developer/nixpkgs:nixpkgs=$HOME/Developer/nixpkgs
   case Linux
-    echo "On a Linux."
   case '*'
     echo 'Whoa ! what os is this ?'
 end

@@ -74,6 +74,7 @@ function fish_user_abbreviations
     emg='emacsclient -c -n' \
     \
     ducks='du -cks * | sort -rn | head' \
+    cl='tty-clock' \
     sl='slimlock' \
     sp='send_to_phone'
 end
