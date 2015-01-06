@@ -4,6 +4,24 @@
       name = "all";
       paths = [
         ncdu
+        dfc
+
+        htop
+        lsof
+
+        tree
+        gnumake
+        less
+        watch
+        silver-searcher
+
+        gzip
+        unzip
+
+        tmux
+        vim
+
+        gitAndTools.gitFull
       ];
     };
   };

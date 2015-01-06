@@ -9,26 +9,13 @@ upgrade
 # tap homebrew/versions
 tap homebrew/dupes
 
-install dfc
-install git
-install ag
-install tree
-install htop-osx
 install tig
-install tmux
-install unrar
 install reattach-to-user-namespace
 install fish
-install vim --override-system-vi
 install emacs --cocoa
 
 # from dupes
-install gzip
-install less
-install lsof
-install make
 install whois
-install unzip
 
 # link apps
 linkapps --local
