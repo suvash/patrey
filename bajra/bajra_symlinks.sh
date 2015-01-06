@@ -4,3 +4,8 @@ if [ ! -L $HOME/.tmux.conf ]; then
   rm $HOME/tmux.conf 2> /dev/null
   ln -s $HOME/Developer/scaffold/bajra/dotfiles/tmux.conf $HOME/.tmux.conf
 fi
+
+if [ ! -L $HOME/.nixpkgs ]; then
+  rm -rf $HOME/.nixpkgs 2> /dev/null
+  ln -s $HOME/Developer/scaffold/bajra/nixpkgs $HOME/.nixpkgs
+fi

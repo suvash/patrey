@@ -24,7 +24,7 @@ sudo mkdir /etc/nix
 echo "# /etc/nix/nix.conf" | sudo tee -a /etc/nix/nix.conf > /dev/null
 echo "" | sudo tee -a /etc/nix/nix.conf > /dev/null
 echo "binary-caches = http://zalora-public-nix-cache.s3-website-ap-southeast-1.amazonaws.com/ http://cache.nixos.org/" | sudo tee -a /etc/nix/nix.conf > /dev/null
-nix-env -i nix
+nix-env -iA nixpkgs.nix
 
 # ============= End nix =========================
 
