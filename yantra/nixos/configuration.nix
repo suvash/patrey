@@ -45,6 +45,8 @@
     curl
     xclip
     xcape
+    xscreensaver
+    fortune
     tree
     file
     autojump # autolearn jump from cd
@@ -163,8 +165,9 @@
       sha256 = "0ndr419i5myzcylvxb89m9grl2xyq6fbnyc3lkd711mzlmnnfxdy";
     };
     displayManager.sessionCommands = ''
-      ${pkgs.xlibs.xset}/bin/xset r rate 200 60   # set the keyboard repeat rate
-      ${pkgs.xcape}/bin/xcape                     # use xcape
+      ${pkgs.xlibs.xset}/bin/xset r rate 200 60              # set the keyboard repeat rate
+      ${pkgs.xcape}/bin/xcape                                # use xcape
+      ${pkgs.xscreensaver}/bin/xscreensaver -no-splash &     # use xscreensaver
     '';
 
     # Enable Touchpad support using synaptics driver

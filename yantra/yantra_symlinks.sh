@@ -10,6 +10,11 @@ if [ ! -L $HOME/.xmonad ]; then
   ln -s $HOME/Developer/scaffold/yantra/xmonad $HOME/.xmonad
 fi
 
+if [ ! -L $HOME/.xscreensaver ]; then
+  rm -rf $HOME/.xscreensaver 2> /dev/null
+  ln -s $HOME/Developer/scaffold/yantra/dotfiles/xscreensaver $HOME/.xscreensaver
+fi
+
 if [ ! -L $HOME/.config/lilyterm ]; then
   rm -rf $HOME/.config/lilyterm/ 2> /dev/null
   mkdir -p $HOME/.config/
