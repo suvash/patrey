@@ -59,6 +59,9 @@
     iotop
     iftop
     acpi
+    ncdu
+    dfc
+    psmisc
 
     pavucontrol
     alsaUtils
@@ -95,6 +98,10 @@
     emacs
     vagrant
     weechat
+
+    git
+    tig
+    gitAndTools.hub
 
     xlibs.xev
     xlibs.xbacklight
