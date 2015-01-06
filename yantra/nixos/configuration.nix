@@ -210,5 +210,8 @@
   users.extraGroups.vboxusers.members = [ "suvash" ];
 
   # Programs =============================================
+  programs.ssh.startAgent = true;
+  programs.ssh.agentTimeout = null;
+  programs.ssh.forwardX11 = false;
 
 }
