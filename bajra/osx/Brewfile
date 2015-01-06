@@ -12,6 +12,7 @@ tap homebrew/dupes
 install tig
 install reattach-to-user-namespace
 install fish
+install terminal-notifier
 install emacs --cocoa
 
 # from dupes
