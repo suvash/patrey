@@ -114,6 +114,9 @@
     haskellPackages.xmonad
     haskellPackages.xmonadExtras
     haskellPackages.xmonadContrib
+
+    haskellPackages.hledger
+    haskellPackages.hledgerWeb
   ];
 
   # Allow unfree packages
