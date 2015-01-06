@@ -148,6 +148,7 @@
     enable = true;
     autorun = true;
     layout = "us";
+    startGnuPGAgent = true;
 
     # X Keyboard options
     xkbOptions = "ctrl:nocaps";
@@ -222,8 +223,8 @@
   users.extraGroups.vboxusers.members = [ "suvash" ];
 
   # Programs =============================================
-  programs.ssh.startAgent = true;
-  programs.ssh.agentTimeout = null;
-  programs.ssh.forwardX11 = false;
+  programs.ssh.startAgent = false;
+  # programs.ssh.agentTimeout = null;
+  # programs.ssh.forwardX11 = false;
 
 }
