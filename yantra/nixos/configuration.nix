@@ -56,6 +56,7 @@
     unrar
     vifm
     tty-clock
+    psmisc
 
     htop
     iotop
@@ -90,6 +91,7 @@
     libnotify
     baobab # view files usage
     feh
+    unclutter
 
     ruby_2_1_2
     leiningen
@@ -110,6 +112,7 @@
     xlibs.xbacklight
     xlibs.xkill
     xlibs.xclock
+    xlibs.xrandr
 
     gnome3.gnome_icon_theme
     gnome3.gnome_icon_theme_symbolic
@@ -168,6 +171,7 @@
       ${pkgs.xlibs.xset}/bin/xset r rate 200 60              # set the keyboard repeat rate
       ${pkgs.xcape}/bin/xcape                                # use xcape
       ${pkgs.xscreensaver}/bin/xscreensaver -no-splash &     # use xscreensaver
+      ${pkgs.unclutter}/bin/unclutter &                      # use unclutter
     '';
 
     # Enable Touchpad support using synaptics driver
