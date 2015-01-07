@@ -85,7 +85,6 @@
     libnotify
     baobab
     feh
-    unclutter
 
     ruby_2_1_2
     leiningen
@@ -167,7 +166,6 @@
       ${pkgs.xlibs.xset}/bin/xset r rate 200 60              # set the keyboard repeat rate
       ${pkgs.xcape}/bin/xcape                                # use xcape
       ${pkgs.xscreensaver}/bin/xscreensaver -no-splash &     # use xscreensaver
-      ${pkgs.unclutter}/bin/unclutter &                      # use unclutter
     '';
 
     # Enable Touchpad support using synaptics driver
