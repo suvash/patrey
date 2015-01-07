@@ -1,5 +1,6 @@
 import           XMonad
 import           XMonad.Util.Run
+import           XMonad.Actions.GridSelect
 import qualified Data.Map as M
 
 myTerminal = "lilyterm"
@@ -29,6 +30,8 @@ keysToAdd x =
         ,  (((modMask x .|. controlMask), xK_d), spawn "notify-send -t 4000 Date/Time \"$(date)\" ")
         -- Network
         ,  (((modMask x .|. controlMask), xK_n), spawn "notify-send -t 4000 Network \"$(ip -4 -o addr show | cut -d' ' -f2,7)\"")
+        -- Display all the windows
+        ,  (((modMask x .|. controlMask), xK_s), goToSelected defaultGSConfig)
     ]
 
 -- Define keys to remove
