@@ -76,7 +76,7 @@
 
     dmenu
     scrot
-    firefox
+    firefoxWrapper
     chromium
     vlc
     zathura
@@ -122,9 +122,12 @@
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
-  # Flash only on chromium
+  # Plugins for firefox
   nixpkgs.config.firefox.enableAdobeFlash = false;
-  nixpkgs.config.chromium.enableAdobeFlash = true;
+  nixpkgs.config.firefox.enableGoogleTalkPlugin = true;
+
+  # Plugins for chromium
+  nixpkgs.config.chromium.enablePepperFlash = true;
 
   # Services =============================================
 
