@@ -34,6 +34,8 @@
 (require 'configure-twittering-mode)
 (require 'configure-restclient-mode)
 
+(require 'configure-nix-mode)
+
 (require 'configure-enh-ruby-mode)
 (require 'configure-minitest)
 

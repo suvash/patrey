@@ -50,6 +50,8 @@
                       twittering-mode
                       restclient
 
+                      nix-mode
+
                       enh-ruby-mode
                       minitest
 
