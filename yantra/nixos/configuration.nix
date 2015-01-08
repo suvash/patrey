@@ -92,6 +92,7 @@
     leiningen
     elixir
 
+    lastpass-cli
     lilyterm
     fish
     vim
