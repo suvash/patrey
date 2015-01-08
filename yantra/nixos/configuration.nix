@@ -85,6 +85,7 @@
     libnotify
     baobab
     feh
+    wxcam
 
     ruby_2_1_2
     leiningen
