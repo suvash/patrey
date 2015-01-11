@@ -105,6 +105,8 @@
     vagrant
     weechat
 
+    spotify
+
     git
     tig
     gitAndTools.hub
