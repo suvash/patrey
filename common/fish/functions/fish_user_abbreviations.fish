@@ -64,7 +64,7 @@ function fish_user_abbreviations
     t='tig' \
     tf='tail -f' \
     \
-    ns='nix-search' \
+    ns='nix-env -qaP \'*\' --description | grep ' \
     rbnx='rebuild-nix' \
     \
     v='vim' \
