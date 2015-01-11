@@ -10,10 +10,8 @@ myTerminal = "lilyterm"
 -- Define keys to add
 keysToAdd x =
     [
-        -- Recompile xmonad and reload
-           (((modMask x .|. controlMask), xK_x), spawn "xmonad --recompile && xmonad --restart")
         -- Monitor brightness up key
-        ,  ((0, 0x1008ff02), spawn "xbacklight -inc 10")
+           ((0, 0x1008ff02), spawn "xbacklight -inc 10")
         -- Monitor brightness down key
         ,  ((0, 0x1008ff03), spawn "xbacklight -dec 10")
         -- Toggle Mute
