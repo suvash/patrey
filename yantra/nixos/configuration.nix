@@ -54,6 +54,10 @@
     unrar
     vifm
     tty-clock
+    arandr
+
+    gnumake
+    gcc
 
     htop
     iotop
