@@ -7,7 +7,6 @@
         dfc
 
         wget
-        curl
 
         htop
         lsof
@@ -25,8 +24,6 @@
 
         vim
         vimPlugins.ctrlp
-
-        gitAndTools.gitFull
       ];
     };
   };
