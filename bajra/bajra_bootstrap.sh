@@ -5,6 +5,8 @@
 
 # Run common_symlinks
 
+pushd $PWD
+
 # ============= Install nix =====================
 sudo rm -rf /etc/nix 2> /dev/null
 curl https://nixos.org/nix/install | sh
@@ -16,6 +18,9 @@ export PATH=$HOME/.nix-profile/bin:$PATH
 
 # Use a darwin nixpkgs repo
 git clone https://github.com/joelteon/nixpkgs.git $HOME/Developer/nixpkgs
+cd $HOME/Developer/nixpkgs
+git fetch origin
+git rebase -p origin/master
 nix-channel --remove nixpkgs
 cd $HOME/.nix-defexpr
 rm -rf *
@@ -59,3 +64,5 @@ if ! $(finger $USER | grep -q '/usr/local/bin/fish'); then
 fi
 
 # ============= End brew ========================
+
+popd
