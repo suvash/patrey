@@ -46,6 +46,7 @@ cask install flash-player
 cask install amethyst
 cask install opera
 cask install vox
+cask install mactracker
 
 cask install betterzipql
 cask install qlcolorcode
