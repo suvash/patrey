@@ -45,6 +45,8 @@
                       flycheck
                       flycheck-color-mode-line
 
+                      ace-window
+
                       company
 
                       twittering-mode

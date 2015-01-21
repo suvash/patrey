@@ -30,6 +30,7 @@
 (require 'configure-rainbow)
 (require 'configure-smartparens)
 (require 'configure-company)
+(require 'configure-ace-window)
 
 (require 'configure-twittering-mode)
 (require 'configure-restclient-mode)

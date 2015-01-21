@@ -27,8 +27,7 @@
   "x" 'projectile-find-file
   "d" 'projectile-dired
 
-  "f" 'find-file
-  "o" 'other-window
+  "o" 'ace-window
   "b" 'switch-to-buffer
   "k" 'kill-buffer
 
