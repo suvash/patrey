@@ -66,6 +66,8 @@
     ncdu
     dfc
     psmisc
+    watch
+
 
     pavucontrol
     alsaUtils
