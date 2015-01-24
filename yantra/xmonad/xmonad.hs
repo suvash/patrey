@@ -43,9 +43,20 @@ myKeys x = M.union (strippedKeys x) (M.fromList (keysToAdd x))
 
 -- | Keys end ---------------------
 
+-- | Border begin
+
+myBorderWidth = 1
+myNormalBorderColor = "#696969" -- dark-grey
+myFocusedBorderColor = "#F0E686"  -- khaki
+
+-- | Border end
+
 main = do
    xmonad $ defaultConfig {
        modMask = mod4Mask
      , terminal = myTerminal
      , keys = myKeys
+     , borderWidth = myBorderWidth
+     , normalBorderColor = myNormalBorderColor
+     , focusedBorderColor = myFocusedBorderColor
    }
