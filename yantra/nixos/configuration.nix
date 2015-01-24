@@ -151,6 +151,9 @@
   # Maybe try out KDM instead of slim sometime
   # services.xserver.displayManager.kdm.enable = true;
 
+  # Enable the udisk2 service
+  services.udisks2.enable = true;
+
   # XServer configuration
   services.xserver = {
     enable = true;
