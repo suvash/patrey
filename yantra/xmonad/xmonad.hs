@@ -1,6 +1,7 @@
 import           XMonad
 import           XMonad.Util.Run
 import           XMonad.Actions.GridSelect
+import           XMonad.Hooks.FadeInactive
 import qualified Data.Map as M
 
 myTerminal = "lilyterm"
@@ -43,6 +44,13 @@ myKeys x = M.union (strippedKeys x) (M.fromList (keysToAdd x))
 
 -- | Keys end ---------------------
 
+-- | Log Hook begin
+
+myLogHook = fadeInactiveLogHook fadeAmount
+    where fadeAmount = 0.8
+
+-- | Log Hook end
+
 -- | Border begin
 
 myBorderWidth = 1
@@ -56,6 +64,7 @@ main = do
        modMask = mod4Mask
      , terminal = myTerminal
      , keys = myKeys
+     , logHook = myLogHook
      , borderWidth = myBorderWidth
      , normalBorderColor = myNormalBorderColor
      , focusedBorderColor = myFocusedBorderColor
