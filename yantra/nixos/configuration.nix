@@ -108,6 +108,7 @@
     emacs
     vagrant
     weechat
+    jq
 
     spotify
 
