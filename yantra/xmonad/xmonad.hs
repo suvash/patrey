@@ -47,17 +47,23 @@ myKeys x = M.union (strippedKeys x) (M.fromList (keysToAdd x))
 -- | Log Hook begin
 
 myLogHook = fadeInactiveLogHook fadeAmount
-    where fadeAmount = 0.8
+    where fadeAmount = 0.95
 
 -- | Log Hook end
 
 -- | Border begin
 
-myBorderWidth = 1
+myBorderWidth = 0
 myNormalBorderColor = "#696969" -- dark-grey
 myFocusedBorderColor = "#F0E686"  -- khaki
 
 -- | Border end
+
+-- | Focus follows mouse
+
+myFocusFollowsMouse = False
+
+-- | Focus follows mouse end
 
 main = do
    xmonad $ defaultConfig {
@@ -68,4 +74,5 @@ main = do
      , borderWidth = myBorderWidth
      , normalBorderColor = myNormalBorderColor
      , focusedBorderColor = myFocusedBorderColor
+     , focusFollowsMouse = myFocusFollowsMouse
    }
