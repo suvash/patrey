@@ -223,6 +223,7 @@
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.extraUsers.suvash = {
     name = "suvash";
+    group = "users";
     createHome = true;
     home = "/home/suvash";
     shell = "/run/current-system/sw/bin/fish";
