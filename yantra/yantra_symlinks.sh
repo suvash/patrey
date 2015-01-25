@@ -25,3 +25,10 @@ if [ ! -L $HOME/.config/lilyterm ]; then
   mkdir -p $HOME/.config/
   ln -s $HOME/Developer/scaffold/yantra/lilyterm $HOME/.config/lilyterm
 fi
+
+if [ ! -L $HOME/.config/dunst ]; then
+  rm -rf $HOME/.config/dunst/ 2> /dev/null
+  mkdir -p $HOME/.config/
+  ln -s $HOME/Developer/scaffold/yantra/dunst $HOME/.config/dunst
+fi
+
