@@ -57,6 +57,7 @@
     tty-clock
     arandr
     unclutter
+    bashmount
 
     gnumake
     gcc
@@ -124,6 +125,7 @@
 
     gnome3.gnome_icon_theme
     gnome3.gnome_icon_theme_symbolic
+    gnome3.gnome-disk-utility
 
     haskellPackages.xmonad
     haskellPackages.xmonadExtras
