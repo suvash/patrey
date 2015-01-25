@@ -56,6 +56,7 @@
     vifm
     tty-clock
     arandr
+    unclutter
 
     gnumake
     gcc
@@ -181,6 +182,7 @@
       ${pkgs.xlibs.xset}/bin/xset r rate 200 60              # set the keyboard repeat rate
       ${pkgs.xcape}/bin/xcape                                # use xcape
       ${pkgs.compton}/bin/compton &                          # use compton
+      ${pkgs.unclutter}/bin/unclutter &                      # use unclutter
       ${pkgs.xscreensaver}/bin/xscreensaver -no-splash &     # use xscreensaver
     '';
 
