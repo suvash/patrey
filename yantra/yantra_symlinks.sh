@@ -32,3 +32,7 @@ if [ ! -L $HOME/.config/dunst ]; then
   ln -s $HOME/Developer/scaffold/yantra/dunst $HOME/.config/dunst
 fi
 
+if [ ! -L $HOME/.fehbg ]; then
+  rm -rf $HOME/.fehbg 2> /dev/null
+  ln -s $HOME/Developer/scaffold/yantra/dotfiles/fehbg $HOME/.fehbg
+fi

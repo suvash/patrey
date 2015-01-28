@@ -47,7 +47,7 @@ myKeys x = M.union (strippedKeys x) (M.fromList (keysToAdd x))
 -- | Log Hook begin
 
 myLogHook = fadeInactiveLogHook fadeAmount
-    where fadeAmount = 0.95
+    where fadeAmount = 0.8
 
 -- | Log Hook end
 

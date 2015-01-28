@@ -182,11 +182,13 @@
       url = "mirror://sourceforge/slim.berlios/slim-wave.tar.gz";
       sha256 = "0ndr419i5myzcylvxb89m9grl2xyq6fbnyc3lkd711mzlmnnfxdy";
     };
+
     displayManager.sessionCommands = ''
       ${pkgs.xlibs.xset}/bin/xset r rate 200 60              # set the keyboard repeat rate
       ${pkgs.xcape}/bin/xcape                                # use xcape
       ${pkgs.compton}/bin/compton &                          # use compton
       ${pkgs.unclutter}/bin/unclutter &                      # use unclutter
+      ${pkgs.bash}/bin/bash $HOME/.fehbg &                   # use background
       ${pkgs.xscreensaver}/bin/xscreensaver -no-splash &     # use xscreensaver
     '';
 
