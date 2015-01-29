@@ -46,6 +46,7 @@
     curl
     xclip
     xcape
+    xkb_switch
     compton
     xscreensaver
     fortune
@@ -71,7 +72,6 @@
     dfc
     psmisc
     watch
-
 
     pavucontrol
     alsaUtils
@@ -161,7 +161,7 @@
   services.xserver = {
     enable = true;
     autorun = true;
-    layout = "us";
+    layout = "us,se";
     startGnuPGAgent = true;
 
     # X Keyboard options
