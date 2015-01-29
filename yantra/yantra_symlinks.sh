@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 if [ ! -L /etc/nixos ]; then
-  sudo rm -rf /etc/nixos 2> /dev/null
+  sudo mv /etc/nixos /etc/nixos.orig
   sudo ln -s $HOME/Developer/scaffold/yantra/nixos/ /etc/nixos
 fi
 
