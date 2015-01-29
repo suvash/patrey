@@ -201,6 +201,9 @@
     synaptics.palmDetect = true;
     synaptics.twoFingerScroll = true;
     synaptics.vertEdgeScroll = false;
+    synaptics.accelFactor = "0.1";
+    synaptics.minSpeed = "1.25";
+    synaptics.maxSpeed = "1.75";
 
     # Natural scrolling
     synaptics.additionalOptions = ''
