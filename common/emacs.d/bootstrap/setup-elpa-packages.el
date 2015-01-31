@@ -75,7 +75,8 @@
 
                       rust-mode
 
-                      elixir-mode)
+                      elixir-mode
+                      alchemist)
   "A list of packages to ensure are installed at launch.")
 
 (dolist (p my-packages)

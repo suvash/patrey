@@ -43,12 +43,16 @@
 (require 'configure-clojure-mode)
 (require 'configure-cider)
 
-(require 'configure-sml-mode)
+(require 'configure-elixir-mode)
+(require 'configure-alchemist)
 
 (require 'configure-haskell-mode)
+
 (require 'configure-elm-mode)
 
 (require 'configure-rust-mode)
+
+(require 'configure-sml-mode)
 
 (require 'configure-nyan-mode)
 (require 'configure-markdown-mode)
