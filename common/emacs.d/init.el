@@ -40,6 +40,9 @@
 (require 'configure-enh-ruby-mode)
 (require 'configure-minitest)
 
+(require 'configure-javascript-mode)
+(require 'configure-json-mode)
+
 (require 'configure-clojure-mode)
 (require 'configure-cider)
 
@@ -59,6 +62,4 @@
 (require 'configure-yaml-mode)
 (require 'configure-haml-mode)
 (require 'configure-web-mode)
-(require 'configure-javascript-mode)
-(require 'configure-json-mode)
 (require 'configure-thrift-mode)
