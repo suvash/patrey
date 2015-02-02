@@ -4,7 +4,9 @@
 
 ;; Hide splash-screen and startup-message
 (setq inhibit-splash-screen t
-      inhibit-startup-message t)
+      inhibit-startup-message t
+      initial-scratch-message nil
+      initial-major-mode 'org-mode)
 
 ;; Turn of UI bars forever
 (menu-bar-mode -1)

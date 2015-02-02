@@ -1,7 +1,6 @@
 ;; Load Bootstrap Path
 (add-to-list 'load-path "~/.emacs.d/bootstrap")
 
-(require 'setup-scratch-message)
 (require 'personalize)
 (require 'sanity)
 (when (string-equal system-type "darwin") (require 'osx-setup))
