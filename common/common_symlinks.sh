@@ -40,3 +40,8 @@ if [ ! -L $HOME/.gemrc ]; then
   rm -rf $HOME/.gemrc 2> /dev/null
   ln -s $HOME/Developer/scaffold/common/dotfiles/gemrc $HOME/.gemrc
 fi
+
+if [ ! -L $HOME/.vimperatorrc ]; then
+  rm -rf $HOME/.vimperatorrc 2> /dev/null
+  ln -s $HOME/Developer/scaffold/common/dotfiles/vimperatorrc $HOME/.vimperatorrc
+fi
