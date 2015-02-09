@@ -72,6 +72,7 @@
     dfc
     psmisc
     watch
+    strace
 
     pavucontrol
     alsaUtils
@@ -110,6 +111,7 @@
     emacs
     vagrant
     weechat
+    gtypist
     jq
 
     spotify
