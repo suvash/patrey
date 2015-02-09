@@ -99,7 +99,6 @@
     wxcam
 
     ruby_2_1_2
-    rubyLibs.bundler
     leiningen
     elixir
 
