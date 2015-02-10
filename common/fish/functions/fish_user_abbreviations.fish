@@ -78,7 +78,7 @@ function fish_user_abbreviations
     fonts='fc-list' \
     sl='slimlock' \
     xa='xrandr --auto' \
-    tbnormal='xrandr --output eDP1 --mode 1440x900 --pos 0x0 --rotate normal --output DP1 --mode 2560x1440 --pos 1440x0 --rotate normal' \
-    workmon='xrandr --output eDP1 --mode 1440x900 --pos 240x1200 --rotate normal --output HDMI1 --mode 1920x1200 --pos 0x0 --rotate normal' \
+    tb='xrandr --output eDP1 --mode 1440x900 --pos 0x0 --rotate normal --output DP1 --mode 2560x1440 --pos 1440x0 --rotate normal' \
+    wm='xrandr --output eDP1 --mode 1440x900 --pos 240x1200 --rotate normal --output HDMI1 --mode 1920x1200 --pos 0x0 --rotate normal' \
     sp='send_to_phone'
 end
