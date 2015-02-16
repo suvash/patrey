@@ -45,6 +45,7 @@
                       flycheck
                       flycheck-color-mode-line
 
+                      golden-ratio
                       ace-window
 
                       company
