@@ -1,5 +1,6 @@
 import           XMonad
 import           XMonad.Util.Run
+import           XMonad.Util.Paste
 import           XMonad.Actions.GridSelect
 import           XMonad.Hooks.FadeInactive
 import qualified Data.Map as M
@@ -21,6 +22,8 @@ keysToAdd x =
         ,  ((0, 0x1008ff13), spawn "pamixer --increase 10")
         -- Decrease Volume
         ,  ((0, 0x1008ff11), spawn "pamixer --decrease 10")
+        -- X-selection paste
+        ,  (((modMask x .|. controlMask), xK_v), pasteSelection)
         -- Screensaver and Lock
         ,  (((modMask x .|. controlMask), xK_l), spawn "xscreensaver-command -lock")
         -- Battery
