@@ -49,7 +49,6 @@
     xkb_switch
     compton
     xscreensaver
-    fortune
     tree
     file
     silver-searcher
@@ -60,6 +59,11 @@
     arandr
     unclutter
     bashmount
+
+    fortune
+    # cowsay
+    # sl
+    figlet
 
     gnumake
     gcc
@@ -73,6 +77,7 @@
     psmisc
     watch
     strace
+    wirelesstools
 
     pavucontrol
     alsaUtils
@@ -85,6 +90,7 @@
     # same as above; unlock screen; ifuse /mount/point; fusermount -u /mount/point
     ifuse
 
+    linssid
     dmenu
     scrot
     firefoxWrapper
@@ -101,6 +107,10 @@
     ruby_2_1_2
     leiningen
     elixir
+    haskellPackages.cabalInstall
+    haskellPackages.ghc
+
+    haskellPackages.cabal2nix
 
     lastpass-cli
     lilyterm
@@ -132,6 +142,8 @@
     haskellPackages.xmonad
     haskellPackages.xmonadExtras
     haskellPackages.xmonadContrib
+
+    python34Packages.rainbowstream
   ];
 
   # Allow unfree packages
