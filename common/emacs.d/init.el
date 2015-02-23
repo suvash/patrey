@@ -16,6 +16,7 @@
 (require 'configure-perspective)
 (require 'configure-ido)
 (require 'configure-smex)
+(require 'configure-ace-jump-mode)
 (require 'configure-smart-mode-line)
 (require 'configure-guide-key)
 (require 'configure-org)
@@ -29,7 +30,6 @@
 (require 'configure-rainbow)
 (require 'configure-smartparens)
 (require 'configure-company)
-(require 'configure-ace-window)
 (require 'configure-golden-ratio)
 
 (require 'configure-twittering-mode)

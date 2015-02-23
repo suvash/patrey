@@ -5,6 +5,7 @@
 ;; j/k in wrapped lines too, else it'll jump
 (define-key evil-normal-state-map (kbd "j") 'evil-next-visual-line)
 (define-key evil-normal-state-map (kbd "k") 'evil-previous-visual-line)
+(define-key evil-normal-state-map (kbd "SPC") 'other-window)
 
 ;; don't move the cursor back when back to normal mode
 (setq evil-move-cursor-back nil)
@@ -25,11 +26,13 @@
   "po" 'projectile-persp-switch-project
   "pk" 'persp-kill
   "x" 'projectile-find-file
+  "i" 'imenu
   "d" 'projectile-dired
 
-  "o" 'ace-window
+  "o" 'other-window
+  "j" 'ace-jump-mode
   "b" 'switch-to-buffer
-  "k" 'kill-buffer
+  "k" 'kill-this-buffer
 
   "s" 'eshell
   "w" 'delete-trailing-whitespace
