@@ -14,7 +14,7 @@
 (scroll-bar-mode -1)
 
 ;; Turn off ding
-(setq visible-bell 1)
+(setq visible-bell 0)
 
 ;; Turn off blinking cursor
 (blink-cursor-mode 0)
