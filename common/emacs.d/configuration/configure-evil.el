@@ -28,6 +28,7 @@
   "x" 'projectile-find-file
   "i" 'imenu
   "d" 'projectile-dired
+  "a" 'projectile-ag
 
   "o" 'other-window
   "j" 'ace-jump-mode
@@ -36,8 +37,7 @@
 
   "s" 'eshell
   "w" 'delete-trailing-whitespace
-  "g" 'magit-status
-  "a" 'ag-project)
+  "g" 'magit-status)
 
 ;;disable evil in certain modes
 (evil-set-initial-state 'dired-mode 'emacs)
