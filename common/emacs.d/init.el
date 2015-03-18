@@ -30,7 +30,6 @@
 (require 'configure-rainbow)
 (require 'configure-smartparens)
 (require 'configure-company)
-(require 'configure-golden-ratio)
 
 (require 'configure-twittering-mode)
 (require 'configure-restclient-mode)
