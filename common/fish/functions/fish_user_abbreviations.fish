@@ -69,9 +69,8 @@ function fish_user_abbreviations
     \
     v='vim' \
     emd='emacs --daemon' \
-    em='emacsclient -nw' \
-    emc='emacsclient -c -nw' \
-    emg='emacsclient -c -n' \
+    emt='emacsclient -c -nw' \
+    emc='emacsclient -c -n' \
     \
     ducks='du -cks * | sort -rn | head' \
     cl='tty-clock' \
