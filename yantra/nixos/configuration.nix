@@ -54,15 +54,15 @@
     silver-searcher
     unzip
     unrar
-    vifm
     tty-clock
     arandr
     unclutter
     bashmount
+    socat
 
     fortune
-    # cowsay
-    # sl
+    cowsay
+    sl
     figlet
 
     gnumake
@@ -78,6 +78,9 @@
     watch
     strace
     wirelesstools
+    lsof
+    dnstop
+    units
 
     pavucontrol
     alsaUtils
@@ -102,7 +105,11 @@
     libnotify
     baobab
     feh
+    ranger
     wxcam
+    mosquitto
+    zeal
+    nfs-utils
 
     ruby_2_1_2
     leiningen
@@ -166,6 +173,9 @@
 
   # Maybe try out KDM instead of slim sometime
   # services.xserver.displayManager.kdm.enable = true;
+
+  # Use avahi for zeroconf/bonjour
+  services.avahi.enable = true;
 
   # Enable the udisk2 service
   services.udisks2.enable = true;
