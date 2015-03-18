@@ -13,6 +13,7 @@
 (require 'configure-exec-path-from-shell)
 (require 'configure-theme)
 (require 'configure-projectile)
+(require 'configure-dired)
 (require 'configure-perspective)
 (require 'configure-ido)
 (require 'configure-smex)
