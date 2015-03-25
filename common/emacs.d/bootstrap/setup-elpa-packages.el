@@ -71,6 +71,7 @@
                       cider
 
                       haskell-mode
+                      idris-mode
                       elm-mode
 
                       rust-mode

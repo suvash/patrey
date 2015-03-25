@@ -51,6 +51,8 @@
 
 (require 'configure-haskell-mode)
 
+(require 'configure-idris-mode)
+
 (require 'configure-elm-mode)
 
 (require 'configure-rust-mode)
