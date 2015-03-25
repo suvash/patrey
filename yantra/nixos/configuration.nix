@@ -114,8 +114,16 @@
     ruby_2_1_2
     leiningen
     elixir
+    swiProlog
+    haskellPackages.elmMake
+    haskellPackages.elmCompiler
+    haskellPackages.elmPackage
+    haskellPackages.elmRepl
+    haskellPackages.elmReactor
+    haskellPackages.idris
     haskellPackages.cabalInstall
     haskellPackages.ghc
+    pltScheme
 
     haskellPackages.cabal2nix
 
