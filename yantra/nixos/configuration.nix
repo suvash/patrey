@@ -81,6 +81,7 @@
     lsof
     dnstop
     units
+    bind
 
     pavucontrol
     alsaUtils
@@ -251,8 +252,8 @@
   # Enable acpi daemon
   services.acpid.enable = true;
   services.acpid.lidEventCommands = ''
-    LID_STATE=/proc/acpi/button/lid/LID0/state
-    if [ $(/run/current-system/sw/bin/awk '{print $2}' $LID_STATE) = 'closed' ]; then
+    if grep -q closed /proc/acpi/button/lid/LID0/state; then
+      sync
       systemctl suspend
     fi
   '';
