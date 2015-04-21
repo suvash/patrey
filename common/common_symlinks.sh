@@ -45,3 +45,8 @@ if [ ! -L $HOME/.vimperatorrc ]; then
   rm -rf $HOME/.vimperatorrc 2> /dev/null
   ln -s $HOME/Developer/scaffold/common/dotfiles/vimperatorrc $HOME/.vimperatorrc
 fi
+
+if [ ! -L $HOME/.lein ]; then
+  rm -rf $HOME/.lein/ 2> /dev/null
+  ln -s $HOME/Developer/scaffold/common/lein $HOME/.lein
+fi
