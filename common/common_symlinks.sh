@@ -16,6 +16,11 @@ if [ ! -L $HOME/.config/fish ]; then
   ln -s $HOME/Developer/scaffold/common/fish $HOME/.config/fish
 fi
 
+if [ ! -L $HOME/.tmux.conf ]; then
+  rm $HOME/tmux.conf 2> /dev/null
+  ln -s $HOME/Developer/scaffold/common/dotfiles/tmux.conf $HOME/.tmux.conf
+fi
+
 if [ ! -L $HOME/.emacs.d ]; then
   rm -rf $HOME/.emacs.d/ 2> /dev/null
   ln -s $HOME/Developer/scaffold/common/emacs.d $HOME/.emacs.d
