@@ -134,6 +134,7 @@
     vim
     # vimPlugins.ctrlp #install this with users own config/cli
     emacs
+    tmux
     vagrant
     weechat
     gtypist
