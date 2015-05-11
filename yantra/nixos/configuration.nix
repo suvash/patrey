@@ -111,22 +111,14 @@
     mosquitto
     zeal
     nfs-utils
+    skype
 
     ruby_2_1_2
     leiningen
     elixir
     swiProlog
-    haskellPackages.elmMake
-    haskellPackages.elmCompiler
-    haskellPackages.elmPackage
-    haskellPackages.elmRepl
-    haskellPackages.elmReactor
-    haskellPackages.idris
-    haskellPackages.cabalInstall
     haskellPackages.ghc
     pltScheme
-
-    haskellPackages.cabal2nix
 
     lastpass-cli
     lilyterm
@@ -157,8 +149,6 @@
     gnome3.gnome-disk-utility
 
     haskellPackages.xmonad
-    haskellPackages.xmonadExtras
-    haskellPackages.xmonadContrib
 
     python34Packages.rainbowstream
   ];
@@ -185,7 +175,7 @@
   # services.xserver.displayManager.kdm.enable = true;
 
   # Use avahi for zeroconf/bonjour
-  services.avahi.enable = true;
+  # services.avahi.enable = true;
 
   # Enable the udisk2 service
   services.udisks2.enable = true;
