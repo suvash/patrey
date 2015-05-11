@@ -6,8 +6,7 @@
 
 (setq nrepl-hide-special-buffers t
       cider-repl-result-prefix ";; => "
-      cider-interactive-eval-result-prefix ";; => "
-      cider-repl-pop-to-buffer-on-connect nil)
+      cider-interactive-eval-result-prefix ";; => ")
 
 (defun cider-repl-command (cmd)
   "Execute commands on the cider repl"
