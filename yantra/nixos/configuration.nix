@@ -121,7 +121,7 @@
     pltScheme
 
     lastpass-cli
-    lilyterm
+    termite
     fish
     vim
     # vimPlugins.ctrlp #install this with users own config/cli

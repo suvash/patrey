@@ -5,7 +5,7 @@ import           XMonad.Actions.GridSelect
 import           XMonad.Hooks.FadeInactive
 import qualified Data.Map as M
 
-myTerminal = "lilyterm"
+myTerminal = "termite"
 
 -- | Keys begin -------------------
 
