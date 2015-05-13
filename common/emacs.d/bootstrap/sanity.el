@@ -35,7 +35,7 @@
 
 ;; Display special characters
 (global-whitespace-mode 1)
-(setq whitespace-style '(face trailing tabs lines-tail tab-mark))
+(setq whitespace-style '(face trailing lines-tail tab-mark))
 (setq whitespace-display-mappings
       '((tab-mark 9 [9655 9] [92 9])))
 
