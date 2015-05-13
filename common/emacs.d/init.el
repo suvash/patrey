@@ -43,6 +43,8 @@
 (require 'configure-javascript-mode)
 (require 'configure-json-mode)
 
+(require 'configure-go-mode)
+
 (require 'configure-clojure-mode)
 (require 'configure-cider)
 

@@ -57,6 +57,8 @@
                       enh-ruby-mode
                       minitest
 
+                      go-mode
+
                       nyan-mode
                       markdown-mode
                       web-mode
