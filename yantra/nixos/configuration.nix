@@ -144,6 +144,10 @@
     xlibs.xclock
     xlibs.xrandr
 
+    fcitx-configtool
+    fcitx-with-plugins
+
+    gnome3.gtk
     gnome3.gnome_icon_theme
     gnome3.gnome_icon_theme_symbolic
     gnome3.gnome-disk-utility
