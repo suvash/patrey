@@ -21,6 +21,7 @@
 (require 'configure-smart-mode-line)
 (require 'configure-guide-key)
 (require 'configure-org)
+(require 'configure-magit)
 (require 'configure-git-timemachine)
 (require 'configure-git-gutter)
 (require 'configure-evil)
