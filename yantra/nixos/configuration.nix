@@ -94,7 +94,6 @@
     # same as above; unlock screen; ifuse /mount/point; fusermount -u /mount/point
     ifuse
 
-    linssid
     dmenu
     scrot
     firefoxWrapper

@@ -78,6 +78,6 @@ function fish_user_abbreviations
     vha="vagrant global-status | awk '/running/{print $1}' | xargs -n 1 -- vagrant halt" \
     xa='xrandr --auto' \
     tb='xrandr --output eDP1 --mode 1440x900 --pos 0x0 --rotate normal --output DP1 --mode 2560x1440 --pos 1440x0 --rotate normal' \
-    wm='xrandr --output eDP1 --mode 1440x900 --pos 240x1200 --rotate normal --output HDMI1 --mode 1920x1200 --pos 0x0 --rotate normal' \
+    wm='xrandr --output eDP1 --primary --mode 1440x900 --pos 240x1200 --rotate normal --output HDMI1 --mode 1920x1200 --pos 0x0 --rotate normal' \
     sp='send_to_phone'
 end
