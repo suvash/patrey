@@ -13,8 +13,6 @@
   default = simple
 [branch "master"]
   mergeoptions = --no-ff
-[branch "develop"]
-  mergeoptions = --no-ff
 [alias]
   timeline = log --oneline --graph --decorate
   lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
