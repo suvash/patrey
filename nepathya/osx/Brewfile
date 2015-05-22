@@ -30,6 +30,7 @@ tap caskroom/cask
 install brew-cask
 
 cask install airfoil
+cask install alfred
 cask install caffeine
 cask install kensington-trackball-works
 cask install iterm2
