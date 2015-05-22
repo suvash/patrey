@@ -17,7 +17,7 @@ if [[ "$OSTYPE" =~ ^darwin ]] && [[ ! "$(type -P brew)" ]]; then
 fi
 
 echo "Creating $HOME/Applications"
-mkdir $HOME/Applications
+mkdir -p $HOME/Applications
 
 echo "Brew bundle"
 brew doctor

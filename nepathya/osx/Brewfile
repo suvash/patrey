@@ -9,11 +9,23 @@ upgrade
 # tap homebrew/versions
 tap homebrew/dupes
 
+install ag
+install ncdu
+install dfc
+install wget
+install htop
+install lsof
+install tree
+install make
+install watch
+install unzip
+install less
 install tig
-install reattach-to-user-namespace
 install fish
-install terminal-notifier
+install vim
 install emacs --with-cocoa
+install tmux
+install reattach-to-user-namespace
 
 # from dupes
 install whois
@@ -45,6 +57,7 @@ cask install spectacle
 cask install flash-player
 cask install vox
 cask install mactracker
+cask install virtualbox
 
 cask install betterzipql
 cask install qlcolorcode
