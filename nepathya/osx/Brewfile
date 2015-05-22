@@ -13,7 +13,7 @@ install tig
 install reattach-to-user-namespace
 install fish
 install terminal-notifier
-install emacs --cocoa
+install emacs --with-cocoa
 
 # from dupes
 install whois
