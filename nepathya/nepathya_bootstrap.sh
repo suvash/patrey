@@ -21,10 +21,22 @@ mkdir -p $HOME/Applications
 
 echo "Brew bundle"
 brew doctor
-brew tap homebrew/boneyard
+brew tap homebrew/bundle
+
+# update and upgrade
+echo "Brew update/upgrading"
+brew update --rebase
+brew upgrade
 
 echo "Brew bundling dependencies"
-brew bundle $HOME/Developer/scaffold/nepathya/osx/Brewfile
+brew bundle --file=$HOME/Developer/scaffold/nepathya/osx/Brewfile
+
+echo "Brew linking"
+brew linkapps --local
+
+echo "Brew and cask cleanup"
+brew cleanup
+brew cask cleanup
 
 # Add fish to shell list if not already
 if ! $(cat /etc/shells | grep -q '/usr/local/bin/fish'); then

@@ -1,72 +1,57 @@
-# brew tap homebrew/boneyard
-# brew bundle in directory with Brewfile
+tap 'homebrew/dupes'
+tap 'caskroom/cask'
 
-# update and upgrade
-update --rebase
-upgrade
+brew 'xz'
+brew 'gettext'
+brew 'dfc'
+brew 'pkg-config'
+brew 'emacs', args: ['with-cocoa']
+brew 'fish'
+brew 'htop-osx'
+brew 'openssl'
+brew 'libevent'
+brew 'ncdu'
+brew 'pcre'
+brew 'readline'
+brew 'reattach-to-user-namespace'
+brew 'the_silver_searcher'
+brew 'tig'
+brew 'tmux'
+brew 'tree'
+brew 'vim'
+brew 'watch'
+brew 'wget'
+brew 'caskroom/cask/brew-cask'
+brew 'homebrew/dupes/less'
+brew 'homebrew/dupes/lsof'
+brew 'homebrew/dupes/make'
+brew 'homebrew/dupes/unzip'
+brew 'homebrew/dupes/whois'
 
-# good taps
-# tap homebrew/versions
-tap homebrew/dupes
-
-install ag
-install ncdu
-install dfc
-install wget
-install htop
-install lsof
-install tree
-install make
-install watch
-install unzip
-install less
-install tig
-install fish
-install vim
-install emacs --with-cocoa
-install tmux
-install reattach-to-user-namespace
-
-# from dupes
-install whois
-
-# link apps
-linkapps --local
-
-# cleanup
-cleanup
-
-# Cask all the things
-
-tap caskroom/cask
-install brew-cask
-
-cask install airfoil
-cask install alfred
-cask install caffeine
-cask install kensington-trackball-works
-cask install iterm2
-cask install clipmenu
-cask install plex-home-theater
-cask install synology-cloud-station
-cask install viber
-cask install vlc
-cask install karabiner
-cask install spectacle
-cask install flash-player
-cask install vox
-cask install mactracker
-cask install virtualbox
-
-cask install betterzipql
-cask install qlcolorcode
-cask install qlmarkdown
-cask install qlprettypatch
-cask install qlstephen
-cask install quicklook-csv
-cask install quicklook-json
-cask install suspicious-package
-cask install webpquicklook
-
-# cask cleanup
-cask cleanup
+cask 'airfoil'
+cask 'alfred'
+cask 'betterzipql'
+cask 'caffeine'
+cask 'clipmenu'
+cask 'flash-player'
+cask 'iterm2'
+cask 'karabiner'
+cask 'kensington-trackball-works'
+cask 'lastpass'
+cask 'mactracker'
+cask 'opera'
+cask 'plex-home-theater'
+cask 'qlcolorcode'
+cask 'qlmarkdown'
+cask 'qlprettypatch'
+cask 'qlstephen'
+cask 'quicklook-csv'
+cask 'quicklook-json'
+cask 'spectacle'
+cask 'suspicious-package'
+cask 'synology-cloud-station'
+cask 'viber'
+cask 'virtualbox'
+cask 'vlc'
+cask 'vox'
+cask 'webpquicklook'
