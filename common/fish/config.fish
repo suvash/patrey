@@ -7,7 +7,7 @@ fish_user_abbreviations
 
 switch (uname)
   case Darwin
-    set PATH $HOME/.nix-profile/bin $PATH
+    set PATH $HOME/.nix-profile/bin /usr/local/sbin $PATH
     set -x NIX_PATH $HOME/Developer/nixpkgs:nixpkgs=$HOME/Developer/nixpkgs
   case Linux
   case '*'
