@@ -1,4 +1,5 @@
 tap 'homebrew/dupes'
+tap 'homebrew/science'
 tap 'caskroom/cask'
 
 brew 'archey'
@@ -33,6 +34,10 @@ brew 'leiningen'
 cask 'elm-platform'
 
 brew 'mosquitto'
+cask 'xquartz'
+cask 'aquaterm'
+brew 'gnuplot', args: ['with-x11', 'with-aquaterm', 'with-cairo', 'with-wxmac', 'with-qt']
+brew 'octave', args: ['with-gui']
 
 cask 'airfoil'
 cask 'alfred'
@@ -50,7 +55,6 @@ cask 'kensington-trackball-works'
 cask 'lastpass'
 cask 'mactracker'
 cask 'opera'
-cask 'octave'
 cask 'plex-home-theater'
 cask 'viber'
 cask 'virtualbox'
