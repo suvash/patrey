@@ -3,24 +3,12 @@
 # OSX-only stuff. Abort if not OSX.
 [[ "$OSTYPE" =~ ^darwin ]] || return 1
 
-# Run common_symlinks
-
 pushd $PWD
-
-# ============= Install brew ====================
-
-if [[ "$OSTYPE" =~ ^darwin ]] && [[ ! "$(type -P brew)" ]]; then
-    echo "Installing Homebrew"
-
-    #Skip the "Press enter to continue…" prompt.
-    true | ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-fi
 
 echo "Creating $HOME/Applications"
 mkdir -p $HOME/Applications
 
 echo "Brew bundle"
-brew doctor
 brew tap homebrew/bundle
 
 # update and upgrade
