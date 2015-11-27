@@ -1,7 +1,5 @@
 tap 'homebrew/dupes'
-tap 'homebrew/science'
 tap 'caskroom/cask'
-tap 'keybase/beta'
 
 brew 'dfc'
 brew 'emacs', args: ['with-cocoa']
@@ -53,7 +51,5 @@ cask 'quicklook-csv'
 cask 'quicklook-json'
 cask 'skype'
 cask 'spectacle'
-cask 'suspicious-package'
-cask 'synology-cloud-station'
 cask 'tunnelblick'
 cask 'vagrant'

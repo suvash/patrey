@@ -5,7 +5,6 @@
 
 source $HOME/Developer/scaffold/common/common_symlinks.sh
 
-source $HOME/Developer/scaffold/rangamanch/osx/osx_sanity.sh
 source $HOME/Developer/scaffold/rangamanch/rangamanch_symlinks.sh
 
 pushd $PWD
