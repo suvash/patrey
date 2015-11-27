@@ -1,0 +1,18 @@
+curl -s https://raw.githubusercontent.com/suvash/scaffold/master/osx/init.sh | sh
+update git remote
+
+$HOME/Developer/scaffold/master/osx/sanity.sh
+
+$HOME/Developer/scaffold/master/{name}/{name}_init.sh
+$HOME/Developer/scaffold/master/{name}/{name}_build.sh
+
+# karabiner (after opening app and overriding key repeat)
+$HOME/Developer/scaffold/master/osx/karabiner.sh
+
+# Keyboard -> Caps -> Ctrl
+fish_bootstrap
+
+# Right Command to Hyper + use totalspaces ?
+
+# hardware growler
+# lastpass
