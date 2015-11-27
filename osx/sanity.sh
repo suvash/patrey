@@ -10,12 +10,6 @@ while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 # General UI/UX                                                               #
 ###############################################################################
 
-# Set computer name (as done via System Preferences → Sharing)
-sudo scutil --set ComputerName "rangamanch"
-sudo scutil --set HostName "rangamanch"
-sudo scutil --set LocalHostName "rangamanch"
-sudo defaults write /Library/Preferences/SystemConfiguration/com.apple.smb.server NetBIOSName -string "rangamanch"
-
 # Set standby delay to 3 hours (default is 1 hour)
 sudo pmset -a standbydelay 10800
 
@@ -46,6 +40,10 @@ defaults write NSGlobalDomain "_HIHideMenuBar" 1
 
 # Set sidebar icon size to medium
 defaults write NSGlobalDomain NSTableViewDefaultSizeMode -int 2
+
+# Show remaining battery time & percentage
+defaults write com.apple.menuextra.battery ShowPercent -string "YES"
+defaults write com.apple.menuextra.battery ShowTime -string "YES"
 
 # Scrollbars : Possible values: `WhenScrolling`, `Automatic` and `Always`
 defaults write NSGlobalDomain AppleShowScrollBars -string "Automatic"

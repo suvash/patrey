@@ -17,7 +17,7 @@ brew update --rebase
 brew upgrade
 
 echo "Brew bundling dependencies"
-brew bundle --file=$HOME/Developer/scaffold/rangamanch/osx/Brewfile
+brew bundle --file=$HOME/Developer/scaffold/rangamanch/Brewfile
 
 echo "Brew linking"
 brew linkapps --local
