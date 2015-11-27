@@ -24,6 +24,7 @@ brew 'homebrew/dupes/unzip'
 brew 'homebrew/dupes/whois'
 
 cask 'airfoil'
+cask 'alfred'
 cask 'caffeine'
 cask 'clipmenu'
 cask 'flash-player'
