@@ -27,8 +27,6 @@ function __suvash_git_prompt --description 'Sweet Git prompt'
     return
   end
 
-  echo -n '|'
-
   set -l index (git status --porcelain ^/dev/null|cut -c 1-2|sort -u)
 
   if test -z "$index"
