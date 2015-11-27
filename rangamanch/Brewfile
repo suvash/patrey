@@ -16,6 +16,7 @@ brew 'weechat', args: ['with-aspell', 'with-curl', 'with-guile', 'with-lua', 'wi
 brew 'unrar'
 brew 'rlwrap'
 brew 'openssl'
+brew 'mackup'
 brew 'caskroom/cask/brew-cask'
 brew 'homebrew/dupes/less'
 brew 'homebrew/dupes/lsof'
