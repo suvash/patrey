@@ -39,7 +39,7 @@
 (require 'configure-nix-mode)
 
 (require 'configure-enh-ruby-mode)
-(require 'configure-minitest)
+(require 'configure-rspec-mode)
 
 (require 'configure-javascript-mode)
 (require 'configure-json-mode)

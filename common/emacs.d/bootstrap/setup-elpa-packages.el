@@ -55,7 +55,7 @@
                       nix-mode
 
                       enh-ruby-mode
-                      minitest
+                      rspec-mode
 
                       go-mode
 
