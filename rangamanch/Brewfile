@@ -29,6 +29,7 @@ brew 'ansible'
 cask 'vagrant'
 brew 'packer'
 cask 'gpgtools'
+cask 'skype'
 
 cask 'airfoil'
 cask 'alfred'

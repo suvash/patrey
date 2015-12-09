@@ -10,3 +10,4 @@ set gui=addons,nobookmarks,nomenu,nonavigation
 :map ,ga :set gui=all<CR>
 :map ,gn :set gui=notabs,nobookmarks,nomenu,nonavigation,addons<CR>
 :map ,gt :set gui=nobookmarks,nomenu,nonavigation,tabs,addons<CR>
+:map ,gb :set gui=nomenu,nonavigation,bookmarks,tabs,addons<CR>
