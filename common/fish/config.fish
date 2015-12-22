@@ -17,3 +17,7 @@ end
 if test -f ~/.computer
   . ~/.computer
 end
+
+if test -f ~/.nix-profile/etc/profile.d/nix.sh
+ sh ~/.nix-profile/etc/profile.d/nix.sh
+end
