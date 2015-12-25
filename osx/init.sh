@@ -30,6 +30,12 @@ fi
 
 # ============= End brew ========================
 
+# ============= Install Nix ====================
+
+curl https://nixos.org/nix/install | sh
+
+# ============= End Nix ====================
+
 # ============= Clone scaffold ==================
 
 git clone https://github.com/suvash/scaffold.git $HOME/Developer/scaffold
