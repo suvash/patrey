@@ -13,19 +13,19 @@ myTerminal = "termite"
 keysToAdd x =
     [
         -- Monitor brightness up key
-           ((0, 0x1008ff02), spawn "xbacklight -inc 10")
+        -- ((0, 0x1008ff02), spawn "xbacklight -inc 10")
         -- Monitor brightness down key
-        ,  ((0, 0x1008ff03), spawn "xbacklight -dec 10")
+     -- ,  ((0, 0x1008ff03), spawn "xbacklight -dec 10")
         -- Toggle Mute
-        ,  ((0, 0x1008ff12), spawn "pamixer --toggle-mute")
+     -- ,  ((0, 0x1008ff12), spawn "pamixer --toggle-mute")
         -- Increase Volume
-        ,  ((0, 0x1008ff13), spawn "pamixer --increase 10")
+     -- ,  ((0, 0x1008ff13), spawn "pamixer --increase 10")
         -- Decrease Volume
-        ,  ((0, 0x1008ff11), spawn "pamixer --decrease 10")
+     -- ,  ((0, 0x1008ff11), spawn "pamixer --decrease 10")
         -- X-selection paste
-        ,  (((modMask x .|. controlMask), xK_v), pasteSelection)
+     -- ,  (((modMask x .|. controlMask), xK_v), pasteSelection)
         -- Screensaver and Lock
-        ,  (((modMask x .|. controlMask), xK_l), spawn "xscreensaver-command -lock")
+           (((modMask x .|. controlMask), xK_l), spawn "xscreensaver-command -lock")
         -- Battery
         ,  (((modMask x .|. controlMask), xK_b), spawn "notify-send -t 4000 Battery \"$(acpi)\" ")
         -- Date and Time
