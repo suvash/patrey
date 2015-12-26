@@ -37,8 +37,12 @@ keysToAdd x =
         ,  (((modMask x .|. controlMask), xK_s), goToSelected defaultGSConfig)
         -- Toggle the Xmobar
         ,  (((modMask x .|. controlMask), xK_b), sendMessage ToggleStruts)
-        -- Toggle the Autorandr
-        ,  (((modMask x .|. controlMask), xK_r), spawn "autorandr --change --default mobile")
+        -- Launch Firefox
+        ,  (((modMask x .|. controlMask), xK_f), spawn "firefox")
+        -- Launch Chrome Igcognito
+        ,  (((modMask x .|. controlMask), xK_i), spawn "chromium-browser --incognito")
+        -- Launch Emacs
+        ,  (((modMask x .|. controlMask), xK_e), spawn "emacs")
     ]
 
 -- Define keys to remove
