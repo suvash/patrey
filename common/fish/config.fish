@@ -7,11 +7,15 @@ fish_user_abbreviations
 
 switch (uname)
   case Darwin
-    set PATH $HOME/.nix-profile/bin /usr/local/sbin $PATH
-    set -x NIX_PATH $HOME/Developer/nixpkgs:nixpkgs=$HOME/Developer/nixpkgs
   case Linux
   case '*'
     echo 'Whoa ! what os is this ?'
+end
+
+switch (hostname)
+  case yantra
+    export (gnome-keyring-daemon --start --components=gpg,pkcs11,secrets,ssh)
+  case '*'
 end
 
 if test -f ~/.computer

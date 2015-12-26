@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
 
 # Set the resolution
-xrandr --output VIRTUAL1 --off --output eDP1 --primary --mode 1680x1050 --pos 0x0 --rotate normal --output DP1 --off --output HDMI2 --off --output HDMI1 --off --output DP2 --off
+xrandr --auto
+xrandr --output eDP1 --primary --mode 1680x1050 --pos 0x0 --rotate normal
 
 # Set keymap
 setxkbmap -layout us,us,se -variant dvorak,, -option 'grp:shifts_toggle,ctrl:nocaps'
@@ -11,6 +12,12 @@ xset r rate 200 60
 
 # Set background
 sh $HOME/.fehbg
+
+# Gnome Keyring for all things
+if [ -z "$(pgrep gnome-keyring)" ] ; then
+    eval $(gnome-keyring-daemon --start --components=gpg,pkcs11,secrets,ssh)
+    export SSH_AUTH_SOCK
+fi
 
 # Stalonetray
 if [ -z "$(pgrep stalonetray)" ] ; then

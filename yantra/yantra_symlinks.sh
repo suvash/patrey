@@ -5,6 +5,11 @@ if [ ! -L $HOME/.nixpkgs ]; then
   ln -s $HOME/Developer/scaffold/yantra/nixpkgs $HOME/.nixpkgs
 fi
 
+if [ ! -L $HOME/.autorandr ]; then
+  rm -rf $HOME/.autorandr 2> /dev/null
+  ln -s $HOME/Developer/scaffold/yantra/autorandr $HOME/.autorandr
+fi
+
 if [ ! -L /etc/lightdm/lightdm.conf ]; then
   rm -rf /etc/lightdm/lightdm.conf 2> /dev/null
   sudo ln -s $HOME/Developer/scaffold/yantra/lightdm/lightdm.conf /etc/lightdm/lightdm.conf

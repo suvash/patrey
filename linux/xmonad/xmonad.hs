@@ -37,6 +37,8 @@ keysToAdd x =
         ,  (((modMask x .|. controlMask), xK_s), goToSelected defaultGSConfig)
         -- Toggle the Xmobar
         ,  (((modMask x .|. controlMask), xK_b), sendMessage ToggleStruts)
+        -- Toggle the Autorandr
+        ,  (((modMask x .|. controlMask), xK_r), spawn "autorandr --change --default mobile")
     ]
 
 -- Define keys to remove
