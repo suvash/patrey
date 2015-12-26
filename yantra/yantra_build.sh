@@ -4,7 +4,7 @@
 sudo apt-get install -y xmonad dmenu suckless-tools xmobar stalonetray compton seahorse
 
 # Install more essentials
-sudo apt-get install -y feh scrot xscreensaver finger tmux
+sudo apt-get install -y feh scrot xscreensaver finger tmux fortune
 
 # Install power/volume/network nicities
 sudo apt-get install -y xfce4-power-manager xfce4-volumed

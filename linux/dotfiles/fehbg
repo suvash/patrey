@@ -1,2 +1,3 @@
 #!/bin/sh
-feh --bg-tile '/home/suvash/Developer/scaffold/linux/assets/linen.png' 
+
+feh --no-fehbg --bg-tile --randomize $HOME/.wallpapers

@@ -55,3 +55,8 @@ if [ ! -L $HOME/.lein ]; then
   rm -rf $HOME/.lein/ 2> /dev/null
   ln -s $HOME/Developer/scaffold/common/lein $HOME/.lein
 fi
+
+if [ ! -L $HOME/.wallpapers ]; then
+  rm -rf $HOME/.wallpapers 2> /dev/null
+  ln -s $HOME/Developer/scaffold/common/wallpapers $HOME/.wallpapers
+fi
