@@ -3,9 +3,10 @@ import           XMonad.Util.Run
 import           XMonad.Util.Paste
 import           XMonad.Actions.GridSelect
 import           XMonad.Hooks.FadeInactive
+import           XMonad.Hooks.ManageDocks
 import qualified Data.Map as M
 
-myTerminal = "termite"
+myTerminal = "lilyterm"
 
 -- | Keys begin -------------------
 
@@ -23,9 +24,9 @@ keysToAdd x =
         -- Decrease Volume
      -- ,  ((0, 0x1008ff11), spawn "pamixer --decrease 10")
         -- X-selection paste
-     -- ,  (((modMask x .|. controlMask), xK_v), pasteSelection)
+           (((modMask x .|. controlMask), xK_v), pasteSelection)
         -- Screensaver and Lock
-           (((modMask x .|. controlMask), xK_l), spawn "xscreensaver-command -lock")
+        ,  (((modMask x .|. controlMask), xK_l), spawn "xscreensaver-command -lock")
         -- Battery
         ,  (((modMask x .|. controlMask), xK_b), spawn "notify-send -t 4000 Battery \"$(acpi)\" ")
         -- Date and Time
@@ -34,6 +35,8 @@ keysToAdd x =
         ,  (((modMask x .|. controlMask), xK_n), spawn "notify-send -t 4000 Network \"$(ip -4 -o addr show | cut -d' ' -f2,7)\"")
         -- Display all the windows
         ,  (((modMask x .|. controlMask), xK_s), goToSelected defaultGSConfig)
+        -- Toggle the Xmobar
+        ,  (((modMask x .|. controlMask), xK_b), sendMessage ToggleStruts)
     ]
 
 -- Define keys to remove
@@ -68,6 +71,20 @@ myFocusFollowsMouse = False
 
 -- | Focus follows mouse end
 
+-- | Startup Hook
+
+myStartupHook = spawn "~/.xmonad/on_xmonad_start.sh"
+
+-- | Startup Hook end
+
+
+-- | Layout Hook for XMobar things
+
+myManageHook  = manageDocks <+> manageHook defaultConfig
+myLayoutHook  = avoidStruts $ layoutHook defaultConfig
+
+-- | Layout Hook End
+
 main = do
    xmonad $ defaultConfig {
        modMask = mod4Mask
@@ -78,4 +95,7 @@ main = do
      , normalBorderColor = myNormalBorderColor
      , focusedBorderColor = myFocusedBorderColor
      , focusFollowsMouse = myFocusFollowsMouse
+     , startupHook = myStartupHook
+     , manageHook = myManageHook
+     , layoutHook = myLayoutHook
    }
