@@ -5,23 +5,10 @@ set -x TERM xterm-256color
 
 fish_user_abbreviations
 
-switch (uname)
-  case Darwin
-  case Linux
-  case '*'
-    echo 'Whoa ! what os is this ?'
-end
-
-switch (hostname)
-  case yantra
-    export (gnome-keyring-daemon --start --components=gpg,pkcs11,secrets,ssh)
-  case '*'
+if test -f ~/.nix-profile/etc/profile.d/nix.sh
+  sh ~/.nix-profile/etc/profile.d/nix.sh
 end
 
 if test -f ~/.computer
   . ~/.computer
-end
-
-if test -f ~/.nix-profile/etc/profile.d/nix.sh
- sh ~/.nix-profile/etc/profile.d/nix.sh
 end

@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+# Kill ssh-agent
+killall ssh-agent
+
+# Gnome Keyring for all things
+eval $(gnome-keyring-daemon --start --components=gpg,pkcs11,secrets,ssh)
+export SSH_AUTH_SOCK
+
+exec xmonad-session

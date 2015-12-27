@@ -13,12 +13,6 @@ xset r rate 200 60
 # Set background
 sh $HOME/.fehbg
 
-# Gnome Keyring for all things
-if [ -z "$(pgrep gnome-keyring)" ] ; then
-    eval $(gnome-keyring-daemon --start --components=gpg,pkcs11,secrets,ssh)
-    export SSH_AUTH_SOCK
-fi
-
 # Stalonetray
 if [ -z "$(pgrep stalonetray)" ] ; then
     stalonetray &

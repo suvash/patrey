@@ -24,3 +24,8 @@ if [ ! -L /usr/share/unity-greeter/xmonad_badge.png ]; then
   rm -rf /usr/share/unity-greeter/xmonad_badge.png 2> /dev/null
   sudo ln -s $HOME/Developer/scaffold/yantra/assets/xmonad_badge.png /usr/share/unity-greeter/xmonad_badge.png
 fi
+
+if [ ! -L /usr/local/bin/start-xmonad-session ]; then
+  rm -rf /usr/local/bin/start-xmonad-session 2> /dev/null
+  sudo ln -s $HOME/Developer/scaffold/yantra/scripts/start-xmonad-session /usr/local/bin/start-xmonad-session
+fi
