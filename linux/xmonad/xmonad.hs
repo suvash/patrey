@@ -36,7 +36,7 @@ keysToAdd x =
         -- Display all the windows
         ,  (((modMask x .|. controlMask), xK_s), goToSelected defaultGSConfig)
         -- Toggle the Xmobar
-        ,  (((modMask x .|. controlMask), xK_b), sendMessage ToggleStruts)
+        ,  (((modMask x .|. controlMask), xK_m), sendMessage ToggleStruts)
         -- Launch Firefox
         ,  (((modMask x .|. controlMask), xK_f), spawn "firefox")
         -- Launch Chrome Igcognito

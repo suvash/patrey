@@ -92,12 +92,12 @@ Config {
 
         -- time and date indicator
         --   (%F = y-m-d date, %a = day of week, %T = h:m:s time)
-        , Run Date           "<fc=#ABABAB>%F (%a) %T</fc>" "date" 10
+        , Run Date           "%H:%M | %a W%W" "date" 100
 
         -- keyboard layout indicator
         , Run Kbd            [ ("us(dvorak)" , "<fc=#006400>DV</fc>")
                              , ("us"         , "<fc=#8B0000>US</fc>")
-                             , ("se"         , "<fc=#ee7600>SE</fc>")
+                             , ("se"         , "<fc=#A65200>SE</fc>")
                              ]
         ]
    }
