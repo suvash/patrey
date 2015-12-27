@@ -1,0 +1,91 @@
+# Window manager tools
+xmonad
+suckless-tools
+xmobar
+stalonetray
+compton
+feh
+scrot
+arandr
+xclip
+xcape
+unclutter
+
+# Screensaver things
+xscreensaver
+xscreensaver-data
+xscreensaver-data-extra
+xscreensaver-gl
+xscreensaver-gl-extra
+xscreensaver-screensaver-dizzy
+xscreensaver-screensaver-bsod
+xscreensaver-screensaver-webcollage
+unicode-screensaver
+
+# Power things
+xfce4-power-manager
+
+# Volume things
+xfce4-volumed
+
+# Sound things
+pasystray
+paman
+paprefs
+pavucontrol
+pavumeter
+
+# Keychain SSH GPG things
+seahorse
+
+# Terminal Shell things
+fish
+lilyterm
+tmux
+
+# NFS things
+nfs-common
+nfs-kernel-server
+
+# Virtualbox things
+vagrant
+virtualbox
+
+# System monitoring things
+htop
+iotop
+iftop
+acpi
+ncdu
+dfc
+strace
+baobab
+
+# Browsers
+chromium-browser
+
+# Editors things
+vim
+emacs24
+
+# Development tools
+jq
+git
+tig
+silversearcher-ag
+
+# Install utilities
+tree
+unzip
+unrar
+finger
+fortune
+ranger
+
+# Media things
+vlc
+zathura
+
+# Tor things
+tor
+deb.torproject.org-keyring

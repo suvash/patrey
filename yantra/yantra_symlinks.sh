@@ -10,6 +10,11 @@ if [ ! -L $HOME/.autorandr ]; then
   ln -s $HOME/Developer/scaffold/yantra/autorandr $HOME/.autorandr
 fi
 
+if [ ! -L $HOME/.packages.apt ]; then
+  rm -rf $HOME/.packages.apt 2> /dev/null
+  ln -s $HOME/Developer/scaffold/yantra/packages.apt $HOME/.packages.apt
+fi
+
 if [ ! -L /etc/lightdm/lightdm.conf ]; then
   rm -rf /etc/lightdm/lightdm.conf 2> /dev/null
   sudo ln -s $HOME/Developer/scaffold/yantra/lightdm/lightdm.conf /etc/lightdm/lightdm.conf
