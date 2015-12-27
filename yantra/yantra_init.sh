@@ -38,23 +38,6 @@ curl https://nixos.org/nix/install | sh
 
 # ============= End Nix ====================
 
-# ============= Add Tor project repo ====================
-
-sudo tee -a /etc/apt/sources.list > /dev/null <<EOF
-
-## Tor repository
-deb http://deb.torproject.org/torproject.org $(lsb_release -c | awk '{print $2}') main
-deb-src http://deb.torproject.org/torproject.org $(lsb_release -c | awk '{print $2}') main
-EOF
-
-gpg --keyserver keys.gnupg.net --recv 886DDD89
-gpg --export A3C4F0F979CAA22CDBA8F512EE8CBC9E886DDD89 | sudo apt-key add -
-
-sudo apt-get update
-
-# ============= End Tor ====================
-
-
 # ============= Symlink things====================
 
 source $HOME/Developer/scaffold/common/common_symlinks.sh

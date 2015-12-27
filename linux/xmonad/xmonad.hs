@@ -41,6 +41,8 @@ keysToAdd x =
         ,  (((modMask x .|. controlMask), xK_f), spawn "firefox")
         -- Launch Chrome Igcognito
         ,  (((modMask x .|. controlMask), xK_i), spawn "chromium-browser --incognito")
+        -- Launch Tor Browser
+        ,  (((modMask x .|. controlMask), xK_t), spawn "start-tor-browser")
         -- Launch Emacs
         ,  (((modMask x .|. controlMask), xK_e), spawn "emacs")
     ]

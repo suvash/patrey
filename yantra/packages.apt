@@ -22,6 +22,9 @@ xscreensaver-screensaver-bsod
 xscreensaver-screensaver-webcollage
 unicode-screensaver
 
+# Bootup service manager
+bum
+
 # Power things
 xfce4-power-manager
 
@@ -79,13 +82,9 @@ tree
 unzip
 unrar
 finger
-fortune
+fortune-mod
 ranger
 
 # Media things
 vlc
 zathura
-
-# Tor things
-tor
-deb.torproject.org-keyring

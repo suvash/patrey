@@ -34,3 +34,8 @@ if [ ! -L /usr/local/bin/start-xmonad-session ]; then
   rm -rf /usr/local/bin/start-xmonad-session 2> /dev/null
   sudo ln -s $HOME/Developer/scaffold/yantra/scripts/start-xmonad-session /usr/local/bin/start-xmonad-session
 fi
+
+if [ ! -L /usr/local/bin/start-tor-browser ]; then
+  rm -rf /usr/local/bin/start-tor-browser 2> /dev/null
+  sudo ln -s $HOME/Developer/scaffold/yantra/scripts/start-tor-browser /usr/local/bin/start-tor-browser
+fi
