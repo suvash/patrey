@@ -1,9 +1,5 @@
 #!/usr/bin/env bash
 
-# Set the resolution
-xrandr --auto
-xrandr --output eDP1 --primary --mode 1680x1050 --pos 0x0 --rotate normal
-
 # Set keymap
 setxkbmap -layout us,us,se -variant dvorak,, -option 'grp:shifts_toggle,ctrl:nocaps'
 
