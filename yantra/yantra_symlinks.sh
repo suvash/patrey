@@ -40,6 +40,11 @@ if [ ! -L /usr/local/bin/start-tor-browser ]; then
   sudo ln -s $HOME/Developer/scaffold/yantra/scripts/start-tor-browser /usr/local/bin/start-tor-browser
 fi
 
+if [ ! -L /usr/local/bin/start-rstudio ]; then
+  rm -rf /usr/local/bin/start-rstudio 2> /dev/null
+  sudo ln -s $HOME/Developer/scaffold/yantra/scripts/start-rstudio /usr/local/bin/start-rstudio
+fi
+
 if [ ! -L /usr/local/bin/set-greeter-resolution ]; then
   rm -rf /usr/local/bin/set-greeter-resolution 2> /dev/null
   sudo ln -s $HOME/Developer/scaffold/yantra/scripts/set-greeter-resolution /usr/local/bin/set-greeter-resolution

@@ -88,3 +88,6 @@ ranger
 # Media things
 vlc
 zathura
+
+# R things
+r-base

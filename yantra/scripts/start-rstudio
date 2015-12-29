@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+RSTUDIO_LOCATION=$HOME/Developer/utilities/rstudio
+if [ -d $RSTUDIO_LOCATION ]; then
+  $RSTUDIO_LOCATION/bin/rstudio
+else
+  echo "R Studior not found ! Please install it at $RSTUDIO_LOCATION"
+fi

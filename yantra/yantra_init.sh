@@ -38,6 +38,15 @@ curl https://nixos.org/nix/install | sh
 
 # ============= End Nix ====================
 
+# ============= Add Apt Repositories ====================
+
+# R package
+sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E084DAB9
+sudo apt-add-repository 'deb http://ftp.acc.umu.se/mirror/CRAN/bin/linux/ubuntu wily/'
+
+# ============= End Apt Repositories ====================
+
+
 # ============= Symlink things====================
 
 source $HOME/Developer/scaffold/common/common_symlinks.sh
