@@ -45,6 +45,8 @@ keysToAdd x =
         ,  (((modMask x .|. controlMask), xK_t), spawn "start-tor-browser")
         -- Launch Emacs
         ,  (((modMask x .|. controlMask), xK_e), spawn "emacs")
+        -- Change wallpaper
+        ,  (((modMask x .|. controlMask), xK_w), spawn "sh $HOME/.fehbg")
     ]
 
 -- Define keys to remove
