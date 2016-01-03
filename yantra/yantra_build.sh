@@ -27,5 +27,11 @@ mkdir -p $HOME/.config/fish/completions/
 wget https://raw.githubusercontent.com/docker/docker/master/contrib/completion/fish/docker.fish \
      -O $HOME/.config/fish/completions/docker.fish
 
+# Install 3rd party things
+if [ ! -d /opt/viber/ ]; then
+  curl http://download.cdn.viber.com/cdn/desktop/Linux/viber.deb > /tmp/viber.deb
+  sudo dpkg -i /tmp/viber.deb
+fi
+
 # Nix things
 nix-env -i bashmount
