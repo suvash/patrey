@@ -1,7 +1,5 @@
 #!/usr/bin/env bash
 
-set -euf -o pipefail
-
 pushd $PWD
 
 # Set computer name

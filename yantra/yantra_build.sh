@@ -1,7 +1,5 @@
 #!/usr/bin/env bash
 
-set -euf -o pipefail
-
 # Install all the packages mentioned in packages.list
 cat $HOME/.packages.apt | awk '!/(^#|^$)/{print $0}' | xargs sudo apt-get install -y
 
