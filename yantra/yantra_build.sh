@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+set -euf -o pipefail
+
 # Install all the packages mentioned in packages.list
 cat $HOME/.packages.apt | awk '!/(^#|^$)/{print $0}' | xargs sudo apt-get install -y
 
@@ -19,6 +21,11 @@ if ! $(finger $USER | grep -q '/usr/bin/fish'); then
 
   chsh -s /usr/bin/fish
 fi
+
+# Install completions for fish shell
+mkdir -p $HOME/.config/fish/completions/
+wget https://raw.githubusercontent.com/docker/docker/master/contrib/completion/fish/docker.fish \
+     -O $HOME/.config/fish/completions/docker.fish
 
 # Nix things
 nix-env -i bashmount

@@ -91,3 +91,6 @@ zathura
 
 # R things
 r-base
+
+# Docker things
+docker-engine
