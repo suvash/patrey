@@ -94,3 +94,6 @@ r-base
 
 # Docker things
 docker-engine
+
+# Spotify Client
+spotify-client
