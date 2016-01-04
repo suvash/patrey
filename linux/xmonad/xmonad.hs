@@ -47,6 +47,8 @@ keysToAdd x =
         ,  (((modMask x .|. controlMask), xK_e), spawn "emacs")
         -- Change wallpaper
         ,  (((modMask x .|. controlMask), xK_w), spawn "sh $HOME/.fehbg")
+        -- Attach Detach workstation
+        ,  (((modMask x .|. controlMask), xK_a), spawn "attach-detach-workstation")
     ]
 
 -- Define keys to remove

@@ -14,9 +14,11 @@ MODPROBE_FILE=/etc/modprobe.d/hid_apple.conf
 ISO_LAYOUT_OPTION='options hid_apple iso_layout=0'
 if [ ! -f $MODPROBE_FILE ]; then
   echo $ISO_LAYOUT_OPTION | sudo tee $MODPROBE_FILE
+  sudo update-initramfs -u -k all
 else
   if ! grep -Fxq "$ISO_LAYOUT_OPTION" $MODPROBE_FILE; then
     echo $ISO_LAYOUT_OPTION | sudo tee -a $MODPROBE_FILE
+    sudo update-initramfs -u -k all
   fi
 fi
 

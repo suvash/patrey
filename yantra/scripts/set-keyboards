@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+
+# set internal keyboard layout:
+apple_keyboard_id=$(xinput -list | awk -Fid= '/Apple Internal Keyboard/{ print $2 }' | awk '{ print $1 }')
+if [ "${apple_keyboard_id}" != "" ]; then
+    setxkbmap -device "${apple_keyboard_id}" -layout us,us,se -variant dvorak,, -option 'grp:shifts_toggle,ctrl:nocaps'
+fi
+
+# set Kinesis keyboard layout:
+for kinesis_keyboard_id in $(xinput -list | awk -Fid= '/HID/{ print $2 }' | awk '{ print $1 }'); do
+    if [ "${kinesis_keyboard_id}" != "" ]; then
+        setxkbmap -device "${kinesis_keyboard_id}" -model kinesis -layout us -option 'ctrl:nocaps'
+    fi
+done
+
+# Set Key rate
+xset r rate 200 60

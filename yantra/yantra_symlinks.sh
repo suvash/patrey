@@ -54,3 +54,13 @@ if [ ! -L /usr/local/bin/set-greeter-resolution ]; then
   rm -rf /usr/local/bin/set-greeter-resolution 2> /dev/null
   sudo ln -s $HOME/Developer/scaffold/yantra/scripts/set-greeter-resolution /usr/local/bin/set-greeter-resolution
 fi
+
+if [ ! -L /usr/local/bin/set-keyboards ]; then
+  rm -rf /usr/local/bin/set-keyboards 2> /dev/null
+  sudo ln -s $HOME/Developer/scaffold/yantra/scripts/set-keyboards /usr/local/bin/set-keyboards
+fi
+
+if [ ! -L /usr/local/bin/attach-detach-workstation ]; then
+  rm -rf /usr/local/bin/attach-detach-workstation 2> /dev/null
+  sudo ln -s $HOME/Developer/scaffold/yantra/scripts/attach-detach-workstation /usr/local/bin/attach-detach-workstation
+fi

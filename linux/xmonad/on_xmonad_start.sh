@@ -1,10 +1,12 @@
 #!/usr/bin/env bash
 
-# Set keymap
-setxkbmap -layout us,us,se -variant dvorak,, -option 'grp:shifts_toggle,ctrl:nocaps'
-
-# Set keyrate
-xset r rate 200 60
+# Set Keyboards
+if [ -f /usr/local/bin/set-keyboards ] ; then
+    /usr/local/bin/set-keyboards
+else
+  setxkbmap -layout us,us,se -variant dvorak,, -option 'grp:shifts_toggle,ctrl:nocaps'
+  xset r rate 200 60
+fi
 
 # Set background
 sh $HOME/.fehbg

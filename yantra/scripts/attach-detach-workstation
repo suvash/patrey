@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+# Replace this eventually with something sophisticated
+xrandr --auto
+xrandr --output eDP1 --primary --mode 1680x1050 --pos 0x0 --rotate normal
+
+# Set Keyboards
+if [ -f /usr/local/bin/set-keyboards ] ; then
+    /usr/local/bin/set-keyboards
+fi
+
+# Set trackball etc
