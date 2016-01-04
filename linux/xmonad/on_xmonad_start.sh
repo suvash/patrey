@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 
 # Set Keyboards
-if [ -f /usr/local/bin/set-keyboards ] ; then
-    /usr/local/bin/set-keyboards
+if [ -f /usr/local/bin/autoconfigure-workstation ] ; then
+    /usr/local/bin/autoconfigure-workstation
 else
   setxkbmap -layout us,us,se -variant dvorak,, -option 'grp:shifts_toggle,ctrl:nocaps'
   xset r rate 200 60

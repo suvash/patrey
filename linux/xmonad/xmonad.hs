@@ -48,7 +48,7 @@ keysToAdd x =
         -- Change wallpaper
         ,  (((modMask x .|. controlMask), xK_w), spawn "sh $HOME/.fehbg")
         -- Attach Detach workstation
-        ,  (((modMask x .|. controlMask), xK_a), spawn "attach-detach-workstation")
+        ,  (((modMask x .|. controlMask), xK_a), spawn "autoconfigure-workstation")
     ]
 
 -- Define keys to remove

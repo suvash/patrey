@@ -1,5 +1,10 @@
 #!/usr/bin/env bash
 
+# Detect and set monitor
+xrandr --auto
+xrandr --output eDP1 --primary --mode 1680x1050 --pos 0x0 --rotate normal --output DP1 --right-of eDP1 --mode 2560x1440
+xrandr --auto
+
 # set internal keyboard layout:
 apple_keyboard_id=$(xinput -list | awk -Fid= '/Apple Internal Keyboard/{ print $2 }' | awk '{ print $1 }')
 if [ "${apple_keyboard_id}" != "" ]; then
@@ -15,3 +20,5 @@ done
 
 # Set Key rate
 xset r rate 200 60
+
+# Set trackball etc
