@@ -2,7 +2,8 @@
 
 # Replace this eventually with something sophisticated
 xrandr --auto
-xrandr --output eDP1 --primary --mode 1680x1050 --pos 0x0 --rotate normal
+xrandr --output eDP1 --primary --mode 1680x1050 --pos 0x0 --rotate normal --output DP1 --right-of eDP1 --mode 2560x1440
+xrandr --auto
 
 # Set Keyboards
 if [ -f /usr/local/bin/set-keyboards ] ; then
