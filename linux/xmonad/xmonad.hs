@@ -1,9 +1,11 @@
 import           XMonad
-import           XMonad.Util.Run
 import           XMonad.Util.Paste
 import           XMonad.Actions.GridSelect
 import           XMonad.Hooks.FadeInactive
 import           XMonad.Hooks.ManageDocks
+import           XMonad.Layout.Tabbed
+import           XMonad.Layout.Grid
+import           XMonad.Layout.ThreeColumns
 import qualified Data.Map as M
 
 myTerminal = "lilyterm"
@@ -89,11 +91,27 @@ myStartupHook = spawn "~/.xmonad/on_xmonad_start.sh"
 
 -- | Startup Hook end
 
+-- | Layout begin
+
+-- add Mirror to have the same layout in horizontal (90 deg +) direction
+myLayout = tiled ||| threecol ||| threecolmid ||| Grid ||| simpleTabbedBottomAlways ||| Full
+  where
+    tiled       = Tall nmaster delta ratio
+    threecol    = ThreeCol nmaster delta ratio
+    threecolmid = ThreeColMid nmaster delta ratio
+    -- The default number of windows in the master pane
+    nmaster = 1
+    -- Default proportion of screen occupied by master pane
+    ratio   = 1/2
+    -- Percent of screen to increment by when resizing panes
+    delta   = 3/100
+
+-- | Layout end
 
 -- | Layout Hook for XMobar things
 
 myManageHook  = manageDocks <+> manageHook defaultConfig
-myLayoutHook  = avoidStruts $ layoutHook defaultConfig
+myLayoutHook  = avoidStruts $ myLayout
 
 -- | Layout Hook End
 
