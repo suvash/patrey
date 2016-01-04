@@ -11,6 +11,11 @@ fi
 # Set background
 sh $HOME/.fehbg
 
+# Redshift
+if [ -z "$(pgrep redshift)" ] ; then
+    redshift &
+fi
+
 # Stalonetray
 if [ -z "$(pgrep stalonetray)" ] ; then
     stalonetray &
