@@ -41,6 +41,7 @@ pavumeter
 
 # Keychain SSH GPG things
 seahorse
+hopenpgp-tools
 
 # Terminal Shell things
 fish
