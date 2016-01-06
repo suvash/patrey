@@ -24,6 +24,8 @@ brew 'homebrew/dupes/make'
 brew 'homebrew/dupes/unzip'
 brew 'homebrew/dupes/whois'
 
+brew 'haskell-stack'
+
 cask 'airfoil'
 cask 'alfred'
 cask 'caffeine'
