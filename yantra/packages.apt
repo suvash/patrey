@@ -56,6 +56,7 @@ nfs-kernel-server
 # Virtualbox things
 vagrant
 virtualbox
+ansible
 
 # System monitoring things
 htop
