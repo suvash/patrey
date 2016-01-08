@@ -59,3 +59,8 @@ if [ ! -L /usr/local/bin/autoconfigure-workstation ]; then
   rm -rf /usr/local/bin/autoconfigure-workstation 2> /dev/null
   sudo ln -s $HOME/Developer/scaffold/yantra/scripts/autoconfigure-workstation /usr/local/bin/autoconfigure-workstation
 fi
+
+if [ ! -L /etc/macfanctl.conf ]; then
+  sudo rm -rf /etc/macfanctl.conf 2> /dev/null
+  sudo ln -s $HOME/Developer/scaffold/yantra/dotfiles/macfanctl.conf /etc/macfanctl.conf
+fi

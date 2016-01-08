@@ -28,6 +28,7 @@ bum
 
 # Power things
 xfce4-power-manager
+macfanctld
 
 # Volume things
 xfce4-volumed
