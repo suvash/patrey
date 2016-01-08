@@ -29,6 +29,10 @@ bum
 # Power things
 xfce4-power-manager
 macfanctld
+lm-sensors
+xsensors
+hddtemp
+psensor
 
 # Volume things
 xfce4-volumed

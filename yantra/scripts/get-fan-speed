@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+# Get fan speed using sensors command if exists
+if hash sensors 2> /dev/null; then
+  sensors | awk '/RPM/{ print $4,$5 }'
+else
+  echo "Install sensors"
+fi
