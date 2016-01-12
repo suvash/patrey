@@ -20,6 +20,11 @@ if [ ! -L $HOME/.packages.apt ]; then
   ln -s $HOME/Developer/scaffold/yantra/packages.apt $HOME/.packages.apt
 fi
 
+if [ ! -L /etc/modules ]; then
+  sudo rm -rf /etc/modules 2> /dev/null
+  sudo ln -s $HOME/Developer/scaffold/yantra/dotfiles/modules /etc/modules
+fi
+
 if [ ! -L /etc/lightdm/lightdm.conf ]; then
   sudo rm -rf /etc/lightdm/lightdm.conf 2> /dev/null
   sudo ln -s $HOME/Developer/scaffold/yantra/lightdm/lightdm.conf /etc/lightdm/lightdm.conf
