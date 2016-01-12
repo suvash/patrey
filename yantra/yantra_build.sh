@@ -26,9 +26,28 @@ wget https://raw.githubusercontent.com/docker/docker/master/contrib/completion/f
      -O $HOME/.config/fish/completions/docker.fish
 
 # Install 3rd party things
+# Viber
 if [ ! -d /opt/viber/ ]; then
   curl http://download.cdn.viber.com/cdn/desktop/Linux/viber.deb > /tmp/viber.deb
   sudo dpkg -i /tmp/viber.deb
+fi
+
+# Tor browser
+
+# R studio
+
+# Mbpfan - controls fan on macbooks and works quite good
+if ! hash mbpfan; then
+  pushd $PWD
+  mkdir -p $HOME/Developer/utilities/
+  git clone https://github.com/dgraziotin/mbpfan.git $HOME/Developer/utilities/mbpfan
+  cd $HOME/Developer/utilities/mbpfan
+  sudo make install
+  sudo cp mbpfan.service /etc/systemd/system/
+  sudo systemctl daemon-reload
+  sudo systemctl start mbpfan.service
+  sudo systemctl enable mbpfan.service
+  popd
 fi
 
 # Nix things
