@@ -36,13 +36,15 @@ keysToAdd x =
         -- Network
         ,  (((modMask x .|. controlMask), xK_n), spawn "notify-send -t 4000 Network \"$(ip -4 -o addr show | cut -d' ' -f2,7)\"")
         -- Display all the windows
-        ,  (((modMask x .|. controlMask), xK_s), goToSelected defaultGSConfig)
+        ,  (((modMask x .|. controlMask), xK_g), goToSelected defaultGSConfig)
         -- Toggle the Xmobar
         ,  (((modMask x .|. controlMask), xK_m), sendMessage ToggleStruts)
+        -- Launch Spotify
+        ,  (((modMask x .|. controlMask), xK_s), spawn "spotify --force-device-scale-factor=1.8")
         -- Launch Firefox
         ,  (((modMask x .|. controlMask), xK_f), spawn "firefox")
         -- Launch Chrome Igcognito
-        ,  (((modMask x .|. controlMask), xK_i), spawn "chromium-browser --incognito")
+        ,  (((modMask x .|. controlMask), xK_i), spawn "chromium-browser --incognito --force-device-scale-factor=1.8")
         -- Launch Tor Browser
         ,  (((modMask x .|. controlMask), xK_t), spawn "start-tor-browser")
         -- Launch Emacs

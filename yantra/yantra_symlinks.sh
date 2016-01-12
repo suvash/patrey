@@ -1,13 +1,18 @@
 #!/usr/bin/env bash
 
+if [ ! -L $HOME/.xinitrc ]; then
+  rm -rf $HOME/.xinitrc 2> /dev/null
+  ln -s $HOME/Developer/scaffold/yantra/dotfiles/xinitrc $HOME/.xinitrc
+fi
+
+if [ ! -L $HOME/.Xresources ]; then
+  rm -rf $HOME/.Xresources 2> /dev/null
+  ln -s $HOME/Developer/scaffold/yantra/dotfiles/Xresources $HOME/.Xresources
+fi
+
 if [ ! -L $HOME/.nixpkgs ]; then
   rm -rf $HOME/.nixpkgs 2> /dev/null
   ln -s $HOME/Developer/scaffold/yantra/nixpkgs $HOME/.nixpkgs
-fi
-
-if [ ! -L $HOME/.autorandr ]; then
-  rm -rf $HOME/.autorandr 2> /dev/null
-  ln -s $HOME/Developer/scaffold/yantra/autorandr $HOME/.autorandr
 fi
 
 if [ ! -L $HOME/.packages.apt ]; then

@@ -6,6 +6,7 @@ if [ -f /usr/local/bin/autoconfigure-workstation ] ; then
 else
   setxkbmap -layout us,us,se -variant dvorak,, -option 'grp:shifts_toggle,ctrl:nocaps'
   xset r rate 200 60
+  xrandr --auto
 fi
 
 # Set background
