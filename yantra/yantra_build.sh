@@ -21,9 +21,11 @@ if ! $(finger $USER | grep -q '/usr/bin/fish'); then
 fi
 
 # Install completions for fish shell
-mkdir -p $HOME/.config/fish/completions/
-wget https://raw.githubusercontent.com/docker/docker/master/contrib/completion/fish/docker.fish \
-     -O $HOME/.config/fish/completions/docker.fish
+if [ ! -f $HOME/.config/fish/completions/docker.fish ]; then
+  mkdir -p $HOME/.config/fish/completions/
+  wget https://raw.githubusercontent.com/docker/docker/master/contrib/completion/fish/docker.fish \
+       -O $HOME/.config/fish/completions/docker.fish
+fi
 
 # Install 3rd party things
 # Viber
