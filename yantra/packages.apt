@@ -96,6 +96,7 @@ ranger
 # Media things
 vlc
 zathura
+mplayer2
 
 # R things
 r-base
