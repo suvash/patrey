@@ -28,7 +28,6 @@ bum
 
 # Power things
 xfce4-power-manager
-macfanctld
 lm-sensors
 xsensors
 hddtemp

@@ -40,11 +40,6 @@ if [ ! -L /usr/share/unity-greeter/xmonad_badge.png ]; then
   sudo ln -s $HOME/Developer/scaffold/yantra/assets/xmonad_badge.png /usr/share/unity-greeter/xmonad_badge.png
 fi
 
-if [ ! -L /etc/macfanctl.conf ]; then
-  sudo rm -rf /etc/macfanctl.conf 2> /dev/null
-  sudo ln -s $HOME/Developer/scaffold/yantra/dotfiles/macfanctl.conf /etc/macfanctl.conf
-fi
-
 if [ ! -L /usr/local/bin/start-xmonad-session ]; then
   sudo rm -rf /usr/local/bin/start-xmonad-session 2> /dev/null
   sudo ln -s $HOME/Developer/scaffold/yantra/scripts/start-xmonad-session /usr/local/bin/start-xmonad-session
