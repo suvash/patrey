@@ -62,6 +62,10 @@ echo "deb http://ftp.acc.umu.se/mirror/CRAN/bin/linux/ubuntu $DISTRIB_CODENAME/"
 sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys BBEBDCB318AD50EC6865090613B00F1FD2C19886
 echo "deb http://repository.spotify.com testing non-free" | sudo tee /etc/apt/sources.list.d/spotify.list
 
+# Opera Repo
+sudo add-apt-repository 'deb https://deb.opera.com/opera-stable/ stable non-free'
+wget -qO- https://deb.opera.com/archive.key | sudo apt-key add -
+
 sudo apt-get update
 
 # ============= End Apt Repositories ====================
