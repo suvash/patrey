@@ -46,7 +46,10 @@ fi
 
 # ============= Add Apt Repositories ====================
 
-DISTRIB_CODENAME=$(lsb_release -c | awk '{print $2}')
+DISTRIB_CODENAME=$(lsb_release -sc)
+
+# Also enable MultiArch
+sudo dpkg --add-architecture i386
 
 # Docker repo
 sudo apt-key adv --keyserver hkp://p80.pool.sks-keyservers.net:80 --recv-keys 58118E89F3A912897C070ADBF76221572C52609D
@@ -60,11 +63,17 @@ echo "deb http://ftp.acc.umu.se/mirror/CRAN/bin/linux/ubuntu $DISTRIB_CODENAME/"
 
 # Spotify Client
 sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys BBEBDCB318AD50EC6865090613B00F1FD2C19886
-echo "deb http://repository.spotify.com testing non-free" | sudo tee /etc/apt/sources.list.d/spotify.list
+echo "deb http://repository.spotify.com testing non-free" \
+    | sudo tee /etc/apt/sources.list.d/spotify.list
 
 # Opera Repo
-sudo add-apt-repository 'deb https://deb.opera.com/opera-stable/ stable non-free'
 wget -qO- https://deb.opera.com/archive.key | sudo apt-key add -
+echo 'deb https://deb.opera.com/opera-stable/ stable non-free' \
+    | sudo tee /etc/apt/sources.list.d/opera-stable.list
+
+# Canonical Partner Repo
+echo "deb http://archive.canonical.com/ubuntu $DISTRIB_CODENAME partner" \
+     | sudo tee /etc/apt/sources.list.d/canonical.list
 
 sudo apt-get update
 
