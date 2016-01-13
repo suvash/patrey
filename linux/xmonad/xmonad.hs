@@ -41,6 +41,8 @@ keysToAdd x =
         ,  (((modMask x .|. controlMask), xK_m), sendMessage ToggleStruts)
         -- Launch Spotify
         ,  (((modMask x .|. controlMask), xK_s), spawn "spotify --force-device-scale-factor=1.8")
+        -- Launch Opera
+        ,  (((modMask x .|. controlMask), xK_o), spawn "opera --private")
         -- Launch Firefox
         ,  (((modMask x .|. controlMask), xK_f), spawn "firefox")
         -- Launch Chrome Igcognito
