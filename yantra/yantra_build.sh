@@ -53,4 +53,5 @@ if ! hash mbpfan; then
 fi
 
 # Nix things
-nix-env -i bashmount
+nix-env -iA nixpkgs.yantra
+nix-collect-garbage

@@ -65,7 +65,9 @@ function fish_user_abbreviations
     tf='tail -f' \
     \
     ns='nix-env -qaP \'*\' --description | grep' \
-    rbnx='rebuild-nix' \
+    ni="nix-env -iA nixpkgs.(hostname)" \
+    nu='nix-env -e' \
+    ngc='nix-collect-garbage' \
     \
     v='vim' \
     emd='emacs --daemon' \
