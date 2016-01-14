@@ -3,6 +3,7 @@ import           XMonad.Util.Paste
 import           XMonad.Actions.GridSelect
 import           XMonad.Hooks.FadeInactive
 import           XMonad.Hooks.ManageDocks
+import           XMonad.Hooks.EwmhDesktops
 import           XMonad.Layout.Tabbed
 import           XMonad.Layout.Grid
 import           XMonad.Layout.ThreeColumns
@@ -120,7 +121,7 @@ myLayoutHook  = avoidStruts $ myLayout
 -- | Layout Hook End
 
 main = do
-   xmonad $ defaultConfig {
+   xmonad $ ewmh defaultConfig {
        modMask = mod4Mask
      , terminal = myTerminal
      , keys = myKeys
