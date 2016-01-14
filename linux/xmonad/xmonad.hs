@@ -56,6 +56,12 @@ keysToAdd x =
         ,  (((modMask x .|. controlMask), xK_w), spawn "sh $HOME/.fehbg")
         -- Attach Detach workstation
         ,  (((modMask x .|. controlMask), xK_a), spawn "autoconfigure-workstation")
+        -- Play Pause Spotify
+        ,  (((modMask x .|. controlMask), xK_8), spawn "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause")
+        -- Next Spotify
+        ,  (((modMask x .|. controlMask), xK_0), spawn "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next")
+        -- Previous Spotify
+        ,  (((modMask x .|. controlMask), xK_6), spawn "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous")
     ]
 
 -- Define keys to remove
