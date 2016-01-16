@@ -25,6 +25,7 @@ brew 'homebrew/dupes/unzip'
 brew 'homebrew/dupes/whois'
 
 brew 'haskell-stack'
+brew 's3cmd'
 
 cask 'airfoil'
 cask 'alfred'
@@ -58,3 +59,4 @@ cask 'tunnelblick'
 cask 'elm-platform'
 cask 'vagrant'
 cask 'viber'
+cask 'xquartz'
