@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+RAPIDMINER_STUDIO_LOCATION=$HOME/Developer/utilities/rapidminer-studio
+if [ -d $RAPIDMINER_STUDIO_LOCATION ]; then
+  $RAPIDMINER_STUDIO_LOCATION/RapidMiner-Studio.sh
+else
+  echo "RapidMinor Studio not found ! Please install it at $RSTUDIO_LOCATION"
+fi
