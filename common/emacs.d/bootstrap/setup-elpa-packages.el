@@ -13,6 +13,7 @@
 (defvar my-packages '(exec-path-from-shell
 
                       zenburn-theme
+                      aggressive-indent
 
                       projectile
                       perspective
@@ -26,19 +27,21 @@
                       smart-mode-line
 
                       guide-key
-
-                      evil
-                      evil-leader
-
-                      magit
-                      git-gutter+
-                      git-gutter-fringe+
-                      git-timemachine
+                      yasnippet
 
                       smooth-scrolling
                       rainbow-delimiters
                       linum-relative
                       smartparens
+
+                      evil
+                      evil-leader
+                      evil-smartparens
+
+                      magit
+                      git-gutter+
+                      git-gutter-fringe+
+                      git-timemachine
 
                       ag
 
@@ -70,6 +73,7 @@
                       sml-mode
 
                       clojure-mode
+                      clj-refactor
                       cider
 
                       haskell-mode

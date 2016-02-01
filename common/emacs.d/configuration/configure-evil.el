@@ -41,7 +41,6 @@
 
 ;;disable evil in certain modes
 (evil-set-initial-state 'dired-mode 'emacs)
-(evil-set-initial-state 'clojure-mode 'emacs)
 
 (evil-set-initial-state 'git-commit-mode 'insert)
 

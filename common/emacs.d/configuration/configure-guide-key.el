@@ -18,16 +18,24 @@
                                      "C-x 8"
                                      "C-x @"
 
-                                     ;; alchemist
-                                     "C-c a"
-                                     "C-c a c"
-                                     "C-c a e"
-                                     "C-c a h"
-                                     "C-c a i"
-                                     "C-c a m"
-                                     "C-c a m t"
-                                     "C-c a p"
-                                     "C-c a v"
+                                     ;; smart-parens
+                                     "C-M-s"
+
+                                     ;; clj-refactor
+                                     "C-c C-r"
+                                     "C-c C-r a"
+                                     "C-c C-r c"
+                                     "C-c C-r d"
+                                     "C-c C-r e"
+                                     "C-c C-r f"
+                                     "C-c C-r h"
+                                     "C-c C-r i"
+                                     "C-c C-r m"
+                                     "C-c C-r p"
+                                     "C-c C-r r"
+                                     "C-c C-r s"
+                                     "C-c C-r t"
+                                     "C-c C-r u"
 
                                      ;; projectile
                                      "C-c p"))

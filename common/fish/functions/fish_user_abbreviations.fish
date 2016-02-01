@@ -69,6 +69,13 @@ function fish_user_abbreviations
     nu='nix-env -e' \
     ngc='nix-collect-garbage' \
     \
+    vu='vagrant up' \
+    vd='vagrant destroy -f' \
+    vha='vagrant global-status --prune | awk \'/running/{print $1}\' | xargs -n 1 -- vagrant halt' \
+    \
+    mi="bash ~/Developer/scaffold/(hostname)/(hostname)_init.sh" \
+    mb="bash ~/Developer/scaffold/(hostname)/(hostname)_build.sh" \
+    \
     v='vim' \
     emd='emacs --daemon' \
     emt='emacsclient -c -nw' \
@@ -77,7 +84,6 @@ function fish_user_abbreviations
     ducks='du -cks * | sort -rn | head' \
     cl='tty-clock' \
     fonts='fc-list' \
-    vha='vagrant global-status --prune | awk \'/running/{print $1}\' | xargs -n 1 -- vagrant halt' \
     xa='xrandr --auto' \
     tb='xrandr --output eDP1 --mode 1440x900 --pos 0x0 --rotate normal --output DP1 --mode 2560x1440 --pos 1440x0 --rotate normal' \
     wm='xrandr --output eDP1 --primary --mode 1440x900 --pos 240x1200 --rotate normal --output HDMI1 --mode 1920x1200 --pos 0x0 --rotate normal' \
