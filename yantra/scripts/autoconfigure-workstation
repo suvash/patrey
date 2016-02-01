@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # Detect and set monitor
-xrandr --output eDP1 --primary --mode 2560x1600 --pos 0x0 --rotate normal --output DP1 --mode 3840x2160 --pos 2560x0 --rotate normal
+xrandr --output eDP1 --mode 2560x1600 --pos 3840x0 --rotate normal --output DP1 --primary --mode 3840x2160 --pos 0x0 --rotate normal
 xrandr --auto
 
 # set internal keyboard layout:
