@@ -63,6 +63,7 @@ function fish_user_abbreviations
     be='bundle exec' \
     t='tig' \
     tf='tail -f' \
+    ps='ps auwwx' \
     \
     ns='nix-env -qaP \'*\' --description | grep' \
     ni="nix-env -iA nixpkgs.(hostname)" \
@@ -71,6 +72,7 @@ function fish_user_abbreviations
     \
     vu='vagrant up' \
     vd='vagrant destroy -f' \
+    vgs='vagrant global-status --prune' \
     vha='vagrant global-status --prune | awk \'/running/{print $1}\' | xargs -n 1 -- vagrant halt' \
     \
     mi="bash ~/Developer/scaffold/(hostname)/(hostname)_init.sh" \
