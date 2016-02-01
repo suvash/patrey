@@ -28,15 +28,27 @@ if [ ! -f $HOME/.config/fish/completions/docker.fish ]; then
 fi
 
 # Install 3rd party things
+
 # Viber
 if [ ! -d /opt/viber/ ]; then
   curl http://download.cdn.viber.com/cdn/desktop/Linux/viber.deb > /tmp/viber.deb
   sudo dpkg -i /tmp/viber.deb
 fi
 
+# Synology cloud station
+if ! hash synology-cloud-station; then
+  curl http://global.download.synology.com/download/Tools/CloudStation/3.2-3497/Ubuntu/Installer/x86_64/synology-cloud-station-3497.x86_64.deb > /tmp/synology.deb
+  sudo dpkg -i /tmp/synology.deb
+fi
+
 # Tor browser
+# https://www.torproject.org/
 
 # R studio
+# https://www.rstudio.com/products/rstudio/download/
+
+# RapidMiner
+# https://rapidminer.com/products/studio/
 
 # Mbpfan - controls fan on macbooks and works quite good
 if ! hash mbpfan; then

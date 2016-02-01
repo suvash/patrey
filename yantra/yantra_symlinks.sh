@@ -55,6 +55,11 @@ if [ ! -L /usr/local/bin/start-rstudio ]; then
   sudo ln -s $HOME/Developer/scaffold/yantra/scripts/start-rstudio /usr/local/bin/start-rstudio
 fi
 
+if [ ! -L /usr/local/bin/start-rapidminer-studio ]; then
+  sudo rm -rf /usr/local/bin/start-rapidminer-studio 2> /dev/null
+  sudo ln -s $HOME/Developer/scaffold/yantra/scripts/start-rapidminer-studio /usr/local/bin/start-rapidminer-studio
+fi
+
 if [ ! -L /usr/local/bin/start-viber ]; then
   sudo rm -rf /usr/local/bin/start-viber 2> /dev/null
   sudo ln -s $HOME/Developer/scaffold/yantra/scripts/start-viber /usr/local/bin/start-viber
