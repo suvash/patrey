@@ -65,6 +65,7 @@ ncdu
 dfc
 strace
 baobab
+hardinfo
 
 # Browsers
 chromium-browser
