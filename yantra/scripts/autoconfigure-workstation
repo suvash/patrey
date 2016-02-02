@@ -29,3 +29,7 @@ if [ "${slimblade_trackball_id}" != "" ]; then
     # threshold accelNum accelDenom
     xinput set-ptr-feedback "${slimblade_trackball_id}" 9 6 2
 fi
+
+
+# Rescan audio devices using Pulseaudio
+pacmd unload-module module-udev-detect && pacmd load-module module-udev-detect
