@@ -44,6 +44,8 @@ fi
 # Tor browser
 # https://www.torproject.org/
 
+# Below two things will have to go in data analysis box
+# and be ssh X forwarded eventually
 # R studio
 # https://www.rstudio.com/products/rstudio/download/
 
