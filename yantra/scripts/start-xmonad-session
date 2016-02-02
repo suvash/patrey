@@ -7,4 +7,7 @@ killall ssh-agent
 eval $(gnome-keyring-daemon --start --components=gpg,pkcs11,secrets,ssh)
 export SSH_AUTH_SOCK
 
+# Export for Java/Xmonad workalong
+export _JAVA_AWT_WM_NONREPARENTING=1
+
 exec xmonad-session
