@@ -1,5 +1,6 @@
 tap 'homebrew/dupes'
 tap 'caskroom/cask'
+tap 'homebrew/science'
 
 brew 'dfc'
 brew 'emacs', args: ['with-cocoa']
@@ -23,9 +24,7 @@ brew 'homebrew/dupes/lsof'
 brew 'homebrew/dupes/make'
 brew 'homebrew/dupes/unzip'
 brew 'homebrew/dupes/whois'
-
-brew 'haskell-stack'
-brew 's3cmd'
+brew 'homebrew/science/r'
 
 cask 'airfoil'
 cask 'alfred'
@@ -60,3 +59,4 @@ cask 'elm-platform'
 cask 'vagrant'
 cask 'viber'
 cask 'xquartz'
+cask 'rstudio'
