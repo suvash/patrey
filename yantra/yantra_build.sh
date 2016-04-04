@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # Install all the packages mentioned in packages.list
-cat $HOME/.packages.apt | awk '!/(^#|^$)/{print $0}' | xargs sudo apt-get install -y
+cat $HOME/.packages.apt | awk '!/(^#|^$)/{print $0}' | xargs sudo apt-get install --yes --force-yes
 
 # Autoremove crap
 sudo apt-get autoremove -y
@@ -37,7 +37,7 @@ fi
 
 # Synology cloud station
 if ! hash synology-cloud-station; then
-  curl http://global.download.synology.com/download/Tools/CloudStation/3.2-3497/Ubuntu/Installer/x86_64/synology-cloud-station-3497.x86_64.deb > /tmp/synology.deb
+  curl https://global.download.synology.com/download/Tools/CloudStationDrive/4.0-4203/Ubuntu/Installer/x86_64/synology-cloud-station-drive-4203.x86_64.deb > /tmp/synology.deb
   sudo dpkg -i /tmp/synology.deb
 fi
 

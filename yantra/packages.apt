@@ -39,9 +39,10 @@ paprefs
 pavucontrol
 pavumeter
 
-# Keychain SSH GPG things
+# Keychain SSH GPG ZIP things
 seahorse
 hopenpgp-tools
+p7zip-full
 
 # Terminal Shell things
 fish
@@ -67,6 +68,9 @@ dfc
 strace
 baobab
 hardinfo
+
+# Network monitoring
+nmap
 
 # Browsers
 chromium-browser
