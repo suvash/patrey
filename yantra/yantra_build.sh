@@ -36,7 +36,7 @@ if [ ! -d /opt/viber/ ]; then
 fi
 
 # Synology cloud station
-if ! hash synology-cloud-station; then
+if ! hash synology-cloud-station-drive; then
   curl https://global.download.synology.com/download/Tools/CloudStationDrive/4.0-4203/Ubuntu/Installer/x86_64/synology-cloud-station-drive-4203.x86_64.deb > /tmp/synology.deb
   sudo dpkg -i /tmp/synology.deb
 fi
