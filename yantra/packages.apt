@@ -27,6 +27,7 @@ lm-sensors
 xsensors
 hddtemp
 psensor
+lsscsi
 
 # Volume things
 xfce4-volumed
@@ -85,6 +86,7 @@ jq
 git
 tig
 silversearcher-ag
+parallel
 
 # Install utilities
 tree
