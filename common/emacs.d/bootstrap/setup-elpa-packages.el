@@ -72,6 +72,9 @@
 
                       sml-mode
 
+                      sql-indent
+                      sqlup-mode
+
                       clojure-mode
                       clj-refactor
                       cider

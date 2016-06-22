@@ -51,6 +51,8 @@
 (require 'configure-clojure-mode)
 (require 'configure-cider)
 
+(require 'configure-sql-mode)
+
 (require 'configure-elixir-mode)
 (require 'configure-alchemist)
 

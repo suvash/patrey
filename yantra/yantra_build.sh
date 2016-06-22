@@ -41,16 +41,11 @@ if ! hash synology-cloud-station-drive; then
   sudo dpkg -i /tmp/synology.deb
 fi
 
-# Tor browser
-# https://www.torproject.org/
-
-# Below two things will have to go in data analysis box
-# and be ssh X forwarded eventually
-# R studio
-# https://www.rstudio.com/products/rstudio/download/
-
-# RapidMiner
-# https://rapidminer.com/products/studio/
+# Slack Linux
+if ! hash slack; then
+  curl https://downloads.slack-edge.com/linux_releases/slack-desktop-2.0.6-amd64.deb > /tmp/slack.deb
+  sudo dpkg -i /tmp/slack.deb
+fi
 
 # Mbpfan - controls fan on macbooks and works quite good
 if ! hash mbpfan; then
