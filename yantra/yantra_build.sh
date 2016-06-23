@@ -29,22 +29,10 @@ fi
 
 # Install 3rd party things
 
-# Viber
-if [ ! -d /opt/viber/ ]; then
-  curl http://download.cdn.viber.com/cdn/desktop/Linux/viber.deb > /tmp/viber.deb
-  sudo dpkg -i /tmp/viber.deb
-fi
-
 # Synology cloud station
 if ! hash synology-cloud-station-drive; then
   curl https://global.download.synology.com/download/Tools/CloudStationDrive/4.0-4203/Ubuntu/Installer/x86_64/synology-cloud-station-drive-4203.x86_64.deb > /tmp/synology.deb
   sudo dpkg -i /tmp/synology.deb
-fi
-
-# Slack Linux
-if ! hash slack; then
-  curl https://downloads.slack-edge.com/linux_releases/slack-desktop-2.0.6-amd64.deb > /tmp/slack.deb
-  sudo dpkg -i /tmp/slack.deb
 fi
 
 # Mbpfan - controls fan on macbooks and works quite good
