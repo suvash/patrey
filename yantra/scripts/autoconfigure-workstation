@@ -5,9 +5,15 @@ xrandr --output eDP1 --mode 2560x1600 --pos 3840x0 --rotate normal --output DP1 
 xrandr --auto
 
 # set internal keyboard layout:
-apple_keyboard_id=$(xinput -list | awk -Fid= '/Apple Internal Keyboard/{ print $2 }' | awk '{ print $1 }')
-if [ "${apple_keyboard_id}" != "" ]; then
-    setxkbmap -device "${apple_keyboard_id}" -layout us,us,se -variant dvorak,, -option 'grp:shifts_toggle,ctrl:nocaps'
+apple_internal_keyboard_id=$(xinput -list | awk -Fid= '/Apple Internal Keyboard/{ print $2 }' | awk '{ print $1 }')
+if [ "${apple_internal_keyboard_id}" != "" ]; then
+    setxkbmap -device "${apple_internal_keyboard_id}" -layout us,us,se -variant dvorak,, -option 'grp:shifts_toggle,ctrl:nocaps'
+fi
+
+# set external keyboard layout:
+apple_external_keyboard_id=$(xinput -list | awk -Fid= '/Apple Inc. Apple Keyboard/{ print $2 }' | awk '{ print $1 }')
+if [ "${apple_external_keyboard_id}" != "" ]; then
+    setxkbmap -device "${apple_external_keyboard_id}" -layout se,us -option 'grp:shifts_toggle,ctrl:nocaps'
 fi
 
 # set Kinesis keyboard layout:
