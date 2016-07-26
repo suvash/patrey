@@ -69,10 +69,14 @@ dfc
 strace
 baobab
 hardinfo
+sysstat
+dstat
 
 # Network
 nmap
 openvpn
+traceroute
+tcpdump
 
 # Browsers
 chromium-browser
@@ -87,6 +91,11 @@ git
 tig
 silversearcher-ag
 parallel
+qgit
+gitg
+
+# Desktop things
+autorandr
 
 # Install utilities
 tree
@@ -128,3 +137,7 @@ openjdk-8-jre
 
 # Git Lfs
 git-lfs
+
+# Libcurl
+libcurl4-openssl-dev
+libssl-dev
