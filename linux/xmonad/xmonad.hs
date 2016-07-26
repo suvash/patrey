@@ -92,7 +92,7 @@ myFocusedBorderColor = "#F0E686"  -- khaki
 
 -- | Focus follows mouse
 
-myFocusFollowsMouse = False
+myFocusFollowsMouse = True
 
 -- | Focus follows mouse end
 
