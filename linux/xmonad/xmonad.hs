@@ -5,6 +5,7 @@ import           XMonad.Actions.GridSelect
 import           XMonad.Hooks.DynamicLog
 import           XMonad.Hooks.FadeInactive
 import           XMonad.Hooks.ManageDocks
+import           XMonad.Hooks.ManageHelpers
 import           XMonad.Hooks.EwmhDesktops
 import           XMonad.Layout.Tabbed
 import           XMonad.Layout.Grid
@@ -102,7 +103,7 @@ myFocusedBorderColor = "#F0E686"  -- khaki
 
 -- | Focus follows mouse
 
-myFocusFollowsMouse = True
+myFocusFollowsMouse = False
 
 -- | Focus follows mouse end
 
@@ -129,9 +130,12 @@ myLayout = tiled ||| threecol ||| threecolmid ||| Grid ||| simpleTabbedBottomAlw
 
 -- | Layout end
 
--- | Layout Hook for XMobar things
+-- | Layout Hook
 
-myManageHook  = manageDocks <+> manageHook defaultConfig
+floatTileManageHook = composeAll
+  [ className =? "vlc" --> doFloat ]
+
+myManageHook  = manageDocks <+> floatTileManageHook <+> manageHook defaultConfig
 myLayoutHook  = avoidStruts $ myLayout
 
 -- | Layout Hook End
