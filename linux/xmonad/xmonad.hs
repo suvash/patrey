@@ -85,7 +85,7 @@ xmobarLogHook xmobarProcess =
   dynamicLogWithPP xmobarPP
   {  ppCurrent = xmobarColor xmobarCurrentWSColor "" -- . wrap "[" "]"
   ,  ppVisible = xmobarColor xmobarVisibleWSColor "" -- . wrap "(" ")"
-  ,  ppHidden  = xmobarColor xmobarHiddenWSColor ""
+  ,  ppHidden  = xmobarColor xmobarHiddenWSColor "" . noScratchPad
   ,  ppUrgent  = xmobarColor xmobarUrgentWSColor "" . wrap ">" "<" . xmobarStrip
   --,  ppHiddenNoWindows  = xmobarColor xmobarHiddenNoWinWSColor ""
   ,  ppSep     = " : "
@@ -112,6 +112,8 @@ xmobarLogHook xmobarProcess =
             "Tabbed Bottom Simplest" -> "[___]"
             "Full"                   -> "[===]"
             _                        -> ln
+
+        noScratchPad ws = if ws == "NSP" then "" else ws
 
 fadeLogHook = fadeInactiveLogHook fadeAmount
     where fadeAmount = 0.8
