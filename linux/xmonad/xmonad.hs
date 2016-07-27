@@ -93,9 +93,9 @@ xmobarLogHook xmobarProcess =
   ,  ppSep     = " : "
   ,  ppWsSep   = " "
   ,  ppTitle   = xmobarColor xmobarTitleColor "" . shorten cutOffTitleLength
-  ,  ppLayout  = xmobarColor xmobarLayoutColor ""
+  ,  ppLayout  = xmobarColor xmobarLayoutColor "" . layoutNameToIcon
   ,  ppOutput  = hPutStrLn xmobarProcess
-  ,  ppOrder   = \(workspace:_layout:_title:_extras) -> [workspace]
+  ,  ppOrder   = \(workspace:layout:_title:_extras) -> [workspace, layout]
   }
   where cutOffTitleLength = 15
         xmobarCurrentWSColor = "orange"
@@ -105,6 +105,15 @@ xmobarLogHook xmobarProcess =
         xmobarUrgentWSColor  = "red"
         xmobarTitleColor  = "darkgreen"
         xmobarLayoutColor  = "darkgray"
+
+        layoutNameToIcon ln =
+          case ln of
+            "Tall"                   -> "[|--]"
+            "Grid"                   -> "[-|-]"
+            "ThreeCol"               -> "[|||]"
+            "Tabbed Bottom Simplest" -> "[___]"
+            "Full"                   -> "[===]"
+            _                        -> ln
 
 fadeLogHook = fadeInactiveLogHook fadeAmount
     where fadeAmount = 0.8
@@ -134,10 +143,10 @@ myStartupHook = spawn "~/.xmonad/on_xmonad_start.sh"
 -- | Layout begin
 
 -- add Mirror to have the same layout in horizontal (90 deg +) direction
-myLayout = tiled ||| threecol ||| threecolmid ||| Grid ||| simpleTabbedBottomAlways ||| Full
+myLayout = tiled ||| threecolmid ||| Grid ||| simpleTabbedBottomAlways ||| Full
   where
     tiled       = Tall nmaster delta ratio
-    threecol    = ThreeCol nmaster delta ratio
+    -- threecol    = ThreeCol nmaster delta ratio
     threecolmid = ThreeColMid nmaster delta ratio
     -- The default number of windows in the master pane
     nmaster = 1
