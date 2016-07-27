@@ -5,8 +5,8 @@ import           XMonad.Actions.GridSelect
 import           XMonad.Hooks.DynamicLog
 import           XMonad.Hooks.FadeInactive
 import           XMonad.Hooks.ManageDocks
-import           XMonad.Hooks.ManageHelpers
 import           XMonad.Hooks.EwmhDesktops
+import           XMonad.Hooks.UrgencyHook
 import           XMonad.Layout.Tabbed
 import           XMonad.Layout.Grid
 import           XMonad.Layout.ThreeColumns
@@ -32,6 +32,8 @@ keysToAdd x =
      -- ,  ((0, 0x1008ff11), spawn "pamixer --decrease 10")
         -- X-selection paste
            (((modMask x .|. controlMask), xK_v), pasteSelection)
+        -- Focus on urgent window
+        ,  (((modMask x .|. controlMask), xK_u), focusUrgent)
         -- Screensaver and Lock
         ,  (((modMask x .|. controlMask), xK_l), spawn "xscreensaver-command -lock")
         -- Battery
@@ -83,10 +85,26 @@ myKeys x = M.union (strippedKeys x) (M.fromList (keysToAdd x))
 
 xmobarLogHook xmobarProcess =
   dynamicLogWithPP xmobarPP
-  {  ppOutput = hPutStrLn xmobarProcess
-  ,  ppTitle = xmobarColor "darkgreen" "" . shorten cutOffTitleLength
+  {  ppCurrent = xmobarColor xmobarCurrentWSColor "" . wrap "[" "]"
+  ,  ppVisible = xmobarColor xmobarVisibleWSColor "" . wrap "(" ")"
+  ,  ppHidden  = xmobarColor xmobarHiddenWSColor ""
+  ,  ppUrgent  = xmobarColor xmobarUrgentWSColor "" . wrap "<" ">" . xmobarStrip
+  --,  ppHiddenNoWindows  = xmobarColor xmobarHiddenNoWinWSColor ""
+  ,  ppSep     = " : "
+  ,  ppWsSep   = " "
+  ,  ppTitle   = xmobarColor xmobarTitleColor "" . shorten cutOffTitleLength
+  ,  ppLayout  = xmobarColor xmobarLayoutColor ""
+  ,  ppOutput  = hPutStrLn xmobarProcess
+  ,  ppOrder   = \(workspace:layout:title:_extras) -> [workspace, layout, title]
   }
   where cutOffTitleLength = 15
+        xmobarCurrentWSColor = "orange"
+        xmobarVisibleWSColor = "darkgreen"
+        xmobarHiddenWSColor  = "gray"
+        --xmobarHiddenNoWinWSColor = "blue"
+        xmobarUrgentWSColor  = "red"
+        xmobarTitleColor  = "darkgreen"
+        xmobarLayoutColor  = "darkgray"
 
 fadeLogHook = fadeInactiveLogHook fadeAmount
     where fadeAmount = 0.8
@@ -150,7 +168,7 @@ myWorkspaces = ["1:one", "2:two"] ++ map show [3..9]
 
 main = do
   xmobarproc <- spawnXmobarProcess
-  xmonad $ ewmh defaultConfig {
+  xmonad $ withUrgencyHook NoUrgencyHook $ ewmh defaultConfig {
        modMask = mod4Mask
      , terminal = myTerminal
      , keys = myKeys
