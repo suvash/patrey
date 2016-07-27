@@ -11,6 +11,8 @@ import           XMonad.Layout.Tabbed
 import           XMonad.Layout.Grid
 import           XMonad.Layout.ThreeColumns
 import           System.IO
+import           XMonad.Util.Scratchpad(scratchpadSpawnActionTerminal, scratchpadManageHook)
+import qualified XMonad.StackSet as W
 import qualified Data.Map as M
 
 myTerminal = "lilyterm"
@@ -32,6 +34,8 @@ newKeys x = M.fromList $
      -- ,  ((0, 0x1008ff11), spawn "pamixer --decrease 10")
         -- X-selection paste
            ((modMask x .|. controlMask, xK_v), pasteSelection)
+        -- Floating scratchpad
+        ,  ((modMask x .|. controlMask, xK_space), scratchpadSpawnActionTerminal "rxvt-unicode")
         -- Focus on urgent window
         ,  ((modMask x .|. controlMask, xK_u), focusUrgent)
         -- Screensaver and Lock
@@ -153,10 +157,17 @@ myLayout = tiled ||| threecolmid ||| Grid ||| simpleTabbedBottomAlways ||| Full
 
 -- | Layout Hook
 
+manageScratchPad = scratchpadManageHook (W.RationalRect l t w h)
+  where
+    h = 0.8       -- terminal height, 60%
+    w = 0.8       -- terminal width,  80%
+    t = (1-h)/2   -- distance from top edge, 90%
+    l = (1-w)/2   -- distance from left edge, 0%
+
 floatTileManageHook = composeAll. concat $
   [ [ className =? "vlc" --> doFloat ] ]
 
-myManageHook  = manageDocks <+> floatTileManageHook <+> manageHook defaultConfig
+myManageHook  = manageDocks <+> floatTileManageHook <+> manageScratchPad <+> manageHook defaultConfig
 myLayoutHook  = avoidStruts $ myLayout
 
 -- | Layout Hook End

@@ -48,6 +48,7 @@ p7zip-full
 # Terminal Shell things
 fish
 lilyterm
+rxvt-unicode
 tmux
 
 # NFS things
