@@ -132,8 +132,8 @@ myLayout = tiled ||| threecol ||| threecolmid ||| Grid ||| simpleTabbedBottomAlw
 
 -- | Layout Hook
 
-floatTileManageHook = composeAll
-  [ className =? "vlc" --> doFloat ]
+floatTileManageHook = composeAll. concat $
+  [ [ className =? "vlc" --> doFloat ] ]
 
 myManageHook  = manageDocks <+> floatTileManageHook <+> manageHook defaultConfig
 myLayoutHook  = avoidStruts $ myLayout
