@@ -94,9 +94,6 @@ parallel
 qgit
 gitg
 
-# Desktop things
-autorandr
-
 # Install utilities
 tree
 unzip
