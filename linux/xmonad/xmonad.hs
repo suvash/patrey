@@ -1,105 +1,154 @@
 import           XMonad
-import           XMonad.Util.Run(spawnPipe)
-import           XMonad.Util.Paste
-import           XMonad.Actions.GridSelect
-import           XMonad.Hooks.DynamicLog
-import           XMonad.Hooks.FadeInactive
-import           XMonad.Hooks.ManageDocks
-import           XMonad.Hooks.EwmhDesktops
-import           XMonad.Hooks.UrgencyHook
-import           XMonad.Layout.Tabbed
-import           XMonad.Layout.Grid
-import           XMonad.Layout.ThreeColumns
-import           System.IO
-import           XMonad.Util.Scratchpad(scratchpadSpawnActionTerminal, scratchpadManageHook)
-import qualified XMonad.StackSet as W
-import qualified Data.Map as M
+import qualified XMonad.Util.Run            as XMUR
+import qualified XMonad.Util.Paste          as XMUP
+import qualified XMonad.Actions.GridSelect  as XMAG
+import qualified XMonad.Hooks.DynamicLog    as XMHD
+import qualified XMonad.Hooks.FadeInactive  as XMHF
+import qualified XMonad.Hooks.ManageDocks   as XMHM
+import qualified XMonad.Hooks.EwmhDesktops  as XMHE
+import qualified XMonad.Hooks.UrgencyHook   as XMHU
+import qualified XMonad.Layout.Tabbed       as XMLTa
+import qualified XMonad.Layout.Grid         as XMLG
+import qualified XMonad.Layout.ThreeColumns as XMLTh
+import qualified System.IO                  as SI
+import qualified XMonad.Util.Scratchpad     as XUSC
+import qualified XMonad.StackSet            as XMST
+import qualified Data.Map                   as DM
 
 myTerminal = "lilyterm"
 
 -- | Keys begin -------------------
 
 -- Define keys to add
-newKeys x = M.fromList $
+newKeys x = DM.fromList $
     [
         -- Monitor brightness up key
-        -- ((0, 0x1008ff02), spawn "xbacklight -inc 10")
+     --    ((0, 0x1008ff02),
+     --     spawn "xbacklight -inc 10")
+
         -- Monitor brightness down key
-     -- ,  ((0, 0x1008ff03), spawn "xbacklight -dec 10")
+     -- ,  ((0, 0x1008ff03),
+     --     spawn "xbacklight -dec 10")
+
         -- Toggle Mute
-     -- ,  ((0, 0x1008ff12), spawn "pamixer --toggle-mute")
+     -- ,  ((0, 0x1008ff12),
+     --     spawn "pamixer --toggle-mute")
+
         -- Increase Volume
-     -- ,  ((0, 0x1008ff13), spawn "pamixer --increase 10")
+     -- ,  ((0, 0x1008ff13),
+     --     spawn "pamixer --increase 10")
+
         -- Decrease Volume
-     -- ,  ((0, 0x1008ff11), spawn "pamixer --decrease 10")
+     -- ,  ((0, 0x1008ff11),
+     --     spawn "pamixer --decrease 10")
+
         -- X-selection paste
-           ((modMask x .|. controlMask, xK_v), pasteSelection)
+           ((modMask x .|. controlMask, xK_v),
+            XMUP.pasteSelection)
+
         -- Floating scratchpad
-        ,  ((modMask x .|. controlMask, xK_space), scratchpadSpawnActionTerminal "rxvt-unicode")
+        ,  ((modMask x .|. controlMask, xK_space),
+            XUSC.scratchpadSpawnActionTerminal "rxvt-unicode")
+
         -- Focus on urgent window
-        ,  ((modMask x .|. controlMask, xK_u), focusUrgent)
+        ,  ((modMask x .|. controlMask, xK_u),
+            XMHU.focusUrgent)
+
         -- Screensaver and Lock
-        ,  ((modMask x .|. controlMask, xK_l), spawn "xscreensaver-command -lock")
+        ,  ((modMask x .|. controlMask, xK_l),
+            spawn "xscreensaver-command -lock")
+
         -- Battery
-        ,  ((modMask x .|. controlMask, xK_b), spawn "notify-send -t 4000 Battery \"$(acpi)\" ")
+        ,  ((modMask x .|. controlMask, xK_b),
+            spawn "notify-send -t 4000 Battery \"$(acpi)\" ")
+
         -- Date and Time
-        ,  ((modMask x .|. controlMask, xK_d), spawn "notify-send -t 4000 Date/Time \"$(date)\" ")
+        ,  ((modMask x .|. controlMask, xK_d),
+            spawn "notify-send -t 4000 Date/Time \"$(date)\" ")
+
         -- Network
-        ,  ((modMask x .|. controlMask, xK_n), spawn "notify-send -t 4000 Network \"$(ip -4 -o addr show | cut -d' ' -f2,7)\"")
+        ,  ((modMask x .|. controlMask, xK_n),
+            spawn "notify-send -t 4000 Network \"$(ip -4 -o addr show | cut -d' ' -f2,7)\"")
+
         -- Display all the windows
-        ,  ((modMask x .|. controlMask, xK_g), goToSelected defaultGSConfig)
+        ,  ((modMask x .|. controlMask, xK_g),
+            XMAG.goToSelected XMAG.defaultGSConfig)
+
         -- Toggle the Xmobar
-        ,  ((modMask x .|. controlMask, xK_m), sendMessage ToggleStruts)
+        ,  ((modMask x .|. controlMask, xK_m),
+            sendMessage XMHM.ToggleStruts)
+
         -- Launch Spotify
-        ,  ((modMask x .|. controlMask, xK_s), spawn "spotify --force-device-scale-factor=1.8")
+        ,  ((modMask x .|. controlMask, xK_s),
+            spawn "spotify --force-device-scale-factor=1.8")
+
         -- Launch Opera
-        ,  ((modMask x .|. controlMask, xK_o), spawn "opera --private")
+        ,  ((modMask x .|. controlMask, xK_o),
+            spawn "opera --private")
+
         -- Launch Firefox
-        ,  ((modMask x .|. controlMask, xK_f), spawn "firefox")
+        ,  ((modMask x .|. controlMask, xK_f),
+            spawn "firefox")
+
         -- Launch Chrome Igcognito
-        ,  ((modMask x .|. controlMask, xK_c), spawn "chromium-browser --incognito --force-device-scale-factor=1.8")
+        ,  ((modMask x .|. controlMask, xK_c),
+            spawn "chromium-browser --incognito --force-device-scale-factor=1.8")
+
         -- Launch Tor Browser
-        ,  ((modMask x .|. controlMask, xK_t), spawn "start-tor-browser")
+        ,  ((modMask x .|. controlMask, xK_t),
+            spawn "start-tor-browser")
+
         -- Launch Emacs
-        ,  ((modMask x .|. controlMask, xK_e), spawn "emacs")
+        ,  ((modMask x .|. controlMask, xK_e),
+            spawn "emacs")
+
         -- Change wallpaper
-        ,  ((modMask x .|. controlMask, xK_w), spawn "sh $HOME/.fehbg")
+        ,  ((modMask x .|. controlMask, xK_w),
+            spawn "sh $HOME/.fehbg")
+
         -- Attach Detach workstation
-        ,  ((modMask x .|. controlMask, xK_a), spawn "autoconfigure-workstation")
+        ,  ((modMask x .|. controlMask, xK_a),
+            spawn "autoconfigure-workstation")
+
         -- Play Pause Spotify
-        ,  ((modMask x .|. controlMask, xK_8), spawn "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause")
+        ,  ((modMask x .|. controlMask, xK_8),
+            spawn "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause")
+
         -- Next Spotify
-        ,  ((modMask x .|. controlMask, xK_0), spawn "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next")
+        ,  ((modMask x .|. controlMask, xK_0),
+            spawn "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next")
+
         -- Previous Spotify
-        ,  ((modMask x .|. controlMask, xK_6), spawn "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous")
+        ,  ((modMask x .|. controlMask, xK_6),
+            spawn "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous")
     ]
 
 -- Compose the new key combinations.
-myKeys x = newKeys x `M.union` keys defaultConfig x
+myKeys x = newKeys x `DM.union` keys defaultConfig x
 
 -- | Keys end ---------------------
 
 -- | Log Hook begin
 
 xmobarLogHook xmobarProcess =
-  dynamicLogWithPP xmobarPP
-  {  ppCurrent = xmobarColor xmobarCurrentWSColor "" -- . wrap "[" "]"
-  ,  ppVisible = xmobarColor xmobarVisibleWSColor "" -- . wrap "(" ")"
-  ,  ppHidden  = xmobarColor xmobarHiddenWSColor "" . noScratchPad
-  ,  ppUrgent  = xmobarColor xmobarUrgentWSColor "" . wrap ">" "<" . xmobarStrip
-  --,  ppHiddenNoWindows  = xmobarColor xmobarHiddenNoWinWSColor ""
-  ,  ppSep     = " : "
-  ,  ppWsSep   = " "
-  ,  ppTitle   = xmobarColor xmobarTitleColor "" . shorten cutOffTitleLength
-  ,  ppLayout  = xmobarColor xmobarLayoutColor "" . layoutNameToIcon
-  ,  ppOutput  = hPutStrLn xmobarProcess
-  ,  ppOrder   = \(workspace:layout:_title:_extras) -> [workspace, layout]
+  XMHD.dynamicLogWithPP XMHD.xmobarPP
+  {  XMHD.ppCurrent = XMHD.xmobarColor xmobarCurrentWSColor "" -- . wrap "[" "]"
+  ,  XMHD.ppVisible = XMHD.xmobarColor xmobarVisibleWSColor "" -- . wrap "(" ")"
+  ,  XMHD.ppHidden  = XMHD.xmobarColor xmobarHiddenWSColor "" . noScratchPad
+  ,  XMHD.ppUrgent  = XMHD.xmobarColor xmobarUrgentWSColor "" . XMHD.wrap ">" "<" . XMHD.xmobarStrip
+  -- ,  XMHD.ppHiddenNoWindows  = XMHD.xmobarColor xmobarHiddenNoWinWSColor ""
+  ,  XMHD.ppSep     = " : "
+  ,  XMHD.ppWsSep   = " "
+  ,  XMHD.ppTitle   = XMHD.xmobarColor xmobarTitleColor "" . XMHD.shorten cutOffTitleLength
+  ,  XMHD.ppLayout  = XMHD.xmobarColor xmobarLayoutColor "" . layoutNameToIcon
+  ,  XMHD.ppOutput  = SI.hPutStrLn xmobarProcess
+  ,  XMHD.ppOrder   = \(workspace:layout:_title:_extras) -> [workspace, layout]
   }
   where cutOffTitleLength = 15
         xmobarCurrentWSColor = "orange"
         xmobarVisibleWSColor = "darkgreen"
         xmobarHiddenWSColor  = "gray"
-        --xmobarHiddenNoWinWSColor = "blue"
+        -- xmobarHiddenNoWinWSColor = "blue"
         xmobarUrgentWSColor  = "red"
         xmobarTitleColor  = "darkgreen"
         xmobarLayoutColor  = "darkgray"
@@ -115,7 +164,7 @@ xmobarLogHook xmobarProcess =
 
         noScratchPad ws = if ws == "NSP" then "" else ws
 
-fadeLogHook = fadeInactiveLogHook fadeAmount
+fadeLogHook = XMHF.fadeInactiveLogHook fadeAmount
     where fadeAmount = 0.8
 
 -- | Log Hook end
@@ -143,11 +192,11 @@ myStartupHook = spawn "~/.xmonad/on_xmonad_start.sh"
 -- | Layout begin
 
 -- add Mirror to have the same layout in horizontal (90 deg +) direction
-myLayout = tiled ||| threecolmid ||| Grid ||| simpleTabbedBottomAlways ||| Full
+myLayout = tiled ||| threecolmid ||| XMLG.Grid ||| XMLTa.simpleTabbedBottomAlways ||| Full
   where
     tiled       = Tall nmaster delta ratio
     -- threecol    = ThreeCol nmaster delta ratio
-    threecolmid = ThreeColMid nmaster delta ratio
+    threecolmid = XMLTh.ThreeColMid nmaster delta ratio
     -- The default number of windows in the master pane
     nmaster = 1
     -- Default proportion of screen occupied by master pane
@@ -159,7 +208,7 @@ myLayout = tiled ||| threecolmid ||| Grid ||| simpleTabbedBottomAlways ||| Full
 
 -- | Layout Hook
 
-manageScratchPad = scratchpadManageHook (W.RationalRect l t w h)
+manageScratchPad = XUSC.scratchpadManageHook (XMST.RationalRect l t w h)
   where
     h = 0.8       -- terminal height, 60%
     w = 0.8       -- terminal width,  80%
@@ -169,14 +218,14 @@ manageScratchPad = scratchpadManageHook (W.RationalRect l t w h)
 floatTileManageHook = composeAll. concat $
   [ [ className =? "vlc" --> doFloat ] ]
 
-myManageHook  = manageDocks <+> floatTileManageHook <+> manageScratchPad <+> manageHook defaultConfig
-myLayoutHook  = avoidStruts $ myLayout
+myManageHook  = XMHM.manageDocks <+> floatTileManageHook <+> manageScratchPad <+> manageHook defaultConfig
+myLayoutHook  = XMHM.avoidStruts $ myLayout
 
 -- | Layout Hook End
 
 -- | Spawn processes
 
-spawnXmobarProcess = spawnPipe "xmobar"
+spawnXmobarProcess = XMUR.spawnPipe "xmobar"
 
 -- | Startup Hook end
 
@@ -185,17 +234,17 @@ myWorkspaces = ["१", "२", "३", "४", "५", "६", "७", "८", "९"]
 
 main = do
   xmobarproc <- spawnXmobarProcess
-  xmonad $ withUrgencyHook NoUrgencyHook $ ewmh defaultConfig {
-       modMask = mod4Mask
-     , terminal = myTerminal
-     , keys = myKeys
-     , logHook = xmobarLogHook xmobarproc >> fadeLogHook
-     , borderWidth = myBorderWidth
-     , normalBorderColor = myNormalBorderColor
+  xmonad $ XMHU.withUrgencyHook XMHU.NoUrgencyHook $ XMHE.ewmh defaultConfig {
+       modMask            = mod4Mask
+     , keys               = myKeys
+     , terminal           = myTerminal
+     , workspaces         = myWorkspaces
+     , logHook            = xmobarLogHook xmobarproc >> fadeLogHook
+     , startupHook        = myStartupHook
+     , manageHook         = myManageHook
+     , layoutHook         = myLayoutHook
+     , borderWidth        = myBorderWidth
+     , normalBorderColor  = myNormalBorderColor
      , focusedBorderColor = myFocusedBorderColor
-     , focusFollowsMouse = myFocusFollowsMouse
-     , startupHook = myStartupHook
-     , manageHook = myManageHook
-     , layoutHook = myLayoutHook
-     , workspaces = myWorkspaces
+     , focusFollowsMouse  = myFocusFollowsMouse
    }
