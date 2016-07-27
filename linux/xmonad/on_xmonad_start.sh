@@ -42,11 +42,6 @@ if [ -z "$(pgrep xfce4-power-man)" ] ; then
     xfce4-power-manager &
 fi
 
-# Xmobar
-if [ -z "$(pgrep xmobar)" ] ; then
-    xmobar &
-fi
-
 # Compton
 if [ -z "$(pgrep compton)" ] ; then
     compton &

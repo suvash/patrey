@@ -1,12 +1,15 @@
 import           XMonad
+import           XMonad.Util.Run(spawnPipe)
 import           XMonad.Util.Paste
 import           XMonad.Actions.GridSelect
+import           XMonad.Hooks.DynamicLog
 import           XMonad.Hooks.FadeInactive
 import           XMonad.Hooks.ManageDocks
 import           XMonad.Hooks.EwmhDesktops
 import           XMonad.Layout.Tabbed
 import           XMonad.Layout.Grid
 import           XMonad.Layout.ThreeColumns
+import           System.IO
 import qualified Data.Map as M
 
 myTerminal = "lilyterm"
@@ -77,7 +80,14 @@ myKeys x = M.union (strippedKeys x) (M.fromList (keysToAdd x))
 
 -- | Log Hook begin
 
-myLogHook = fadeInactiveLogHook fadeAmount
+xmobarLogHook xmobarProcess =
+  dynamicLogWithPP xmobarPP
+  {  ppOutput = hPutStrLn xmobarProcess
+  ,  ppTitle = xmobarColor "darkgreen" "" . shorten cutOffTitleLength
+  }
+  where cutOffTitleLength = 15
+
+fadeLogHook = fadeInactiveLogHook fadeAmount
     where fadeAmount = 0.8
 
 -- | Log Hook end
@@ -126,12 +136,20 @@ myLayoutHook  = avoidStruts $ myLayout
 
 -- | Layout Hook End
 
+-- | Spawn processes
+
+spawnXmobarProcess = spawnPipe "xmobar"
+
+-- | Startup Hook end
+
+
 main = do
-   xmonad $ ewmh defaultConfig {
+  xmobarproc <- spawnXmobarProcess
+  xmonad $ ewmh defaultConfig {
        modMask = mod4Mask
      , terminal = myTerminal
      , keys = myKeys
-     , logHook = myLogHook
+     , logHook = xmobarLogHook xmobarproc >> fadeLogHook
      , borderWidth = myBorderWidth
      , normalBorderColor = myNormalBorderColor
      , focusedBorderColor = myFocusedBorderColor
