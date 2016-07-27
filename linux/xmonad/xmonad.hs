@@ -88,14 +88,14 @@ xmobarLogHook xmobarProcess =
   {  ppCurrent = xmobarColor xmobarCurrentWSColor "" . wrap "[" "]"
   ,  ppVisible = xmobarColor xmobarVisibleWSColor "" . wrap "(" ")"
   ,  ppHidden  = xmobarColor xmobarHiddenWSColor ""
-  ,  ppUrgent  = xmobarColor xmobarUrgentWSColor "" . wrap "<" ">" . xmobarStrip
+  ,  ppUrgent  = xmobarColor xmobarUrgentWSColor "" . wrap ">" "<" . xmobarStrip
   --,  ppHiddenNoWindows  = xmobarColor xmobarHiddenNoWinWSColor ""
   ,  ppSep     = " : "
   ,  ppWsSep   = " "
   ,  ppTitle   = xmobarColor xmobarTitleColor "" . shorten cutOffTitleLength
   ,  ppLayout  = xmobarColor xmobarLayoutColor ""
   ,  ppOutput  = hPutStrLn xmobarProcess
-  ,  ppOrder   = \(workspace:layout:title:_extras) -> [workspace, layout, title]
+  ,  ppOrder   = \(workspace:_layout:_title:_extras) -> [workspace]
   }
   where cutOffTitleLength = 15
         xmobarCurrentWSColor = "orange"
