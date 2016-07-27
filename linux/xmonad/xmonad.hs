@@ -85,8 +85,8 @@ myKeys x = M.union (strippedKeys x) (M.fromList (keysToAdd x))
 
 xmobarLogHook xmobarProcess =
   dynamicLogWithPP xmobarPP
-  {  ppCurrent = xmobarColor xmobarCurrentWSColor "" . wrap "[" "]"
-  ,  ppVisible = xmobarColor xmobarVisibleWSColor "" . wrap "(" ")"
+  {  ppCurrent = xmobarColor xmobarCurrentWSColor "" -- . wrap "[" "]"
+  ,  ppVisible = xmobarColor xmobarVisibleWSColor "" -- . wrap "(" ")"
   ,  ppHidden  = xmobarColor xmobarHiddenWSColor ""
   ,  ppUrgent  = xmobarColor xmobarUrgentWSColor "" . wrap ">" "<" . xmobarStrip
   --,  ppHiddenNoWindows  = xmobarColor xmobarHiddenNoWinWSColor ""
