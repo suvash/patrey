@@ -18,7 +18,7 @@ myTerminal = "lilyterm"
 -- | Keys begin -------------------
 
 -- Define keys to add
-keysToAdd x =
+newKeys x = M.fromList $
     [
         -- Monitor brightness up key
         -- ((0, 0x1008ff02), spawn "xbacklight -inc 10")
@@ -31,53 +31,47 @@ keysToAdd x =
         -- Decrease Volume
      -- ,  ((0, 0x1008ff11), spawn "pamixer --decrease 10")
         -- X-selection paste
-           (((modMask x .|. controlMask), xK_v), pasteSelection)
+           ((modMask x .|. controlMask, xK_v), pasteSelection)
         -- Focus on urgent window
-        ,  (((modMask x .|. controlMask), xK_u), focusUrgent)
+        ,  ((modMask x .|. controlMask, xK_u), focusUrgent)
         -- Screensaver and Lock
-        ,  (((modMask x .|. controlMask), xK_l), spawn "xscreensaver-command -lock")
+        ,  ((modMask x .|. controlMask, xK_l), spawn "xscreensaver-command -lock")
         -- Battery
-        ,  (((modMask x .|. controlMask), xK_b), spawn "notify-send -t 4000 Battery \"$(acpi)\" ")
+        ,  ((modMask x .|. controlMask, xK_b), spawn "notify-send -t 4000 Battery \"$(acpi)\" ")
         -- Date and Time
-        ,  (((modMask x .|. controlMask), xK_d), spawn "notify-send -t 4000 Date/Time \"$(date)\" ")
+        ,  ((modMask x .|. controlMask, xK_d), spawn "notify-send -t 4000 Date/Time \"$(date)\" ")
         -- Network
-        ,  (((modMask x .|. controlMask), xK_n), spawn "notify-send -t 4000 Network \"$(ip -4 -o addr show | cut -d' ' -f2,7)\"")
+        ,  ((modMask x .|. controlMask, xK_n), spawn "notify-send -t 4000 Network \"$(ip -4 -o addr show | cut -d' ' -f2,7)\"")
         -- Display all the windows
-        ,  (((modMask x .|. controlMask), xK_g), goToSelected defaultGSConfig)
+        ,  ((modMask x .|. controlMask, xK_g), goToSelected defaultGSConfig)
         -- Toggle the Xmobar
-        ,  (((modMask x .|. controlMask), xK_m), sendMessage ToggleStruts)
+        ,  ((modMask x .|. controlMask, xK_m), sendMessage ToggleStruts)
         -- Launch Spotify
-        ,  (((modMask x .|. controlMask), xK_s), spawn "spotify --force-device-scale-factor=1.8")
+        ,  ((modMask x .|. controlMask, xK_s), spawn "spotify --force-device-scale-factor=1.8")
         -- Launch Opera
-        ,  (((modMask x .|. controlMask), xK_o), spawn "opera --private")
+        ,  ((modMask x .|. controlMask, xK_o), spawn "opera --private")
         -- Launch Firefox
-        ,  (((modMask x .|. controlMask), xK_f), spawn "firefox")
+        ,  ((modMask x .|. controlMask, xK_f), spawn "firefox")
         -- Launch Chrome Igcognito
-        ,  (((modMask x .|. controlMask), xK_c), spawn "chromium-browser --incognito --force-device-scale-factor=1.8")
+        ,  ((modMask x .|. controlMask, xK_c), spawn "chromium-browser --incognito --force-device-scale-factor=1.8")
         -- Launch Tor Browser
-        ,  (((modMask x .|. controlMask), xK_t), spawn "start-tor-browser")
+        ,  ((modMask x .|. controlMask, xK_t), spawn "start-tor-browser")
         -- Launch Emacs
-        ,  (((modMask x .|. controlMask), xK_e), spawn "emacs")
+        ,  ((modMask x .|. controlMask, xK_e), spawn "emacs")
         -- Change wallpaper
-        ,  (((modMask x .|. controlMask), xK_w), spawn "sh $HOME/.fehbg")
+        ,  ((modMask x .|. controlMask, xK_w), spawn "sh $HOME/.fehbg")
         -- Attach Detach workstation
-        ,  (((modMask x .|. controlMask), xK_a), spawn "autoconfigure-workstation")
+        ,  ((modMask x .|. controlMask, xK_a), spawn "autoconfigure-workstation")
         -- Play Pause Spotify
-        ,  (((modMask x .|. controlMask), xK_8), spawn "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause")
+        ,  ((modMask x .|. controlMask, xK_8), spawn "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause")
         -- Next Spotify
-        ,  (((modMask x .|. controlMask), xK_0), spawn "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next")
+        ,  ((modMask x .|. controlMask, xK_0), spawn "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next")
         -- Previous Spotify
-        ,  (((modMask x .|. controlMask), xK_6), spawn "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous")
+        ,  ((modMask x .|. controlMask, xK_6), spawn "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous")
     ]
 
--- Define keys to remove
-keysToRemove _ = [ ]
-
--- Delete the keys combinations we want to remove.
-strippedKeys x = foldr M.delete (keys defaultConfig x) (keysToRemove x)
-
 -- Compose the new key combinations.
-myKeys x = M.union (strippedKeys x) (M.fromList (keysToAdd x))
+myKeys x = newKeys x `M.union` keys defaultConfig x
 
 -- | Keys end ---------------------
 
