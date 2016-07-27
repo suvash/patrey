@@ -146,6 +146,7 @@ spawnXmobarProcess = spawnPipe "xmobar"
 
 -- | Startup Hook end
 
+myWorkspaces = ["1:one", "2:two"] ++ map show [3..9]
 
 main = do
   xmobarproc <- spawnXmobarProcess
@@ -161,4 +162,5 @@ main = do
      , startupHook = myStartupHook
      , manageHook = myManageHook
      , layoutHook = myLayoutHook
+     , workspaces = myWorkspaces
    }
