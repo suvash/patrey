@@ -48,7 +48,7 @@ p7zip-full
 # Terminal Shell things
 fish
 lilyterm
-rxvt-unicode
+rxvt-unicode-256color
 tmux
 
 # NFS things
