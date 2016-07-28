@@ -62,6 +62,11 @@ if [ -z "$(pgrep dunst)" ] ; then
     dunst &
 fi
 
+# Kill gnome screensaver if running
+if [ "$(pgrep gnome-screensaver)" ] ; then
+    killall gnome-screensaver
+fi
+
 # Run Xscreensaver
 if [ -z "$(pgrep xscreensaver)" ] ; then
     xscreensaver -no-splash &
