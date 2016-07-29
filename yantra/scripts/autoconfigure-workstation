@@ -10,7 +10,7 @@ KEYBOARD_MESSAGES=""
 apple_internal_keyboard_id=$(xinput -list | awk -Fid= '/Apple Internal Keyboard/{ print $2 }' | awk '{ print $1 }')
 if [ "${apple_internal_keyboard_id}" != "" ]; then
     setxkbmap -device "${apple_internal_keyboard_id}" -layout us,us,se -variant dvorak,, -option 'grp:shifts_toggle,ctrl:nocaps'
-    KEYBOARD_MESSAGES="$KEYBOARD_MESSAGES\nFound Internal Apple Keyboard"
+    KEYBOARD_MESSAGES="$KEYBOARD_MESSAGES\nFound $(xinput -list --name-only $apple_internal_keyboard_id)"
 fi
 
 # set external Apple keyboard layout:
@@ -18,7 +18,7 @@ for apple_external_keyboard_id in $(xinput -list | awk -Fid= '/Apple Inc. Apple 
     if [ "${apple_external_keyboard_id}" != "" ]; then
         setxkbmap -device "${apple_external_keyboard_id}" -layout se,us -option 'grp:shifts_toggle,ctrl:nocaps'
     fi
-    KEYBOARD_MESSAGES="$KEYBOARD_MESSAGES\nFound External Apple Keyboard"
+    KEYBOARD_MESSAGES="$KEYBOARD_MESSAGES\nFound $(xinput -list --name-only $apple_external_keyboard_id)"
 done
 
 # set Kinesis keyboard layout:
@@ -26,7 +26,7 @@ for kinesis_keyboard_id in $(xinput -list | awk -Fid= '/HID 05f3:0007/{ print $2
     if [ "${kinesis_keyboard_id}" != "" ]; then
         setxkbmap -device "${kinesis_keyboard_id}" -model kinesis -layout us -option 'ctrl:nocaps'
     fi
-    KEYBOARD_MESSAGES="$KEYBOARD_MESSAGES\nFound External Kinesis Adv. Keyboard"
+    KEYBOARD_MESSAGES="$KEYBOARD_MESSAGES\nFound Kinesis Advantage Keyboard"
 done
 
 # Set Key rate
@@ -42,7 +42,7 @@ notify-send --urgency=NORMAL 'Detecting Keyboards' "$KEYBOARD_MESSAGES"
 POINTING_DEVICE_MESSAGES=""
 apple_trackpad_id=$(xinput -list | awk -Fid= '/Apple Internal Keyboard \/ Trackpad/{ print $2 }' | awk '{ print $1 }')
 if [ "${apple_trackpad_id}" != "" ]; then
-    POINTING_DEVICE_MESSAGES="$POINTING_DEVICE_MESSAGES\nFound Internal Apple Trackpad"
+    POINTING_DEVICE_MESSAGES="$POINTING_DEVICE_MESSAGES\nFound $(xinput -list --name-only $apple_trackpad_id)"
 fi
 
 slimblade_trackball_id=$(xinput -list | awk -Fid= '/Slimblade Trackball/{ print $2 }' | awk '{ print $1 }')
@@ -53,7 +53,7 @@ if [ "${slimblade_trackball_id}" != "" ]; then
     # threshold accelNum accelDenom
     xinput set-ptr-feedback "${slimblade_trackball_id}" 12 8 2
 
-    POINTING_DEVICE_MESSAGES="$POINTING_DEVICE_MESSAGES\nFound Slimblade Trackball"
+    POINTING_DEVICE_MESSAGES="$POINTING_DEVICE_MESSAGES\nFound $(xinput -list --name-only $slimblade_trackball_id)"
 fi
 
 # Send notification
