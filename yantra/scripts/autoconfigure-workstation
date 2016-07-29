@@ -98,6 +98,10 @@ for monitor in $MONITORS_FOUND; do
         XRANDR_STRING="$XRANDR_STRING --output eDP1 --mode 2560x1600 --pos 3840x0 --rotate normal --output $connection --primary --mode 3840x2160 --pos 0x0 --rotate normal"
     fi
 
+    if [ "$monitor_name" == "CS2420" ]; then
+        XRANDR_STRING="$XRANDR_STRING --output eDP1 --primary --mode 2560x1600 --pos 0x0 --rotate normal --output $connection --mode 1920x1200 --pos 2560x0 --rotate normal"
+    fi
+
     if [ "$monitor_name" == "LG TV" ]; then
         XRANDR_STRING="$XRANDR_STRING --output eDP1 --primary --mode 2560x1600 --pos 0x0 --rotate normal --output $connection --mode 1920x1080 --pos 2560x0 --rotate normal"
     fi
