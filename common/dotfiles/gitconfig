@@ -11,6 +11,7 @@
   status = auto
 [push]
   default = simple
+  followTags = true
 [branch "master"]
   mergeoptions = --no-ff
 [alias]
