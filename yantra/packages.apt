@@ -82,6 +82,9 @@ tcpdump
 
 # Browsers
 chromium-browser
+opera-stable
+firefox
+lynx
 
 # Editors things
 vim
@@ -95,6 +98,7 @@ silversearcher-ag
 parallel
 qgit
 gitg
+pandoc
 
 # Install utilities
 tree
@@ -117,9 +121,6 @@ docker-engine
 
 # Spotify Client
 spotify-client
-
-# Opera
-opera-stable
 
 # Skype
 skype
