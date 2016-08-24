@@ -75,6 +75,8 @@ function fish_user_abbreviations
     vgs='vagrant global-status --prune' \
     vha='vagrant global-status --prune | awk \'/running/{print $1}\' | xargs -n 1 -- vagrant halt' \
     \
+    cleanhosts='awk \'/HostName/{print $2}\'  ~/.ssh/config | xargs -n 1 ssh-keygen -R' \
+    \
     mi="bash ~/Developer/scaffold/(hostname)/(hostname)_init.sh" \
     mb="bash ~/Developer/scaffold/(hostname)/(hostname)_build.sh" \
     \
