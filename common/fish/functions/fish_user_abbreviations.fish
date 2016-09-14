@@ -63,7 +63,7 @@ function fish_user_abbreviations
     be='bundle exec' \
     t='tig' \
     tf='tail -f' \
-    ps='ps auwwx' \
+    ps='ps fauwwx' \
     \
     ns='nix-env -qaP \'*\' --description | grep' \
     ni="nix-env -iA nixpkgs.(hostname)" \

@@ -29,6 +29,12 @@ fi
 
 # Install 3rd party things
 
+# Skype Alpha for linux
+if ! hash skypeforlinux; then
+  curl -L https://go.skype.com/skypeforlinux-64-alpha.deb > /tmp/skype.deb
+  sudo dpkg -i /tmp/skype.deb
+fi
+
 # Synology cloud station
 if ! hash synology-cloud-station-drive; then
   curl https://global.download.synology.com/download/Tools/CloudStationDrive/4.0-4203/Ubuntu/Installer/x86_64/synology-cloud-station-drive-4203.x86_64.deb > /tmp/synology.deb

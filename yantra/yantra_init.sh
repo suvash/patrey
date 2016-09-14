@@ -44,6 +44,10 @@ fi
 
 # ============= End Nix ====================
 
+# ============= Install Kernel Headers ==================
+
+sudo apt-get install -y linux-headers-$(uname -r)
+
 # ============= Add Apt Repositories ====================
 
 DISTRIB_CODENAME=$(lsb_release -sc)
