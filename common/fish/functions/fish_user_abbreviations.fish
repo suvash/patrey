@@ -71,6 +71,8 @@ function fish_user_abbreviations
     ngc='nix-collect-garbage' \
     \
     vu='vagrant up' \
+    vs='vagrant ssh' \
+    vsc='vagrant ssh -c' \
     vd='vagrant destroy -f' \
     vgs='vagrant global-status --prune' \
     vha='vagrant global-status --prune | awk \'/running/{print $1}\' | xargs -n 1 -- vagrant halt' \

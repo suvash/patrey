@@ -1,1 +1,3 @@
 /common/fish/completions/
+/common/lein/self-installs/
+*.jar
