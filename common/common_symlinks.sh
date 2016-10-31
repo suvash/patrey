@@ -63,6 +63,5 @@ fi
 
 if [ ! -L $HOME/.gnupg/gpg.conf ]; then
   mkdir -p $HOME/.gnupg
-  mv $HOME/.gnupg/gpg.conf $HOME/.gnupg/gpg.conf.orig
   ln -s $HOME/Developer/scaffold/common/dotfiles/gpg.conf $HOME/.gnupg/gpg.conf
 fi
