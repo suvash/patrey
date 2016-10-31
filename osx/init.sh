@@ -32,7 +32,7 @@ fi
 
 # ============= Install Nix ====================
 
-curl https://nixos.org/nix/install | sh
+# curl https://nixos.org/nix/install | sh
 
 # ============= End Nix ====================
 

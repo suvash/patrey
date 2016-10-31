@@ -1,6 +1,6 @@
 curl -s https://raw.githubusercontent.com/suvash/scaffold/master/osx/init.sh | sh
 
-$HOME/Developer/scaffold/master/osx/sanity.sh
+$HOME/Developer/scaffold/osx/sanity.sh
 
 $HOME/Developer/scaffold/{name}/{name}_init.sh
 $HOME/Developer/scaffold/{name}/{name}_build.sh
