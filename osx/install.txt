@@ -5,10 +5,6 @@ $HOME/Developer/scaffold/osx/sanity.sh
 $HOME/Developer/scaffold/{name}/{name}_init.sh
 $HOME/Developer/scaffold/{name}/{name}_build.sh
 
-# karabiner (after opening app and overriding key repeat)
-$HOME/Developer/scaffold/osx/karabiner.sh
-
-# Keyboard -> Caps -> Ctrl
 fish_bootstrap
 
 # Right Command to Hyper + use totalspaces ?

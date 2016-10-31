@@ -9,3 +9,8 @@ if [ ! -L $HOME/.mackup.cfg ]; then
   rm $HOME/.mackup.cfg 2> /dev/null
   ln -s $HOME/Developer/scaffold/osx/mackup.cfg $HOME/.mackup.cfg
 fi
+
+if [ ! -L $HOME/.karabiner.d ]; then
+  rm -rf $HOME/.karabiner.d/ 2> /dev/null
+  ln -s $HOME/Developer/scaffold/osx/karabiner.d $HOME/.karabiner.d
+fi
