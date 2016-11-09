@@ -29,6 +29,13 @@ fi
 
 # Install 3rd party things
 
+# Docker compose
+if ! hash docker-compose; then
+  curl -L https://github.com/docker/compose/releases/download/1.9.0-rc4/docker-compose-Linux-x86_64 > /tmp/docker-compose
+  chmod +x /tmp/docker-compose
+  sudo mv /tmp/docker-compose /usr/local/bin/docker-compose
+fi
+
 # Skype Alpha for linux
 if ! hash skypeforlinux; then
   curl -L https://go.skype.com/skypeforlinux-64-alpha.deb > /tmp/skype.deb
