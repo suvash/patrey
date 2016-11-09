@@ -38,9 +38,9 @@ fi
 
 # ============= Install Nix ====================
 
-if [ ! -d /nix/ ]; then
-  curl https://nixos.org/nix/install | sh
-fi
+# if [ ! -d /nix/ ]; then
+#   curl https://nixos.org/nix/install | sh
+# fi
 
 # ============= End Nix ====================
 

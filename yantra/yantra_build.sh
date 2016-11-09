@@ -63,5 +63,5 @@ if ! hash mbpfan; then
 fi
 
 # Nix things
-nix-env -iA nixpkgs.yantra
-nix-collect-garbage
+# nix-env -iA nixpkgs.yantra
+# nix-collect-garbage
