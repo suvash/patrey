@@ -29,6 +29,13 @@ fi
 
 # Install 3rd party things
 
+# Terraform
+if ! hash terraform; then
+  curl -L https://releases.hashicorp.com/terraform/0.7.10/terraform_0.7.10_linux_amd64.zip > /tmp/terraform.zip
+  unzip /tmp/terraform.zip -d /tmp && chmod +x /tmp/terraform
+  sudo mv /tmp/terraform /usr/local/bin/terraform
+fi
+
 # Docker compose
 if ! hash docker-compose; then
   curl -L https://github.com/docker/compose/releases/download/1.9.0-rc4/docker-compose-Linux-x86_64 > /tmp/docker-compose
