@@ -82,6 +82,9 @@ function fish_user_abbreviations
     mi="bash ~/Developer/scaffold/(hostname)/(hostname)_init.sh" \
     mb="bash ~/Developer/scaffold/(hostname)/(hostname)_build.sh" \
     \
+    dclni='docker images --quiet --filter "dangling=true" | xargs --no-run-if-empty docker rmi' \
+    dclnv='docker volume ls --quiet --filter "dangling=true" | xargs --no-run-if-empty docker volume rm' \
+    \
     v='vim' \
     emd='emacs --daemon' \
     emt='emacsclient -c -nw' \
