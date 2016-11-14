@@ -1,0 +1,4 @@
+Standalone modifiers
+https://github.com/tekezo/Karabiner-Elements/issues/369
+https://github.com/tekezo/Karabiner-Elements/pull/170#issuecomment-257091685
+
