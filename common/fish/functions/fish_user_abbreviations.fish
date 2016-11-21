@@ -84,6 +84,9 @@ function fish_user_abbreviations
     \
     dclni='docker images --quiet --filter "dangling=true" | xargs --no-run-if-empty docker rmi' \
     dclnv='docker volume ls --quiet --filter "dangling=true" | xargs --no-run-if-empty docker volume rm' \
+    dm='docker-machine' \
+    dc='docker-compose' \
+    d='docker' \
     \
     v='vim' \
     emd='emacs --daemon' \

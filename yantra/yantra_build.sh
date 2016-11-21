@@ -43,6 +43,13 @@ if ! hash docker-compose; then
   sudo mv /tmp/docker-compose /usr/local/bin/docker-compose
 fi
 
+# Docker Machine
+if ! hash docker-machine; then
+  curl -L https://github.com/docker/machine/releases/download/v0.9.0-rc1/docker-machine-Linux-x86_64 > /tmp/docker-machine
+  chmod +x /tmp/docker-machine
+  sudo mv /tmp/docker-machine /usr/local/bin/docker-machine
+fi
+
 # Skype Alpha for linux
 if ! hash skypeforlinux; then
   curl -L https://go.skype.com/skypeforlinux-64-alpha.deb > /tmp/skype.deb
