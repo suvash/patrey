@@ -30,20 +30,20 @@ newKeys x = DM.fromList $
      -- ,  ((0, 0x1008ff03),
      --     spawn "xbacklight -dec 10")
 
-        -- Toggle Mute
-     -- ,  ((0, 0x1008ff12),
-     --     spawn "pamixer --toggle-mute")
+        -- Mute Volume
+           ((modMask x .|. controlMask, xK_Up),
+            spawn "pactl set-sink-mute 1 toggle")
 
         -- Increase Volume
-     -- ,  ((0, 0x1008ff13),
-     --     spawn "pamixer --increase 10")
+        ,  ((modMask x .|. controlMask, xK_Up),
+            spawn "pactl set-sink-volume 1 +5%")
 
         -- Decrease Volume
-     -- ,  ((0, 0x1008ff11),
-     --     spawn "pamixer --decrease 10")
+        ,  ((modMask x .|. controlMask, xK_Down),
+            spawn "pactl set-sink-volume 1 -5%")
 
         -- X-selection paste
-           ((modMask x .|. controlMask, xK_v),
+        ,  ((modMask x .|. controlMask, xK_v),
             XMUP.pasteSelection)
 
         -- Floating scratchpad
