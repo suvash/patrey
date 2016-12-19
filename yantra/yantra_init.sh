@@ -82,6 +82,8 @@ source $HOME/Developer/scaffold/common/common_symlinks.sh
 
 source $HOME/Developer/scaffold/linux/linux_symlinks.sh
 
+source $HOME/Developer/scaffold/yantra/yantra_symlinks.sh
+
 # ============= End symlink things====================
 
 popd
