@@ -113,9 +113,6 @@ vlc
 zathura
 mplayer2
 
-# R things
-r-base
-
 # Docker things
 docker-engine
 
