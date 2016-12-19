@@ -15,9 +15,8 @@ if [ ! -L $HOME/.packages.apt ]; then
   ln -s $HOME/Developer/scaffold/yantra/packages.apt $HOME/.packages.apt
 fi
 
-if [ ! -L /etc/modules ]; then
-  sudo rm -rf /etc/modules 2> /dev/null
-  sudo ln -s $HOME/Developer/scaffold/yantra/dotfiles/modules /etc/modules
+if [ ! -L /etc/modules-load.d/mbpfan.conf ]; then
+  sudo ln -s $HOME/Developer/scaffold/yantra/dotfiles/mbpfan-modules /etc/modules-load.d/mbpfan.conf
 fi
 
 if [ ! -L /etc/lightdm/lightdm.conf ]; then
