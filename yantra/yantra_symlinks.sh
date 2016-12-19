@@ -10,11 +10,6 @@ if [ ! -L $HOME/.Xresources ]; then
   ln -s $HOME/Developer/scaffold/yantra/dotfiles/Xresources $HOME/.Xresources
 fi
 
-if [ ! -L $HOME/.nixpkgs ]; then
-  rm -rf $HOME/.nixpkgs 2> /dev/null
-  ln -s $HOME/Developer/scaffold/yantra/nixpkgs $HOME/.nixpkgs
-fi
-
 if [ ! -L $HOME/.packages.apt ]; then
   rm -rf $HOME/.packages.apt 2> /dev/null
   ln -s $HOME/Developer/scaffold/yantra/packages.apt $HOME/.packages.apt

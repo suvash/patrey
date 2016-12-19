@@ -35,8 +35,3 @@ set list listchars=tab:»·,trail:·       " display special characters
 set comments=b:#,:%,n:>                 " parse comments prefix so vim can reformat text and preserve comments
 
 let mapleader=","                       " remap leader to comma
-
-" use plugins installed via nix
-for p in [ "ctrlp" ]
-  exec 'set rtp+=~/.nix-profile/share/vim-plugins/'.p
-endfor

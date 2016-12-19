@@ -36,14 +36,6 @@ fi
 # ============= End Clone scaffold ==================
 
 
-# ============= Install Nix ====================
-
-# if [ ! -d /nix/ ]; then
-#   curl https://nixos.org/nix/install | sh
-# fi
-
-# ============= End Nix ====================
-
 # ============= Install Kernel Headers ==================
 
 sudo apt-get install -y linux-headers-$(uname -r)

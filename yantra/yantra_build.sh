@@ -75,7 +75,3 @@ if ! hash mbpfan; then
   sudo systemctl enable mbpfan.service
   popd
 fi
-
-# Nix things
-# nix-env -iA nixpkgs.yantra
-# nix-collect-garbage
