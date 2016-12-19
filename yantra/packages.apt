@@ -58,7 +58,6 @@ nfs-kernel-server
 # Virtualbox things
 vagrant
 virtualbox
-ansible
 
 # System monitoring things
 htop
@@ -70,7 +69,6 @@ dfc
 strace
 baobab
 hardinfo
-sysstat
 dstat
 ngrep
 
