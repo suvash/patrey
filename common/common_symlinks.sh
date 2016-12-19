@@ -36,24 +36,9 @@ if [ ! -L $HOME/.weechat ]; then
   ln -s $HOME/Developer/scaffold/common/weechat $HOME/.weechat
 fi
 
-if [ ! -L $HOME/.ghci ]; then
-  rm -rf $HOME/.ghci 2> /dev/null
-  ln -s $HOME/Developer/scaffold/common/dotfiles/ghci $HOME/.ghci
-fi
-
-if [ ! -L $HOME/.gemrc ]; then
-  rm -rf $HOME/.gemrc 2> /dev/null
-  ln -s $HOME/Developer/scaffold/common/dotfiles/gemrc $HOME/.gemrc
-fi
-
 if [ ! -L $HOME/.vimperatorrc ]; then
   rm -rf $HOME/.vimperatorrc 2> /dev/null
   ln -s $HOME/Developer/scaffold/common/dotfiles/vimperatorrc $HOME/.vimperatorrc
-fi
-
-if [ ! -L $HOME/.lein ]; then
-  rm -rf $HOME/.lein/ 2> /dev/null
-  ln -s $HOME/Developer/scaffold/common/lein $HOME/.lein
 fi
 
 if [ ! -L $HOME/.wallpapers ]; then
