@@ -55,11 +55,6 @@ if [ ! -L /usr/local/bin/start-rstudio ]; then
   sudo ln -s $HOME/Developer/scaffold/yantra/scripts/start-rstudio /usr/local/bin/start-rstudio
 fi
 
-if [ ! -L /usr/local/bin/start-viber ]; then
-  sudo rm -rf /usr/local/bin/start-viber 2> /dev/null
-  sudo ln -s $HOME/Developer/scaffold/yantra/scripts/start-viber /usr/local/bin/start-viber
-fi
-
 if [ ! -L /usr/local/bin/set-greeter-resolution ]; then
   sudo rm -rf /usr/local/bin/set-greeter-resolution 2> /dev/null
   sudo ln -s $HOME/Developer/scaffold/yantra/scripts/set-greeter-resolution /usr/local/bin/set-greeter-resolution

@@ -1,9 +1,0 @@
-#!/usr/bin/env bash
-
-VIBER_LOCATION=/opt/viber
-if [ -d  $VIBER_LOCATION ]; then
-  cd $VIBER_LOCATION
-  ./Viber
-else
-  echo "Viber not found ! Please install it at $VIBER_LOCATION"
-fi
