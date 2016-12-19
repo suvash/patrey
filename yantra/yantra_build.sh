@@ -31,14 +31,14 @@ fi
 
 # Docker compose
 if ! hash docker-compose; then
-  curl -L https://github.com/docker/compose/releases/download/1.9.0-rc4/docker-compose-Linux-x86_64 > /tmp/docker-compose
+  curl -L https://github.com/docker/compose/releases/download/1.9.0/docker-compose-Linux-x86_64 > /tmp/docker-compose
   chmod +x /tmp/docker-compose
   sudo mv /tmp/docker-compose /usr/local/bin/docker-compose
 fi
 
 # Docker Machine
 if ! hash docker-machine; then
-  curl -L https://github.com/docker/machine/releases/download/v0.9.0-rc1/docker-machine-Linux-x86_64 > /tmp/docker-machine
+  curl -L https://github.com/docker/machine/releases/download/v0.9.0-rc2/docker-machine-Linux-x86_64 > /tmp/docker-machine
   chmod +x /tmp/docker-machine
   sudo mv /tmp/docker-machine /usr/local/bin/docker-machine
 fi
@@ -51,7 +51,7 @@ fi
 
 # Synology cloud station
 if ! hash synology-cloud-station-drive; then
-  curl https://global.download.synology.com/download/Tools/CloudStationDrive/4.0-4203/Ubuntu/Installer/x86_64/synology-cloud-station-drive-4203.x86_64.deb > /tmp/synology.deb
+  curl https://global.download.synology.com/download/Tools/CloudStationDrive/4.2.1-4374/Ubuntu/Installer/x86_64/synology-cloud-station-drive-4374.x86_64.deb > /tmp/synology.deb
   sudo dpkg -i /tmp/synology.deb
 fi
 
