@@ -129,9 +129,6 @@ adobe-flash-properties-gtk
 # Java
 openjdk-8-jre
 
-# Git Lfs
-git-lfs
-
 # Libcurl
 libcurl4-openssl-dev
 libssl-dev

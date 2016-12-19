@@ -76,11 +76,6 @@ echo "deb http://archive.canonical.com/ubuntu $DISTRIB_CODENAME partner" \
 
 sudo apt-get update
 
-# Git LFS
-if ! hash git-lfs; then
-  curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.deb.sh | sudo bash
-fi
-
 # ============= End Apt Repositories ====================
 
 # ============= Sudoless Docker ====================
