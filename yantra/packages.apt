@@ -12,14 +12,12 @@ xcape
 unclutter
 redshift
 xdg-utils
+dunst
 
 # Screensaver things
 xscreensaver
 xscreensaver-data
 xscreensaver-data-extra
-
-# Bootup service manager
-bum
 
 # Power things
 xfce4-power-manager
@@ -123,6 +121,11 @@ qt4-qtconfig
 # Flash
 adobe-flashplugin
 adobe-flash-properties-gtk
+
+# Font things
+font-manager
+fonts-deva-extra
+fonts-lohit-deva
 
 # Java
 openjdk-8-jre
