@@ -68,6 +68,9 @@ echo 'deb https://deb.opera.com/opera-stable/ stable non-free' \
 echo "deb http://archive.canonical.com/ubuntu $DISTRIB_CODENAME partner" \
      | sudo tee /etc/apt/sources.list.d/canonical.list
 
+echo "deb-src http://archive.canonical.com/ubuntu $DISTRIB_CODENAME partner" \
+     | sudo tee -a /etc/apt/sources.list.d/canonical.list
+
 sudo apt-get update
 
 # ============= End Apt Repositories ====================
