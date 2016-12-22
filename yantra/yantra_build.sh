@@ -22,6 +22,12 @@ fi
 
 # Install 3rd party things
 
+# Vagrant
+if ! hash vagrant; then
+  curl -L https://releases.hashicorp.com/vagrant/1.9.1/vagrant_1.9.1_x86_64.deb > /tmp/vagrant.deb
+  sudo dpkg -i /tmp/vagrant.deb && rm /tmp/vagrant.deb
+fi
+
 # Terraform
 if ! hash terraform; then
   curl -L https://releases.hashicorp.com/terraform/0.7.10/terraform_0.7.10_linux_amd64.zip > /tmp/terraform.zip

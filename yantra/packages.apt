@@ -54,7 +54,6 @@ nfs-common
 nfs-kernel-server
 
 # Virtualbox things
-vagrant
 virtualbox
 
 # System monitoring things
