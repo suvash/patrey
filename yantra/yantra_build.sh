@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # Install all the packages mentioned in packages.list
-cat $HOME/.packages.apt | awk '!/(^#|^$)/{print $0}' | xargs sudo apt-get install --yes --force-yes
+cat $HOME/.packages.apt | awk '!/(^#|^$)/{print $0}' | xargs sudo apt-get install --yes
 
 # Autoremove crap
 sudo apt-get autoremove -y
