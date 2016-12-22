@@ -75,7 +75,7 @@ sudo apt-get update
 
 # ============= Sudoless Docker ====================
 
-sudo groupadd docker
+getent group docker || sudo groupadd docker
 sudo usermod -aG docker $(whoami)
 
 # ============= Docker things ====================
