@@ -1,3 +1,6 @@
+;; Autoadded - disabling because it's done in setup-elpa-packages later
+;; (package-initialize)
+
 ;; Load Bootstrap Path
 (add-to-list 'load-path "~/.emacs.d/bootstrap")
 
