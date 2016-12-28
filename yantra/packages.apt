@@ -94,6 +94,7 @@ parallel
 qgit
 gitg
 pandoc
+shellcheck
 
 # Install utilities
 tree
