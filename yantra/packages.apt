@@ -109,6 +109,9 @@ vlc
 zathura
 mplayer2
 
+# Silly things
+xcowsay
+
 # Docker things
 docker-engine
 
