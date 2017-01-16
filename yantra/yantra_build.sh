@@ -20,6 +20,9 @@ if ! $(finger $USER | grep -q '/usr/bin/fish'); then
   chsh -s /usr/bin/fish
 fi
 
+# Update PCI Ids
+sudo update-pciids
+
 # Install 3rd party things
 
 # Vagrant

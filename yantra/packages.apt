@@ -53,6 +53,10 @@ tmux
 nfs-common
 nfs-kernel-server
 
+# os tools
+udisks2
+lshw
+
 # Virtualbox things
 virtualbox
 
