@@ -40,14 +40,14 @@ fi
 
 # Docker compose
 if ! hash docker-compose; then
-  curl -L https://github.com/docker/compose/releases/download/1.9.0/docker-compose-Linux-x86_64 > /tmp/docker-compose
+  curl -L https://github.com/docker/compose/releases/download/1.10.0/docker-compose-Linux-x86_64 > /tmp/docker-compose
   chmod +x /tmp/docker-compose
   sudo mv /tmp/docker-compose /usr/local/bin/docker-compose
 fi
 
 # Docker Machine
 if ! hash docker-machine; then
-  curl -L https://github.com/docker/machine/releases/download/v0.9.0-rc2/docker-machine-Linux-x86_64 > /tmp/docker-machine
+  curl -L https://github.com/docker/machine/releases/download/v0.9.0/docker-machine-Linux-x86_64 > /tmp/docker-machine
   chmod +x /tmp/docker-machine
   sudo mv /tmp/docker-machine /usr/local/bin/docker-machine
 fi
