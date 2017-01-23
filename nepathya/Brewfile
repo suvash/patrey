@@ -25,6 +25,8 @@ brew 'homebrew/dupes/lsof'
 brew 'homebrew/dupes/make'
 brew 'homebrew/dupes/unzip'
 brew 'homebrew/dupes/whois'
+brew 'yubico-piv-tool'
+brew 'yubikey-personalization'
 
 cask 'airfoil'
 cask 'alfred'
