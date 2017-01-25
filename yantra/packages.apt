@@ -78,6 +78,7 @@ nmap
 openvpn
 traceroute
 tcpdump
+bridge-utils
 
 # Browsers
 chromium-browser
