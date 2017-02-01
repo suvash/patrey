@@ -47,6 +47,6 @@ if [ ! -L $HOME/.wallpapers ]; then
 fi
 
 if [ ! -L $HOME/.gnupg/gpg.conf ]; then
-  mkdir -p $HOME/.gnupg
+  mkdir -p $HOME/.gnupg && chmod 700 $HOME/.gnupg
   ln -s $HOME/Developer/scaffold/common/dotfiles/gpg.conf $HOME/.gnupg/gpg.conf
 fi
