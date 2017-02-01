@@ -1,5 +1,5 @@
 function fish_bootstrap
-	
+
   # Disable greeting
   set -U fish_greeting
 
