@@ -83,7 +83,7 @@ bridge-utils
 # Browsers
 chromium-browser
 opera-stable
-firefox
+# firefox
 lynx
 
 # Editors things
