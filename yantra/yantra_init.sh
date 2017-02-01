@@ -47,6 +47,14 @@ DISTRIB_CODENAME=$(lsb_release -sc)
 # Also enable MultiArch
 sudo dpkg --add-architecture i386
 
+# Fish shell repo
+sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 59FDA1CE1B84B3FAD89366C027557F056DC33CA5
+echo "deb http://ppa.launchpad.net/fish-shell/release-2/ubuntu $DISTRIB_CODENAME main" \
+     | sudo tee /etc/apt/sources.list.d/fish-shell.list
+
+echo "deb-src http://ppa.launchpad.net/fish-shell/release-2/ubuntu $DISTRIB_CODENAME main" \
+     | sudo tee -a /etc/apt/sources.list.d/fish-shell.list
+
 # Docker repo
 sudo apt-key adv --keyserver hkp://p80.pool.sks-keyservers.net:80 --recv-keys 58118E89F3A912897C070ADBF76221572C52609D
 echo "deb https://apt.dockerproject.org/repo ubuntu-$DISTRIB_CODENAME main" \
