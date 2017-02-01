@@ -1,7 +1,7 @@
 function gpg
-  if command -s gpg2 > /dev/null ^ /dev/null
+  if command -v gpg2 > /dev/null ^ /dev/null
     command gpg2 $argv
-  else if command -s gpg > /dev/null ^ /dev/null
+  else if command -v gpg > /dev/null ^ /dev/null
     command gpg $argv
   else
     echo 'Neither gpg2 nor gpg was found in $PATH.'
