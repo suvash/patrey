@@ -42,6 +42,14 @@ pavumeter
 seahorse
 hopenpgp-tools
 p7zip-full
+gnupg2
+gnupg-agent
+pinentry-curses
+scdaemon
+paperkey
+
+# Yubikey things
+yubikey-personalization
 
 # Terminal Shell things
 fish
