@@ -53,6 +53,9 @@
 (when (display-graphic-p)
   (setq x-select-request-type '(UTF8_STRING COMPOUND_TEXT TEXT STRING)))
 
+;; use gpg2 instead of gpg
+(setq epg-gpg-program "gpg2")
+
 ;; Some Global keybindings
 (global-set-key (kbd "RET") 'newline-and-indent)
 (global-set-key (kbd "C-+") 'text-scale-increase)
