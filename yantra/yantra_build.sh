@@ -83,3 +83,18 @@ if ! hash mbpfan; then
   sudo systemctl enable mbpfan.service
   popd
 fi
+
+# Facetime HD camera
+if ! find /lib/modules/$(uname -r) -type f -name \*.ko | grep facetimehd; then
+  pushd $PWD
+  mkdir -p $HOME/Developer/utilities/
+  git clone https://github.com/patjak/bcwc_pcie $HOME/Developer/utilities/facetimehd
+  cd $HOME/Developer/utilities/facetimehd/firmware
+  make
+  sudo make install
+  cd $HOME/Developer/utilities/facetimehd/
+  make
+  sudo make install
+  sudo depmod
+  popd
+fi

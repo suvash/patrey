@@ -19,6 +19,10 @@ if [ ! -L /etc/modules-load.d/mbpfan.conf ]; then
   sudo ln -s $HOME/Developer/scaffold/yantra/dotfiles/mbpfan-modules /etc/modules-load.d/mbpfan.conf
 fi
 
+if [ ! -L /etc/modules-load.d/facetimehd.conf ]; then
+  sudo ln -s $HOME/Developer/scaffold/yantra/dotfiles/facetimehd-modules /etc/modules-load.d/facetimehd.conf
+fi
+
 if [ ! -L /etc/lightdm/lightdm.conf ]; then
   sudo rm -rf /etc/lightdm/lightdm.conf 2> /dev/null
   sudo ln -s $HOME/Developer/scaffold/yantra/lightdm/lightdm.conf /etc/lightdm/lightdm.conf
