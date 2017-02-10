@@ -96,7 +96,7 @@ function fish_user_abbreviations
     cmprs7z='7za a -t7z -mx=9 -m0=lzma2 -ms=on -mhc=on -mhe=on -p' \
     cmprszip='7za a -tzip -mx=9 -mem=aes256 -p' \
     \
-    ducks='du -cks * | sort -rn | head' \
+    ducks='du -cks * | sort -rn' \
     cl='tty-clock' \
     fonts='fc-list' \
     xa='xrandr --auto' \
