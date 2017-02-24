@@ -25,12 +25,6 @@ sudo update-pciids
 
 # Install 3rd party things
 
-# Firefox specific version
-if ! hash firefox; then
-  curl -L https://downloads.sourceforge.net/project/ubuntuzilla/mozilla/apt/pool/main/f/firefox-mozilla-build/firefox-mozilla-build_50.1.0-0ubuntu1_amd64.deb > /tmp/firefox.deb
-  sudo dpkg -i /tmp/firefox.deb && rm /tmp/firefox.deb
-fi
-
 # Vagrant
 if ! hash vagrant; then
   curl -L https://releases.hashicorp.com/vagrant/1.9.1/vagrant_1.9.1_x86_64.deb > /tmp/vagrant.deb
