@@ -56,6 +56,7 @@ fish
 lilyterm
 rxvt-unicode-256color
 tmux
+minicom
 
 # NFS things
 nfs-common
