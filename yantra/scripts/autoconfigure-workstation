@@ -86,6 +86,7 @@ MONITORS_FOUND=$(get_monitors)
 MONITOR_MESSAGES=''
 XRANDR_STRING=''
 
+declare -A MONITORS
 OLD_IFS=$IFS
 IFS=$'\n'
 for monitor in $MONITORS_FOUND; do
@@ -93,6 +94,8 @@ for monitor in $MONITORS_FOUND; do
     monitor_name=$(echo $monitor | awk -F--- '{print $2}')
 
     MONITOR_MESSAGES="$MONITOR_MESSAGES\nFound $monitor_name at $connection"
+
+    MONITORS[$connection]=$monitor_name
 
     if [ "$monitor_name" == "DELL P2715Q" ]; then
         XRANDR_STRING="$XRANDR_STRING --output eDP1 --mode 2560x1600 --pos 3840x0 --rotate normal --output $connection --primary --mode 3840x2160 --pos 0x0 --rotate normal"
@@ -110,6 +113,11 @@ IFS=$OLD_IFS
 
 # Notify monitor detection
 notify-send --urgency=NORMAL 'Detecting monitors' "$MONITOR_MESSAGES"
+
+# Special dual 4k display at work setup
+if [ "${MONITORS[DP1]}" == "DELL P2715Q" ] && [ "${MONITORS[DP2]}" == "DELL P2715Q"  ]; then
+    XRANDR_STRING="--output eDP1 --mode 2560x1600 --pos 6000x240 --rotate normal --output DP1 --mode 3840x2160 --pos 0x0 --rotate left --output DP2 --primary --mode 3840x2160 --pos 2160x0 --rotate normal"
+fi
 
 # Run the xrandr string
 # echo "xrandr $XRANDR_STRING"
