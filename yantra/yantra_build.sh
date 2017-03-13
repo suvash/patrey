@@ -52,6 +52,13 @@ if ! hash docker-machine; then
   sudo mv /tmp/docker-machine /usr/local/bin/docker-machine
 fi
 
+# Ctop
+if ! hash ctop; then
+  curl -L https://github.com/bcicen/ctop/releases/download/v0.4.1/ctop-0.4.1-linux-amd64 > /tmp/ctop
+  chmod +x /tmp/ctop
+  sudo mv /tmp/ctop /usr/local/bin/ctop
+fi
+
 # Skype Alpha for linux
 if ! hash skypeforlinux; then
   curl -L https://go.skype.com/skypeforlinux-64-alpha.deb > /tmp/skype.deb
