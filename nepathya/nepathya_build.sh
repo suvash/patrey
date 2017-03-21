@@ -19,9 +19,6 @@ brew upgrade
 echo "Brew bundling dependencies"
 brew bundle --file=$HOME/Developer/scaffold/nepathya/Brewfile
 
-echo "Brew linking"
-brew linkapps --local
-
 echo "Brew and cask cleanup"
 brew cleanup
 brew cask cleanup
