@@ -151,3 +151,6 @@ openjdk-8-jre
 # Libcurl
 libcurl4-openssl-dev
 libssl-dev
+
+# Binary Analysis
+radare2
