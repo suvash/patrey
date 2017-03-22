@@ -10,6 +10,11 @@ if [ ! -L $HOME/.Xresources ]; then
   ln -s $HOME/Developer/scaffold/yantra/dotfiles/Xresources $HOME/.Xresources
 fi
 
+if [ ! -L $HOME/.env ]; then
+  rm -rf $HOME/.env 2> /dev/null
+  ln -s $HOME/Developer/scaffold/yantra/dotfiles/env $HOME/.env
+fi
+
 if [ ! -L $HOME/.packages.apt ]; then
   rm -rf $HOME/.packages.apt 2> /dev/null
   ln -s $HOME/Developer/scaffold/yantra/packages.apt $HOME/.packages.apt
@@ -43,22 +48,27 @@ if [ ! -L /usr/local/bin/start-xmonad-session ]; then
   sudo ln -s $HOME/Developer/scaffold/yantra/scripts/start-xmonad-session /usr/local/bin/start-xmonad-session
 fi
 
-if [ ! -L /usr/local/bin/start-tor-browser ]; then
-  sudo rm -rf /usr/local/bin/start-tor-browser 2> /dev/null
-  sudo ln -s $HOME/Developer/scaffold/yantra/scripts/start-tor-browser /usr/local/bin/start-tor-browser
-fi
-
 if [ ! -L /usr/local/bin/set-greeter-resolution ]; then
   sudo rm -rf /usr/local/bin/set-greeter-resolution 2> /dev/null
   sudo ln -s $HOME/Developer/scaffold/yantra/scripts/set-greeter-resolution /usr/local/bin/set-greeter-resolution
 fi
 
-if [ ! -L /usr/local/bin/autoconfigure-workstation ]; then
-  sudo rm -rf /usr/local/bin/autoconfigure-workstation 2> /dev/null
-  sudo ln -s $HOME/Developer/scaffold/yantra/scripts/autoconfigure-workstation /usr/local/bin/autoconfigure-workstation
+if [ ! -L $HOME/.local/bin/start-tor-browser ]; then
+  rm -rf $HOME/.local/bin/start-tor-browser 2> /dev/null
+  ln -s $HOME/Developer/scaffold/yantra/scripts/start-tor-browser $HOME/.local/bin/start-tor-browser
 fi
 
-if [ ! -L /usr/local/bin/get-fan-speed ]; then
-  sudo rm -rf /usr/local/bin/get-fan-speed 2> /dev/null
-  sudo ln -s $HOME/Developer/scaffold/yantra/scripts/get-fan-speed /usr/local/bin/get-fan-speed
+if [ ! -L $HOME/.local/bin/autoconfigure-workstation ]; then
+  rm -rf $HOME/.local/bin/autoconfigure-workstation 2> /dev/null
+  ln -s $HOME/Developer/scaffold/yantra/scripts/autoconfigure-workstation $HOME/.local/bin/autoconfigure-workstation
+fi
+
+if [ ! -L $HOME/.local/bin/get-fan-speed ]; then
+  rm -rf $HOME/.local/bin/get-fan-speed 2> /dev/null
+  ln -s $HOME/Developer/scaffold/yantra/scripts/get-fan-speed $HOME/.local/bin/get-fan-speed
+fi
+
+if [ ! -L $HOME/.local/bin/utf-demo ]; then
+  rm -rf $HOME/.local/bin/utf-demo 2> /dev/null
+  ln -s $HOME/Developer/scaffold/yantra/scripts/utf-demo $HOME/.local/bin/utf-demo
 fi

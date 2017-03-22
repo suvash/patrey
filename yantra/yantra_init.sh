@@ -35,6 +35,10 @@ fi
 
 # ============= End Clone scaffold ==================
 
+# ============= Local bindir creation ===============
+
+mkdir -p $HOME/.local/bin
+
 
 # ============= Install Kernel Headers ==================
 

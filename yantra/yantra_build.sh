@@ -35,28 +35,21 @@ fi
 if ! hash terraform; then
   curl -L https://releases.hashicorp.com/terraform/0.7.10/terraform_0.7.10_linux_amd64.zip > /tmp/terraform.zip
   unzip /tmp/terraform.zip -d /tmp && chmod +x /tmp/terraform
-  sudo mv /tmp/terraform /usr/local/bin/terraform
+  sudo mv /tmp/terraform $HOME/.local/bin/terraform
 fi
 
 # Docker compose
 if ! hash docker-compose; then
   curl -L https://github.com/docker/compose/releases/download/1.10.0/docker-compose-Linux-x86_64 > /tmp/docker-compose
   chmod +x /tmp/docker-compose
-  sudo mv /tmp/docker-compose /usr/local/bin/docker-compose
-fi
-
-# Docker Machine
-if ! hash docker-machine; then
-  curl -L https://github.com/docker/machine/releases/download/v0.9.0/docker-machine-Linux-x86_64 > /tmp/docker-machine
-  chmod +x /tmp/docker-machine
-  sudo mv /tmp/docker-machine /usr/local/bin/docker-machine
+  sudo mv /tmp/docker-compose $HOME/.local/bin/docker-compose
 fi
 
 # Ctop
 if ! hash ctop; then
   curl -L https://github.com/bcicen/ctop/releases/download/v0.4.1/ctop-0.4.1-linux-amd64 > /tmp/ctop
   chmod +x /tmp/ctop
-  sudo mv /tmp/ctop /usr/local/bin/ctop
+  sudo mv /tmp/ctop $HOME/.local/bin/ctop
 fi
 
 # Skype Alpha for linux
