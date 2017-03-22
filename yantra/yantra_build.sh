@@ -66,10 +66,10 @@ if ! hash skypeforlinux; then
 fi
 
 # Synology cloud station
-if ! hash synology-cloud-station-drive; then
-  curl https://global.download.synology.com/download/Tools/CloudStationDrive/4.2.1-4374/Ubuntu/Installer/x86_64/synology-cloud-station-drive-4374.x86_64.deb > /tmp/synology.deb
-  sudo dpkg -i /tmp/synology.deb
-fi
+# if ! hash synology-cloud-station-drive; then
+#   curl https://global.download.synology.com/download/Tools/CloudStationDrive/4.2.1-4374/Ubuntu/Installer/x86_64/synology-cloud-station-drive-4374.x86_64.deb > /tmp/synology.deb
+#   sudo dpkg -i /tmp/synology.deb
+# fi
 
 # Mbpfan - controls fan on macbooks and works quite good
 if ! hash mbpfan; then

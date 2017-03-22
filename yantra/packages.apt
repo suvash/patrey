@@ -104,6 +104,7 @@ emacs24
 jq
 git
 tig
+curl
 silversearcher-ag
 parallel
 qgit
