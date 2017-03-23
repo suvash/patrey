@@ -58,6 +58,12 @@ if ! hash skypeforlinux; then
   sudo dpkg -i /tmp/skype.deb
 fi
 
+# Slack for Linux
+if ! hash slack; then
+    curl -L https://downloads.slack-edge.com/linux_releases/slack-desktop-2.5.2-amd64.deb > /tmp/slack.deb
+    sudo dpkg -i /tmp/slack.deb
+fi
+
 # Synology cloud station
 # if ! hash synology-cloud-station-drive; then
 #   curl https://global.download.synology.com/download/Tools/CloudStationDrive/4.2.1-4374/Ubuntu/Installer/x86_64/synology-cloud-station-drive-4374.x86_64.deb > /tmp/synology.deb
