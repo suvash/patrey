@@ -98,15 +98,15 @@ for monitor in $MONITORS_FOUND; do
     MONITORS[$connection]=$monitor_name
 
     if [ "$monitor_name" == "DELL P2715Q" ]; then
-        XRANDR_STRING="$XRANDR_STRING --output eDP-1 --mode 2560x1600 --pos 3840x0 --rotate normal --output $connection --primary --mode 3840x2160 --pos 0x0 --rotate normal"
+        XRANDR_STRING="$XRANDR_STRING --output eDP1 --mode 2560x1600 --pos 3840x0 --rotate normal --output $connection --primary --mode 3840x2160 --pos 0x0 --rotate normal"
     fi
 
     if [ "$monitor_name" == "CS2420" ]; then
-        XRANDR_STRING="$XRANDR_STRING --output eDP-1 --primary --mode 2560x1600 --pos 0x0 --rotate normal --output $connection --mode 1920x1200 --pos 2560x0 --rotate normal"
+        XRANDR_STRING="$XRANDR_STRING --output eDP1 --primary --mode 2560x1600 --pos 0x0 --rotate normal --output $connection --mode 1920x1200 --pos 2560x0 --rotate normal"
     fi
 
     if [ "$monitor_name" == "LG TV" ]; then
-        XRANDR_STRING="$XRANDR_STRING --output eDP-1 --primary --mode 2560x1600 --pos 0x0 --rotate normal --output $connection --mode 1920x1080 --pos 2560x0 --rotate normal"
+        XRANDR_STRING="$XRANDR_STRING --output eDP1 --primary --mode 2560x1600 --pos 0x0 --rotate normal --output $connection --mode 1920x1080 --pos 2560x0 --rotate normal"
     fi
 done
 IFS=$OLD_IFS
@@ -115,14 +115,14 @@ IFS=$OLD_IFS
 notify-send --urgency=NORMAL 'Detecting monitors' "$MONITOR_MESSAGES"
 
 # Special dual 4k display at work setup
-if [ "${MONITORS[DP-1]}" == "DELL P2715Q" ] && [ "${MONITORS[DP-2]}" == "DELL P2715Q"  ]; then
-    XRANDR_STRING="--output DP-1 --mode 3840x2160 --pos 0x0 --rotate left --output eDP-1 --mode 1920x1200 --pos 6000x960 --rotate normal --output DP-2 --primary --mode 3840x2160 --pos 2160x0 --rotate normal"
+if [ "${#MONITORS[@]}" == 3 ] ; then
+    XRANDR_STRING="--output eDP1 --mode 2560x1600 --pos 6000x280 --rotate normal --output DP1 --mode 3840x2160 --pos 0x0 --rotate left --output DP2 --primary --mode 3840x2160 --pos 2160x0 --rotate normal"
 fi
 
 # Run the xrandr string
 # echo "xrandr $XRANDR_STRING"
 # Should be for DELL P2715Q
-# xrandr --output eDP-1 --mode 2560x1600 --pos 3840x0 --rotate normal --output DP-1 --primary --mode 3840x2160 --pos 0x0 --rotate normal
+# xrandr --output eDP1 --mode 2560x1600 --pos 3840x0 --rotate normal --output DP1 --primary --mode 3840x2160 --pos 0x0 --rotate normal
 eval "xrandr $XRANDR_STRING"
 
 # Run Auto afterwards to fall back to default
