@@ -65,6 +65,7 @@ nfs-kernel-server
 # os tools
 udisks2
 lshw
+stress
 
 # Virtualbox things
 virtualbox
@@ -95,10 +96,14 @@ chromium-browser
 opera-stable
 firefox
 lynx
+brave
 
 # Editors things
 vim
 emacs24
+
+# Compilers etc.
+clang
 
 # Development tools
 jq
@@ -147,7 +152,7 @@ fonts-deva-extra
 fonts-lohit-deva
 
 # Java
-openjdk-8-jre
+openjdk-8-jdk
 
 # Libcurl
 libcurl4-openssl-dev
@@ -160,3 +165,5 @@ radare2
 libindicator7
 libappindicator1
 
+# Intel GPU things
+intel-gpu-tools

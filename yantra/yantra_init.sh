@@ -74,6 +74,11 @@ wget -qO- https://deb.opera.com/archive.key | sudo apt-key add -
 echo 'deb https://deb.opera.com/opera-stable/ stable non-free' \
     | sudo tee /etc/apt/sources.list.d/opera-stable.list
 
+# Brave Repo
+wget -qO- https://s3-us-west-2.amazonaws.com/brave-apt/keys.asc | sudo apt-key add -
+echo "deb [arch=amd64] https://s3-us-west-2.amazonaws.com/brave-apt $DISTRIB_CODENAME main" \
+    | sudo tee /etc/apt/sources.list.d/brave.list
+
 # Canonical Partner Repo
 echo "deb http://archive.canonical.com/ubuntu $DISTRIB_CODENAME partner" \
      | sudo tee /etc/apt/sources.list.d/canonical.list
