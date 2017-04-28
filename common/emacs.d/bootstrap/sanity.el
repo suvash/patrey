@@ -54,7 +54,7 @@
   (setq x-select-request-type '(UTF8_STRING COMPOUND_TEXT TEXT STRING)))
 
 ;; use gpg2 instead of gpg
-(setq epg-gpg-program "gpg2")
+(setq epg-gpg-program "gpg")
 
 ;; Some Global keybindings
 (global-set-key (kbd "RET") 'newline-and-indent)
