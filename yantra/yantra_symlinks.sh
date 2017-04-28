@@ -63,6 +63,11 @@ if [ ! -L $HOME/.local/bin/autoconfigure-workstation ]; then
   ln -s $HOME/Developer/scaffold/yantra/scripts/autoconfigure-workstation $HOME/.local/bin/autoconfigure-workstation
 fi
 
+if [ ! -L $HOME/.local/bin/get-module-parameters ]; then
+  rm -rf $HOME/.local/bin/get-module-parameters 2> /dev/null
+  ln -s $HOME/Developer/scaffold/yantra/scripts/get-module-parameters $HOME/.local/bin/get-module-parameters
+fi
+
 if [ ! -L $HOME/.local/bin/get-fan-speed ]; then
   rm -rf $HOME/.local/bin/get-fan-speed 2> /dev/null
   ln -s $HOME/Developer/scaffold/yantra/scripts/get-fan-speed $HOME/.local/bin/get-fan-speed
