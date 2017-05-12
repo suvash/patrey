@@ -91,6 +91,7 @@ traceroute
 tcpdump
 bridge-utils
 openvpn
+network-manager-openvpn
 network-manager-openvpn-gnome
 
 # Browsers
