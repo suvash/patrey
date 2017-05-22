@@ -28,7 +28,7 @@ brew 'yubikey-personalization'
 brew 'ykpers'
 brew 'libyubikey'
 brew 'ykclient'
-brew 'gpg2'
+brew 'gpg'
 brew 'pinentry'
 brew 'hugo'
 
