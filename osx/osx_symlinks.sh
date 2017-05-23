@@ -14,3 +14,8 @@ if [ ! -L $HOME/.karabiner.d ]; then
   rm -rf $HOME/.karabiner.d/ 2> /dev/null
   ln -s $HOME/Developer/scaffold/osx/karabiner.d $HOME/.karabiner.d
 fi
+
+if [ ! -L $HOME/.gnupg/gpg-agent.conf ]; then
+  mkdir -p $HOME/.gnupg && chmod 700 $HOME/.gnupg
+  ln -s $HOME/Developer/scaffold/osx/dotfiles/gpg-agent.conf $HOME/.gnupg/gpg-agent.conf
+fi

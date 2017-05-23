@@ -29,7 +29,7 @@ brew 'ykpers'
 brew 'libyubikey'
 brew 'ykclient'
 brew 'gpg'
-brew 'pinentry'
+brew 'pinentry-mac'
 brew 'hugo'
 
 cask 'airfoil'

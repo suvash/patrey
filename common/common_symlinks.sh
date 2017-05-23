@@ -50,8 +50,3 @@ if [ ! -L $HOME/.gnupg/gpg.conf ]; then
   mkdir -p $HOME/.gnupg && chmod 700 $HOME/.gnupg
   ln -s $HOME/Developer/scaffold/common/dotfiles/gpg.conf $HOME/.gnupg/gpg.conf
 fi
-
-if [ ! -L $HOME/.gnupg/gpg-agent.conf ]; then
-  mkdir -p $HOME/.gnupg && chmod 700 $HOME/.gnupg
-  ln -s $HOME/Developer/scaffold/common/dotfiles/gpg-agent.conf $HOME/.gnupg/gpg-agent.conf
-fi
