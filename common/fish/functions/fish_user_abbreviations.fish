@@ -47,6 +47,7 @@ function fish_user_abbreviations
     gls='git log --stat --max-count=5' \
     glg='git lg --max-count=5' \
     glgg='git log --graph --max-count=5' \
+    gsg='git shortlog -sn' \
      \
     gcf='git diff-tree --no-commit-id --name-only -r HEAD' \
      \
