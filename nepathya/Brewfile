@@ -31,6 +31,7 @@ brew 'ykclient'
 brew 'gpg'
 brew 'pinentry-mac'
 brew 'hugo'
+brew 'terraform'
 
 cask 'airfoil'
 cask 'alfred'
