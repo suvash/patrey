@@ -1,19 +1,24 @@
 [user]
-  name = Suvash Thapaliya
-  email = suvash@gmail.com
+	name = Suvash Thapaliya
+	email = suvash@gmail.com
+	signingkey = 0x943FDA115E73D2B2
 [core]
-  excludesfile = ~/.gitignore
-  editor = vim
+	excludesfile = ~/.gitignore
+	editor = vim
 [color]
-  branch = auto
-  diff = auto
-  interactive = auto
-  status = auto
+	branch = auto
+	diff = auto
+	interactive = auto
+	status = auto
 [push]
-  default = simple
-  followTags = true
+	default = simple
+	followTags = true
 [branch "master"]
-  mergeoptions = --no-ff
+	mergeoptions = --no-ff
 [alias]
-  prune = fetch --prune
-  lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+	prune = fetch --prune
+	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+[gpg]
+	program = gpg
+[commit]
+	gpgsign = true
