@@ -1,3 +1,6 @@
+# Firmware
+fwupd
+
 # Window manager tools
 xmonad
 libghc-xmonad-dev
@@ -33,12 +36,12 @@ xsensors
 psensor
 
 # Sound things
-# pulseaudio-module-raop
-# pasystray
-# paman
-# paprefs
-# pavucontrol
-# pavumeter
+pulseaudio-module-raop
+pasystray
+paman
+paprefs
+pavucontrol
+pavumeter
 
 # Keychain SSH GPG ZIP things
 p7zip-full
@@ -66,6 +69,8 @@ lshw
 udisks2
 stress
 
+# package things
+gdebi
 
 # System monitoring things
 htop

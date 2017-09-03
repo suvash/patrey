@@ -34,6 +34,12 @@ if ! hash opera; then
   sudo dpkg -i /tmp/opera.deb && rm /tmp/opera.deb
 fi
 
+# Tor browser
+if ! hash torbrowser-launcher; then
+  curl -L  http://ftp.se.debian.org/debian/pool/contrib/t/torbrowser-launcher/torbrowser-launcher_0.2.7-3_amd64.deb > /tmp/tor-browser.deb
+  sudo gdebi -n /tmp/tor-browser.deb && rm /tmp/tor-browser.deb
+fi
+
 # Vagrant
 if ! hash vagrant; then
   curl -L https://releases.hashicorp.com/vagrant/1.9.8/vagrant_1.9.8_x86_64.deb > /tmp/vagrant.deb

@@ -30,17 +30,13 @@ newKeys x = DM.fromList $
      -- ,  ((0, 0x1008ff03),
      --     spawn "xbacklight -dec 10")
 
-        -- Mute Volume
-           ((modMask x .|. controlMask, xK_Up),
-            spawn "pactl set-sink-mute 1 toggle")
-
         -- Increase Volume
-        ,  ((modMask x .|. controlMask, xK_Up),
-            spawn "pactl set-sink-volume 1 +5%")
+           ((modMask x .|. controlMask, xK_Up),
+            spawn "pactl set-sink-volume 0 +5%")
 
         -- Decrease Volume
         ,  ((modMask x .|. controlMask, xK_Down),
-            spawn "pactl set-sink-volume 1 -5%")
+            spawn "pactl set-sink-volume 0 -5%")
 
         -- X-selection paste
         ,  ((modMask x .|. controlMask, xK_v),
@@ -80,7 +76,7 @@ newKeys x = DM.fromList $
 
         -- Launch Spotify
         ,  ((modMask x .|. controlMask, xK_s),
-            spawn "spotify --force-device-scale-factor=1.8")
+            spawn "spotify --force-device-scale-factor=1.0")
 
         -- Launch Opera
         ,  ((modMask x .|. controlMask, xK_o),
@@ -96,7 +92,7 @@ newKeys x = DM.fromList $
 
         -- Launch Tor Browser
         ,  ((modMask x .|. controlMask, xK_t),
-            spawn "start-tor-browser")
+            spawn "torbrowser-launcher")
 
         -- Launch Emacs
         ,  ((modMask x .|. controlMask, xK_e),
