@@ -92,7 +92,7 @@ newKeys x = DM.fromList $
 
         -- Launch Chrome Igcognito
         ,  ((modMask x .|. controlMask, xK_c),
-            spawn "chromium-browser --incognito --force-device-scale-factor=1.8")
+            spawn "chromium --incognito --force-device-scale-factor=1.0")
 
         -- Launch Tor Browser
         ,  ((modMask x .|. controlMask, xK_t),

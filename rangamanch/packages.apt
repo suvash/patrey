@@ -1,0 +1,136 @@
+# Window manager tools
+xmonad
+libghc-xmonad-dev
+libghc-xmonad-contrib-dev
+libghc-xmonad-extras-dev
+libghc-xmonad-wallpaper-dev
+suckless-tools
+xmobar
+stalonetray
+compton
+feh
+scrot
+arandr
+xclip
+xcape
+unclutter
+redshift
+xdg-utils
+notify-osd
+dunst
+libnotify-bin
+xinput
+xbacklight
+
+# Screensaver things
+xscreensaver
+xscreensaver-data
+xscreensaver-data-extra
+
+# Power things
+lm-sensors
+xsensors
+psensor
+
+# Sound things
+# pulseaudio-module-raop
+# pasystray
+# paman
+# paprefs
+# pavucontrol
+# pavumeter
+
+# Keychain SSH GPG ZIP things
+p7zip-full
+gnupg
+gnupg-agent
+scdaemon
+dirmngr
+
+# Yubikey things
+# yubikey-personalization
+
+# Terminal Shell things
+fish
+lilyterm
+rxvt-unicode-256color
+tmux
+minicom
+
+# NFS things
+nfs-common
+nfs-kernel-server
+
+# os tools
+lshw
+udisks2
+stress
+
+
+# System monitoring things
+htop
+iotop
+iftop
+acpi
+ncdu
+dfc
+strace
+baobab
+hardinfo
+dstat
+ngrep
+tiptop
+
+# Network
+nmap
+openvpn
+traceroute
+tcpdump
+
+# Browsers
+chromium
+firefox-esr
+lynx
+
+# Editors things
+vim
+emacs
+
+# Development tools
+jq
+git
+tig
+curl
+silversearcher-ag
+parallel
+shellcheck
+
+# Install utilities
+tree
+unzip
+unrar
+finger
+
+# Media things
+vlc
+zathura
+mplayer2
+
+# Font things
+font-manager
+fonts-deva-extra
+fonts-lohit-deva
+
+# Java
+openjdk-8-jdk
+
+# Docker things
+docker-ce
+
+# Spotify Client - 3rd party repo
+spotify-client
+
+# Flash
+
+# Virtualbox things - 3rd party repo
+virtualbox-5.1
