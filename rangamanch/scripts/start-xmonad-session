@@ -7,9 +7,6 @@ killall ssh-agent
 # eval $(gnome-keyring-daemon --start --components=pkcs11,secrets,ssh)
 # export SSH_AUTH_SOCK
 
-# Gnome Keyring
-eval $(gnome-keyring-daemon --start --components=pkcs11,secrets)
-
 # GPG Agent with SSH
 gpg-connect-agent /bye
 export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)

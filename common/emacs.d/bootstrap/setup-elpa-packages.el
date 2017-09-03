@@ -21,7 +21,7 @@
 
                       flx-ido
                       ido-hacks
-                      ido-ubiquitous
+                      ido-completing-read+
                       ido-vertical-mode
                       smex
                       smart-mode-line

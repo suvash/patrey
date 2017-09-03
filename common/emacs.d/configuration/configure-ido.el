@@ -12,7 +12,7 @@
 (flx-ido-mode 1)
 
 ;; with everywhere
-(require 'ido-ubiquitous)
+(require 'ido-completing-read+)
 (ido-ubiquitous-mode 1)
 
 ;; Looks cleaner vertically
