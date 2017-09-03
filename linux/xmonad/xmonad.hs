@@ -23,15 +23,15 @@ myTerminal = "lilyterm"
 newKeys x = DM.fromList $
     [
         -- Monitor brightness up key
-     --    ((0, 0x1008ff02),
-     --     spawn "xbacklight -inc 10")
+           ((0, 0x1008ff02),
+            spawn "xbacklight -inc 10")
 
         -- Monitor brightness down key
-     -- ,  ((0, 0x1008ff03),
-     --     spawn "xbacklight -dec 10")
+        ,  ((0, 0x1008ff03),
+            spawn "xbacklight -dec 10")
 
         -- Increase Volume
-           ((modMask x .|. controlMask, xK_Up),
+        ,  ((modMask x .|. controlMask, xK_Up),
             spawn "pactl set-sink-volume 0 +5%")
 
         -- Decrease Volume

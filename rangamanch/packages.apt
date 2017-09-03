@@ -23,7 +23,6 @@ notify-osd
 dunst
 libnotify-bin
 xinput
-xbacklight
 
 # Screensaver things
 xscreensaver

@@ -28,6 +28,15 @@ fi
 
 # Install 3rd party things
 
+# Backlight
+if ! hash xbacklight; then
+  git clone https://github.com/wavexx/acpilight.git $HOME/Developer/acpilight
+  if [ ! -L /etc/udev/rules.d/90-backlight.rules ]; then
+    sudo ln -s $HOME/Developer/acpilight/90-backlight.rules /etc/udev/rules.d/90-backlight.rules
+  fi
+  ln -s $HOME/Developer/acpilight/xbacklight $HOME/.local/bin/
+fi
+
 # Opera
 if ! hash opera; then
   curl -L http://download1.operacdn.com/pub/opera/desktop/47.0.2631.55/linux/opera-stable_47.0.2631.55_amd64.deb > /tmp/opera.deb
