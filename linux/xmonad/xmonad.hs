@@ -32,11 +32,11 @@ newKeys x = DM.fromList $
 
         -- Increase Volume
         ,  ((modMask x .|. controlMask, xK_Up),
-            spawn "pactl set-sink-volume 0 +5%")
+            spawn "pactl set-sink-volume 1 +5%")
 
         -- Decrease Volume
         ,  ((modMask x .|. controlMask, xK_Down),
-            spawn "pactl set-sink-volume 0 -5%")
+            spawn "pactl set-sink-volume 1 -5%")
 
         -- X-selection paste
         ,  ((modMask x .|. controlMask, xK_v),
@@ -76,7 +76,7 @@ newKeys x = DM.fromList $
 
         -- Launch Spotify
         ,  ((modMask x .|. controlMask, xK_s),
-            spawn "spotify --force-device-scale-factor=1.0")
+            spawn "spotify --force-device-scale-factor=1.8")
 
         -- Launch Opera
         ,  ((modMask x .|. controlMask, xK_o),
@@ -88,7 +88,7 @@ newKeys x = DM.fromList $
 
         -- Launch Chrome Igcognito
         ,  ((modMask x .|. controlMask, xK_c),
-            spawn "chromium --incognito --force-device-scale-factor=1.0")
+            spawn "chromium --incognito --force-device-scale-factor=1.8")
 
         -- Launch Tor Browser
         ,  ((modMask x .|. controlMask, xK_t),
