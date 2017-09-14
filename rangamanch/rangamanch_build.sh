@@ -6,6 +6,9 @@ if ! hash spotify; then
   sudo dpkg -i /tmp/libssl1.0.0.deb && rm /tmp/libssl1.0.0.deb
 fi
 
+# Update Apt
+sudo apt-get update && sudo apt-get dist-upgrade -y
+
 # Install all the packages mentioned in packages.list
 cat $HOME/.packages.apt | awk '!/(^#|^$)/{print $0}' | xargs sudo apt-get install --yes
 
@@ -80,4 +83,12 @@ fi
 if ! hash skypeforlinux; then
   curl -L https://repo.skype.com/latest/skypeforlinux-64.deb > /tmp/skype.deb
   sudo dpkg -i /tmp/skype.deb
+fi
+
+# Docker Credential helper for GCR
+if ! hash docker-credential-gcr; then
+  curl -L https://github.com/GoogleCloudPlatform/docker-credential-gcr/releases/download/v1.4.1/docker-credential-gcr_linux_amd64-1.4.1.tar.gz> /tmp/docker-credential-helper.tar.gz
+  tar -xzf /tmp/docker-credential-helper.tar.gz --directory /tmp/
+  chmod +x /tmp/docker-credential-gcr
+  sudo mv /tmp/docker-credential-gcr $HOME/.local/bin/docker-credential-gcr
 fi

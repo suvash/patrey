@@ -89,6 +89,12 @@ function fish_user_abbreviations
     dc='docker-compose' \
     d='docker' \
     \
+    sen='docker run -v /var/run/docker.sock:/run/docker.sock:ro -e TERM --rm -it tomastomecek/sen' \
+    glances='docker run -v /var/run/docker.sock:/var/run/docker.sock:ro --pid host --rm -it docker.io/nicolargo/glances' \
+    \
+    alexweb='docker exec -i -t alex_web_1 gosu (id -u):(id -g) /bin/bash' \
+    alexworker='docker exec -i -t alex_worker_1 gosu (id -u):(id -g) /bin/bash' \
+    \
     v='vim' \
     emd='emacs --daemon' \
     emt='emacsclient -c -nw' \
