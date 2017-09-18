@@ -10,7 +10,6 @@ brew 'tmux'
 brew 'tree'
 brew 'vim'
 brew 'watch'
-brew 'wget'
 brew 'weechat', args: ['with-aspell', 'with-curl', 'with-guile', 'with-lua', 'with-perl', 'with-python', 'with-ruby']
 brew 'unrar'
 brew 'rlwrap'
@@ -20,7 +19,6 @@ brew 'ngrep'
 brew 'shellcheck'
 brew 'less'
 brew 'lsof'
-brew 'make'
 brew 'unzip'
 brew 'whois'
 brew 'yubico-piv-tool'
@@ -33,6 +31,24 @@ brew 'pinentry-mac'
 brew 'hugo'
 brew 'terraform'
 brew 'exa'
+brew 'mas'
+brew 'haskell-stack'
+
+brew 'findutils', args: ['with-default-names']
+brew 'gnu-tar', args: ['with-default-names']
+brew 'gnu-sed', args: ['with-default-names']
+brew 'gnu-which', args: ['with-default-names']
+brew 'gnutls', args: ['with-default-names']
+brew 'grep', args: ['with-default-names']
+brew 'gawk'
+brew 'coreutils'
+brew 'binutils'
+brew 'diffutils'
+brew 'gzip'
+brew 'wget'
+brew 'curl'
+brew 'less'
+brew 'make'
 
 cask 'airfoil'
 cask 'alfred'

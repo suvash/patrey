@@ -79,7 +79,9 @@
                       clj-refactor
                       cider
 
+                      intero
                       haskell-mode
+
                       idris-mode
                       elm-mode
 

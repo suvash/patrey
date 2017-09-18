@@ -39,4 +39,11 @@ fi
 
 # ============= End brew ========================
 
+if ! hash docker-credential-gcr; then
+  curl -L https://github.com/GoogleCloudPlatform/docker-credential-gcr/releases/download/v1.4.1/docker-credential-gcr_darwin_amd64-1.4.1.zip > /tmp/docker-credential-helper.zip
+  unzip /tmp/docker-credential-helper.zip -d /tmp
+  chmod +x /tmp/docker-credential-gcr
+  mv /tmp/docker-credential-gcr $HOME/.local/bin/docker-credential-gcr
+fi
+
 popd

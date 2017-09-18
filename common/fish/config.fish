@@ -6,6 +6,7 @@ set -x TERM xterm-256color
 switch (uname)
 case Darwin
   set -x GPG_TTY (tty)
+  set -x PATH $HOME/.local/bin /usr/local/bin $PATH
   gpg-connect-agent /bye
   set -x SSH_AUTH_SOCK (gpgconf --list-dirs agent-ssh-socket)
 end

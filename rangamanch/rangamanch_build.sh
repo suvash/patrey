@@ -62,21 +62,21 @@ fi
 if ! hash terraform; then
   curl -L https://releases.hashicorp.com/terraform/0.10.3/terraform_0.10.3_linux_amd64.zip > /tmp/terraform.zip
   unzip /tmp/terraform.zip -d /tmp && chmod +x /tmp/terraform
-  sudo mv /tmp/terraform $HOME/.local/bin/terraform
+  mv /tmp/terraform $HOME/.local/bin/terraform
 fi
 
 # Docker compose
 if ! hash docker-compose; then
   curl -L https://github.com/docker/compose/releases/download/1.16.1/docker-compose-Linux-x86_64 > /tmp/docker-compose
   chmod +x /tmp/docker-compose
-  sudo mv /tmp/docker-compose $HOME/.local/bin/docker-compose
+  mv /tmp/docker-compose $HOME/.local/bin/docker-compose
 fi
 
 # Ctop
 if ! hash ctop; then
   curl -L https://github.com/bcicen/ctop/releases/download/v0.6.1/ctop-0.6.1-linux-amd64 > /tmp/ctop
   chmod +x /tmp/ctop
-  sudo mv /tmp/ctop $HOME/.local/bin/ctop
+  mv /tmp/ctop $HOME/.local/bin/ctop
 fi
 
 # Skype Alpha for linux
@@ -90,5 +90,5 @@ if ! hash docker-credential-gcr; then
   curl -L https://github.com/GoogleCloudPlatform/docker-credential-gcr/releases/download/v1.4.1/docker-credential-gcr_linux_amd64-1.4.1.tar.gz> /tmp/docker-credential-helper.tar.gz
   tar -xzf /tmp/docker-credential-helper.tar.gz --directory /tmp/
   chmod +x /tmp/docker-credential-gcr
-  sudo mv /tmp/docker-credential-gcr $HOME/.local/bin/docker-credential-gcr
+  mv /tmp/docker-credential-gcr $HOME/.local/bin/docker-credential-gcr
 fi
