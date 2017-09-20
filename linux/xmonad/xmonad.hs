@@ -32,11 +32,11 @@ newKeys x = DM.fromList $
 
         -- Increase Volume
         ,  ((modMask x .|. controlMask, xK_Up),
-            spawn "pactl list sinks | grep 'Sink #' | cut -d# -f2 | xargs -n 1 -I@ pactl set-sink-volume @ +5%")
+            spawn "pactl list sinks | grep 'Sink #' | cut -d# -f2 | xargs -n 1 -I@ pactl set-sink-volume @ +1%")
 
         -- Decrease Volume
         ,  ((modMask x .|. controlMask, xK_Down),
-            spawn "pactl list sinks | grep 'Sink #' | cut -d# -f2 | xargs -n 1 -I@ pactl set-sink-volume @ -5%")
+            spawn "pactl list sinks | grep 'Sink #' | cut -d# -f2 | xargs -n 1 -I@ pactl set-sink-volume @ -1%")
 
         -- X-selection paste
         ,  ((modMask x .|. controlMask, xK_v),
