@@ -12,7 +12,7 @@ xmobar
 stalonetray
 compton
 feh
-scrot
+maim
 arandr
 xclip
 xcape
@@ -23,6 +23,9 @@ notify-osd
 dunst
 libnotify-bin
 xinput
+
+# Window manager extras
+rofi
 
 # Screensaver things
 xscreensaver

@@ -58,6 +58,10 @@ newKeys x = DM.fromList $
         ,  ((modMask x .|. controlMask, xK_l),
             spawn "xscreensaver-command -lock")
 
+        -- Rofi
+        ,  ((modMask x .|. controlMask, xK_p),
+            spawn "rofi -show run")
+
         -- Battery
         ,  ((modMask x .|. controlMask, xK_b),
             spawn "notify-send -t 4000 Battery \"$(acpi)\" ")
