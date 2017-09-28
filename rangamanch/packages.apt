@@ -128,13 +128,14 @@ fonts-lohit-deva
 # Java
 openjdk-8-jdk
 
-# Docker things
+# Docker - 3rd party repo
 docker-ce
 
 # Spotify Client - 3rd party repo
 spotify-client
 
-# Flash
-
 # Virtualbox things - 3rd party repo
 virtualbox-5.1
+
+# Google Cloud sdk - 3rd party repo
+google-cloud-sdk

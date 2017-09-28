@@ -35,6 +35,11 @@ wget -qO- https://download.docker.com/linux/debian/gpg | sudo apt-key add -
 echo "deb [arch=amd64] https://download.docker.com/linux/debian $DISTRIB_CODENAME stable" \
      | sudo tee /etc/apt/sources.list.d/docker.list
 
+# Google Cloud SDK repo
+wget -qO- https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add -
+echo "deb http://packages.cloud.google.com/apt cloud-sdk-$DISTRIB_CODENAME main" \
+     | sudo tee /etc/apt/sources.list.d/google-cloud-sdk.list
+
 # Spotify Client
 echo "deb http://repository.spotify.com stable non-free" \
     | sudo tee /etc/apt/sources.list.d/spotify.list
@@ -51,7 +56,7 @@ sudo apt-get update
 
 # ============= Sudoless Docker ====================
 
-getent group docker || sudo groupadd docker
+getent group docker &> /dev/null || sudo groupadd docker
 sudo usermod -aG docker $(whoami)
 
 # ============= Docker things ====================
