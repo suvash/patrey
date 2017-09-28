@@ -30,6 +30,10 @@ newKeys x = DM.fromList $
         ,  ((0, 0x1008ff03),
             spawn "xbacklight -dec 10")
 
+        -- Lock and suspend
+        ,  ((0, 0x1008ff2a),
+            spawn "slock systemctl suspend")
+
         -- Increase Volume
         ,  ((modMask x .|. controlMask, xK_Up),
             spawn "pactl list sinks | grep 'Sink #' | cut -d# -f2 | xargs -n 1 -I@ pactl set-sink-volume @ +1%")
