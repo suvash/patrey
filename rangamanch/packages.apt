@@ -139,3 +139,4 @@ virtualbox-5.1
 
 # Google Cloud sdk - 3rd party repo
 google-cloud-sdk
+kubectl
