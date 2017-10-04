@@ -92,3 +92,11 @@ if ! hash docker-credential-gcr; then
   chmod +x /tmp/docker-credential-gcr
   mv /tmp/docker-credential-gcr $HOME/.local/bin/docker-credential-gcr
 fi
+
+# Go Hugo
+if ! hash hugo; then
+  curl -L https://github.com/gohugoio/hugo/releases/download/v0.29/hugo_0.29_Linux-64bit.tar.gz > /tmp/hugo.tar.gz
+  tar -xzf /tmp/hugo.tar.gz --directory /tmp/
+  chmod +x /tmp/hugo
+  mv /tmp/hugo $HOME/.local/bin/hugo
+fi
