@@ -13,6 +13,8 @@ stalonetray
 compton
 feh
 maim
+slop
+xdotool
 arandr
 xclip
 xcape
@@ -117,6 +119,9 @@ tree
 unzip
 unrar
 finger
+multitail
+optipng
+jpegoptim
 
 # Media things
 vlc
