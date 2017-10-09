@@ -83,11 +83,11 @@ function fish_user_abbreviations
     mi="bash ~/Developer/scaffold/(hostname)/(hostname)_init.sh" \
     mb="bash ~/Developer/scaffold/(hostname)/(hostname)_build.sh" \
     \
-    dclni='docker images --quiet --filter "dangling=true" | xargs --no-run-if-empty docker rmi' \
-    dclnv='docker volume ls --quiet --filter "dangling=true" | xargs --no-run-if-empty docker volume rm' \
-    dm='docker-machine' \
-    dc='docker-compose' \
-    d='docker' \
+    di='docker image ls' \
+    dc='docker container ls' \
+    dn='docker network ls' \
+    dv='docker volume ls' \
+    ds='docker system df' \
     \
     sen='docker run -v /var/run/docker.sock:/run/docker.sock:ro -e TERM --rm -it tomastomecek/sen' \
     glances='docker run -v /var/run/docker.sock:/var/run/docker.sock:ro --pid host --rm -it docker.io/nicolargo/glances' \

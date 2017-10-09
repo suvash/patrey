@@ -79,6 +79,7 @@ gdebi
 # System monitoring things
 htop
 iotop
+nethogs
 iftop
 acpi
 ncdu
