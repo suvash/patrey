@@ -9,16 +9,8 @@
 (setq x-select-enable-clipboard t)
 
 ;;; Set font face
-(set-face-attribute 'default nil :height 100)
-
-;;; Remap mac keys
-;;(setq mac-function-modifier 'hyper)
-;;(setq mac-control-modifier 'control)
-;;(setq mac-command-modifier 'meta)
-;;(setq mac-option-modifier 'alt)
-;;(setq mac-right-option-modifier 'super)
-;;(setq mac-right-command-modifier nil)
-;;(setq mac-right-control-modifier nil)
+(set-face-attribute 'default nil :font "Mononoki-12")
+(set-frame-font "Mononoki-12" nil t)
 
 (provide 'linux-setup)
 

@@ -102,7 +102,7 @@ if ! hash hugo; then
 fi
 
 # Mononoki font
-if ! fc-list | grep mononoki; then
+if ! fc-list | grep mononoki > /dev/null; then
   curl -L https://github.com/madmalik/mononoki/releases/download/1.2/mononoki.zip > /tmp/mononoki.zip
   mkdir -p $HOME/.local/share/fonts/truetype/mononoki
   unzip -d $HOME/.local/share/fonts/truetype/mononoki /tmp/mononoki.zip && rm /tmp/mononoki.zip
