@@ -1,21 +1,39 @@
 import           XMonad
-import qualified XMonad.Util.Run            as XMUR
-import qualified XMonad.Util.Paste          as XMUP
-import qualified XMonad.Actions.GridSelect  as XMAG
-import qualified XMonad.Hooks.DynamicLog    as XMHD
-import qualified XMonad.Hooks.FadeInactive  as XMHF
-import qualified XMonad.Hooks.ManageDocks   as XMHM
-import qualified XMonad.Hooks.EwmhDesktops  as XMHE
-import qualified XMonad.Hooks.UrgencyHook   as XMHU
-import qualified XMonad.Layout.Tabbed       as XMLTa
-import qualified XMonad.Layout.Grid         as XMLG
-import qualified XMonad.Layout.ThreeColumns as XMLTh
-import qualified System.IO                  as SI
-import qualified XMonad.Util.Scratchpad     as XUSC
-import qualified XMonad.StackSet            as XMST
-import qualified Data.Map                   as DM
+import qualified XMonad.Util.Run             as XMUR
+import qualified XMonad.Util.Paste           as XMUP
+import qualified XMonad.Actions.GridSelect   as XMAG
+import qualified XMonad.Hooks.DynamicLog     as XMHD
+import qualified XMonad.Hooks.FadeInactive   as XMHF
+import qualified XMonad.Hooks.ManageDocks    as XMHM
+import qualified XMonad.Hooks.EwmhDesktops   as XMHE
+import qualified XMonad.Hooks.UrgencyHook    as XMHU
+import qualified XMonad.Layout.Tabbed        as XMLTa
+import qualified XMonad.Layout.Grid          as XMLG
+import qualified XMonad.Layout.ThreeColumns  as XMLTh
+import qualified System.IO                   as SI
+import qualified XMonad.Util.NamedScratchpad as XMUNS
+import qualified XMonad.StackSet             as XMST
+import qualified XMonad.ManageHook           as XMMH
+import qualified Data.Map                    as DM
 
 myTerminal = "lilyterm"
+
+-- | Scratchpads
+
+customRect = XMST.RationalRect fromLeft fromTop screenWidth screenHeight
+  where
+    fromLeft = (1/16)
+    fromTop  = (1/10)
+    screenWidth = (1-(2*fromLeft))
+    screenHeight = (1-(2*fromTop))
+
+myScratchpads = [
+  -- htop in terminal
+  XMUNS.NS "scratchterm" "lilyterm -s -T scratchterm" (title =? "scratchterm") (XMUNS.customFloating customRect) ,
+
+  -- vim in terminal
+  XMUNS.NS "scratchvim" "lilyterm -s -T scratchvim -x vim" (title =? "scratchvim") (XMUNS.customFloating customRect)
+  ]
 
 -- | Keys begin -------------------
 
@@ -46,9 +64,13 @@ newKeys x = DM.fromList $
         ,  ((modMask x .|. controlMask, xK_v),
             XMUP.pasteSelection)
 
-        -- Floating scratchpad
+        -- Floating terminal
         ,  ((modMask x .|. controlMask, xK_space),
-            XUSC.scratchpadSpawnActionTerminal "rxvt-unicode")
+            XMUNS.namedScratchpadAction myScratchpads "scratchterm")
+
+        -- Floating vim
+        ,  ((modMask x .|. shiftMask, xK_v),
+            XMUNS.namedScratchpadAction myScratchpads "scratchvim")
 
         -- Focus on urgent window
         ,  ((modMask x .|. controlMask, xK_u),
@@ -212,17 +234,11 @@ myLayout = tiled ||| threecolmid ||| XMLG.Grid ||| XMLTa.simpleTabbedBottomAlway
 
 -- | Layout Hook
 
-manageScratchPad = XUSC.scratchpadManageHook (XMST.RationalRect l t w h)
-  where
-    h = 0.8       -- terminal height, 60%
-    w = 0.8       -- terminal width,  80%
-    t = (1-h)/2   -- distance from top edge, 90%
-    l = (1-w)/2   -- distance from left edge, 0%
-
 floatTileManageHook = composeAll. concat $
   [ [ className =? "vlc" --> doFloat ] ]
 
-myManageHook  = XMHM.manageDocks <+> floatTileManageHook <+> manageScratchPad <+> manageHook defaultConfig
+myManageHook  = XMHM.manageDocks <+> floatTileManageHook <+> XMUNS.namedScratchpadManageHook myScratchpads
+
 myLayoutHook  = XMHM.avoidStruts $ myLayout
 
 -- | Layout Hook End
