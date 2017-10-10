@@ -1,0 +1,1 @@
+/home/suvash/.config/fisherman/getopts/getopts.fish
