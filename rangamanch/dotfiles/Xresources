@@ -1,5 +1,5 @@
 ##############
-# Xft settings
+## Xft settings
 ##############
 
 Xft.dpi:        154
@@ -10,7 +10,7 @@ Xft.hinting:    1
 Xft.antialias:  1
 
 #################################
-# Color settings (Solarized dark)
+## Color settings (Solarized dark)
 #################################
 
 #define S_base03        #002b36
@@ -71,7 +71,7 @@ Xft.antialias:  1
 *color15:               S_base3
 
 ################
-# URXVT settings
+## URXVT settings
 ################
 
 ! $TERM name
@@ -86,7 +86,7 @@ URxvt.urlLauncher:      opera
 URxvt.matcher.button:   1
 
 !URxvt*font:             9x15
-URxvt*font:             xft:Dejavu Sans Mono:size=10,\
+URxvt*font:             xft:Mononoki:size=10,\
                         xft:Lohit Devanagari:size=10,\
                         -*-unifont-*-*-*-*-*-*-*-*-*-*-*-*
 ! test by running in urxvt bash

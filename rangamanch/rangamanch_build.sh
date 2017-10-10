@@ -82,7 +82,7 @@ fi
 # Skype Alpha for linux
 if ! hash skypeforlinux; then
   curl -L https://repo.skype.com/latest/skypeforlinux-64.deb > /tmp/skype.deb
-  sudo dpkg -i /tmp/skype.deb
+  sudo dpkg -i /tmp/skype.deb && rm /tmp/skype.deb
 fi
 
 # Docker Credential helper for GCR
@@ -90,7 +90,7 @@ if ! hash docker-credential-gcr; then
   curl -L https://github.com/GoogleCloudPlatform/docker-credential-gcr/releases/download/v1.4.1/docker-credential-gcr_linux_amd64-1.4.1.tar.gz> /tmp/docker-credential-helper.tar.gz
   tar -xzf /tmp/docker-credential-helper.tar.gz --directory /tmp/
   chmod +x /tmp/docker-credential-gcr
-  mv /tmp/docker-credential-gcr $HOME/.local/bin/docker-credential-gcr
+  mv /tmp/docker-credential-gcr $HOME/.local/bin/docker-credential-gcr && rm /tmp/docker-credential-helper.tar.gz
 fi
 
 # Go Hugo
@@ -98,5 +98,13 @@ if ! hash hugo; then
   curl -L https://github.com/gohugoio/hugo/releases/download/v0.29/hugo_0.29_Linux-64bit.tar.gz > /tmp/hugo.tar.gz
   tar -xzf /tmp/hugo.tar.gz --directory /tmp/
   chmod +x /tmp/hugo
-  mv /tmp/hugo $HOME/.local/bin/hugo
+  mv /tmp/hugo $HOME/.local/bin/hugo && rm /tmp/hugo.tar.gz
+fi
+
+# Mononoki font
+if ! fc-list | grep mononoki; then
+  curl -L https://github.com/madmalik/mononoki/releases/download/1.2/mononoki.zip > /tmp/mononoki.zip
+  mkdir -p $HOME/.local/share/fonts/truetype/mononoki
+  unzip -d $HOME/.local/share/fonts/truetype/mononoki /tmp/mononoki.zip && rm /tmp/mononoki.zip
+  fc-cache
 fi
