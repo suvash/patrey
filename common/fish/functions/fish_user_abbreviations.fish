@@ -71,6 +71,8 @@ function fish_user_abbreviations
     nu='nix-env -e' \
     ngc='nix-collect-garbage' \
     \
+    fls='fisher ls-remote --format="%name(%stars): %info [%url]\n"' \
+    \
     vu='vagrant up' \
     vs='vagrant ssh' \
     vsc='vagrant ssh -c' \
