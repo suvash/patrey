@@ -63,6 +63,7 @@ lilyterm
 rxvt-unicode-256color
 tmux
 minicom
+ranger
 
 # NFS things
 nfs-common
