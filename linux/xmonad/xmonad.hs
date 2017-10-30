@@ -6,7 +6,6 @@ import qualified XMonad.Hooks.DynamicLog     as XMHD
 import qualified XMonad.Hooks.FadeInactive   as XMHF
 import qualified XMonad.Hooks.ManageDocks    as XMHM
 import qualified XMonad.Hooks.EwmhDesktops   as XMHE
-import qualified XMonad.Hooks.UrgencyHook    as XMHU
 import qualified XMonad.Layout.Tabbed        as XMLTa
 import qualified XMonad.Layout.Grid          as XMLG
 import qualified XMonad.Layout.ThreeColumns  as XMLTh
@@ -28,11 +27,11 @@ customRect = XMST.RationalRect fromLeft fromTop screenWidth screenHeight
     screenHeight = (1-(2*fromTop))
 
 myScratchpads = [
-  -- htop in terminal
+  -- terminal
   XMUNS.NS "scratchterm" "lilyterm -s -T scratchterm" (title =? "scratchterm") (XMUNS.customFloating customRect) ,
 
-  -- vim in terminal
-  XMUNS.NS "scratchvim" "lilyterm -s -T scratchvim -x vim" (title =? "scratchvim") (XMUNS.customFloating customRect)
+  -- htop in terminal
+  XMUNS.NS "scratchtop" "lilyterm -s -T scratchtop -x htop" (title =? "scratchtop") (XMUNS.customFloating customRect)
   ]
 
 -- | Keys begin -------------------
@@ -68,13 +67,9 @@ newKeys x = DM.fromList $
         ,  ((modMask x .|. controlMask, xK_space),
             XMUNS.namedScratchpadAction myScratchpads "scratchterm")
 
-        -- Floating vim
-        ,  ((modMask x .|. shiftMask, xK_v),
-            XMUNS.namedScratchpadAction myScratchpads "scratchvim")
-
-        -- Focus on urgent window
-        ,  ((modMask x .|. controlMask, xK_u),
-            XMHU.focusUrgent)
+        -- Floating htop
+        ,  ((modMask x .|. controlMask, xK_h),
+            XMUNS.namedScratchpadAction myScratchpads "scratchtop")
 
         -- Screensaver and Lock
         ,  ((modMask x .|. controlMask, xK_l),
@@ -254,7 +249,7 @@ myWorkspaces = ["१", "२", "३", "४", "५", "६", "७", "८", "९"]
 
 main = do
   xmobarproc <- spawnXmobarProcess
-  xmonad $ XMHU.withUrgencyHook XMHU.NoUrgencyHook $ XMHE.ewmh defaultConfig {
+  xmonad $ XMHE.ewmh defaultConfig {
        modMask            = mod4Mask
      , keys               = myKeys
      , terminal           = myTerminal
