@@ -75,7 +75,7 @@ fi
 
 # Docker compose
 if ! hash docker-compose; then
-  curl -L https://github.com/docker/compose/releases/download/1.16.1/docker-compose-Linux-x86_64 > /tmp/docker-compose
+  curl -L https://github.com/docker/compose/releases/download/1.17.0-rc1/docker-compose-Linux-x86_64 > /tmp/docker-compose
   chmod +x /tmp/docker-compose
   mv /tmp/docker-compose $HOME/.local/bin/docker-compose
 fi
