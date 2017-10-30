@@ -40,6 +40,14 @@ if ! hash xbacklight; then
   ln -s $HOME/Developer/acpilight/xbacklight $HOME/.local/bin/
 fi
 
+# Autorandr files
+if ! hash autorandr; then
+  git clone https://github.com/phillipberndt/autorandr.git $HOME/Developer/autorandr
+  cd $HOME/Developer/autorandr && make deb && cp autorandr-*.deb autorandr.deb && sudo dpkg -i ./autorandr.deb
+  sudo sytemctl daemon-reload
+  sudo systemctl enable autorandr.service
+fi
+
 # Opera
 if ! hash opera; then
   curl -L http://download1.operacdn.com/pub/opera/desktop/47.0.2631.55/linux/opera-stable_47.0.2631.55_amd64.deb > /tmp/opera.deb

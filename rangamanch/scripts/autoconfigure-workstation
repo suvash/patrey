@@ -120,7 +120,14 @@ notify-send --urgency=NORMAL 'Detecting pointing devices' "$POINTING_DEVICE_MESS
 # eval "xrandr $XRANDR_STRING"
 
 # Run Auto afterwards to fall back to default
-xrandr --auto
+# xrandr --auto
+
+# Run autorandr else auto xrandr
+if ! hash autorandr; then
+  autorandr --change
+else
+  xrandr --auto
+fi
 
 
 # AUDIO ==========================================================================================
