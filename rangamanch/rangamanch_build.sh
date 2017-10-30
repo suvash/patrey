@@ -40,6 +40,13 @@ if ! hash xbacklight; then
   ln -s $HOME/Developer/acpilight/xbacklight $HOME/.local/bin/
 fi
 
+# NordVPN files
+if [ ! -d $HOME/Developer/nordvpn/ ]; then
+  curl -L http://downloads.nordcdn.com/configs/archives/servers/ovpn.zip > /tmp/ovpn.zip
+  unzip /tmp/ovpn.zip -d $HOME/Developer/nordvpn
+  rm /tmp/ovpn.zip
+fi
+
 # Autorandr files
 if ! hash autorandr; then
   git clone https://github.com/phillipberndt/autorandr.git $HOME/Developer/autorandr
