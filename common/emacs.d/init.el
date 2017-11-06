@@ -37,6 +37,7 @@
 (require 'configure-company)
 (require 'configure-aggressive-indent)
 (require 'configure-yasnippet)
+(require 'configure-dump-jump)
 
 (require 'configure-twittering-mode)
 (require 'configure-restclient-mode)

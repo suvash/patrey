@@ -51,6 +51,7 @@
                       ace-jump-mode
 
                       company
+                      dumb-jump
 
                       twittering-mode
                       restclient
