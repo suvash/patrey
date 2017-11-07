@@ -25,13 +25,17 @@
 (evil-leader/set-key
   "po" 'projectile-persp-switch-project
   "pk" 'persp-kill
+
   "x" 'projectile-find-file
+
   "i" 'imenu
+
   "d" 'projectile-dired
   "a" 'projectile-ag
 
+  "j" 'dumb-jump-go-other-window
+
   "o" 'other-window
-  "j" 'ace-jump-mode
   "b" 'switch-to-buffer
   "k" 'kill-this-buffer
 

@@ -2,5 +2,5 @@
 
 (require 'dumb-jump)
 
-(provide 'configure-dump-jump)
+(provide 'configure-dumb-jump)
 
