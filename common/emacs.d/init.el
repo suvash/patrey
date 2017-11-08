@@ -42,6 +42,8 @@
 (require 'configure-twittering-mode)
 (require 'configure-restclient-mode)
 
+(require 'configure-terraform-mode)
+
 (require 'configure-nix-mode)
 
 (require 'configure-enh-ruby-mode)

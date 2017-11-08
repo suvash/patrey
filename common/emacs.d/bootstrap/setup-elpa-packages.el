@@ -56,6 +56,8 @@
                       twittering-mode
                       restclient
 
+                      terraform-mode
+
                       nix-mode
 
                       enh-ruby-mode
