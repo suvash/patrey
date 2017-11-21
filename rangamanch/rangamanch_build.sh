@@ -73,6 +73,13 @@ if ! hash vagrant; then
   sudo dpkg -i /tmp/vagrant.deb && rm /tmp/vagrant.deb
 fi
 
+# Sops
+if ! hash sops; then
+  curl -L https://github.com/mozilla/sops/releases/download/3.0.0/sops-3.0.0.linux > $HOME/.local/bin/sops
+  chmod +x $HOME/.local/bin/sops
+fi
+
+
 # Terraform
 if ! hash terraform; then
   curl -L https://releases.hashicorp.com/terraform/0.10.8/terraform_0.10.8_linux_amd64.zip > /tmp/terraform.zip

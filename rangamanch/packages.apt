@@ -98,6 +98,7 @@ nmap
 openvpn
 traceroute
 tcpdump
+dnsutils
 
 # Browsers
 chromium
