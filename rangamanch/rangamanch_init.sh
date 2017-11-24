@@ -49,6 +49,10 @@ wget -qO- https://www.virtualbox.org/download/oracle_vbox_2016.asc | sudo apt-ke
 echo "deb http://download.virtualbox.org/virtualbox/debian $DISTRIB_CODENAME contrib" \
     | sudo tee /etc/apt/sources.list.d/oracle-virtualbox.list
 
+# Google Chrome Repo
+wget -qO- https://dl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
+echo "deb http://dl.google.com/linux/chrome/deb/ stable main" \
+    | sudo tee /etc/apt/sources.list.d/google-chrome.list
 
 sudo apt-get update
 

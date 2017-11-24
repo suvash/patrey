@@ -104,6 +104,7 @@ dnsutils
 chromium
 firefox-esr
 lynx
+google-chrome-stable
 
 # Editors things
 vim
