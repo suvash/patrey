@@ -82,7 +82,7 @@ fi
 
 # Terraform
 if ! hash terraform; then
-  curl -L https://releases.hashicorp.com/terraform/0.10.8/terraform_0.10.8_linux_amd64.zip > /tmp/terraform.zip
+  curl -L https://releases.hashicorp.com/terraform/0.11.0/terraform_0.11.0_linux_amd64.zip > /tmp/terraform.zip
   unzip /tmp/terraform.zip -d /tmp && chmod +x /tmp/terraform
   mv /tmp/terraform $HOME/.local/bin/terraform
 fi
