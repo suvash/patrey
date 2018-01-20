@@ -1,5 +1,5 @@
 ;; fix emacs env variables to be the same as in user shell
-;; only on osx
+;; only on macos
 
 (setq exec-path-from-shell-variables '("PATH"
                                        "MANPATH"

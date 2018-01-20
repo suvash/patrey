@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# OSX-only stuff. Abort if not OSX.
+# MACOS-only stuff. Abort if not MACOS.
 [[ "$OSTYPE" =~ ^darwin ]] || return 1
 
 pushd $PWD

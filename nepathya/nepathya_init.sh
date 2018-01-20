@@ -11,4 +11,4 @@ sudo defaults write /Library/Preferences/SystemConfiguration/com.apple.smb.serve
 
 source $HOME/Developer/scaffold/common/common_symlinks.sh
 
-source $HOME/Developer/scaffold/osx/osx_symlinks.sh
+source $HOME/Developer/scaffold/macos/macos_symlinks.sh

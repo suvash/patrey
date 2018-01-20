@@ -1,7 +1,7 @@
 # Scaffold
 
 An online git repository for the author's configuration files.
-The files include configuration for os(nixos/osx), editors, tools and workflow.
+The files include configuration for os(nixos/macos), editors, tools and workflow.
 
 ## Usage
 

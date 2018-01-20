@@ -1,10 +1,10 @@
 ;;;==============================================================================
-;;; OSX SETUP
+;;; MACOS SETUP
 ;;==============================================================================
 
 ;;; Code:
 
-;;; Toggle FullScreen in OSX
+;;; Toggle FullScreen in MACOS
 (defun toggle-fullscreen ()
   "Toggle full screen"
   (interactive)
@@ -12,19 +12,19 @@
    nil 'fullscreen
    (when (not (frame-parameter nil 'fullscreen)) 'fullboth)))
 
-;;; Copy-Paste to and from OSX
-(defun copy-from-osx ()
+;;; Copy-Paste to and from MACOS
+(defun copy-from-macos ()
   (shell-command-to-string "pbpaste"))
 
-(defun paste-to-osx (text &optional push)
+(defun paste-to-macos (text &optional push)
   (let ((process-connection-type nil))
     (let ((proc (start-process "pbcopy" "*Messages*" "pbcopy")))
       (process-send-string proc text)
       (process-send-eof proc))))
 
 ;; copy-paste
-(setq interprogram-cut-function 'paste-to-osx)
-(setq interprogram-paste-function 'copy-from-osx)
+(setq interprogram-cut-function 'paste-to-macos)
+(setq interprogram-paste-function 'copy-from-macos)
 
 ;; replace locate
 (setq locate-command "mdfind")
@@ -38,6 +38,6 @@
 ;;(setq mac-right-command-modifier nil)
 ;;(setq mac-right-control-modifier nil)
 
-(provide 'osx-setup)
+(provide 'macos-setup)
 
-;;; osx-setup ends here
+;;; macos-setup ends here
