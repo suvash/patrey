@@ -1,4 +1,4 @@
-curl -s https://raw.githubusercontent.com/suvash/scaffold/master/macos/init.sh | sh
+curl -s https://gitlab.com/suvash/scaffold/raw/master/macos/init.sh | sh
 
 $HOME/Developer/scaffold/macos/sanity.sh
 

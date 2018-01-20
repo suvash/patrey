@@ -38,12 +38,12 @@ fi
 
 # ============= Clone scaffold ==================
 
-git clone https://github.com/suvash/scaffold.git $HOME/Developer/scaffold
+git clone https://gitlab.com/suvash/scaffold.git $HOME/Developer/scaffold
 
 cd $HOME/Developer/scaffold/
 
 git remote remove origin
-git remote add origin git@github.com:suvash/scaffold.git
+git remote add origin git@gitlab.com:suvash/scaffold.git
 
 # ============= End Clone scaffold ==================
 
