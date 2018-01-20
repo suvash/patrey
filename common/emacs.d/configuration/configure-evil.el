@@ -33,7 +33,8 @@
   "d" 'projectile-dired
   "a" 'projectile-ag
 
-  "j" 'dumb-jump-go-other-window
+  "ji" 'dumb-jump-go
+  "jo" 'dumb-jump-back
 
   "o" 'other-window
   "b" 'switch-to-buffer
