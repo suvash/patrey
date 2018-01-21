@@ -9,6 +9,8 @@ sudo scutil --set HostName "nepathya"
 sudo scutil --set LocalHostName "nepathya"
 sudo defaults write /Library/Preferences/SystemConfiguration/com.apple.smb.server NetBIOSName -string "nepathya"
 
+mkdir -p $HOME/.local/bin
+
 source $HOME/Developer/scaffold/common/common_symlinks.sh
 
 source $HOME/Developer/scaffold/macos/macos_symlinks.sh
