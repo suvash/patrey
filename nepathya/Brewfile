@@ -1,91 +1,93 @@
-tap 'caskroom/cask'
+tap "homebrew/core"
+tap "homebrew/bundle"
+tap "caskroom/versions"
+tap "caskroom/cask"
 
-brew 'dfc'
-brew 'emacs', args: ['with-cocoa']
-brew 'fish'
-brew 'reattach-to-user-namespace'
-brew 'the_silver_searcher'
-brew 'tmux'
-brew 'tree'
-brew 'vim'
-brew 'watch'
-brew 'unrar'
-brew 'rlwrap'
-brew 'openssl'
-brew 'mackup'
-brew 'ngrep'
-brew 'shellcheck'
-brew 'less'
-brew 'lsof'
-brew 'unzip'
-brew 'whois'
-brew 'gpg'
-brew 'pinentry-mac'
-brew 'hugo'
-brew 'terraform'
-brew 'exa'
-brew 'mas'
+brew "binutils"
+brew "coreutils"
+brew "curl"
+brew "dfc"
+brew "diffutils"
+brew "emacs", args: ["with-cocoa"]
+brew "exa"
+brew "findutils", args: ["with-default-names"]
+brew "fish"
+brew "gawk"
+brew "gnu-sed", args: ["with-default-names"]
+brew "gnu-tar", args: ["with-default-names"]
+brew "gnu-which", args: ["with-default-names"]
+brew "gnutls"
+brew "gnupg"
+brew "grep", args: ["with-default-names"]
+brew "gzip"
+brew "hugo"
+brew "less"
+brew "openssl"
+brew "lsof"
+brew "mackup"
+brew "make"
+brew "mas"
+brew "ngrep"
+brew "pinentry-mac"
+brew "reattach-to-user-namespace"
+brew "rlwrap"
+brew "shellcheck"
+brew "terraform"
+brew "the_silver_searcher"
+brew "tmux"
+brew "tree"
+brew "unrar"
+brew "unzip"
+brew "vim"
+brew "watch"
+brew "wget"
+brew "whois"
 
-brew 'findutils', args: ['with-default-names']
-brew 'gnu-tar', args: ['with-default-names']
-brew 'gnu-sed', args: ['with-default-names']
-brew 'gnu-which', args: ['with-default-names']
-brew 'gnutls', args: ['with-default-names']
-brew 'grep', args: ['with-default-names']
-brew 'gawk'
-brew 'coreutils'
-brew 'binutils'
-brew 'diffutils'
-brew 'gzip'
-brew 'wget'
-brew 'curl'
-brew 'less'
-brew 'make'
+cask "airfoil"
+cask "alfred"
+cask "appcleaner"
+cask "caffeine"
+cask "docker"
+cask "etcher"
+cask "firefox"
+cask "flash-player"
+cask "google-chrome"
+cask "google-nik-collection"
+cask "iterm2"
+cask "itsycal"
+cask "java"
+cask "karabiner-elements"
+cask "keybase"
+cask "kodi"
+cask "lulu"
+cask "nordvpn"
+cask "opera"
+cask "qlcolorcode"
+cask "qlmarkdown"
+cask "qlprettypatch"
+cask "qlstephen"
+cask "quicklook-csv"
+cask "quicklook-json"
+cask "skype"
+cask "spectacle"
+cask "spotify"
+cask "steam"
+cask "time-lapse-assembler"
+cask "tunnelblick"
+cask "vagrant"
+cask "viber"
+cask "vlc"
+cask "vox"
+cask "webpquicklook"
+cask "whatsapp"
+cask "xquartz"
 
-cask 'airfoil'
-cask 'alfred'
-cask 'appcleaner'
-cask 'caffeine'
-cask 'flash-player'
-cask 'docker'
-cask 'google-chrome'
-cask 'keybase'
-cask 'opera'
-cask 'iterm2'
-cask 'itsycal'
-cask 'java'
-cask 'lulu'
-cask 'nordvpn'
-cask 'vlc'
-cask 'webpquicklook'
-cask 'qlcolorcode'
-cask 'qlmarkdown'
-cask 'qlprettypatch'
-cask 'qlstephen'
-cask 'quicklook-csv'
-cask 'quicklook-json'
-cask 'skype'
-cask 'spotify'
-cask 'spectacle'
-cask 'tunnelblick'
-cask 'vagrant'
-cask 'viber'
-cask 'whatsapp'
-cask 'kodi'
-cask 'xquartz'
-cask 'steam'
-cask 'time-lapse-assembler'
-cask 'vox'
-cask 'etcher'
-cask 'appcleaner'
-cask 'karabiner-elements'
+# cask "kensington-trackball-works"
+# cask "virtualbox"
+# cask "wacom-intuos-pro-tablet"
+# cask "betterzipql"
 
-# cask 'kensington-trackball-works'
-# cask 'virtualbox'
-# cask 'wacom-intuos-pro-tablet'
-# cask 'betterzipql'
-
+mas "Flycut", id: 442160987
 mas "HardwareGrowler", id: 475260933
 mas "LastPass", id: 926036361
 mas "The Unarchiver", id: 425424353
-mas "Flycut (Clipboard manager)", id: 442160987
