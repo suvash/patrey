@@ -126,6 +126,14 @@ if ! hash kubectx; then
   curl -L https://raw.githubusercontent.com/ahmetb/kubectx/master/completion/kubens.fish > $HOME/.config/fish/completions/kubens.fish
 fi
 
+# Helm
+if ! hash helm; then
+  mkdir -p /tmp/helm
+  curl -L https://storage.googleapis.com/kubernetes-helm/helm-v2.7.2-linux-amd64.tar.gz > /tmp/helm/helm.tar.gz
+  tar -xzf /tmp/helm/helm.tar.gz --directory /tmp/helm/ && cp /tmp/helm/linux-amd64/helm $HOME/.local/bin/helm
+  rm -rf /tmp/helm
+fi
+
 # Go Hugo
 if ! hash hugo; then
   curl -L https://github.com/gohugoio/hugo/releases/download/v0.29/hugo_0.29_Linux-64bit.tar.gz > /tmp/hugo.tar.gz
