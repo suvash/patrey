@@ -92,6 +92,7 @@ hardinfo
 dstat
 ngrep
 tiptop
+vnstat
 
 # Network
 nmap
@@ -99,6 +100,7 @@ openvpn
 traceroute
 tcpdump
 dnsutils
+netcat
 
 # Browsers
 chromium
@@ -127,6 +129,7 @@ finger
 multitail
 optipng
 jpegoptim
+datamash
 
 # Media things
 vlc

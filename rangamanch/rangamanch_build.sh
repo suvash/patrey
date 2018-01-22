@@ -109,10 +109,21 @@ fi
 
 # Docker Credential helper for GCR
 if ! hash docker-credential-gcr; then
-  curl -L https://github.com/GoogleCloudPlatform/docker-credential-gcr/releases/download/v1.4.1/docker-credential-gcr_linux_amd64-1.4.1.tar.gz> /tmp/docker-credential-helper.tar.gz
+  curl -L https://github.com/GoogleCloudPlatform/docker-credential-gcr/releases/download/v1.4.1/docker-credential-gcr_linux_amd64-1.4.1.tar.gz > /tmp/docker-credential-helper.tar.gz
   tar -xzf /tmp/docker-credential-helper.tar.gz --directory /tmp/
   chmod +x /tmp/docker-credential-gcr
   mv /tmp/docker-credential-gcr $HOME/.local/bin/docker-credential-gcr && rm /tmp/docker-credential-helper.tar.gz
+fi
+
+# Kubectx
+if ! hash kubectx; then
+  curl -L https://raw.githubusercontent.com/ahmetb/kubectx/master/kubectx > $HOME/.local/bin/kubectx
+  chmod +x $HOME/.local/bin/kubectx
+  curl -L https://raw.githubusercontent.com/ahmetb/kubectx/master/kubens > $HOME/.local/bin/kubens
+  chmod +x $HOME/.local/bin/kubens
+  curl -L https://raw.githubusercontent.com/ahmetb/kubectx/master/utils.bash > $HOME/.local/bin/utils.bash
+  curl -L https://raw.githubusercontent.com/ahmetb/kubectx/master/completion/kubectx.fish > $HOME/.config/fish/completions/kubectx.fish
+  curl -L https://raw.githubusercontent.com/ahmetb/kubectx/master/completion/kubens.fish > $HOME/.config/fish/completions/kubens.fish
 fi
 
 # Go Hugo
