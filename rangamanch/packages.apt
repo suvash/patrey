@@ -151,7 +151,7 @@ docker-ce
 spotify-client
 
 # Virtualbox things - 3rd party repo
-virtualbox-5.1
+virtualbox-5.2
 
 # Google Cloud sdk - 3rd party repo
 google-cloud-sdk
