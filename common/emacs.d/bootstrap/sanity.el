@@ -19,6 +19,9 @@
 ;; Turn off blinking cursor
 (blink-cursor-mode 0)
 
+;; Turn off ring bell function
+(setq ring-bell-function 'ignore)
+
 ;; Turn off dialog boxes - use echo area
 (setq use-dialog-box nil)
 
@@ -60,6 +63,7 @@
 (global-set-key (kbd "RET") 'newline-and-indent)
 (global-set-key (kbd "C-+") 'text-scale-increase)
 (global-set-key (kbd "C--") 'text-scale-decrease)
+
 (global-set-key (kbd "C-;") 'comment-or-uncomment-region)
 
 (provide 'sanity)
