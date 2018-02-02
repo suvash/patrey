@@ -6,7 +6,7 @@ set -x TERM xterm-256color
 switch (uname)
 case Darwin
   set -x GPG_TTY (tty)
-  set -x PATH $HOME/.local/bin /usr/local/bin $PATH
+  set -x PATH /usr/local/bin $PATH
   gpg-connect-agent /bye
   set -x SSH_AUTH_SOCK (gpgconf --list-dirs agent-ssh-socket)
 end
@@ -16,6 +16,17 @@ end
 
 fish_user_abbreviations
 
-if test -f ~/.computer
-  . ~/.computer
+# Add local bin to PATH
+if test -d $HOME/.local/bin
+  set -x PATH $HOME/.local/bin $PATH
+end
+
+# Add cargo to PATH
+if test -d $HOME/.cargo
+  set -x PATH $HOME/.cargo/bin $PATH
+end
+
+# Source $HOME/.computer if exists
+if test -f $HOME/.computer
+  . $HOME/.computer
 end
