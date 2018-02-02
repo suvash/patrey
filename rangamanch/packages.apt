@@ -158,6 +158,7 @@ google-cloud-sdk
 kubectl
 
 # Alacritty
+cmatrix
 cmake
 libfreetype6-dev
 libfontconfig1-dev

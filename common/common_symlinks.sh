@@ -16,6 +16,12 @@ if [ ! -L $HOME/.config/fish ]; then
   ln -s $HOME/Developer/scaffold/common/fish $HOME/.config/fish
 fi
 
+if [ ! -L $HOME/.config/alacritty ]; then
+  rm -rf $HOME/.config/alacritty 2> /dev/null
+  mkdir -p $HOME/.config/
+  ln -s $HOME/Developer/scaffold/common/alacritty $HOME/.config/alacritty
+fi
+
 if [ ! -L $HOME/.tmux.conf ]; then
   rm $HOME/tmux.conf 2> /dev/null
   ln -s $HOME/Developer/scaffold/common/dotfiles/tmux.conf $HOME/.tmux.conf
