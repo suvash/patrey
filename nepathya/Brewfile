@@ -60,6 +60,7 @@ cask "karabiner-elements"
 cask "keybase"
 cask "kodi"
 cask "lulu"
+cask "mendeley"
 cask "nordvpn"
 cask "opera"
 cask "qlcolorcode"
@@ -91,3 +92,7 @@ mas "Flycut", id: 442160987
 mas "HardwareGrowler", id: 475260933
 mas "LastPass", id: 926036361
 mas "The Unarchiver", id: 425424353
+
+# Manual install
+# Vuescan
+# Fuji Raw Studio
