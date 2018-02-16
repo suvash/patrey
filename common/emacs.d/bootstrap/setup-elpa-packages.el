@@ -60,6 +60,8 @@
 
                       nix-mode
 
+                      anaconda-mode
+
                       enh-ruby-mode
                       rspec-mode
 

@@ -59,6 +59,9 @@
 ;; use gpg2 instead of gpg
 (setq epg-gpg-program "gpg")
 
+;; set executable bit on executable buffers
+(add-hook 'after-save-hook 'executable-make-buffer-file-executable-if-script-p)
+
 ;; Some Global keybindings
 (global-set-key (kbd "RET") 'newline-and-indent)
 (global-set-key (kbd "C-+") 'text-scale-increase)

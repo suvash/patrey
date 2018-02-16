@@ -49,6 +49,8 @@
 (require 'configure-enh-ruby-mode)
 (require 'configure-rspec-mode)
 
+(require 'configure-python-mode)
+
 (require 'configure-javascript-mode)
 (require 'configure-json-mode)
 

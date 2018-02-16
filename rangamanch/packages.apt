@@ -33,6 +33,7 @@ rofi
 xscreensaver
 xscreensaver-data
 xscreensaver-data-extra
+xscreensaver-screensaver-bsod
 
 # Power things
 lm-sensors
@@ -110,7 +111,7 @@ google-chrome-stable
 
 # Editors things
 vim
-emacs
+emacs25
 
 # Development tools
 jq
@@ -140,6 +141,9 @@ mplayer2
 font-manager
 fonts-deva-extra
 fonts-lohit-deva
+
+# Notes etc
+zotero-standalone
 
 # Java
 openjdk-8-jdk

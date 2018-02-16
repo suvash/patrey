@@ -11,14 +11,20 @@ case Darwin
   set -x SSH_AUTH_SOCK (gpgconf --list-dirs agent-ssh-socket)
 end
 
+# Load fish abbreviations
+fish_user_abbreviations
+
 # Keep it around in case something goes wrong
 # gpg-connect-agent updatestartuptty /bye > /dev/null
-
-fish_user_abbreviations
 
 # Add local bin to PATH
 if test -d $HOME/.local/bin
   set -x PATH $HOME/.local/bin $PATH
+end
+
+# Source $HOME/.computer if exists
+if test -f $HOME/.computer
+  source $HOME/.computer
 end
 
 # Add cargo to PATH
