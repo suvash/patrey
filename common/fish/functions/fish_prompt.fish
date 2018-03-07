@@ -28,7 +28,9 @@ function fish_prompt --description 'Write out the prompt'
   echo -n ' | '
 
   # Git
-  __suvash_git_prompt
+  if type -q git
+    __suvash_git_prompt
+  end
 
 
   # Nextline
