@@ -65,6 +65,7 @@ function fish_user_abbreviations
     ngc='nix-collect-garbage' \
     \
     fls='fisher ls-remote --format="%stars - %name: %info https://%url\n" | sort -n' \
+    fcln='fisher ls | fisher rm; and rm -rf ~/.config/fisherman; and rm -rf ~/.cache/fisherman' \
     \
     cleanhosts='awk \'/HostName/{print $2}\'  ~/.ssh/config | xargs -n 1 ssh-keygen -R' \
     \

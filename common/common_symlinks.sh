@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 
+mkdir -p $HOME/.config
+mkdir -p $HOME/.config/fish
+
 if [ ! -L $HOME/.gitconfig ]; then
   rm $HOME/.gitconfig 2> /dev/null
   ln -sfv $HOME/Developer/scaffold/common/dotfiles/gitconfig $HOME/.gitconfig
@@ -10,15 +13,23 @@ if [ ! -L $HOME/.gitignore ]; then
   ln -sfv $HOME/Developer/scaffold/common/dotfiles/gitignore $HOME/.gitignore
 fi
 
-if [ ! -L $HOME/.config/fish ]; then
-  rm -rf $HOME/.config/fish/ 2> /dev/null
-  mkdir -p $HOME/.config/
-  ln -sfv $HOME/Developer/scaffold/common/fish $HOME/.config/fish
+if [ ! -L $HOME/.config/fish/config.fish ]; then
+  rm -rf $HOME/.config/fish/config.fish 2> /dev/null
+  ln -sfv $HOME/Developer/scaffold/common/fish/config.fish $HOME/.config/fish/config.fish
+  ln -sfv $HOME/Developer/scaffold/common/fish/fishfile $HOME/.config/fish/fishfile
+  mkdir -p $HOME/.config/fish/{completions,functions}
+  for file in $HOME/Developer/scaffold/common/fish/completions/*
+  do
+      ln -sfv $file "$HOME/.config/fish/completions/${file##*/}"
+  done
+  for file in $HOME/Developer/scaffold/common/fish/functions/*
+  do
+      ln -sfv $file "$HOME/.config/fish/functions/${file##*/}"
+  done
 fi
 
 if [ ! -L $HOME/.config/alacritty ]; then
   rm -rf $HOME/.config/alacritty 2> /dev/null
-  mkdir -p $HOME/.config/
   ln -sfv $HOME/Developer/scaffold/common/alacritty $HOME/.config/alacritty
 fi
 

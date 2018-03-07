@@ -1,1 +1,0 @@
-/home/suvash/.config/fisherman/z/functions/zadd.awk
