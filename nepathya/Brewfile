@@ -6,6 +6,8 @@ tap "caskroom/cask"
 brew "binutils"
 brew "coreutils"
 brew "curl"
+brew "cmake"
+brew "cmatrix"
 brew "dfc"
 brew "diffutils"
 brew "emacs", args: ["with-cocoa"]
@@ -13,6 +15,7 @@ brew "exa"
 brew "findutils", args: ["with-default-names"]
 brew "fish"
 brew "gawk"
+brew "gcal"
 brew "gnu-sed", args: ["with-default-names"]
 brew "gnu-tar", args: ["with-default-names"]
 brew "gnu-which", args: ["with-default-names"]
@@ -31,6 +34,7 @@ brew "ngrep"
 brew "pinentry-mac"
 brew "reattach-to-user-namespace"
 brew "rlwrap"
+brew "rustup-init"
 brew "shellcheck"
 brew "terraform"
 brew "the_silver_searcher"
