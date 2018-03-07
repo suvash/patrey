@@ -13,17 +13,21 @@ function fish_user_abbreviations
     \
     ga='git add' \
      \
-    gst='git status -sb' \
     gs='git show' \
+    gst='git status -sb' \
      \
     gd='git diff' \
     gdc='git diff --cached' \
      \
     gp='git push' \
-    gpthis='git push origin HEAD:(__git_current_branch)' \
+    gpf='git push --force-with-lease' \
+    gpu='git push --set-upstream origin (__git_current_branch)' \
+    gpd='git push --delete origin (__git_current_branch)' \
+    \
+    gt='git branch -vv' \
      \
-    gup='git fetch origin; and git rebase -p origin/(__git_current_branch)' \
-    gsp='git stash; and git fetch origin; and git rebase -p origin/(__git_current_branch); and git stash pop' \
+    gup="git fetch --all -p; and git rebase -p '@{upstream}'" \
+    gsp="git stash; and git fetch --all -p; and git rebase -p '@{upstream}'; and git stash pop" \
      \
     gprn='git remote prune origin --dry-run' \
     \
@@ -34,23 +38,16 @@ function fish_user_abbreviations
      \
     gco='git checkout' \
     gcm='git checkout master' \
-    gcd='git checkout develop' \
-     \
+    \
     gb='git branch' \
-    gba='git branch -a' \
     gbr='git branch -r' \
-    gbd='git branch -D' \
+    gbd='git branch --delete' \
      \
     gcp='git cherry-pick' \
      \
-    gl='git log' \
-    gls='git log --stat --max-count=5' \
-    glg='git lg --max-count=5' \
-    glgg='git log --graph --max-count=5' \
-    gsg='git shortlog -sn' \
-     \
-    gcf='git diff-tree --no-commit-id --name-only -r HEAD' \
-     \
+    gl='git log --oneline --decorate=full' \
+    glg='git log --graph --oneline --decorate=full' \
+    \
     grh='git reset HEAD' \
     grhh='git reset HEAD --hard' \
     gcln='git clean -f -d' \
@@ -59,10 +56,6 @@ function fish_user_abbreviations
     \
     grbb='git rebase -i (git show-branch --merge-base master)' \
     \
-    bi='bundle install --jobs 3 --path .bundle/gems --binstubs .bundle/bin' \
-    ber='bundle exec rake' \
-    be='bundle exec' \
-    t='tig' \
     tf='tail -f' \
     ps='ps fauwwx' \
     \
@@ -72,13 +65,6 @@ function fish_user_abbreviations
     ngc='nix-collect-garbage' \
     \
     fls='fisher ls-remote --format="%stars - %name: %info https://%url\n" | sort -n' \
-    \
-    vu='vagrant up' \
-    vs='vagrant ssh' \
-    vsc='vagrant ssh -c' \
-    vd='vagrant destroy -f' \
-    vgs='vagrant global-status --prune' \
-    vha='vagrant global-status --prune | awk \'/running/{print $1}\' | xargs -n 1 -- vagrant halt' \
     \
     cleanhosts='awk \'/HostName/{print $2}\'  ~/.ssh/config | xargs -n 1 ssh-keygen -R' \
     \
@@ -91,29 +77,19 @@ function fish_user_abbreviations
     dv='docker volume ls' \
     ds='docker system df' \
     \
-    sen='docker run -v /var/run/docker.sock:/run/docker.sock:ro -e TERM --rm -it tomastomecek/sen' \
-    glances='docker run -v /var/run/docker.sock:/var/run/docker.sock:ro --pid host --rm -it docker.io/nicolargo/glances' \
-    \
-    alexweb='docker exec -i -t alex_web_1 gosu (id -u):(id -g) /bin/bash' \
-    alexworker='docker exec -i -t alex_worker_1 gosu (id -u):(id -g) /bin/bash' \
-    \
     v='vim' \
     emd='emacs --daemon' \
     emt='emacsclient -c -nw' \
     emc='emacsclient -c -n' \
     \
+    export='set -x' \
+    \
     portusedby='lsof -i :' \
     allports='netstat -tunap' \
     \
-    cmprs7z='7za a -t7z -mx=9 -m0=lzma2 -ms=on -mhc=on -mhe=on -p' \
-    cmprszip='7za a -tzip -mx=9 -mem=aes256 -p' \
-    \
-    ducks='du -cks * | sort -rn' \
-    cl='tty-clock' \
+    du='du -chs *' \
     fonts='fc-list' \
     xa='xrandr --auto' \
-    tb='xrandr --output eDP1 --mode 1440x900 --pos 0x0 --rotate normal --output DP1 --mode 2560x1440 --pos 1440x0 --rotate normal' \
-    wm='xrandr --output eDP1 --primary --mode 1440x900 --pos 240x1200 --rotate normal --output HDMI1 --mode 1920x1200 --pos 0x0 --rotate normal' \
     sp='send_to_phone' \
-    httpserve='python -m SimpleHTTPServer 8000'
+    httpserve='python -m SimpleHTTPServer 7531'
 end

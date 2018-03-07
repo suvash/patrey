@@ -1,79 +1,86 @@
 #!/usr/bin/env bash
 
+mkdir -p $HOME/.local/bin/
+mkdir -p $HOME/.config/
+mkdir -p $HOME/.config/autorandr
+
+if [ ! -L /etc/nixos ]; then
+  sudo mv /etc/nixos /etc/nixos.orig
+  sudo ln -sfv $HOME/Developer/scaffold/yantra/nixos/ /etc/nixos
+fi
+
+if [ ! -L $HOME/.config/nixpkgs ]; then
+  rm -rf $HOME/.config/nixpkgs 2> /dev/null
+  sudo ln -sfv $HOME/Developer/scaffold/yantra/nixpkgs/ $HOME/.config/nixpkgs
+fi
+
 if [ ! -L $HOME/.xinitrc ]; then
   rm -rf $HOME/.xinitrc 2> /dev/null
-  ln -s $HOME/Developer/scaffold/yantra/dotfiles/xinitrc $HOME/.xinitrc
+  ln -sfv $HOME/Developer/scaffold/yantra/dotfiles/xinitrc $HOME/.xinitrc
 fi
 
 if [ ! -L $HOME/.Xresources ]; then
   rm -rf $HOME/.Xresources 2> /dev/null
-  ln -s $HOME/Developer/scaffold/yantra/dotfiles/Xresources $HOME/.Xresources
-fi
-
-if [ ! -L $HOME/.env ]; then
-  rm -rf $HOME/.env 2> /dev/null
-  ln -s $HOME/Developer/scaffold/yantra/dotfiles/env $HOME/.env
-fi
-
-if [ ! -L $HOME/.packages.apt ]; then
-  rm -rf $HOME/.packages.apt 2> /dev/null
-  ln -s $HOME/Developer/scaffold/yantra/packages.apt $HOME/.packages.apt
-fi
-
-if [ ! -L /etc/modules-load.d/mbpfan.conf ]; then
-  sudo ln -s $HOME/Developer/scaffold/yantra/dotfiles/mbpfan-modules /etc/modules-load.d/mbpfan.conf
-fi
-
-if [ ! -L /etc/modules-load.d/facetimehd.conf ]; then
-  sudo ln -s $HOME/Developer/scaffold/yantra/dotfiles/facetimehd-modules /etc/modules-load.d/facetimehd.conf
-fi
-
-if [ ! -L /etc/lightdm/lightdm.conf ]; then
-  sudo rm -rf /etc/lightdm/lightdm.conf 2> /dev/null
-  sudo ln -s $HOME/Developer/scaffold/yantra/lightdm/lightdm.conf /etc/lightdm/lightdm.conf
-fi
-
-if [ ! -L /usr/share/xsessions/xmonad.desktop ]; then
-  sudo mv /usr/share/xsessions/xmonad.desktop /usr/share/xsessions/xmonad.desktop.orig 2> /dev/null
-  sudo ln -s $HOME/Developer/scaffold/yantra/assets/xmonad.desktop /usr/share/xsessions/xmonad.desktop
-fi
-
-if [ ! -L /usr/share/unity-greeter/xmonad_badge.png ]; then
-  sudo rm -rf /usr/share/unity-greeter/xmonad_badge.png 2> /dev/null
-  sudo ln -s $HOME/Developer/scaffold/yantra/assets/xmonad_badge.png /usr/share/unity-greeter/xmonad_badge.png
-fi
-
-if [ ! -L /usr/local/bin/start-xmonad-session ]; then
-  sudo rm -rf /usr/local/bin/start-xmonad-session 2> /dev/null
-  sudo ln -s $HOME/Developer/scaffold/yantra/scripts/start-xmonad-session /usr/local/bin/start-xmonad-session
-fi
-
-if [ ! -L /usr/local/bin/set-greeter-resolution ]; then
-  sudo rm -rf /usr/local/bin/set-greeter-resolution 2> /dev/null
-  sudo ln -s $HOME/Developer/scaffold/yantra/scripts/set-greeter-resolution /usr/local/bin/set-greeter-resolution
-fi
-
-if [ ! -L $HOME/.local/bin/start-tor-browser ]; then
-  rm -rf $HOME/.local/bin/start-tor-browser 2> /dev/null
-  ln -s $HOME/Developer/scaffold/yantra/scripts/start-tor-browser $HOME/.local/bin/start-tor-browser
+  ln -sfv $HOME/Developer/scaffold/yantra/dotfiles/Xresources $HOME/.Xresources
 fi
 
 if [ ! -L $HOME/.local/bin/autoconfigure-workstation ]; then
   rm -rf $HOME/.local/bin/autoconfigure-workstation 2> /dev/null
-  ln -s $HOME/Developer/scaffold/yantra/scripts/autoconfigure-workstation $HOME/.local/bin/autoconfigure-workstation
-fi
-
-if [ ! -L $HOME/.local/bin/get-module-parameters ]; then
-  rm -rf $HOME/.local/bin/get-module-parameters 2> /dev/null
-  ln -s $HOME/Developer/scaffold/yantra/scripts/get-module-parameters $HOME/.local/bin/get-module-parameters
-fi
-
-if [ ! -L $HOME/.local/bin/get-fan-speed ]; then
-  rm -rf $HOME/.local/bin/get-fan-speed 2> /dev/null
-  ln -s $HOME/Developer/scaffold/yantra/scripts/get-fan-speed $HOME/.local/bin/get-fan-speed
+  ln -sfv $HOME/Developer/scaffold/yantra/scripts/autoconfigure-workstation $HOME/.local/bin/autoconfigure-workstation
 fi
 
 if [ ! -L $HOME/.local/bin/utf-demo ]; then
   rm -rf $HOME/.local/bin/utf-demo 2> /dev/null
-  ln -s $HOME/Developer/scaffold/yantra/scripts/utf-demo $HOME/.local/bin/utf-demo
+  ln -sfv $HOME/Developer/scaffold/yantra/scripts/utf-demo $HOME/.local/bin/utf-demo
+fi
+
+if [ ! -L $HOME/.xmonad ]; then
+  rm -rf $HOME/.xmonad 2> /dev/null
+  ln -sfv $HOME/Developer/scaffold/yantra/xmonad $HOME/.xmonad
+fi
+
+if [ ! -L $HOME/.config/autorandr/preswitch ]; then
+  rm -rf $HOME/.config/autorandr/preswitch 2> /dev/null
+  ln -sfv $HOME/Developer/scaffold/yantra/autorandr/preswitch $HOME/.config/autorandr/preswitch
+fi
+
+if [ ! -L $HOME/.config/autorandr/postswitch ]; then
+  rm -rf $HOME/.config/autorandr/postswitch 2> /dev/null
+  ln -sfv $HOME/Developer/scaffold/yantra/autorandr/postswitch $HOME/.config/autorandr/postswitch
+fi
+
+if [ ! -L $HOME/.xmobarrc ]; then
+  rm -rf $HOME/.xmobarrc 2> /dev/null
+  ln -sfv $HOME/Developer/scaffold/yantra/dotfiles/xmobarrc $HOME/.xmobarrc
+fi
+
+if [ ! -L $HOME/.stalonetrayrc ]; then
+  rm -rf $HOME/.stalonetrayrc 2> /dev/null
+  ln -sfv $HOME/Developer/scaffold/yantra/dotfiles/stalonetrayrc $HOME/.stalonetrayrc
+fi
+
+if [ ! -L $HOME/.xscreensaver ]; then
+  rm -rf $HOME/.xscreensaver 2> /dev/null
+  ln -sfv $HOME/Developer/scaffold/yantra/dotfiles/xscreensaver $HOME/.xscreensaver
+fi
+
+if [ ! -L $HOME/.config/dunst ]; then
+  rm -rf $HOME/.config/dunst/ 2> /dev/null
+  mkdir -p $HOME/.config/
+  ln -sfv $HOME/Developer/scaffold/yantra/dunst $HOME/.config/dunst
+fi
+
+if [ ! -L $HOME/.config/xfce4 ]; then
+  rm -rf $HOME/.config/xfce4 2> /dev/null
+  ln -sfv $HOME/Developer/scaffold/yantra/xfce4 $HOME/.config/xfce4
+fi
+
+if [ ! -L $HOME/.config/lilyterm ]; then
+  rm -rf $HOME/.config/lilyterm 2> /dev/null
+  ln -sfv $HOME/Developer/scaffold/yantra/lilyterm $HOME/.config/lilyterm
+fi
+
+if [ ! -L $HOME/.fehbg ]; then
+  rm -rf $HOME/.fehbg 2> /dev/null
+  ln -sfv $HOME/Developer/scaffold/yantra/dotfiles/fehbg $HOME/.fehbg
 fi

@@ -1,7 +1,0 @@
-#!/usr/bin/env bash
-
-# Add local binpath
-echo "PATH=$HOME/.local/bin:$PATH"
-
-# Export for Java/Xmonad workalong
-echo "_JAVA_AWT_WM_NONREPARENTING=1"

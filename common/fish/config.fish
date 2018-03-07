@@ -31,8 +31,3 @@ end
 if test -d $HOME/.cargo
   set -x PATH $HOME/.cargo/bin $PATH
 end
-
-# Source $HOME/.computer if exists
-if test -f $HOME/.computer
-  . $HOME/.computer
-end
