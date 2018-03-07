@@ -13,4 +13,4 @@ mkdir -p $HOME/.local/bin
 
 source $HOME/Developer/scaffold/common/common_symlinks.sh
 
-source $HOME/Developer/scaffold/macos/macos_symlinks.sh
+source $HOME/Developer/scaffold/nepathya/nepathya_symlinks.sh
