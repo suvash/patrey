@@ -6,20 +6,12 @@ set -u
 # KEYBOARD =======================================================================================
 
 KEYBOARD_MESSAGES=""
-# set internal Apple keyboard layout:
-apple_internal_keyboard_id=$(xinput -list | awk -Fid= '/Apple Internal Keyboard/{ print $2 }' | awk '{ print $1 }')
-if [ "${apple_internal_keyboard_id}" != "" ]; then
-    setxkbmap -device "${apple_internal_keyboard_id}" -layout us,us,se -variant dvorak,, -option 'grp:shifts_toggle,ctrl:nocaps'
-    KEYBOARD_MESSAGES="$KEYBOARD_MESSAGES\nFound $(xinput -list --name-only $apple_internal_keyboard_id)"
+# set internal XPS keyboard layout:
+xps_internal_keyboard_id=$(xinput -list | awk -Fid= '/Virtual core keyboard/{ print $2 }' | awk '{ print $1 }')
+if [ "${xps_internal_keyboard_id}" != "" ]; then
+    setxkbmap -device "${xps_internal_keyboard_id}" -layout us,us,se -variant dvorak,, -option 'grp:shifts_toggle,ctrl:nocaps'
+    KEYBOARD_MESSAGES="$KEYBOARD_MESSAGES\nFound $(xinput -list --name-only $xps_internal_keyboard_id)"
 fi
-
-# set external Apple keyboard layout:
-for apple_external_keyboard_id in $(xinput -list | awk -Fid= '/Apple Inc. Apple Keyboard/{ print $2 }' | awk '{ print $1 }'); do
-    if [ "${apple_external_keyboard_id}" != "" ]; then
-        setxkbmap -device "${apple_external_keyboard_id}" -layout se,us -option 'grp:shifts_toggle,ctrl:nocaps'
-    fi
-    KEYBOARD_MESSAGES="$KEYBOARD_MESSAGES\nFound $(xinput -list --name-only $apple_external_keyboard_id)"
-done
 
 # set Kinesis keyboard layout:
 for kinesis_keyboard_id in $(xinput -list | awk -Fid= '/HID 05f3:0007/{ print $2 }' | awk '{ print $1 }'); do
@@ -40,9 +32,9 @@ notify-send --urgency=NORMAL 'Detecting Keyboards' "$KEYBOARD_MESSAGES"
 
 # Set trackball
 POINTING_DEVICE_MESSAGES=""
-apple_trackpad_id=$(xinput -list | awk -Fid= '/Apple Internal Keyboard \/ Trackpad/{ print $2 }' | awk '{ print $1 }')
-if [ "${apple_trackpad_id}" != "" ]; then
-    POINTING_DEVICE_MESSAGES="$POINTING_DEVICE_MESSAGES\nFound $(xinput -list --name-only $apple_trackpad_id)"
+xps_trackpad_id=$(xinput -list | awk -Fid= '/Virtual core pointer/{ print $2 }' | awk '{ print $1 }')
+if [ "${xps_trackpad_id}" != "" ]; then
+    POINTING_DEVICE_MESSAGES="$POINTING_DEVICE_MESSAGES\nFound $(xinput -list --name-only $xps_trackpad_id)"
 fi
 
 slimblade_trackball_id=$(xinput -list | awk -Fid= '/Slimblade Trackball/{ print $2 }' | awk '{ print $1 }')
@@ -59,77 +51,9 @@ fi
 # Send notification
 notify-send --urgency=NORMAL 'Detecting pointing devices' "$POINTING_DEVICE_MESSAGES"
 
-
-# MONITOR ========================================================================================
-# Look into this at some point https://github.com/MestreLion/scripts/blob/master/monitor-switch
-function get_monitors() {
-	while read -r conn hex; do
-		echo "$conn---$(echo $hex | xxd -r -p )"
-	done < <(xrandr --prop | awk '
-	!/^[ \t]/ {
-		if (output && hex) print output, conn, hex
-		output=$1
-		hex=""
-	}
-	/ConnectorType:/ {conn=$2}
-	/[:.]/ && h {
-		sub(/.*000000fc00/, "", hex)
-		hex = substr(hex, 0, 26) "0a"
-		sub(/0a.*/, "", hex)
-		h=0
-	}
-	h {sub(/[ \t]+/, ""); hex = hex $0}
-	/EDID.*:/ {h=1}')
-}
-
-MONITORS_FOUND=$(get_monitors)
-MONITOR_MESSAGES=''
-XRANDR_STRING=''
-
-declare -A MONITORS
-OLD_IFS=$IFS
-IFS=$'\n'
-for monitor in $MONITORS_FOUND; do
-    connection=$(echo $monitor | awk -F--- '{print $1}')
-    monitor_name=$(echo $monitor | awk -F--- '{print $2}')
-
-    MONITOR_MESSAGES="$MONITOR_MESSAGES\nFound $monitor_name at $connection"
-
-    MONITORS[$connection]=$monitor_name
-
-    if [ "$monitor_name" == "DELL P2715Q" ]; then
-        XRANDR_STRING="$XRANDR_STRING --output eDP1 --mode 2560x1600 --pos 3840x0 --rotate normal --output $connection --primary --mode 3840x2160 --pos 0x0 --rotate normal"
-    fi
-
-    if [ "$monitor_name" == "CS2420" ]; then
-        XRANDR_STRING="$XRANDR_STRING --output eDP1 --primary --mode 2560x1600 --pos 0x0 --rotate normal --output $connection --mode 1920x1200 --pos 2560x0 --rotate normal"
-    fi
-
-    if [ "$monitor_name" == "LG TV" ]; then
-        XRANDR_STRING="$XRANDR_STRING --output eDP1 --primary --mode 2560x1600 --pos 0x0 --rotate normal --output $connection --mode 1920x1080 --pos 2560x0 --rotate normal"
-    fi
-done
-IFS=$OLD_IFS
-
-# Notify monitor detection
-notify-send --urgency=NORMAL 'Detecting monitors' "$MONITOR_MESSAGES"
-
-# Special dual 4k display at work setup
-if [ "${#MONITORS[@]}" == 3 ] ; then
-    XRANDR_STRING="--output eDP1 --mode 2560x1600 --pos 6000x280 --rotate normal --output DP1 --mode 3840x2160 --pos 0x0 --rotate left --output DP2 --primary --mode 3840x2160 --pos 2160x0 --rotate normal"
+# Run autorandr else auto xrandr
+if command -v autorandr; then
+  autorandr --change
+else
+  xrandr --auto
 fi
-
-# Run the xrandr string
-# echo "xrandr $XRANDR_STRING"
-# Should be for DELL P2715Q
-# xrandr --output eDP1 --mode 2560x1600 --pos 3840x0 --rotate normal --output DP1 --primary --mode 3840x2160 --pos 0x0 --rotate normal
-eval "xrandr $XRANDR_STRING"
-
-# Run Auto afterwards to fall back to default
-xrandr --auto
-
-
-# AUDIO ==========================================================================================
-
-# Rescan audio devices using Pulseaudio
-# pacmd unload-module module-udev-detect && pacmd load-module module-udev-detect

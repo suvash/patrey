@@ -31,7 +31,13 @@ myScratchpads = [
   XMUNS.NS "scratchterm" "lilyterm -s -T scratchterm" (title =? "scratchterm") (XMUNS.customFloating customRect) ,
 
   -- htop in terminal
-  XMUNS.NS "scratchtop" "lilyterm -s -T scratchtop -x htop" (title =? "scratchtop") (XMUNS.customFloating customRect)
+  XMUNS.NS "scratchtop" "lilyterm -s -T scratchtop -x htop" (title =? "scratchtop") (XMUNS.customFloating customRect),
+
+  -- ranger in terminal
+  XMUNS.NS "scratchranger" "lilyterm -s -T scratchranger -x ranger" (title =? "scratchranger") (XMUNS.customFloating customRect),
+
+  -- pulsemixer in terminal
+  XMUNS.NS "scratchpulsemixer" "lilyterm -s -T scratchpulsemixer -x pulsemixer" (title =? "scratchpulsemixer") (XMUNS.customFloating customRect)
   ]
 
 -- | Keys begin -------------------
@@ -70,6 +76,14 @@ newKeys x = DM.fromList $
         -- Floating htop
         ,  ((modMask x .|. controlMask, xK_h),
             XMUNS.namedScratchpadAction myScratchpads "scratchtop")
+
+        -- Floating ranger
+        ,  ((modMask x .|. controlMask, xK_r),
+            XMUNS.namedScratchpadAction myScratchpads "scratchranger")
+
+        -- Floating ranger
+        ,  ((modMask x .|. controlMask, xK_v),
+            XMUNS.namedScratchpadAction myScratchpads "scratchpulsemixer")
 
         -- Screensaver and Lock
         ,  ((modMask x .|. controlMask, xK_l),
@@ -113,7 +127,7 @@ newKeys x = DM.fromList $
 
         -- Launch Chrome Igcognito
         ,  ((modMask x .|. controlMask, xK_c),
-            spawn "google-chrome --incognito --force-device-scale-factor=1.8")
+            spawn "google-chrome-stable --incognito --force-device-scale-factor=1.8")
 
         -- Launch Tor Browser
         ,  ((modMask x .|. controlMask, xK_t),
@@ -249,7 +263,7 @@ myWorkspaces = ["१", "२", "३", "४", "५", "६", "७", "८", "९"]
 
 main = do
   xmobarproc <- spawnXmobarProcess
-  xmonad $ XMHE.ewmh defaultConfig {
+  xmonad $ XMHM.docks $ XMHE.ewmh defaultConfig {
        modMask            = mod4Mask
      , keys               = myKeys
      , terminal           = myTerminal

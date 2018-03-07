@@ -1,9 +1,0 @@
-#!/usr/bin/env bash
-
-TOR_BROWSER_LOCATION=$HOME/Developer/utilities/tor-browser
-if [ -d  $TOR_BROWSER_LOCATION ]; then
-  cd $TOR_BROWSER_LOCATION
-  ./start-tor-browser.desktop
-else
-  echo "Tor Browser not found ! Please install it at $TOR_BROWSER_LOCATION"
-fi

@@ -11,13 +11,10 @@
 	interactive = auto
 	status = auto
 [push]
-	default = simple
+	default = upstream
 	followTags = true
 [branch "master"]
 	mergeoptions = --no-ff
-[alias]
-	prune = fetch --prune
-	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
 [gpg]
 	program = gpg
 [commit]
