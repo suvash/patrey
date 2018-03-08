@@ -48,10 +48,10 @@
                       flycheck
                       flycheck-color-mode-line
 
-                      ace-jump-mode
-
                       company
                       dumb-jump
+
+                      fish-mode
 
                       twittering-mode
                       restclient

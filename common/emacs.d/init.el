@@ -13,14 +13,15 @@
 ;; Load Config Path
 (add-to-list 'load-path "~/.emacs.d/configuration")
 
-(require 'configure-exec-path-from-shell)
+;; Get certain environment variable from shell on MacOS
+(when (string-equal system-type "darwin") (require 'configure-exec-path-from-shell))
+
 (require 'configure-theme)
 (require 'configure-projectile)
 (require 'configure-dired)
 (require 'configure-perspective)
 (require 'configure-ido)
 (require 'configure-smex)
-(require 'configure-ace-jump-mode)
 (require 'configure-smart-mode-line)
 (require 'configure-guide-key)
 (require 'configure-org)

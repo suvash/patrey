@@ -9,7 +9,7 @@
 
 (add-to-list 'sml/replacer-regexp-list '("^~/Developer/scaffold/" ":Scaffold:") t)
 
-;; ss things
-(add-to-list 'sml/replacer-regexp-list '("^~/Saltside/platform-core-service" ":SS-Core:") t)
+(add-to-list 'sml/replacer-regexp-list '("^~/1928/" ":1928:") t)
+(add-to-list 'sml/replacer-regexp-list '("^~/Projects/" ":Projects:") t)
 
 (provide 'configure-smart-mode-line)
