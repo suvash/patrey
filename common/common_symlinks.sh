@@ -15,6 +15,7 @@ fi
 
 if [ ! -L $HOME/.config/fish/config.fish ]; then
   rm -rf $HOME/.config/fish/config.fish 2> /dev/null
+  rm -rf $HOME/.config/fish/fishfile 2> /dev/null
   ln -sfv $HOME/Developer/scaffold/common/fish/config.fish $HOME/.config/fish/config.fish
   ln -sfv $HOME/Developer/scaffold/common/fish/fishfile $HOME/.config/fish/fishfile
   mkdir -p $HOME/.config/fish/{completions,functions}

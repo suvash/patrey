@@ -46,7 +46,9 @@ function fish_user_abbreviations
     gcp='git cherry-pick' \
      \
     gl='git log --oneline --decorate=full' \
+    gls='git log --oneline --decorate=full --stat' \
     glg='git log --graph --oneline --decorate=full' \
+    glgs='git log --graph --oneline --decorate=full --stat' \
     \
     grh='git reset HEAD' \
     grhh='git reset HEAD --hard' \

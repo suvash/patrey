@@ -192,6 +192,8 @@
     unstable.fish
     lilyterm
     emacs
+    jq
+    unzip
 
     bind # for dns utils
 
@@ -222,6 +224,7 @@
     xorg.xbacklight
 
     unstable.terraform
+    unstable.packer
     unstable.kubectl
     unstable.kubernetes-helm
     unstable.hugo
@@ -246,7 +249,6 @@
 
     # Python pipenv
     unstable.pipenv
-    python36
 
     # For nm-applet
     hicolor_icon_theme
@@ -292,6 +294,9 @@
 
   # Vnstat
   services.vnstat.enable = true;
+
+  # Fwupd (Not in stable yet)
+  # services.hardware.fwupd.enable = true;
 
   # Enable SSD TRIM of mounted supported partition in background
   services.fstrim.enable = true;

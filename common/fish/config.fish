@@ -11,8 +11,10 @@ case Darwin
   set -x SSH_AUTH_SOCK (gpgconf --list-dirs agent-ssh-socket)
 end
 
-# Load fish abbreviations
-fish_user_abbreviations
+# Load fish abbreviations in interactive env
+if status --is-interactive
+    fish_user_abbreviations
+end
 
 # Keep it around in case something goes wrong
 # gpg-connect-agent updatestartuptty /bye > /dev/null
