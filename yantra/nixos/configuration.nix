@@ -197,6 +197,8 @@
 
     bind # for dns utils
 
+    anki
+
     alacritty
 
     unstable.awscli
@@ -208,6 +210,8 @@
     unstable.mendeley
 
     slock
+
+    multitail
 
     #pass
     unstable.gopass
@@ -233,6 +237,8 @@
     unstable.docker_compose
 
     vnstat
+
+    unstable.cargo
 
     firefox-esr
     networkmanagerapplet

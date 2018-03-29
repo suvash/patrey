@@ -82,8 +82,8 @@ newKeys x = DM.fromList $
             XMUNS.namedScratchpadAction myScratchpads "scratchranger")
 
         -- Floating ranger
-        ,  ((modMask x .|. controlMask, xK_v),
-            XMUNS.namedScratchpadAction myScratchpads "scratchpulsemixer")
+        -- ,  ((modMask x .|. controlMask, xK_m),
+        --     XMUNS.namedScratchpadAction myScratchpads "scratchpulsemixer")
 
         -- Screensaver and Lock
         ,  ((modMask x .|. controlMask, xK_l),
