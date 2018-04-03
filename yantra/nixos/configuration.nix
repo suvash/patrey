@@ -52,7 +52,7 @@
   networking.networkmanager.enable = true;
 
   # Insert nameservers before DHCP
-  networking.networkmanager.insertNameservers = [ "8.8.8.8" "9.9.9.9" ];
+  networking.networkmanager.insertNameservers = [ "1.1.1.1" "1.0.0.1" ];
 
   # Firewall
   networking.firewall.enable = true;
