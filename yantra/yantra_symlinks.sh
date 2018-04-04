@@ -34,6 +34,11 @@ if [ ! -L $HOME/.local/bin/utf-demo ]; then
   ln -sfv $HOME/Developer/scaffold/yantra/scripts/utf-demo $HOME/.local/bin/utf-demo
 fi
 
+if [ ! -L $HOME/.local/bin/random-wallpaper ]; then
+  rm -rf $HOME/.local/bin/random-wallpaper 2> /dev/null
+  ln -sfv $HOME/Developer/scaffold/yantra/scripts/random-wallpaper $HOME/.local/bin/random-wallpaper
+fi
+
 if [ ! -L $HOME/.xmonad ]; then
   rm -rf $HOME/.xmonad 2> /dev/null
   ln -sfv $HOME/Developer/scaffold/yantra/xmonad $HOME/.xmonad
@@ -78,9 +83,4 @@ fi
 if [ ! -L $HOME/.config/lilyterm ]; then
   rm -rf $HOME/.config/lilyterm 2> /dev/null
   ln -sfv $HOME/Developer/scaffold/yantra/lilyterm $HOME/.config/lilyterm
-fi
-
-if [ ! -L $HOME/.fehbg ]; then
-  rm -rf $HOME/.fehbg 2> /dev/null
-  ln -sfv $HOME/Developer/scaffold/yantra/dotfiles/fehbg $HOME/.fehbg
 fi

@@ -139,7 +139,7 @@ newKeys x = DM.fromList $
 
         -- Change wallpaper
         ,  ((modMask x .|. controlMask, xK_w),
-            spawn "sh $HOME/.fehbg")
+            spawn "random-wallpaper")
 
         -- Attach Detach workstation
         ,  ((modMask x .|. controlMask, xK_a),

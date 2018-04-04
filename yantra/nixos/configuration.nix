@@ -136,6 +136,7 @@
     gitFull
     htop
     acpi
+    feh
 
     xcape
     redshift
@@ -347,7 +348,7 @@
   services.xserver.displayManager.lightdm.enable = true;
 
   services.xserver.displayManager.sessionCommands = ''
-    ${pkgs.bash}/bin/bash $HOME/.fehbg
+    ${pkgs.bash}/bin/bash $HOME/.local/bin/random-wallpaper
     ${pkgs.xorg.xset}/bin/xset r rate 220 60
   '';
 
