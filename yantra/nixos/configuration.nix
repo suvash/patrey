@@ -240,7 +240,7 @@
 
     unstable.cargo
 
-    firefox-esr
+    firefox
     networkmanagerapplet
     nox
 
@@ -350,6 +350,9 @@
     ${pkgs.bash}/bin/bash $HOME/.fehbg
     ${pkgs.xorg.xset}/bin/xset r rate 220 60
   '';
+
+  # Select a desktop manager
+  services.xserver.desktopManager.default = "none";
 
   # Select a window manager
   services.xserver.windowManager.default = "xmonad";
@@ -475,6 +478,6 @@
   # compatible, in order to avoid breaking some software such as database
   # servers. You should change this only after NixOS release notes say you
   # should.
-  system.stateVersion = "17.09"; # Did you read the comment?
+  system.stateVersion = "18.03";
 
 }
