@@ -134,6 +134,7 @@
     wget
     vim
     gitFull
+    tig
     htop
     acpi
     feh
@@ -184,6 +185,7 @@
     iotop
     iftop
     dfc
+    dstat
 
     scrot
 

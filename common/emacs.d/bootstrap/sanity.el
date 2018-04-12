@@ -37,10 +37,9 @@
       indent-tabs-mode nil)
 
 ;; Display special characters
+;; https://github.com/emacs-mirror/emacs/blob/master/lisp/whitespace.el#L283
 (global-whitespace-mode 1)
-(setq whitespace-style '(face trailing lines-tail tab-mark))
-(setq whitespace-display-mappings
-      '((tab-mark 9 [9655 9] [92 9])))
+(setq whitespace-style '(face trailing tabs empty))
 
 ;; Disable backup files and/or deal with it
 (setq make-backup-files nil)
