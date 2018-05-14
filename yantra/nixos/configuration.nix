@@ -139,6 +139,14 @@
     acpi
     feh
 
+    vlc
+    mplayer
+
+    fd
+    ripgrep
+    exa
+    unstable.bat
+
     xcape
     redshift
 
@@ -204,8 +212,10 @@
 
     alacritty
 
-    unstable.awscli
+    awscli
     unstable.google-cloud-sdk
+
+    unstable.iamy
 
     google-chrome
     unstable.opera
@@ -259,6 +269,8 @@
     # Python pipenv
     unstable.pipenv
 
+    python36Packages.yamllint
+
     # For nm-applet
     hicolor_icon_theme
   ];
@@ -304,8 +316,11 @@
   # Vnstat
   services.vnstat.enable = true;
 
-  # Fwupd (Not in stable yet)
-  # services.hardware.fwupd.enable = true;
+  # Fwupd
+  services.fwupd.enable = true;
+
+  # Usbmuxd (Data to iOS)
+  services.usbmuxd.enable = true;
 
   # Enable SSD TRIM of mounted supported partition in background
   services.fstrim.enable = true;

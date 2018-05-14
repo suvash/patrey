@@ -46,7 +46,7 @@
                       ag
 
                       flycheck
-                      flycheck-color-mode-line
+                      flycheck-yamllint
 
                       company
                       dumb-jump
