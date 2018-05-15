@@ -9,11 +9,6 @@ if [ ! -L /etc/nixos ]; then
   sudo ln -sfv $HOME/Developer/scaffold/yantra/nixos/ /etc/nixos
 fi
 
-if [ ! -L $HOME/.config/nixpkgs ]; then
-  rm -rf $HOME/.config/nixpkgs 2> /dev/null
-  sudo ln -sfv $HOME/Developer/scaffold/yantra/nixpkgs/ $HOME/.config/nixpkgs
-fi
-
 if [ ! -L $HOME/.xinitrc ]; then
   rm -rf $HOME/.xinitrc 2> /dev/null
   ln -sfv $HOME/Developer/scaffold/yantra/dotfiles/xinitrc $HOME/.xinitrc

@@ -9,7 +9,7 @@ sudo nixos-rebuild switch
 
 # Use local packages
 LOCAL_REPO=$HOME/Developer/nixpkgs
-LOCAL_REPO_PACKAGES=()
+LOCAL_REPO_PACKAGES=(pipenv)
 
 for package in ${LOCAL_REPO_PACKAGES[@]}; do
   if ! command -v $package; then

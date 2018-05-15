@@ -266,9 +266,6 @@
     nix-prefetch-scripts
     go2nix
 
-    # Python pipenv
-    unstable.pipenv
-
     python36Packages.yamllint
 
     # For nm-applet
