@@ -8,12 +8,12 @@
 sudo nixos-rebuild switch
 
 # Use local packages
-LOCAL_REPO=$HOME/Developer/nixpkgs
-LOCAL_REPO_PACKAGES=(pipenv)
+LOCAL_REPO="$HOME/Developer/nixpkgs"
+LOCAL_REPO_PACKAGES=()
 
-for package in ${LOCAL_REPO_PACKAGES[@]}; do
-  if ! command -v $package; then
-    nix-env -f $LOCAL_REPO -iA $package
+for package in "${LOCAL_REPO_PACKAGES[@]}"; do
+  if ! command -v "$package"; then
+    nix-env -f "$LOCAL_REPO" -iA "$package"
   fi
 done
 

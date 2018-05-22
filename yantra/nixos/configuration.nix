@@ -218,9 +218,9 @@
     unstable.iamy
 
     google-chrome
-    unstable.opera
-    unstable.spotify
-    unstable.mendeley
+    opera
+    spotify
+    mendeley
 
     slock
 
@@ -266,7 +266,13 @@
     nix-prefetch-scripts
     go2nix
 
+    pew
     python36Packages.yamllint
+    shellcheck
+
+    pgcli
+
+    extundelete
 
     # For nm-applet
     hicolor_icon_theme
