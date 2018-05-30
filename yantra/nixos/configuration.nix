@@ -220,7 +220,6 @@
     google-chrome
     opera
     spotify
-    mendeley
 
     slock
 
@@ -235,6 +234,8 @@
     pavucontrol
     paprefs
 
+    parallel
+
     cmatrix
 
     xorg.xev
@@ -242,8 +243,8 @@
 
     unstable.terraform
     unstable.packer
-    unstable.kubectl
-    unstable.kubernetes-helm
+    kubectl
+    kubernetes-helm
     unstable.hugo
     unstable.sops
     unstable.docker-credential-gcr
@@ -271,6 +272,8 @@
     shellcheck
 
     pgcli
+
+    unstable.stack
 
     extundelete
 
