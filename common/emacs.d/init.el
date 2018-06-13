@@ -19,7 +19,7 @@
 (require 'configure-theme)
 (require 'configure-projectile)
 (require 'configure-dired)
-(require 'configure-perspective)
+;;(require 'configure-perspective)
 (require 'configure-ido)
 (require 'configure-smex)
 (require 'configure-smart-mode-line)

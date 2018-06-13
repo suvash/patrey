@@ -23,20 +23,19 @@
 (global-evil-leader-mode)
 (evil-leader/set-leader ",")
 (evil-leader/set-key
-  "po" 'projectile-persp-switch-project
-  "pk" 'persp-kill
+  "po" 'projectile-switch-project
+  "pk" 'projectile-kill-buffers
 
-  "x" 'projectile-find-file
+  "px" 'projectile-find-file
+  "x" 'projectile-find-file-other-window
 
-  "i" 'imenu
-
+  "r" 'projectile-replace
   "d" 'projectile-dired
   "a" 'projectile-ag
 
   "ji" 'dumb-jump-go
   "jo" 'dumb-jump-back
 
-  "o" 'other-window
   "b" 'switch-to-buffer
   "k" 'kill-this-buffer
 
