@@ -199,6 +199,8 @@
 
     unstable.udiskie
 
+    usbutils
+
     tmux
     unstable.fish
     lilyterm
@@ -253,6 +255,8 @@
     vnstat
 
     unstable.cargo
+
+    telnet
 
     firefox
     networkmanagerapplet
