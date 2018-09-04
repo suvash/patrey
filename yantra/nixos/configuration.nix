@@ -146,6 +146,11 @@
     ripgrep
     exa
     unstable.bat
+    ncdu
+    tldr
+    fzf
+
+    file
 
     gitAndTools.diff-so-fancy
 
@@ -196,6 +201,7 @@
     iftop
     dfc
     dstat
+    lsof
 
     scrot
 

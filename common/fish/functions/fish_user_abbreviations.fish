@@ -69,7 +69,8 @@ function fish_user_abbreviations
     fls='fisher ls-remote --format="%stars - %name: %info https://%url\n" | sort -n' \
     fcln='fisher ls | fisher rm; and rm -rf ~/.config/fisherman; and rm -rf ~/.cache/fisherman' \
     \
-    cleanhosts='awk \'/HostName/{print $2}\'  ~/.ssh/config | xargs -n 1 ssh-keygen -R' \
+    cleanhosts='awk \'/HostName/{print $2}\'  ~/.ssh/config | xargs -r -n 1 ssh-keygen -R' \
+    cleangoogle='awk -F\',\' \'/googleusercontent/{print $1}\'  ~/.ssh/known_hosts | xargs -r -n 1 ssh-keygen -R' \
     \
     mi="bash ~/Developer/scaffold/(hostname)/(hostname)_init.sh" \
     mb="bash ~/Developer/scaffold/(hostname)/(hostname)_build.sh" \
@@ -81,6 +82,7 @@ function fish_user_abbreviations
     ds='docker system df' \
     \
     v='vim' \
+    p='fzf --preview \'if type -q bat; bat --color "always" {}; else; cat {}; end\'' \
     emd='emacs --daemon' \
     emt='emacsclient -c -nw' \
     emc='emacsclient -c -n' \
