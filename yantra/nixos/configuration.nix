@@ -147,6 +147,8 @@
     exa
     unstable.bat
 
+    gitAndTools.diff-so-fancy
+
     xcape
     redshift
 
