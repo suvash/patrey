@@ -128,57 +128,154 @@
     PATH = "$HOME/.local/bin:$PATH";
   };
 
-  # List packages installed in system profile. To search by name, run:
-  # $ nix-env -qaP | grep wget
+  # List packages installed in system profile.
   environment.systemPackages = with pkgs; [
+    # Essentials
     wget
+    gnumake3
+
+    # Editors
     vim
+    emacs
+
+    # Git family
     gitFull
     tig
-    htop
-    acpi
-    feh
+    gitAndTools.diff-so-fancy
 
+    # Media related tools
     vlc
     mplayer
+    unstable.zathura
+    xfce.xfce4volumed
 
+    # Pulseaudio tools
+    unstable.pulsemixer
+    pavucontrol
+    paprefs
+
+    # Entertainment
+    spotify
+
+    # File search/listing related tools
     fd
     ripgrep
     exa
     unstable.bat
-    ncdu
-    tldr
     fzf
-
+    silver-searcher
     file
+    tree
+    ranger
 
-    gitAndTools.diff-so-fancy
+    # Help tools
+    tldr
 
+    # X window related tools
     xcape
     redshift
-
-    unstable.zathura
-
+    feh
     xscreensaver
-
-    gnumake3
-
-    dmenu
-    silver-searcher
     rofi
-    tree
-    dfc
-    arandr
-
     xclip
     autocutsel
-
-    baobab
-
+    arandr
     dunst
     libnotify
     stalonetray
     pasystray
+    scrot
+    slock
+    xorg.xev
+    xorg.xbacklight
+    haskellPackages.xmobar
+    networkmanagerapplet
+    # For nm-applet
+    hicolor_icon_theme
+
+    # Hardware info tools
+    lshw
+    hardinfo
+
+    # System monitoring tools
+    acpi
+    htop
+    iotop
+    iftop
+    dfc
+    dstat
+    lsof
+    powertop
+    ncdu
+    baobab
+    vnstat
+
+    # USB disk related tools
+    unstable.udiskie
+    usbutils
+
+    # Terminal and shells
+    unstable.fish
+    lilyterm
+    alacritty
+    tmux
+    parallel
+
+    # File operation tools
+    jq
+    xsv
+    unzip
+    multitail
+
+    # Dns related tools
+    bind
+
+    # Productivity tools
+    anki
+
+    # Cloud vendor tools
+    awscli
+    unstable.google-cloud-sdk
+    unstable.iamy
+
+    # Browsers
+    firefox
+    google-chrome
+    opera
+
+    # Password management tools
+    unstable.gopass
+    qtpass
+    rofi-pass
+    python36Packages.upass
+
+    # Bling tools
+    cmatrix
+
+    # Cloud/Container tools
+    unstable.terraform
+    unstable.packer
+    kubectl
+    kubernetes-helm
+    unstable.docker-credential-gcr
+    unstable.docker_compose
+
+    # Nixos tools
+    nix-prefetch-scripts
+    nox
+
+    # Programming tools
+    unstable.cargo
+    unstable.stack
+    unstable.pipenv
+    pew
+    pgcli
+    python36Packages.yamllint
+    shellcheck
+    unstable.hugo
+
+    # Encryption/Decryption tools
+    unstable.sops
 
     # XPS tools
     nvme-cli
@@ -187,111 +284,8 @@
     # https://wiki.archlinux.org/index.php/Dell_XPS_13_(9360)#Freezing_after_waking_from_suspend
     xorg.xf86videointel
 
-
     # Bluetooth
     # blueman
-
-    ranger
-    unstable.pulsemixer
-
-    lshw
-    hardinfo
-
-    iotop
-    iftop
-    dfc
-    dstat
-    lsof
-
-    scrot
-
-    unstable.udiskie
-
-    usbutils
-
-    tmux
-    unstable.fish
-    lilyterm
-    emacs
-    jq
-    unzip
-
-    bind # for dns utils
-
-    anki
-
-    alacritty
-
-    awscli
-    unstable.google-cloud-sdk
-
-    unstable.iamy
-
-    google-chrome
-    opera
-    spotify
-
-    slock
-
-    multitail
-
-    #pass
-    unstable.gopass
-    qtpass
-    rofi-pass
-    python36Packages.upass
-
-    pavucontrol
-    paprefs
-
-    parallel
-
-    cmatrix
-
-    xorg.xev
-    xorg.xbacklight
-
-    unstable.terraform
-    unstable.packer
-    kubectl
-    kubernetes-helm
-    unstable.hugo
-    unstable.sops
-    unstable.docker-credential-gcr
-    unstable.docker_compose
-
-    vnstat
-
-    unstable.cargo
-
-    telnet
-
-    firefox
-    networkmanagerapplet
-    nox
-
-    gnome3.cheese
-
-    xfce.xfce4volumed
-
-    haskellPackages.xmobar
-
-    nix-prefetch-scripts
-    go2nix
-
-    pew
-    python36Packages.yamllint
-    shellcheck
-
-    pgcli
-
-    unstable.stack
-    unstable.pipenv
-
-    extundelete
-
-    # For nm-applet
-    hicolor_icon_theme
   ];
 
   # Fonts ================================================
