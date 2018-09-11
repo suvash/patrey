@@ -286,6 +286,7 @@
     pgcli
 
     unstable.stack
+    unstable.pipenv
 
     extundelete
 

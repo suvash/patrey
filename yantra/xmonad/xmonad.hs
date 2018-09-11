@@ -15,7 +15,7 @@ import qualified XMonad.StackSet             as XMST
 import qualified XMonad.ManageHook           as XMMH
 import qualified Data.Map                    as DM
 
-myTerminal = "lilyterm"
+myTerminal = "alacritty"
 
 -- | Scratchpads
 

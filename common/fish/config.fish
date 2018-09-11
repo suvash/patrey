@@ -29,7 +29,7 @@ if test -f $HOME/.computer
   source $HOME/.computer
 end
 
-# Add cargo to PATH
-if test -d $HOME/.cargo
-  set -x PATH $HOME/.cargo/bin $PATH
+# Start tmux if exists in a alacritty session
+if type -q tmux; and set -q ALACRITTY; and not set -q TMUX
+    exec tmux
 end

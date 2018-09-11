@@ -3,7 +3,10 @@ function fish_user_abbreviations
     ...='../..' \
     ....='../../..' \
     \
-    l='ls -a' \
+    p='fzf --preview \'if type -q bat; bat --color "always" {}; else; cat {}; end\'' \
+    l='exa -la' \
+    v='vim (fzf)' \
+    \
     ll='ls -lah' \
     lsd='tree --dirsfirst -ChF -L 1' \
     \
@@ -81,8 +84,6 @@ function fish_user_abbreviations
     dv='docker volume ls' \
     ds='docker system df' \
     \
-    v='vim' \
-    p='fzf --preview \'if type -q bat; bat --color "always" {}; else; cat {}; end\'' \
     emd='emacs --daemon' \
     emt='emacsclient -c -nw' \
     emc='emacsclient -c -n' \
