@@ -12,13 +12,16 @@ brew "cmake"
 brew "cmatrix"
 brew "dfc"
 brew "diffutils"
+brew "diff-so-fancy"
 brew "emacs", args: ["with-cocoa"]
 brew "exa"
 brew "fd"
 brew "findutils", args: ["with-default-names"]
 brew "fish"
+brew "fzf"
 brew "gawk"
 brew "gcal"
+brew "git"
 brew "gnu-sed", args: ["with-default-names"]
 brew "gnu-tar", args: ["with-default-names"]
 brew "gnu-which", args: ["with-default-names"]
@@ -26,6 +29,7 @@ brew "gnutls"
 brew "gnupg"
 brew "grep", args: ["with-default-names"]
 brew "gzip"
+brew "haskell-stack"
 brew "hugo"
 brew "htop"
 brew "kubernetes-cli"
@@ -34,6 +38,7 @@ brew "openssl"
 brew "lsof"
 brew "make"
 brew "mas"
+brew "neovim"
 brew "ngrep"
 brew "packer"
 brew "pinentry-mac"

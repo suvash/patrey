@@ -21,7 +21,6 @@ brew bundle --file=$HOME/Developer/scaffold/nepathya/Brewfile
 
 echo "Brew and cask cleanup"
 brew cleanup
-brew cask cleanup
 brew bundle cleanup --file=$HOME/Developer/scaffold/nepathya/Brewfile #--force
 
 # Add fish to shell list if not already
