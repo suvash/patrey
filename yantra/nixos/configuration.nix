@@ -48,11 +48,11 @@
   # Define your hostname.
   networking.hostName = "yantra";
 
+  # Nameservers to use
+  networking.nameservers = [ "1.1.1.1" "1.0.0.1" ];
+
   # Use networkmanger (instead of wpa_supplicant)
   networking.networkmanager.enable = true;
-
-  # Insert nameservers before DHCP
-  networking.networkmanager.insertNameservers = [ "1.1.1.1" "1.0.0.1" ];
 
   # Firewall
   networking.firewall.enable = true;
@@ -210,6 +210,11 @@
     baobab
     vnstat
 
+    # Nmap tools
+    nmap
+    nmap_graphical
+    nmapsi4
+
     # USB disk related tools
     unstable.udiskie
     usbutils
@@ -220,6 +225,10 @@
     alacritty
     tmux
     parallel
+
+    # VPN tools
+    openvpn
+    networkmanager-openvpn
 
     # File operation tools
     jq
@@ -268,6 +277,7 @@
     unstable.cargo
     unstable.stack
     unstable.pipenv
+    nodejs-10_x
     pew
     pgcli
     python36Packages.yamllint
@@ -279,7 +289,6 @@
 
     # XPS tools
     nvme-cli
-    # unstable.fwupd
     # Fix freezing after waking up from suspend
     # https://wiki.archlinux.org/index.php/Dell_XPS_13_(9360)#Freezing_after_waking_from_suspend
     xorg.xf86videointel
@@ -509,6 +518,6 @@
   # compatible, in order to avoid breaking some software such as database
   # servers. You should change this only after NixOS release notes say you
   # should.
-  system.stateVersion = "18.03";
+  system.stateVersion = "18.09";
 
 }
