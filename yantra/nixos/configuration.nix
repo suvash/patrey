@@ -137,6 +137,7 @@
     # Editors
     vim
     emacs
+    vscode
 
     # Git family
     gitFull

@@ -59,7 +59,7 @@ function fish_user_abbreviations
      \
     gdmlb='git branch --merged | grep -v "\*" | xargs -n 1 git branch -d' \
     \
-    grbb='git rebase -i (git show-branch --merge-base master)' \
+    grbm='git rebase -i (git show-branch --merge-base master)' \
     \
     tf='tail -f' \
     ps='ps fauwwx' \
@@ -97,5 +97,5 @@ function fish_user_abbreviations
     fonts='fc-list' \
     xa='xrandr --auto' \
     sp='send_to_phone' \
-    httpserve='python -m SimpleHTTPServer 7531'
+    httpserve='python -m http.server 7531'
 end
