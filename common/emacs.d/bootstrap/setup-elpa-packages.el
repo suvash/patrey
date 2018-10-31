@@ -81,7 +81,6 @@
                       sqlup-mode
 
                       clojure-mode
-                      clj-refactor
                       cider
 
                       intero
