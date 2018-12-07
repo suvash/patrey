@@ -40,7 +40,9 @@ function fish_user_abbreviations
     gac='git add -A; and git commit -v -m' \
      \
     gco='git checkout' \
+    gcob='git checkout -b' \
     gcm='git checkout master' \
+    gcr='git checkout release' \
     \
     gb='git branch' \
     gbr='git branch -r' \

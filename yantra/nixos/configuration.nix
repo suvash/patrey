@@ -319,6 +319,7 @@
   virtualisation.docker.enable = true;
   virtualisation.docker.enableOnBoot = true;
 
+  virtualisation.virtualbox.host.enable = true;
   # Services =============================================
 
   # Enable the OpenSSH daemon.
@@ -511,7 +512,7 @@
   users.extraUsers.suvash = {
     isNormalUser = true;
     createHome = true;
-    extraGroups = ["wheel" "networkmanager" "docker"];
+    extraGroups = ["wheel" "networkmanager" "docker" "vboxusers"];
     shell = "/run/current-system/sw/bin/fish";
   };
 
