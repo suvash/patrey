@@ -251,7 +251,7 @@
     # Browsers
     firefox
     google-chrome
-    opera
+    # opera
 
     # Password management tools
     unstable.gopass
@@ -319,7 +319,7 @@
   virtualisation.docker.enable = true;
   virtualisation.docker.enableOnBoot = true;
 
-  virtualisation.virtualbox.host.enable = true;
+  virtualisation.virtualbox.host.enable = false;
   # Services =============================================
 
   # Enable the OpenSSH daemon.
