@@ -5,19 +5,6 @@
 
 pushd $PWD
 
-# ============= Install Xcode Tools ====================
-
-# create the placeholder file that's checked by CLI updates' .dist code
-# in Apple's SUS catalog
-touch /tmp/.com.apple.dt.CommandLineTools.installondemand.in-progress
-# find the CLI Tools update
-PROD=$(softwareupdate -l | grep "\*.*Command Line" | head -n 1 | awk -F"*" '{print $2}' | sed -e 's/^ *//' | tr -d '\n')
-# install it
-softwareupdate -i "$PROD" -v
-
-# ============= End Xcode tools ========================
-
-
 # ============= Install brew ====================
 
 if [[ "$OSTYPE" =~ ^darwin ]] && [[ ! "$(type -P brew)" ]]; then
@@ -30,11 +17,6 @@ fi
 
 # ============= End brew ========================
 
-# ============= Install Nix ====================
-
-# curl https://nixos.org/nix/install | sh
-
-# ============= End Nix ====================
 
 # ============= Clone scaffold ==================
 
