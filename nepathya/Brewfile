@@ -80,6 +80,7 @@ cask "spectacle"
 cask "spotify"
 cask "visual-studio-code"
 cask "vlc"
+cask "vuescan"
 cask "wacom-tablet"
 cask "webpquicklook"
 
@@ -89,8 +90,8 @@ mas "LastPass", id: 926036361
 mas "The Unarchiver", id: 425424353
 
 # Manual install
-# Vuescan
 # Fuji Raw Studio
 # Adobe + Nik
+# EIZO ColorNavigator
 # Ableton Live Suite
 # Melodics
