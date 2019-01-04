@@ -1,103 +1,104 @@
 function fish_user_abbreviations
-  set -U fish_user_abbreviations \
-    ...='../..' \
-    ....='../../..' \
-    \
-    p='fzf --preview \'if type -q bat; bat --color "always" {}; else; cat {}; end\'' \
-    l='exa -la' \
-    v='vim (fzf)' \
-    \
-    ll='ls -lah' \
-    lsd='tree --dirsfirst -ChF -L 1' \
-    \
-    t='tmux new -n (basename $PWD) -s (basename (dirname $PWD))"/"(basename $PWD)' \
-    ta='tmux attach' \
-    tl='tmux list-sessions' \
-    \
-    ga='git add' \
-     \
-    gs='git show' \
-    gst='git status -sb' \
-     \
-    gd='git diff' \
-    gdc='git diff --cached' \
-     \
-    gp='git push' \
-    gpf='git push --force-with-lease' \
-    gpu='git push --set-upstream origin (__git_current_branch)' \
-    gpd='git push --delete origin (__git_current_branch)' \
-    \
-    gt='git branch -vv' \
-     \
-    gup="git fetch --all -p; and git rebase -p '@{upstream}'" \
-    gsp="git stash; and git fetch --all -p; and git rebase -p '@{upstream}'; and git stash pop" \
-     \
-    gprn='git remote prune origin --dry-run' \
-    \
-    gm='git merge --no-ff --log' \
-    gc='git commit -v' \
-    gca='git commit -v --amend' \
-    gac='git add -A; and git commit -v -m' \
-     \
-    gco='git checkout' \
-    gcob='git checkout -b' \
-    gcm='git checkout master' \
-    gcr='git checkout release' \
-    \
-    gb='git branch' \
-    gbr='git branch -r' \
-    gbd='git branch --delete' \
-     \
-    gcp='git cherry-pick' \
-     \
-    gl='git log --oneline --decorate=full' \
-    gls='git log --oneline --decorate=full --stat' \
-    glg='git log --graph --oneline --decorate=full' \
-    glgs='git log --graph --oneline --decorate=full --stat' \
-    \
-    grh='git reset HEAD' \
-    grhh='git reset HEAD --hard' \
-    gcln='git clean -f -d' \
-     \
-    gdmlb='git branch --merged | grep -v "\*" | xargs -n 1 git branch -d' \
-    \
-    grbm='git rebase -i (git show-branch --merge-base master)' \
-    \
-    tf='tail -f' \
-    ps='ps fauwwx' \
-    \
-    ns='nix-env -qaP \'*\' --description | grep' \
-    ni="nix-env -iA nixpkgs.(hostname)" \
-    nu='nix-env -e' \
-    ngc='nix-collect-garbage' \
-    \
-    fls='fisher ls-remote --format="%stars - %name: %info https://%url\n" | sort -n' \
-    fcln='fisher ls | fisher rm; and rm -rf ~/.config/fisherman; and rm -rf ~/.cache/fisherman' \
-    \
-    cleanhosts='awk \'/HostName/{print $2}\'  ~/.ssh/config | xargs -r -n 1 ssh-keygen -R' \
-    cleangoogle='awk -F\',\' \'/googleusercontent/{print $1}\'  ~/.ssh/known_hosts | xargs -r -n 1 ssh-keygen -R' \
-    \
-    mi="bash ~/Developer/scaffold/(hostname)/(hostname)_init.sh" \
-    mb="bash ~/Developer/scaffold/(hostname)/(hostname)_build.sh" \
-    \
-    di='docker image ls' \
-    dc='docker container ls' \
-    dn='docker network ls' \
-    dv='docker volume ls' \
-    ds='docker system df' \
-    \
-    emd='emacs --daemon' \
-    emt='emacsclient -c -nw' \
-    emc='emacsclient -c -n' \
-    \
-    export='set -x' \
-    \
-    portusedby='lsof -i :' \
-    allports='netstat -tunap' \
-    \
-    du='du -chs *' \
-    fonts='fc-list' \
-    xa='xrandr --auto' \
-    sp='send_to_phone' \
-    httpserve='python -m http.server 7531'
+  set -U fish_user_abbreviations
+
+    abbr ... '../..'
+    abbr .... '../../..'
+
+    abbr p 'fzf --preview \'if type -q bat; bat --color "always" {}; else; cat {}; end\''
+    abbr l 'exa -la'
+    abbr v 'vim (fzf)'
+
+    abbr ll 'ls -lah'
+    abbr lsd 'tree --dirsfirst -ChF -L 1'
+
+    abbr t 'tmux new -n (basename $PWD) -s (basename (dirname $PWD))"/"(basename $PWD)'
+    abbr ta 'tmux attach'
+    abbr tl 'tmux list-sessions'
+
+    abbr ga 'git add'
+
+    abbr gs 'git show'
+    abbr gst 'git status -sb'
+
+    abbr gd 'git diff'
+    abbr gdc 'git diff --cached'
+
+    abbr gp 'git push'
+    abbr gpf 'git push --force-with-lease'
+    abbr gpu 'git push --set-upstream origin (__git_current_branch)'
+    abbr gpd 'git push --delete origin (__git_current_branch)'
+
+    abbr gt 'git branch -vv'
+
+    abbr gup "git fetch --all -p; and git rebase -p '@{upstream}'"
+    abbr gsp "git stash; and git fetch --all -p; and git rebase -p '@{upstream}'; and git stash pop"
+
+    abbr gprn 'git remote prune origin --dry-run'
+
+    abbr gm 'git merge --no-ff --log'
+    abbr gc 'git commit -v'
+    abbr gca 'git commit -v --amend'
+    abbr gac 'git add -A; and git commit -v -m'
+
+    abbr gco 'git checkout'
+    abbr gcob 'git checkout -b'
+    abbr gcm 'git checkout master'
+    abbr gcr 'git checkout release'
+
+    abbr gb 'git branch'
+    abbr gbr 'git branch -r'
+    abbr gbd 'git branch --delete'
+
+    abbr gcp 'git cherry-pick'
+
+    abbr gl 'git log --oneline --decorate=full'
+    abbr gls 'git log --oneline --decorate=full --stat'
+    abbr glg 'git log --graph --oneline --decorate=full'
+    abbr glgs 'git log --graph --oneline --decorate=full --stat'
+
+    abbr grh 'git reset HEAD'
+    abbr grhh 'git reset HEAD --hard'
+    abbr gcln 'git clean -f -d'
+
+    abbr gdmlb 'git branch --merged | grep -v "\*" | xargs -n 1 git branch -d'
+
+    abbr grbm 'git rebase -i (git show-branch --merge-base master)'
+
+    abbr tf 'tail -f'
+    abbr ps 'ps fauwwx'
+
+    abbr ns 'nix-env -qaP \'*\' --description | grep'
+    abbr ni "nix-env -iA nixpkgs.(hostname)"
+    abbr nu 'nix-env -e'
+    abbr ngc 'nix-collect-garbage'
+
+    abbr fls 'fisher ls-remote --format="%stars - %name: %info https://%url\n" | sort -n'
+    abbr fcln 'fisher ls | fisher rm; and rm -rf ~/.config/fisherman; and rm -rf ~/.cache/fisherman'
+
+    abbr cleanhosts 'awk \'/HostName/{print $2}\'  ~/.ssh/config | xargs -r -n 1 ssh-keygen -R'
+    abbr cleangoogle 'awk -F\',\' \'/googleusercontent/{print $1}\'  ~/.ssh/known_hosts | xargs -r -n 1 ssh-keygen -R'
+
+    abbr mi "bash ~/Developer/scaffold/(hostname)/(hostname)_init.sh"
+    abbr mb "bash ~/Developer/scaffold/(hostname)/(hostname)_build.sh"
+
+    abbr di 'docker image ls'
+    abbr dc 'docker container ls'
+    abbr dn 'docker network ls'
+    abbr dv 'docker volume ls'
+    abbr ds 'docker system df'
+
+    abbr emd 'emacs --daemon'
+    abbr emt 'emacsclient -c -nw'
+    abbr emc 'emacsclient -c -n'
+
+    abbr export 'set -x'
+
+    abbr portusedby 'lsof -i :'
+    abbr allports 'netstat -tunap'
+
+    abbr du 'du -chs *'
+    abbr fonts 'fc-list'
+    abbr xa 'xrandr --auto'
+    abbr sp 'send_to_phone'
+    abbr httpserve 'python -m http.server 753'
 end
