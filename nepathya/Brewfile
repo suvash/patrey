@@ -18,7 +18,6 @@ brew "cmatrix"
 brew "dfc"
 brew "diffutils"
 brew "diff-so-fancy"
-brew "emacs", args: ["with-cocoa"]
 brew "exa"
 brew "fd"
 brew "findutils", args: ["with-default-names"]
@@ -59,15 +58,16 @@ brew "wget"
 brew "whois"
 brew "xsv"
 
-cask "airfoil"
 cask "alfred"
 cask "appcleaner"
 cask "caffeine"
 cask "docker"
+cask "emacs"
 cask "firefox"
 cask "google-chrome"
 cask "iterm2"
 cask "karabiner-elements"
+cask "kensington-trackball-works"
 cask "keybase"
 cask "mendeley"
 cask "nordvpn"
@@ -80,10 +80,8 @@ cask "spectacle"
 cask "spotify"
 cask "visual-studio-code"
 cask "vlc"
+cask "wacom-tablet"
 cask "webpquicklook"
-
-# cask "kensington-trackball-works"
-# cask "wacom-intuos-pro-tablet"
 
 mas "Flycut", id: 442160987
 mas "HardwareGrowler", id: 475260933
@@ -93,5 +91,6 @@ mas "The Unarchiver", id: 425424353
 # Manual install
 # Vuescan
 # Fuji Raw Studio
+# Adobe + Nik
 # Ableton Live Suite
 # Melodics
