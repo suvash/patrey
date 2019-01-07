@@ -5,6 +5,7 @@
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
       ./gpg-yubikey-configuration.nix
+      ./multi-glibc-locale-paths.nix
     ];
 
   # Boot =================================================
