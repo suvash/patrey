@@ -7,7 +7,7 @@
  '(blacken-skip-string-normalization t)
  '(package-selected-packages
    (quote
-    (zenburn-theme yasnippet yaml-mode web-mode twittering-mode thrift terraform-mode sqlup-mode sql-indent smooth-scrolling sml-mode smex smart-mode-line rust-mode rspec-mode restclient rainbow-delimiters persp-projectile paredit nyan-mode nix-mode multiple-cursors markdown-mode magit linum-relative json-mode intero inflections idris-mode ido-vertical-mode ido-hacks ido-completing-read+ hydra haml-mode guide-key go-mode git-timemachine git-gutter-fringe+ flycheck-yamllint flx-ido fish-mode exec-path-from-shell evil-smartparens evil-leader enh-ruby-mode elm-mode edn dumb-jump cider blacken anaconda-mode alchemist aggressive-indent ag))))
+    (cider clojure-mode sqlup-mode sql-indent yaml-mode json-mode web-mode markdown-mode nyan-mode go-mode enh-ruby-mode blacken anaconda-mode nix-mode terraform-mode restclient fish-mode dumb-jump company flycheck-yamllint flycheck ag git-timemachine git-gutter-fringe+ git-gutter+ magit evil-smartparens evil-leader evil smartparens linum-relative rainbow-delimiters smooth-scrolling yasnippet guide-key smart-mode-line smex ido-vertical-mode ido-completing-read+ ido-hacks flx-ido persp-projectile perspective projectile zenburn-theme exec-path-from-shell))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
