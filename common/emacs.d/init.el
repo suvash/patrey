@@ -1,3 +1,7 @@
+;; Set and load custom file
+(setq custom-file "~/.emacs.d/emacs-custom.el")
+(load custom-file)
+
 ;; Autoadded - disabling because it's done in setup-elpa-packages later
 ;; (package-initialize)
 
