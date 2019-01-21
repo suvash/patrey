@@ -61,6 +61,7 @@
                       nix-mode
 
                       anaconda-mode
+                      blacken
 
                       enh-ruby-mode
                       rspec-mode
