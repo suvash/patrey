@@ -13,7 +13,6 @@
 (defvar my-packages '(exec-path-from-shell
 
                       zenburn-theme
-                      aggressive-indent
 
                       projectile
                       perspective
@@ -53,7 +52,6 @@
 
                       fish-mode
 
-                      twittering-mode
                       restclient
 
                       terraform-mode
@@ -64,19 +62,14 @@
                       blacken
 
                       enh-ruby-mode
-                      rspec-mode
 
                       go-mode
 
                       nyan-mode
                       markdown-mode
                       web-mode
-                      haml-mode
                       json-mode
                       yaml-mode
-                      thrift
-
-                      sml-mode
 
                       sql-indent
                       sqlup-mode

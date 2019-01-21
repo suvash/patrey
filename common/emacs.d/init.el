@@ -40,11 +40,9 @@
 (require 'configure-rainbow)
 (require 'configure-smartparens)
 (require 'configure-company)
-(require 'configure-aggressive-indent)
 (require 'configure-yasnippet)
 (require 'configure-dumb-jump)
 
-(require 'configure-twittering-mode)
 (require 'configure-restclient-mode)
 
 (require 'configure-terraform-mode)
@@ -52,7 +50,6 @@
 (require 'configure-nix-mode)
 
 (require 'configure-enh-ruby-mode)
-(require 'configure-rspec-mode)
 
 (require 'configure-python-mode)
 
@@ -77,11 +74,8 @@
 
 (require 'configure-rust-mode)
 
-(require 'configure-sml-mode)
 
 (require 'configure-nyan-mode)
 (require 'configure-markdown-mode)
 (require 'configure-yaml-mode)
-(require 'configure-haml-mode)
 (require 'configure-web-mode)
-(require 'configure-thrift-mode)
