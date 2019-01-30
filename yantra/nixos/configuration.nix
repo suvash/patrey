@@ -263,11 +263,19 @@
     # Bling tools
     cmatrix
 
-    # Cloud/Container tools
+    # Font
+    font-manager
+
+    # Cloud/VM tools
     unstable.terraform
     unstable.packer
-    kubectl
-    kubernetes-helm
+
+    # Kubernets
+    unstable.kubectl
+    unstable.kustomize
+    unstable.kubectx
+
+    # Docker
     unstable.docker-credential-gcr
     unstable.docker_compose
 
@@ -303,6 +311,7 @@
 
   fonts.fonts = with pkgs; [
     mononoki
+    unstable.noto-fonts-emoji
     lohit-fonts.devanagari
     lohit-fonts.nepali
   ];
