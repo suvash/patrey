@@ -24,6 +24,11 @@ if test -d $HOME/.local/bin
   set -x PATH $HOME/.local/bin $PATH
 end
 
+# Add $HOME/.cargo/bin to PATH if exists
+if test -d $HOME/.cargo/bin
+  set -x PATH $HOME/.cargo/bin $PATH
+end
+
 # Source $HOME/.computer if exists
 if test -f $HOME/.computer
   source $HOME/.computer
