@@ -191,6 +191,7 @@
     xorg.xbacklight
     haskellPackages.xmobar
     networkmanagerapplet
+    gnome3.nautilus
     # For nm-applet
     hicolor_icon_theme
 
