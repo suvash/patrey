@@ -58,7 +58,7 @@
 
                       nix-mode
 
-                      anaconda-mode
+                      elpy
                       blacken
 
                       enh-ruby-mode
