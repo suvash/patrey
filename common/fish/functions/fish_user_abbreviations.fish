@@ -100,5 +100,5 @@ function fish_user_abbreviations
     abbr fonts 'fc-list'
     abbr xa 'xrandr --auto'
     abbr sp 'send_to_phone'
-    abbr httpserve 'python -m http.server 753'
+    abbr httpserve 'python -m http.server 7531'
 end
