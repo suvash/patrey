@@ -34,6 +34,15 @@ if test -f $HOME/.computer
   source $HOME/.computer
 end
 
+# Conda in path if exists
+switch (uname)
+case Darwin
+  if test -d /usr/local/miniconda3
+    set -x PATH /usr/local/miniconda3/bin $PATH
+  end
+end
+
+
 # Start tmux if exists in a alacritty session
 if type -q tmux; and set -q ALACRITTY; and not set -q TMUX
     exec tmux
