@@ -212,7 +212,8 @@
     baobab
     vnstat
 
-    # Nmap tools
+    # Network tools
+    traceroute
     nmap
     nmap_graphical
     nmapsi4
@@ -271,7 +272,7 @@
     unstable.packer
 
     # Kubernets
-    unstable.kubectl
+    kubectl
     unstable.kustomize
     unstable.kubectx
 

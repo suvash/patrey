@@ -30,6 +30,8 @@ function fish_user_abbreviations
 
     abbr gt 'git branch -vv'
 
+    abbr gsu 'git submodule update'
+
     abbr gup "git fetch --all -p; and git rebase -p '@{upstream}'"
     abbr gsp "git stash; and git fetch --all -p; and git rebase -p '@{upstream}'; and git stash pop"
 
@@ -90,6 +92,8 @@ function fish_user_abbreviations
     abbr emd 'emacs --daemon'
     abbr emt 'emacsclient -c -nw'
     abbr emc 'emacsclient -c -n'
+
+    abbr p1 'ping 1.1.1.1'
 
     abbr export 'set -x'
 
