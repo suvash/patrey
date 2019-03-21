@@ -38,7 +38,7 @@ end
 switch (uname)
 case Darwin
   if test -d /usr/local/miniconda3
-    set -x PATH /usr/local/miniconda3/bin $PATH
+    source /usr/local/miniconda3/etc/fish/conf.d/conda.fish
   end
 end
 
