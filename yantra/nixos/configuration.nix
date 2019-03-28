@@ -240,7 +240,8 @@
     multitail
 
     # Dns related tools
-    bind
+    whois
+    bind # nslookup etc.
 
     # Productivity tools
     anki
