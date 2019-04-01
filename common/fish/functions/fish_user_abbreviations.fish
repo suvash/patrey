@@ -17,7 +17,7 @@ function fish_user_abbreviations
 
     abbr ga 'git add'
 
-    abbr gs 'git show'
+    abbr gs 'git show --stat'
     abbr gst 'git status -sb'
 
     abbr gd 'git diff'

@@ -240,7 +240,7 @@
     multitail
 
     # Dns related tools
-    whois
+    unstable.whois
     bind # nslookup etc.
 
     # Productivity tools
@@ -254,7 +254,7 @@
     # Browsers
     firefox
     google-chrome
-    # opera
+    opera
 
     # Password management tools
     unstable.gopass
