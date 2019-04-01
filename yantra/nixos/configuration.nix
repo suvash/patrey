@@ -4,7 +4,23 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
-      ./gpg-yubikey-configuration.nix
+
+      # Hardware configuration
+      ./hardware/yubikey.nix
+
+      # Local Services configuration
+      ./services/gpg.nix
+
+      # System user services
+      ./services/systemd/user/udiskie.nix
+      ./services/systemd/user/xfce4-volumed.nix
+      ./services/systemd/user/nm-applet.nix
+      ./services/systemd/user/pasystray.nix
+      ./services/systemd/user/autocutsel.nix
+      ./services/systemd/user/stalonetray.nix
+      ./services/systemd/user/xscreensaver.nix
+      ./services/systemd/user/dunst.nix
+      ./services/systemd/user/xcape.nix
     ];
 
   # Boot =================================================
@@ -148,7 +164,6 @@
     vlc
     mplayer
     unstable.zathura
-    xfce.xfce4volumed
 
     # Pulseaudio tools
     unstable.pulsemixer
@@ -173,27 +188,16 @@
     tldr
 
     # X window related tools
-    xcape
     redshift
     feh
-    xscreensaver
     rofi
-    xclip
-    autocutsel
     arandr
-    dunst
-    libnotify
-    stalonetray
-    pasystray
     scrot
     slock
     xorg.xev
     xorg.xbacklight
     haskellPackages.xmobar
-    networkmanagerapplet
     gnome3.nautilus
-    # For nm-applet
-    hicolor_icon_theme
 
     # Hardware info tools
     lshw
@@ -219,7 +223,6 @@
     nmapsi4
 
     # USB disk related tools
-    unstable.udiskie
     usbutils
 
     # Terminal and shells
@@ -419,104 +422,6 @@
   services.redshift.longitude = "12";
   services.redshift.temperature.day = 5500;
   services.redshift.temperature.night = 3700;
-
-  # Systemd ==============================================
-
-  systemd.user.services."xcape" = {
-    enable = true;
-    description = "xcape : use CTRL as ESC when pressed alone";
-    wantedBy = [ "graphical-session.target" ];
-    partOf = [ "graphical-session.target" ];
-    serviceConfig.Type = "forking";
-    serviceConfig.Restart = "always";
-    serviceConfig.RestartSec = 2;
-    serviceConfig.ExecStart = "${pkgs.xcape}/bin/xcape";
-  };
-
-  systemd.user.services."dunst" = {
-    enable = true;
-    description = "Dunst : Lightweight and customizable notification daemon";
-    wantedBy = [ "graphical-session.target" ];
-    partOf = [ "graphical-session.target" ];
-    serviceConfig.Restart = "always";
-    serviceConfig.RestartSec = 2;
-    serviceConfig.ExecStart = "${pkgs.dunst}/bin/dunst";
-  };
-
-  systemd.user.services."xscreensaver" = {
-    enable = true;
-    description = "X screensaver";
-    wantedBy = [ "graphical-session.target" ];
-    partOf = [ "graphical-session.target" ];
-    serviceConfig.Restart = "always";
-    serviceConfig.RestartSec = 2;
-    serviceConfig.ExecStart = "${pkgs.xscreensaver}/bin/xscreensaver -no-splash";
-  };
-
-  systemd.user.services."stalonetray" = {
-    enable = true;
-    description = "Standalone tray";
-    wantedBy = [ "graphical-session.target" ];
-    partOf = [ "graphical-session.target" ];
-    serviceConfig.Restart = "always";
-    serviceConfig.RestartSec = 2;
-    serviceConfig.ExecStart = "${pkgs.stalonetray}/bin/stalonetray";
-  };
-
-   systemd.user.services."autocutsel" = {
-    enable = true;
-    description = "AutoCutSel tracks changes in various clipboard buffers";
-    wantedBy = [ "graphical-session.target" ];
-    partOf = [ "graphical-session.target" ];
-    serviceConfig.Type = "forking";
-    serviceConfig.Restart = "always";
-    serviceConfig.RestartSec = 2;
-    serviceConfig.ExecStartPre = "${pkgs.autocutsel}/bin/autocutsel -fork";
-    serviceConfig.ExecStart = "${pkgs.autocutsel}/bin/autocutsel -selection PRIMARY -fork";
-  };
-
-   systemd.user.services."pasystray" = {
-    enable = true;
-    description = "PulseAudio system tray";
-    wantedBy = [ "graphical-session.target" ];
-    partOf = [ "graphical-session.target" ];
-    environment.XDG_DATA_DIRS="/run/current-system/sw/share/";
-    serviceConfig.Restart = "always";
-    serviceConfig.RestartSec = 2;
-    serviceConfig.ExecStart = "${pkgs.pasystray}/bin/pasystray";
-  };
-
-   systemd.user.services."nm-applet" = {
-    enable = true;
-    description = "Network Manager applet system tray";
-    wantedBy = [ "graphical-session.target" ];
-    partOf = [ "graphical-session.target" ];
-    environment.XDG_DATA_DIRS="/run/current-system/sw/share/";
-    serviceConfig.Restart = "always";
-    serviceConfig.RestartSec = 2;
-    serviceConfig.ExecStart = "${pkgs.networkmanagerapplet}/bin/nm-applet";
-  };
-
-   systemd.user.services."xfce4-volumed" = {
-    enable = true;
-    description = "Xfce4 Volume keys control daemon";
-    wantedBy = [ "graphical-session.target" ];
-    partOf = [ "graphical-session.target" ];
-    serviceConfig.Type = "forking";
-    serviceConfig.Restart = "always";
-    serviceConfig.RestartSec = 2;
-    serviceConfig.ExecStart = "${pkgs.xfce.xfce4volumed}/bin/xfce4-volumed";
-  };
-
-   systemd.user.services."udiskie" = {
-    enable = true;
-    description = "Udiskie : Automounter for removable media";
-    wantedBy = [ "graphical-session.target" ];
-    partOf = [ "graphical-session.target" ];
-    serviceConfig.Restart = "always";
-    serviceConfig.RestartSec = 2;
-    serviceConfig.ExecStart = "${pkgs.unstable.udiskie}/bin/udiskie -A -n -s -F";
-  };
 
   # Users ================================================
 
