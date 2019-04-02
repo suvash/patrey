@@ -1,4 +1,4 @@
 ;; theme
-(load-theme 'base16-bright t)
+(load-theme 'base16-eighties t)
 
 (provide 'configure-theme)
