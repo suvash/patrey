@@ -91,6 +91,7 @@ with pkgs;
   unstable.fish
   lilyterm
   alacritty
+  kitty
   tmux
   parallel
 
