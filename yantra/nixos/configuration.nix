@@ -176,7 +176,7 @@
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   programs.slock.enable = true;
-  # programs.sysdig.enable = true;
+  programs.sysdig.enable = true;
 
   # Virtualisation =======================================
 

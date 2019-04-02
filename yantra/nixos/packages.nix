@@ -76,7 +76,7 @@ with pkgs;
   ncdu
   baobab
   vnstat
-  # sysdig
+  sysdig
 
   # Network tools
   traceroute
