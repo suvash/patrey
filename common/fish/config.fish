@@ -47,9 +47,3 @@ case Darwin
     source /usr/local/miniconda3/etc/fish/conf.d/conda.fish
   end
 end
-
-
-# Start tmux if exists in a alacritty session
-if type -q tmux; and set -q ALACRITTY; and not set -q TMUX
-    exec tmux
-end

@@ -29,11 +29,6 @@ if [ ! -L $HOME/.config/fish/config.fish ]; then
   done
 fi
 
-if [ ! -L $HOME/.config/alacritty ]; then
-  rm -rf $HOME/.config/alacritty 2> /dev/null
-  ln -sfv $HOME/Developer/scaffold/common/alacritty $HOME/.config/alacritty
-fi
-
 if [ ! -L $HOME/.tmux.conf ]; then
   rm $HOME/tmux.conf 2> /dev/null
   ln -sfv $HOME/Developer/scaffold/common/dotfiles/tmux.conf $HOME/.tmux.conf

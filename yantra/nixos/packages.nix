@@ -89,8 +89,6 @@ with pkgs;
 
   # Terminal and shells
   unstable.fish
-  lilyterm
-  alacritty
   kitty
   tmux
   parallel

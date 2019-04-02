@@ -75,7 +75,7 @@ if [ ! -L $HOME/.config/xfce4 ]; then
   ln -sfv $HOME/Developer/scaffold/yantra/xfce4 $HOME/.config/xfce4
 fi
 
-if [ ! -L $HOME/.config/lilyterm ]; then
-  rm -rf $HOME/.config/lilyterm 2> /dev/null
-  ln -sfv $HOME/Developer/scaffold/yantra/lilyterm $HOME/.config/lilyterm
+if [ ! -L $HOME/.config/kitty ]; then
+  rm -rf $HOME/.config/kitty 2> /dev/null
+  ln -sfv $HOME/Developer/scaffold/yantra/kitty $HOME/.config/kitty
 fi
