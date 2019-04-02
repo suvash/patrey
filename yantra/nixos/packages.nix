@@ -5,7 +5,7 @@ with pkgs;
 [
   # Essentials
   wget
-  gnumake3
+  gnumake
 
   # Editors
   vim
