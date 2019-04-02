@@ -28,16 +28,13 @@ customRect = XMST.RationalRect fromLeft fromTop screenWidth screenHeight
 
 myScratchpads = [
   -- terminal
-  XMUNS.NS "scratchterm" "lilyterm -s -T scratchterm" (title =? "scratchterm") (XMUNS.customFloating customRect) ,
+  XMUNS.NS "scratchterm" (myTerminal ++ " --name scratchterm") (appName =? "scratchterm") (XMUNS.customFloating customRect),
 
   -- htop in terminal
-  XMUNS.NS "scratchtop" "lilyterm -s -T scratchtop -x htop" (title =? "scratchtop") (XMUNS.customFloating customRect),
+  XMUNS.NS "scratchtop" (myTerminal ++ " --name scratchtop htop") (appName =? "scratchtop") (XMUNS.customFloating customRect),
 
   -- ranger in terminal
-  XMUNS.NS "scratchranger" "lilyterm -s -T scratchranger -x ranger" (title =? "scratchranger") (XMUNS.customFloating customRect),
-
-  -- pulsemixer in terminal
-  XMUNS.NS "scratchpulsemixer" "lilyterm -s -T scratchpulsemixer -x pulsemixer" (title =? "scratchpulsemixer") (XMUNS.customFloating customRect)
+  XMUNS.NS "scratchranger" (myTerminal ++ " --name scratchranger ranger") (appName =? "scratchranger") (XMUNS.customFloating customRect)
   ]
 
 -- | Keys begin -------------------
