@@ -181,6 +181,9 @@
   programs.slock.enable = true;
   programs.sysdig.enable = true;
 
+  # Sway
+  programs.sway.enable = true;
+
   # Virtualisation =======================================
 
   virtualisation.docker.enable = true;
@@ -287,7 +290,7 @@
   users.extraUsers.suvash = {
     isNormalUser = true;
     createHome = true;
-    extraGroups = ["wheel" "networkmanager" "docker" "vboxusers"];
+    extraGroups = ["wheel" "networkmanager" "docker" "vboxusers" "sway"];
     shell = "/run/current-system/sw/bin/fish";
   };
 

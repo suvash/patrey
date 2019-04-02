@@ -79,3 +79,8 @@ if [ ! -L $HOME/.config/kitty ]; then
   rm -rf $HOME/.config/kitty 2> /dev/null
   ln -sfv $HOME/Developer/scaffold/yantra/kitty $HOME/.config/kitty
 fi
+
+if [ ! -L $HOME/.config/sway ]; then
+  rm -rf $HOME/.config/sway 2> /dev/null
+  ln -sfv $HOME/Developer/scaffold/yantra/sway $HOME/.config/sway
+fi
