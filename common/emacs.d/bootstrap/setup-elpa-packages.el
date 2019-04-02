@@ -12,7 +12,7 @@
 
 (defvar my-packages '(exec-path-from-shell
 
-                      zenburn-theme
+                      base16-theme
 
                       projectile
                       perspective
