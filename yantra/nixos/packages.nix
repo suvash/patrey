@@ -153,7 +153,7 @@ with pkgs;
 
   # Programming tools
   unstable.cargo
-  unstable.stack
+  # unstable.stack
   unstable.pipenv
   nodejs-10_x
   pew
