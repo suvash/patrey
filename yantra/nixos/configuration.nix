@@ -39,7 +39,6 @@
 
   # Use extra kernel modules
   boot.extraModulePackages = with config.boot.kernelPackages; [
-    sysdig
   ];
 
   # Kernel parameters
@@ -177,8 +176,7 @@
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   programs.slock.enable = true;
-  # programs.bash.enableCompletion = true;
-  # programs.mtr.enable = true;
+  # programs.sysdig.enable = true;
 
   # Virtualisation =======================================
 
