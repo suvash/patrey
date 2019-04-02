@@ -27,6 +27,9 @@ with pkgs;
   pavucontrol
   paprefs
 
+  # Fuse
+  s3fs
+
   # Entertainment
   spotify
 
@@ -58,6 +61,7 @@ with pkgs;
 
   # Hardware info tools
   lshw
+  hwinfo
   hardinfo
 
   # System monitoring tools
@@ -72,6 +76,7 @@ with pkgs;
   ncdu
   baobab
   vnstat
+  sysdig
 
   # Network tools
   traceroute

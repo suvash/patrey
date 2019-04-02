@@ -29,6 +29,19 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
+  # Use the latest stable kernel
+  boot.kernelPackages = pkgs.linuxPackages_latest;
+
+  # Use kernel modules
+  boot.kernelModules = [
+    "fuse"
+  ];
+
+  # Use extra kernel modules
+  boot.extraModulePackages = with config.boot.kernelPackages; [
+    sysdig
+  ];
+
   # Kernel parameters
   # https://wiki.archlinux.org/index.php/Dell_XPS_13_(9360)#Module-based_Powersaving_Options
   # https://wiki.archlinux.org/index.php/Dell_XPS_13_(9360)#NVME_Power_Saving_Patch
@@ -57,6 +70,8 @@
   # Filesystem Options ===================================
 
   # Better(?) for SSD disks running on ext4 fs
+  # https://wiki.archlinux.org/index.php/Solid_state_drive
+  # https://wiki.debian.org/SSDOptimization
   fileSystems."/".options = [ "noatime" "nodiratime" "discard" ];
 
   # Networking ===========================================
@@ -184,6 +199,7 @@
 
   # Avahi daemon
   services.avahi.enable = true;
+  services.avahi.nssmdns = true;
 
   # Dbus service
   services.dbus.enable = true;
@@ -216,11 +232,23 @@
   services.unclutter-xfixes.enable = true;
 
   # Compton
-  services.compton.enable = true;
-  services.compton.backend = "xrender";
-  services.compton.activeOpacity = "1.0";
-  services.compton.inactiveOpacity = "0.8";
+  services.compton = {
+    enable = true;
+    backend = "xrender";
+    activeOpacity = "1.0";
+    inactiveOpacity = "0.8";
+  };
 
+  # Redshift
+  services.redshift = {
+    enable = true;
+    latitude = "57.5";
+    longitude = "12";
+    temperature.day = 5500;
+    temperature.night = 3700;
+  };
+
+  # Xserver
   # Enable the X11 windowing system.
   services.xserver.enable = true;
   services.xserver.autorun = true;
@@ -251,13 +279,6 @@
   services.xserver.windowManager.default = "xmonad";
   services.xserver.windowManager.xmonad.enable = true;
   services.xserver.windowManager.xmonad.enableContribAndExtras = true;
-
-  # Redshift
-  services.redshift.enable = true;
-  services.redshift.latitude = "57.5";
-  services.redshift.longitude = "12";
-  services.redshift.temperature.day = 5500;
-  services.redshift.temperature.night = 3700;
 
   # Users ================================================
 
