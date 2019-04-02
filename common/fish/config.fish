@@ -1,7 +1,6 @@
 set -x LANG en_US.UTF-8
 set -x LC_ALL en_US.UTF-8
 set -x EDITOR vim
-set -x TERM xterm-256color
 
 switch (uname)
 case Darwin
@@ -32,6 +31,13 @@ end
 # Source $HOME/.computer if exists
 if test -f $HOME/.computer
   source $HOME/.computer
+end
+
+# Source base16 helper if exists
+if status --is-interactive
+  if test -d $HOME/.config/base16-shell
+    source "$HOME/.config/base16-shell/profile_helper.fish"
+  end
 end
 
 # Conda in path if exists
