@@ -101,7 +101,7 @@ function fish_user_abbreviations
     abbr allports 'netstat -tunap'
 
     abbr du 'du -chs *'
-    abbr fonts 'fc-list'
+    abbr fonts 'fc-list : family'
     abbr xa 'xrandr --auto'
     abbr sp 'send_to_phone'
     abbr httpserve 'python -m http.server 7531'

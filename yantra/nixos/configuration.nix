@@ -165,8 +165,11 @@
   # Fonts ================================================
 
   fonts.fonts = with pkgs; [
-    mononoki
-    unstable.noto-fonts-emoji
+    ubuntu_font_family
+    noto-fonts
+    noto-fonts-cjk
+    noto-fonts-emoji
+    noto-fonts-extra
     lohit-fonts.devanagari
     lohit-fonts.nepali
   ];
