@@ -5,18 +5,20 @@ set -x EDITOR vim
 switch (uname)
 case Darwin
   set -x GPG_TTY (tty)
-  set -x PATH /usr/local/bin $PATH
-  gpg-connect-agent /bye
+  gpg-connect-agent --quiet updatestartuptty /bye > /dev/null
   set -x SSH_AUTH_SOCK (gpgconf --list-dirs agent-ssh-socket)
+end
+
+# Sway
+if test -n "$WAYLAND_DISPLAY"
+  set -x GPG_TTY (tty)
+  gpg-connect-agent --quiet updatestartuptty /bye > /dev/null
 end
 
 # Load fish abbreviations in interactive env
 if status --is-interactive
     fish_user_abbreviations
 end
-
-# Keep it around in case something goes wrong
-# gpg-connect-agent updatestartuptty /bye > /dev/null
 
 # Add local bin to PATH
 if test -d $HOME/.local/bin

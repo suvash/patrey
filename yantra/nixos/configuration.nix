@@ -160,7 +160,7 @@
   };
 
   # List packages installed in system profile.
-  environment.systemPackages = import ./packages.nix { inherit pkgs; };
+  environment.systemPackages = import ./packages.nix { inherit pkgs; } ++ import ./wayland-packages.nix { inherit pkgs; };
 
   # Fonts ================================================
 
@@ -181,8 +181,25 @@
   programs.slock.enable = true;
   programs.sysdig.enable = true;
 
+  # Fish
+  programs.fish.enable = true;
+
   # Sway
-  programs.sway.enable = true;
+  programs.sway = {
+    enable = true;
+    extraSessionCommands = ''
+      export SDL_VIDEODRIVER=wayland
+      export QT_QPA_PLATFORM=wayland
+      export QT_WAYLAND_DISABLE_WINDOWDECORATION=1
+      export EDITOR=vim
+      export BROWSER=firefox
+      export _JAVA_AWT_WM_NONREPARENTING=1
+      export PATH="$HOME/.local/bin:$PATH"
+      export XKB_DEFAULT_LAYOUT=us,us,se
+      export XKB_DEFAULT_VARIANT=dvorak,,
+      export XKB_DEFAULT_OPTIONS=grp:shifts_toggle,ctrl:nocaps
+    '';
+  };
 
   # Virtualisation =======================================
 
@@ -190,6 +207,7 @@
   virtualisation.docker.enableOnBoot = true;
 
   virtualisation.virtualbox.host.enable = false;
+
   # Services =============================================
 
   # Enable the OpenSSH daemon.
