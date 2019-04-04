@@ -35,13 +35,6 @@ if test -f $HOME/.computer
   source $HOME/.computer
 end
 
-# Source base16 helper if exists
-if status --is-interactive
-  if test -d $HOME/.config/base16-shell
-    source "$HOME/.config/base16-shell/profile_helper.fish"
-  end
-end
-
 # Conda in path if exists
 switch (uname)
 case Darwin
