@@ -153,7 +153,6 @@
 
   # Set env vars
   environment.variables = {
-    EDITOR = "vim";
     BROWSER = "firefox";
     _JAVA_AWT_WM_NONREPARENTING = "1"; # Java + Xmonad
     PATH = "$HOME/.local/bin:$PATH";
@@ -181,6 +180,9 @@
   programs.slock.enable = true;
   programs.sysdig.enable = true;
 
+  # Set default editor
+  programs.vim.defaultEditor = true;
+
   # Fish
   programs.fish.enable = true;
 
@@ -200,6 +202,11 @@
       export XKB_DEFAULT_OPTIONS=grp:shifts_toggle,ctrl:nocaps
     '';
   };
+
+  # Security =============================================
+
+  security.sudo.enable = true;
+
 
   # Virtualisation =======================================
 
@@ -270,6 +277,12 @@
     temperature.night = 3700;
   };
 
+  # Cadvisor
+  services.cadvisor = {
+    enable = true;
+    port = 5050;
+  };
+
   # Xserver
   # Enable the X11 windowing system.
   services.xserver.enable = true;
@@ -278,6 +291,9 @@
   services.xserver.layout = "us,us,se";
   services.xserver.xkbVariant = "dvorak,,";
   services.xserver.xkbOptions = "grp:shifts_toggle,ctrl:nocaps";
+
+  services.xserver.autoRepeatDelay = 200;
+  services.xserver.autoRepeatInterval = 60;
 
   # Pick an intel driver for this machine
   services.xserver.videoDrivers = [ "intel" "vesa" ];
@@ -291,7 +307,6 @@
 
   services.xserver.displayManager.sessionCommands = ''
     ${pkgs.bash}/bin/bash $HOME/.local/bin/random-wallpaper
-    ${pkgs.xorg.xset}/bin/xset r rate 220 60
   '';
 
   # Select a desktop manager
