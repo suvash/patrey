@@ -90,8 +90,10 @@ with pkgs;
   # Terminal and shells
   unstable.fish
   kitty
+  termite
   tmux
   parallel
+  mosh
 
   # VPN tools
   openvpn
@@ -119,6 +121,9 @@ with pkgs;
   firefox
   google-chrome
   opera
+
+  # Apps
+  slack
 
   # Password management tools
   unstable.gopass
