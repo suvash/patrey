@@ -124,6 +124,7 @@ with pkgs;
 
   # Apps
   slack
+  unstable.slack-term
 
   # Password management tools
   unstable.gopass
