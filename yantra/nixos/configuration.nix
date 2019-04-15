@@ -165,6 +165,9 @@
 
   fonts.fonts = with pkgs; [
     ubuntu_font_family
+    roboto
+    roboto-mono
+    roboto-slab
     noto-fonts
     noto-fonts-cjk
     noto-fonts-emoji
