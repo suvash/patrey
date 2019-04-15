@@ -178,7 +178,7 @@
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   programs.slock.enable = true;
-  programs.sysdig.enable = true;
+  programs.sysdig.enable = false;
 
   # Set default editor
   programs.vim.defaultEditor = true;
@@ -331,6 +331,6 @@
   # compatible, in order to avoid breaking some software such as database
   # servers. You should change this only after NixOS release notes say you
   # should.
-  system.stateVersion = "18.09";
+  system.stateVersion = "19.03";
 
 }
