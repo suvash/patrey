@@ -6,6 +6,7 @@ function fish_user_abbreviations
 
     abbr p 'fzf --preview \'if type -q bat; bat --color "always" {}; else; cat {}; end\''
     abbr l 'exa -la'
+    abbr b 'bat --show-all'
     abbr v 'vim (fzf)'
 
     abbr ll 'ls -lah'
