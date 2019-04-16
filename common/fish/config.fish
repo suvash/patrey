@@ -42,3 +42,10 @@ case Darwin
     source /usr/local/miniconda3/etc/fish/conf.d/conda.fish
   end
 end
+
+# Base16 Shell
+if status --is-interactive
+  if test -d "$HOME/.config/base16-shell"
+    source "$HOME/.config/base16-shell/profile_helper.fish"
+  end
+end
