@@ -83,6 +83,7 @@ with pkgs;
   nmap
   nmap_graphical
   nmapsi4
+  speedtest-cli
 
   # USB disk related tools
   usbutils
