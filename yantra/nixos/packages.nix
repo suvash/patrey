@@ -84,6 +84,7 @@ with pkgs;
   nmap_graphical
   nmapsi4
   speedtest-cli
+  iw
 
   # USB disk related tools
   usbutils
