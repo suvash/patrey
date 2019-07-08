@@ -6,76 +6,76 @@ mkdir -p $HOME/.config/autorandr
 
 if [ ! -L /etc/nixos ]; then
   sudo mv /etc/nixos /etc/nixos.orig
-  sudo ln -sfv $HOME/Developer/scaffold/yantra/nixos/ /etc/nixos
+  sudo ln -sfnv $HOME/Developer/scaffold/yantra/nixos/ /etc/nixos
 fi
 
 if [ ! -L $HOME/.Xresources ]; then
   rm -rf $HOME/.Xresources 2> /dev/null
-  ln -sfv $HOME/Developer/scaffold/yantra/dotfiles/Xresources $HOME/.Xresources
+  ln -sfnv $HOME/Developer/scaffold/yantra/dotfiles/Xresources $HOME/.Xresources
 fi
 
 if [ ! -L $HOME/.local/bin/autoconfigure-workstation ]; then
   rm -rf $HOME/.local/bin/autoconfigure-workstation 2> /dev/null
-  ln -sfv $HOME/Developer/scaffold/yantra/scripts/autoconfigure-workstation $HOME/.local/bin/autoconfigure-workstation
+  ln -sfnv $HOME/Developer/scaffold/yantra/scripts/autoconfigure-workstation $HOME/.local/bin/autoconfigure-workstation
 fi
 
 if [ ! -L $HOME/.local/bin/utf-demo ]; then
   rm -rf $HOME/.local/bin/utf-demo 2> /dev/null
-  ln -sfv $HOME/Developer/scaffold/yantra/scripts/utf-demo $HOME/.local/bin/utf-demo
+  ln -sfnv $HOME/Developer/scaffold/yantra/scripts/utf-demo $HOME/.local/bin/utf-demo
 fi
 
 if [ ! -L $HOME/.local/bin/random-wallpaper ]; then
   rm -rf $HOME/.local/bin/random-wallpaper 2> /dev/null
-  ln -sfv $HOME/Developer/scaffold/yantra/scripts/random-wallpaper $HOME/.local/bin/random-wallpaper
+  ln -sfnv $HOME/Developer/scaffold/yantra/scripts/random-wallpaper $HOME/.local/bin/random-wallpaper
 fi
 
 if [ ! -L $HOME/.xmonad ]; then
   rm -rf $HOME/.xmonad 2> /dev/null
-  ln -sfv $HOME/Developer/scaffold/yantra/xmonad $HOME/.xmonad
+  ln -sfnv $HOME/Developer/scaffold/yantra/xmonad $HOME/.xmonad
 fi
 
 if [ ! -L $HOME/.config/autorandr/preswitch ]; then
   rm -rf $HOME/.config/autorandr/preswitch 2> /dev/null
-  ln -sfv $HOME/Developer/scaffold/yantra/autorandr/preswitch $HOME/.config/autorandr/preswitch
+  ln -sfnv $HOME/Developer/scaffold/yantra/autorandr/preswitch $HOME/.config/autorandr/preswitch
 fi
 
 if [ ! -L $HOME/.config/autorandr/postswitch ]; then
   rm -rf $HOME/.config/autorandr/postswitch 2> /dev/null
-  ln -sfv $HOME/Developer/scaffold/yantra/autorandr/postswitch $HOME/.config/autorandr/postswitch
+  ln -sfnv $HOME/Developer/scaffold/yantra/autorandr/postswitch $HOME/.config/autorandr/postswitch
 fi
 
 if [ ! -L $HOME/.xmobarrc ]; then
   rm -rf $HOME/.xmobarrc 2> /dev/null
-  ln -sfv $HOME/Developer/scaffold/yantra/dotfiles/xmobarrc $HOME/.xmobarrc
+  ln -sfnv $HOME/Developer/scaffold/yantra/dotfiles/xmobarrc $HOME/.xmobarrc
 fi
 
 if [ ! -L $HOME/.stalonetrayrc ]; then
   rm -rf $HOME/.stalonetrayrc 2> /dev/null
-  ln -sfv $HOME/Developer/scaffold/yantra/dotfiles/stalonetrayrc $HOME/.stalonetrayrc
+  ln -sfnv $HOME/Developer/scaffold/yantra/dotfiles/stalonetrayrc $HOME/.stalonetrayrc
 fi
 
 if [ ! -L $HOME/.xscreensaver ]; then
   rm -rf $HOME/.xscreensaver 2> /dev/null
-  ln -sfv $HOME/Developer/scaffold/yantra/dotfiles/xscreensaver $HOME/.xscreensaver
+  ln -sfnv $HOME/Developer/scaffold/yantra/dotfiles/xscreensaver $HOME/.xscreensaver
 fi
 
 if [ ! -L $HOME/.config/dunst ]; then
   rm -rf $HOME/.config/dunst/ 2> /dev/null
   mkdir -p $HOME/.config/
-  ln -sfv $HOME/Developer/scaffold/yantra/dunst $HOME/.config/dunst
+  ln -sfnv $HOME/Developer/scaffold/yantra/dunst $HOME/.config/dunst
 fi
 
 if [ ! -L $HOME/.config/xfce4 ]; then
   rm -rf $HOME/.config/xfce4 2> /dev/null
-  ln -sfv $HOME/Developer/scaffold/yantra/xfce4 $HOME/.config/xfce4
+  ln -sfnv $HOME/Developer/scaffold/yantra/xfce4 $HOME/.config/xfce4
 fi
 
 if [ ! -L $HOME/.config/kitty ]; then
   rm -rf $HOME/.config/kitty 2> /dev/null
-  ln -sfv $HOME/Developer/scaffold/yantra/kitty $HOME/.config/kitty
+  ln -sfnv $HOME/Developer/scaffold/yantra/kitty $HOME/.config/kitty
 fi
 
 if [ ! -L $HOME/.config/sway ]; then
   rm -rf $HOME/.config/sway 2> /dev/null
-  ln -sfv $HOME/Developer/scaffold/yantra/sway $HOME/.config/sway
+  ln -sfnv $HOME/Developer/scaffold/yantra/sway $HOME/.config/sway
 fi
