@@ -102,6 +102,7 @@ with pkgs;
   networkmanager-openvpn
 
   # File operation tools
+  pigz
   jq
   xsv
   unzip
@@ -152,6 +153,7 @@ with pkgs;
   # Docker
   unstable.docker-credential-gcr
   unstable.docker_compose
+  unstable.dive
 
   # Nixos tools
   nix-prefetch-scripts
