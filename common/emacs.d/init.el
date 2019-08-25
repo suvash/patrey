@@ -43,6 +43,8 @@
 (require 'configure-yasnippet)
 (require 'configure-dumb-jump)
 
+(require 'configure-origami-mode)
+
 (require 'configure-restclient-mode)
 
 (require 'configure-terraform-mode)

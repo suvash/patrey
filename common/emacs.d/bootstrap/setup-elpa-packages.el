@@ -47,6 +47,8 @@
                       flycheck
                       flycheck-yamllint
 
+                      origami
+
                       company
                       dumb-jump
 
