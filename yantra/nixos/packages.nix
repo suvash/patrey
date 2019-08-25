@@ -125,10 +125,6 @@ with pkgs;
   google-chrome
   opera
 
-  # Apps
-  slack
-  unstable.slack-term
-
   # Password management tools
   unstable.gopass
   qtpass

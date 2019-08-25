@@ -24,8 +24,8 @@ done
 # nix-env -q --installed
 # nix-env -e docker-credential-gcr
 
-# Collect garbage
-sudo nix-collect-garbage
+# Collect unreachable path in nix store + all generations older and than 30d
+sudo nix-collect-garbage --delete-older-than 30d
 
 # Base16 shell download to config directory
 if [ ! -d "$HOME/.config/base16-shell" ]; then
