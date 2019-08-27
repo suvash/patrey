@@ -177,4 +177,7 @@ with pkgs;
 
   # Bluetooth
   # blueman
+
+  # Sway things
+  i3status
 ]

@@ -200,9 +200,6 @@
       export BROWSER=firefox
       export _JAVA_AWT_WM_NONREPARENTING=1
       export PATH="$HOME/.local/bin:$PATH"
-      export XKB_DEFAULT_LAYOUT=us,us,se
-      export XKB_DEFAULT_VARIANT=dvorak,,
-      export XKB_DEFAULT_OPTIONS=grp:shifts_toggle,ctrl:nocaps
     '';
   };
 
