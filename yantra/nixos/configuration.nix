@@ -307,6 +307,15 @@
 
   # Select a display manager (login manager)
   services.xserver.displayManager.lightdm.enable = true;
+  services.xserver.displayManager.lightdm.greeters.mini = {
+    enable = true;
+    user = "suvash";
+    extraConfig = ''
+      [greeter]
+      show-password-label = false
+      show-input-cursor = false
+    '';
+  };
 
   services.xserver.displayManager.sessionCommands = ''
     ${pkgs.bash}/bin/bash $HOME/.local/bin/random-wallpaper
