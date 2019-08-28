@@ -174,7 +174,7 @@
     noto-fonts-extra
     lohit-fonts.devanagari
     lohit-fonts.nepali
-    font-awesome_5
+    font-awesome_4
   ];
 
   # Programs =============================================

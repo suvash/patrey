@@ -1,0 +1,60 @@
+theme = "plain"
+
+[icons]
+name = "awesome"
+[icons.overrides]
+music =  " "
+
+[[block]]
+block = "memory"
+display_type = "memory"
+format_mem = "{Mup}%"
+format_swap = "{SUp}%"
+
+[[block]]
+block = "cpu"
+interval = 1
+format = "{barchart} {utilization}%"
+
+[[block]]
+block = "temperature"
+collapsed = true
+interval = 10
+format = "{min}° min, {max}° max, {average}° avg"
+chip = "*-isa-*"
+
+[[block]]
+block = "music"
+player = "spotify"
+buttons = []
+
+[[block]]
+block = "battery"
+interval = 10
+format = "{time}"
+
+[[block]]
+block = "net"
+device = "wlp58s0"
+ssid = true
+ip = false
+speed_up = false
+speed_down = false
+graph_up = false
+graph_down = false
+interval = 5
+
+[[block]]
+block = "sound"
+step_width = 0
+on_click = "pactl set-sink-mute @DEFAULT_SINK@ toggle"
+
+[[block]]
+block = "custom"
+command = "date -u '+%a W%W'"
+interval = 300
+
+[[block]]
+block = "custom"
+command = "sway-keyboard-layouts"
+interval = 3

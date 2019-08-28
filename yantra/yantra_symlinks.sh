@@ -29,6 +29,16 @@ if [ ! -L $HOME/.local/bin/utf-demo ]; then
   ln -sfnv $HOME/Developer/scaffold/yantra/scripts/utf-demo $HOME/.local/bin/utf-demo
 fi
 
+if [ ! -L $HOME/.local/bin/wifi-toggle ]; then
+  rm -rf $HOME/.local/bin/wifi-toggle 2> /dev/null
+  ln -sfnv $HOME/Developer/scaffold/yantra/scripts/wifi-toggle $HOME/.local/bin/wifi-toggle
+fi
+
+if [ ! -L $HOME/.local/bin/sway-keyboard-layouts ]; then
+  rm -rf $HOME/.local/bin/sway-keyboard-layouts 2> /dev/null
+  ln -sfnv $HOME/Developer/scaffold/yantra/scripts/sway-keyboard-layouts $HOME/.local/bin/sway-keyboard-layouts
+fi
+
 if [ ! -L $HOME/.local/bin/random-wallpaper ]; then
   rm -rf $HOME/.local/bin/random-wallpaper 2> /dev/null
   ln -sfnv $HOME/Developer/scaffold/yantra/scripts/random-wallpaper $HOME/.local/bin/random-wallpaper
@@ -88,4 +98,9 @@ fi
 if [ ! -L $HOME/.config/sway ]; then
   rm -rf $HOME/.config/sway 2> /dev/null
   ln -sfnv $HOME/Developer/scaffold/yantra/sway $HOME/.config/sway
+fi
+
+if [ ! -L $HOME/.config/i3status-rs ]; then
+  rm -rf $HOME/.config/i3status-rs 2> /dev/null
+  ln -sfnv $HOME/Developer/scaffold/yantra/i3status-rs $HOME/.config/i3status-rs
 fi

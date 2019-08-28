@@ -77,6 +77,7 @@ with pkgs;
   ncdu
   baobab
   vnstat
+  lm_sensors
   # sysdig
 
   # Network tools

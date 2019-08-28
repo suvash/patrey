@@ -17,6 +17,9 @@ set $firefox firefox
 set $chrome google-chrome-stable --incognito --force-device-scale-factor=1.8
 set $opera opera --private --force-device-scale-factor=1.8
 
+# Media players
+set $spotify spotify --force-device-scale-factor=1.8
+
 # Wallpaper
 set $wallpaper ~/Developer/scaffold/common/wallpapers/linen.png
 
@@ -36,7 +39,9 @@ set $screen_off 'swaymsg "output * dpms off"'
 set $screen_on 'swaymsg "output * dpms on"'
 
 # Notifications commands
-set $notify_battery 'notify-send -t 4000 Battery "$(acpi)"'
+set $notify_battery notify-send -t 4000 Battery "$(acpi)"
+set $notify_network notify-send -t 4000 Network "$(ip -4 -o addr show | cut -d' ' -f2,7)"
+set $notify_date_time notify-send -t 4000 Date/Time "$(date)"
 
 # Volume
 # For ONLY active one : "pactl set-sink-volume $(pacmd list-sinks |awk '/* index:/{print $3}') +1%"
@@ -52,6 +57,9 @@ set $backlight_decrease brightnessctl --class=backlight set 10%-
 set $media_play_pause playerctl play-pause
 set $media_previous playerctl previous
 set $media_next playerctl next
+
+# i3status-rs
+set $i3status_config ~/.config/i3status-rs/config.toml
 
 ### Appearance
 #
@@ -153,6 +161,8 @@ bindsym $mod+Ctrl+o exec $opera
 
 # Notifications
 bindsym $mod+Ctrl+b exec $notify_battery
+bindsym $mod+Ctrl+n exec $notify_network
+bindsym $mod+Ctrl+d exec $notify_date_time
 
 # Editor
 bindsym $mod+Ctrl+e exec emacs
@@ -168,7 +178,7 @@ bindsym XF86AudioLowerVolume exec $volume_decrease
 bindsym XF86AudioMute exec $volume_mute_toggle
 
 # Spotify
-bindsym $mod+Ctrl+s exec spotify
+bindsym $mod+Ctrl+s exec $spotify
 bindsym $mod+Ctrl+8 exec $media_play_pause
 bindsym $mod+Ctrl+6 exec $media_previous
 bindsym $mod+Ctrl+0 exec $media_next
@@ -183,6 +193,9 @@ bindsym XF86AudioNext exec $media_next
 bindsym XF86MonBrightnessUp exec $backlight_increase
 bindsym XF86MonBrightnessDown exec $backlight_decrease
 
+# Wifi Radio Key
+bindsym XF86RFKill exec wifi-toggle
+
 # Drag floating windows by holding down $mod and left mouse button.
 # Resize them with right mouse button + $mod.
 floating_modifier $mod normal
@@ -191,7 +204,9 @@ floating_modifier $mod normal
 bindsym $mod+Shift+c reload
 
 # exit sway (logs you out of your Wayland session)
-bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -b 'Yes, exit sway' 'swaymsg exit'
+# bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -b 'Yes, exit sway' 'swaymsg exit'
+bindsym $mod+Shift+e exec swaymsg exit
+
 #
 # Moving around:
 #
@@ -305,25 +320,25 @@ mode "resize" {
     bindsym Escape mode "default"
 }
 
-#
-# Status Bar:
-#
-# Read `man 5 sway-bar` for more information about this section.
-# bar {
-#     position top
-
-#     # When the status_command prints a new line to stdout, swaybar updates.
-#     # The default just shows the current date and time.
-#     status_command while date +'%Y-%m-%d %l:%M:%S %p'; do sleep 1; done
-
-#     colors {
-#         statusline #ffffff
-#         background #323232
-#         inactive_workspace #32323200 #32323200 #5c5c5c
-#     }
-# }
-
 bar {
   position top
-  status_command i3status
+  status_command i3status-rs $i3status_config
+  # colors {
+  #   statusline #ffffff
+  #   background #323232
+  #   separator #666666
+  #   background #222222
+  #   statusline #dddddd
+  #   focused_workspace #0088CC #0088CC #ffffff
+  #   active_workspace #333333 #333333 #ffffff
+  #   inactive_workspace #333333 #333333 #888888
+  #   urgent_workspace #2f343a #900000 #ffffff
+  # }
 }
+
+####
+
+# Programs
+set $mako_args --font "Ubuntu Mono 18" --width 400 --max-visible 10
+exec mako $mako_args 2>&1 >/tmp/mako.log
+

@@ -5,7 +5,7 @@ with pkgs;
 [
   # X but used for Sway packages
   # Swaybar
-  i3status
+  unstable.i3status-rust
 
   # Fonts
   gnome2.pango

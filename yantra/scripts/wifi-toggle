@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+status=$(nmcli radio wifi)
+if [ "$status" = "enabled" ] ; then
+    notify-send -t 6000 "Wireless" "Disabling wireless connections"
+    nmcli radio wifi off
+else
+    notify-send -t 6000 "Wireless" "Enabling wireless connections"
+    nmcli radio wifi on
+fi
+exit 0

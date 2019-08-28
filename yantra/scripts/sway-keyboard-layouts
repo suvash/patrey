@@ -1,0 +1,43 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+dell_xps_keyboard_layout=$(swaymsg -t get_inputs | jq '.[] | select(.identifier == "1:1:AT_Translated_Set_2_keyboard") | .xkb_active_layout_name')
+
+kinesis_keyboard_layout=$(swaymsg -t get_inputs | jq '.[] | select(.identifier == "1523:7:HID_05f3:0007") | .xkb_active_layout_name')
+
+case "$dell_xps_keyboard_layout" in
+  '"English (Dvorak)"')
+    xps_layout="DV"
+    ;;
+  '"English (US)"')
+    xps_layout="US"
+    ;;
+  '"Swedish"')
+    xps_layout="SE"
+    ;;
+  *)
+    xps_layout="NA"
+    ;;
+esac
+
+case "$kinesis_keyboard_layout" in
+  '"English (Dvorak)"')
+    kinesis_layout="DV"
+    ;;
+  '"English (US)"')
+    kinesis_layout="US"
+    ;;
+  '')
+    kinesis_layout=""
+    ;;
+  *)
+    kinesis_layout="NA"
+    ;;
+esac
+
+if [ "$kinesis_layout" != "" ]; then
+  kinesis_layout="$kinesis_layout/"
+fi
+
+echo "$kinesis_layout$xps_layout"
