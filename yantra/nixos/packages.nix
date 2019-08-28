@@ -32,6 +32,7 @@ with pkgs;
 
   # Entertainment
   spotify
+  playerctl
 
   # File search/listing related tools
   fd

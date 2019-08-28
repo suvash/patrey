@@ -39,13 +39,19 @@ set $screen_on 'swaymsg "output * dpms on"'
 set $notify_battery 'notify-send -t 4000 Battery "$(acpi)"'
 
 # Volume
-set $increase_volume "pactl list sinks | grep 'Sink #' | cut -d# -f2 | xargs -n 1 -I@ pactl set-sink-volume @ +1%"
-set $decrease_volume "pactl list sinks | grep 'Sink #' | cut -d# -f2 | xargs -n 1 -I@ pactl set-sink-volume @ -1%"
+# For ONLY active one : "pactl set-sink-volume $(pacmd list-sinks |awk '/* index:/{print $3}') +1%"
+set $volume_increase "pactl list sinks | grep 'Sink #' | cut -d# -f2 | xargs -n 1 -I@ pactl set-sink-volume @ +1%"
+set $volume_decrease "pactl list sinks | grep 'Sink #' | cut -d# -f2 | xargs -n 1 -I@ pactl set-sink-volume @ -1%"
+set $volume_mute_toggle "pactl list sinks | grep 'Sink #' | cut -d# -f2 | xargs -n 1 -I@ pactl set-sink-mute @ toggle"
 
-# Spotify
-set $spotify_play_pause_toggle "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause"
-set $spotify_next "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next"
-set $spotify_previous "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous"
+# Backlight
+set $backlight_increase brightnessctl --class=backlight set +10%
+set $backlight_decrease brightnessctl --class=backlight set 10%-
+
+# Media player
+set $media_play_pause playerctl play-pause
+set $media_previous playerctl previous
+set $media_next playerctl next
 
 ### Appearance
 #
@@ -155,14 +161,27 @@ bindsym $mod+Ctrl+e exec emacs
 bindsym $mod+Ctrl+l exec $screen_lock
 
 # Volume
-bindsym $mod+Ctrl+up exec $increase_volume
-bindsym $mod+Ctrl+down exec $decrease_volume
+bindsym $mod+Ctrl+up exec $volume_increase
+bindsym $mod+Ctrl+down exec $volume_decrease
+bindsym XF86AudioRaiseVolume exec $volume_increase
+bindsym XF86AudioLowerVolume exec $volume_decrease
+bindsym XF86AudioMute exec $volume_mute_toggle
 
 # Spotify
 bindsym $mod+Ctrl+s exec spotify
-bindsym $mod+Ctrl+8 exec $spotify_play_pause_toggle
-bindsym $mod+Ctrl+6 exec $spotify_previous
-bindsym $mod+Ctrl+0 exec $spotify_next
+bindsym $mod+Ctrl+8 exec $media_play_pause
+bindsym $mod+Ctrl+6 exec $media_previous
+bindsym $mod+Ctrl+0 exec $media_next
+
+# Media keys
+bindsym XF86AudioPlay exec $media_play_pause
+bindsym XF86AudioPause exec $media_play_pause
+bindsym XF86AudioPrev exec $media_previous
+bindsym XF86AudioNext exec $media_next
+
+# Brightness keys
+bindsym XF86MonBrightnessUp exec $backlight_increase
+bindsym XF86MonBrightnessDown exec $backlight_decrease
 
 # Drag floating windows by holding down $mod and left mouse button.
 # Resize them with right mouse button + $mod.

@@ -209,6 +209,7 @@
 
   security.sudo.enable = true;
 
+  security.wrappers.brightnessctl.source = "${pkgs.brightnessctl}/bin/brightnessctl";
 
   # Virtualisation =======================================
 
