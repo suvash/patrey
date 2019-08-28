@@ -342,3 +342,4 @@ bar {
 set $mako_args --font "Ubuntu Mono 18" --width 400 --max-visible 10
 exec mako $mako_args 2>&1 >/tmp/mako.log
 
+# kanshi

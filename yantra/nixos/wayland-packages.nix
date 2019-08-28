@@ -26,4 +26,7 @@ with pkgs;
 
   # Notification
   unstable.mako
+
+  # Hotplug outputs
+  # unstable.kanshi
 ]
