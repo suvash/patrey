@@ -1,61 +1,84 @@
-# Default config for sway
-#
-# Copy this to ~/.config/sway/config and edit it to your liking.
-#
-# Read `man 5 sway` for a complete reference.
-
 ### Variables
-#
+
 # Logo key. Use Mod1 for Alt.
 set $mod Mod4
+
 # Home row direction keys, like vim
 set $left h
 set $down j
 set $up k
 set $right l
-# Your preferred terminal emulator
-# set $term urxvt
+
+# Terminal
 set $term kitty
 
-# Your preferred application launcher
-# Note: it's recommended that you pass the final command to sway
-set $menu dmenu_path | dmenu | xargs swaymsg exec --
-# set $menu rofi -show run | xargs swaymsg exec --
+# Browsers
+set $firefox firefox
+set $chrome google-chrome-stable --incognito --force-device-scale-factor=1.8
+set $opera opera --private --force-device-scale-factor=1.8
 
+# Wallpaper
+set $wallpaper ~/Developer/scaffold/common/wallpapers/linen.png
+
+# Fonts
+set $font_family Ubuntu Mono
+set $font_size 18
+
+# Launcher
+set $launcher_app dmenu
+set $launcher_args -fn "$font_family-$font_size"
+set $launcher_items dmenu_path
+set $launcher $launcher_items | $launcher_app $launcher_args | xargs swaymsg exec --
+
+# Screen Lock, On, Off
+set $screen_lock 'swaylock -f -c 000000'
+set $screen_off 'swaymsg "output * dpms off"'
+set $screen_on 'swaymsg "output * dpms on"'
+
+# Notifications commands
+set $notify_battery 'notify-send -t 4000 Battery "$(acpi)"'
+
+# Volume
+set $increase_volume "pactl list sinks | grep 'Sink #' | cut -d# -f2 | xargs -n 1 -I@ pactl set-sink-volume @ +1%"
+set $decrease_volume "pactl list sinks | grep 'Sink #' | cut -d# -f2 | xargs -n 1 -I@ pactl set-sink-volume @ -1%"
+
+# Spotify
+set $spotify_play_pause_toggle "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause"
+set $spotify_next "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next"
+set $spotify_previous "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous"
+
+### Appearance
+#
+font pango:$font_family $font_size
+
+# Gaps
+gaps inner 10
+gaps outer 0
+smart_gaps on
+
+# Edges
+hide_edge_borders smart
 
 ### Output configuration
 #
-# Default wallpaper (more resolutions are available in @datadir@/backgrounds/sway/)
-output * bg ~/Developer/scaffold/common/wallpapers/linen.png tile
 
-#
-# Example configuration:
-#
-#   output HDMI-A-1 resolution 1920x1080 position 1920,0
-#
-# You can get the names of your outputs by running: swaymsg -t get_outputs
+output DP-4 resolution 3840x2160 position 0,0
+output eDP-1 resolution 1920x1080 position 3840,540
 
-output eDP-1 resolution 1920x1080 position 0,0
+# Same wallpaper on all outputs
+output * bg $wallpaper tile
+
 
 ### Idle configuration
 #
-# Example configuration:
-#
-# exec swayidle -w \
-#          timeout 300 'swaylock -f -c 000000' \
-#          timeout 600 'swaymsg "output * dpms off"' \
-#               resume 'swaymsg "output * dpms on"' \
-#          before-sleep 'swaylock -f -c 000000'
-#
-# This will lock your screen after 300 seconds of inactivity, then turn off
-# your displays after another 300 seconds, and turn your screens back on when
-# resumed. It will also lock your screen before your computer goes to sleep.
+exec swayidle -w \
+         timeout 300 $screen_lock \
+         timeout 400 $screen_off \
+              resume $screen_on \
+         before-sleep $screen_lock
 
 ### Input configuration
 #
-# You can get the names of your inputs by running: swaymsg -t get_inputs
-# Read `man 5 sway-input` for more information about this section.
-
 # Dell XPS keyboard
 input "1:1:AT_Translated_Set_2_keyboard" {
   xkb_layout "us,us,se"
@@ -108,29 +131,48 @@ input "1523:7:HID_05f3:0007_System_Control" {
 
 ### Key bindings
 #
-# Basics:
-#
-    # start a terminal
-    bindsym $mod+Return exec $term
+# Terminal
+bindsym $mod+Shift+Return exec $term
 
-    # kill focused window
-    bindsym $mod+Shift+q kill
+# kill focused window
+bindsym $mod+Shift+q kill
 
-    # start your launcher
-    bindsym $mod+d exec $menu
+# start your launcher
+bindsym $mod+d exec $launcher
 
-    # Drag floating windows by holding down $mod and left mouse button.
-    # Resize them with right mouse button + $mod.
-    # Despite the name, also works for non-floating windows.
-    # Change normal to inverse to use left mouse button for resizing and right
-    # mouse button for dragging.
-    floating_modifier $mod normal
+# Browsers
+bindsym $mod+Ctrl+f exec $firefox
+bindsym $mod+Ctrl+c exec $chrome
+bindsym $mod+Ctrl+o exec $opera
 
-    # reload the configuration file
-    bindsym $mod+Shift+c reload
+# Notifications
+bindsym $mod+Ctrl+b exec $notify_battery
 
-    # exit sway (logs you out of your Wayland session)
-    bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -b 'Yes, exit sway' 'swaymsg exit'
+# Editor
+bindsym $mod+Ctrl+e exec emacs
+
+# Lock
+bindsym $mod+Ctrl+l exec $screen_lock
+
+# Volume
+bindsym $mod+Ctrl+up exec $increase_volume
+bindsym $mod+Ctrl+down exec $decrease_volume
+
+# Spotify
+bindsym $mod+Ctrl+s exec spotify
+bindsym $mod+Ctrl+8 exec $spotify_play_pause_toggle
+bindsym $mod+Ctrl+6 exec $spotify_previous
+bindsym $mod+Ctrl+0 exec $spotify_next
+
+# Drag floating windows by holding down $mod and left mouse button.
+# Resize them with right mouse button + $mod.
+floating_modifier $mod normal
+
+# reload the configuration file
+bindsym $mod+Shift+c reload
+
+# exit sway (logs you out of your Wayland session)
+bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -b 'Yes, exit sway' 'swaymsg exit'
 #
 # Moving around:
 #
@@ -222,6 +264,7 @@ input "1523:7:HID_05f3:0007_System_Control" {
 #
 # Resizing containers:
 #
+bindsym $mod+r mode "resize"
 mode "resize" {
     # left will shrink the containers width
     # right will grow the containers width
@@ -242,7 +285,6 @@ mode "resize" {
     bindsym Return mode "default"
     bindsym Escape mode "default"
 }
-bindsym $mod+r mode "resize"
 
 #
 # Status Bar:
