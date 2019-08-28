@@ -174,6 +174,7 @@
     noto-fonts-extra
     lohit-fonts.devanagari
     lohit-fonts.nepali
+    font-awesome_5
   ];
 
   # Programs =============================================
@@ -199,6 +200,7 @@
       export EDITOR=vim
       export BROWSER=firefox
       export _JAVA_AWT_WM_NONREPARENTING=1
+      export MOZ_ENABLE_WAYLAND=1
       export PATH="$HOME/.local/bin:$PATH"
     '';
   };
