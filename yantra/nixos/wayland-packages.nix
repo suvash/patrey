@@ -12,6 +12,12 @@ with pkgs;
 
   # X but used for Sway packages END
 
+  # Terminal
+  unstable.alacritty
+
+  # Launcher
+  unstable.bemenu
+
   # Brightness
   brightnessctl
 

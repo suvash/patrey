@@ -14,6 +14,11 @@ if [ ! -L $HOME/.Xresources ]; then
   ln -sfnv $HOME/Developer/scaffold/yantra/dotfiles/Xresources $HOME/.Xresources
 fi
 
+if [ ! -L $HOME/.Xdefaults ]; then
+  rm -rf $HOME/.Xdefaults 2> /dev/null
+  ln -sfnv $HOME/Developer/scaffold/yantra/dotfiles/Xresources $HOME/.Xdefaults
+fi
+
 if [ ! -L $HOME/.local/bin/autoconfigure-workstation ]; then
   rm -rf $HOME/.local/bin/autoconfigure-workstation 2> /dev/null
   ln -sfnv $HOME/Developer/scaffold/yantra/scripts/autoconfigure-workstation $HOME/.local/bin/autoconfigure-workstation
@@ -73,6 +78,11 @@ fi
 if [ ! -L $HOME/.config/kitty ]; then
   rm -rf $HOME/.config/kitty 2> /dev/null
   ln -sfnv $HOME/Developer/scaffold/yantra/kitty $HOME/.config/kitty
+fi
+
+if [ ! -L $HOME/.config/alacritty ]; then
+  rm -rf $HOME/.config/alacritty 2> /dev/null
+  ln -sfnv $HOME/Developer/scaffold/yantra/alacritty $HOME/.config/alacritty
 fi
 
 if [ ! -L $HOME/.config/sway ]; then
