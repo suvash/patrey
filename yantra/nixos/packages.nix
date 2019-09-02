@@ -126,6 +126,7 @@ with pkgs;
   firefox
   google-chrome
   opera
+  brave
 
   # Password management tools
   unstable.gopass
