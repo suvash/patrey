@@ -86,12 +86,8 @@ newKeys x = DM.fromList $
         ,  ((modMask x .|. controlMask, xK_l),
             spawn "xscreensaver-command -lock")
 
-        -- Rofi
-        ,  ((modMask x .|. controlMask, xK_p),
-            spawn "rofi -show run")
-
         -- Battery
-        ,  ((modMask x .|. controlMask, xK_b),
+        ,  ((modMask x .|. controlMask, xK_p),
             spawn "notify-send -t 4000 Battery \"$(acpi)\" ")
 
         -- Date and Time
@@ -126,9 +122,9 @@ newKeys x = DM.fromList $
         ,  ((modMask x .|. controlMask, xK_c),
             spawn "google-chrome-stable --incognito --force-device-scale-factor=1.8")
 
-        -- Launch Tor Browser
-        ,  ((modMask x .|. controlMask, xK_t),
-            spawn "torbrowser-launcher")
+        -- Launch Brave Browser
+        ,  ((modMask x .|. controlMask, xK_b),
+            spawn "brave --incognito")
 
         -- Launch Emacs
         ,  ((modMask x .|. controlMask, xK_e),
