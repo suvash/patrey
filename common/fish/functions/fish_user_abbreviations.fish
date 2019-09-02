@@ -72,7 +72,6 @@ function fish_user_abbreviations
 
     abbr ns 'nix-env -qaP \'*\' --description | grep'
     abbr ni "nix-env -iA nixpkgs.(hostname)"
-    abbr nu 'nix-env -e'
     abbr ngc 'nix-collect-garbage'
 
     abbr fls 'fisher ls-remote --format="%stars - %name: %info https://%url\n" | sort -n'
