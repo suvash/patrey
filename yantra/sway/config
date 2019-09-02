@@ -16,6 +16,7 @@ set $term alacritty
 set $firefox firefox
 set $chrome google-chrome-stable --incognito --force-device-scale-factor=1.8
 set $opera opera --private --force-device-scale-factor=1.8
+set $brave brave --incognito
 
 # Media players
 set $spotify spotify --force-device-scale-factor=1.8
@@ -70,8 +71,15 @@ gaps inner 10
 gaps outer 0
 smart_gaps on
 
-# Edges
+# Borders and Edges
+default_border pixel
 hide_edge_borders smart
+
+# Focus follow
+focus_follows_mouse no
+
+# Focus wrapping
+focus_wrapping yes
 
 ### Output configuration
 #
@@ -158,10 +166,11 @@ bindsym $mod+d exec $launcher
 bindsym $mod+Ctrl+f exec $firefox
 bindsym $mod+Ctrl+c exec $chrome
 bindsym $mod+Ctrl+o exec $opera
+bindsym $mod+Ctrl+b exec $brave
 
 # Notifications
-bindsym $mod+Ctrl+b exec $notify_battery
 bindsym $mod+Ctrl+n exec $notify_network
+bindsym $mod+Ctrl+p exec $notify_battery
 bindsym $mod+Ctrl+d exec $notify_date_time
 
 # Editor
@@ -235,27 +244,27 @@ bindsym $mod+Shift+e exec swaymsg exit
 # Workspaces:
 #
     # switch to workspace
-    bindsym $mod+1 workspace १
-    bindsym $mod+2 workspace २
-    bindsym $mod+3 workspace ३
-    bindsym $mod+4 workspace ४
-    bindsym $mod+5 workspace ५
-    bindsym $mod+6 workspace ६
-    bindsym $mod+7 workspace ७
-    bindsym $mod+8 workspace ८
-    bindsym $mod+9 workspace ९
-    bindsym $mod+0 workspace १०
+    bindsym $mod+1 workspace 1:१
+    bindsym $mod+2 workspace 2:२
+    bindsym $mod+3 workspace 3:३
+    bindsym $mod+4 workspace 4:४
+    bindsym $mod+5 workspace 5:५
+    bindsym $mod+6 workspace 6:६
+    bindsym $mod+7 workspace 7:७
+    bindsym $mod+8 workspace 8:८
+    bindsym $mod+9 workspace 9:९
+    bindsym $mod+0 workspace 10:१०
     # move focused container to workspace
-    bindsym $mod+Shift+1 move container to workspace १
-    bindsym $mod+Shift+2 move container to workspace २
-    bindsym $mod+Shift+3 move container to workspace ३
-    bindsym $mod+Shift+4 move container to workspace ४
-    bindsym $mod+Shift+5 move container to workspace ५
-    bindsym $mod+Shift+6 move container to workspace ६
-    bindsym $mod+Shift+7 move container to workspace ७
-    bindsym $mod+Shift+8 move container to workspace ८
-    bindsym $mod+Shift+9 move container to workspace ९
-    bindsym $mod+Shift+0 move container to workspace १०
+    bindsym $mod+Shift+1 move container to workspace 1:१
+    bindsym $mod+Shift+2 move container to workspace 2:२
+    bindsym $mod+Shift+3 move container to workspace 3:३
+    bindsym $mod+Shift+4 move container to workspace 4:४
+    bindsym $mod+Shift+5 move container to workspace 5:५
+    bindsym $mod+Shift+6 move container to workspace 6:६
+    bindsym $mod+Shift+7 move container to workspace 7:७
+    bindsym $mod+Shift+8 move container to workspace 8:८
+    bindsym $mod+Shift+9 move container to workspace 9:९
+    bindsym $mod+Shift+0 move container to workspace 10:१०
     # Note: workspaces can have any name you want, not just numbers.
     # We just use 1-10 as the default.
 #
@@ -323,6 +332,8 @@ mode "resize" {
 bar {
   position top
   status_command i3status-rs $i3status_config
+  tray_output eDP-1
+  strip_workspace_numbers yes
   # colors {
   #   statusline #ffffff
   #   background #323232
@@ -339,7 +350,7 @@ bar {
 ####
 
 # Programs
-set $mako_args --font "Ubuntu Mono 18" --width 400 --max-visible 10
+set $mako_args --font "$font_family $font_size" --width 400 --max-visible 10
 exec mako $mako_args 2>&1 >/tmp/mako.log
 
 # kanshi
