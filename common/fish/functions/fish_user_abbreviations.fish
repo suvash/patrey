@@ -100,6 +100,8 @@ function fish_user_abbreviations
     abbr portusedby 'lsof -i :'
     abbr allports 'netstat -tunap'
 
+    abbr curltime 'curl -L -w "   time_namelookup: %{time_namelookup}\n      time_connect: %{time_connect}\n   time_appconnect: %{time_appconnect}\n  time_pretransfer: %{time_pretransfer}\ntime_starttransfer: %{time_starttransfer}\n              -----\n        time_total: %{time_total}\n             -----\n     url_effective: %{url_effective}" -o /dev/null -s'
+
     abbr du 'du -chs *'
     abbr fonts 'fc-list : family'
     abbr xa 'xrandr --auto'
