@@ -25,6 +25,7 @@ with pkgs;
   # Pulseaudio tools
   unstable.pulsemixer
   pavucontrol
+  pulseeffects
   paprefs
 
   # Fuse
@@ -157,6 +158,7 @@ with pkgs;
   # Nixos tools
   nix-prefetch-scripts
   nox
+  unstable.nixfmt
 
   # Programming tools
   unstable.cargo
