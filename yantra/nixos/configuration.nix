@@ -118,6 +118,10 @@
     consoleKeyMap = "us";
     defaultLocale = "en_US.UTF-8";
   };
+  i18n.inputMethod = {
+    enabled = "ibus";
+    ibus.engines = with pkgs.ibus-engines; [ m17n ];
+  };
 
   # Set your time zone.
   time.timeZone = "Europe/Stockholm";
