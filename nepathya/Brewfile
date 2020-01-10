@@ -21,6 +21,7 @@ brew "dfc"
 brew "diffutils"
 brew "diff-so-fancy"
 brew "exa"
+brew "elixir"
 brew "fd"
 brew "findutils", args: ["with-default-names"]
 brew "fish"
@@ -28,7 +29,7 @@ brew "fzf"
 brew "gawk"
 brew "gcal"
 brew "git"
-brew "gnu-sed", args: ["with-default-names"]
+brew "gnu-sed"
 brew "gnu-tar", args: ["with-default-names"]
 brew "gnu-which", args: ["with-default-names"]
 brew "gnutls"
@@ -50,6 +51,7 @@ brew "ngrep"
 brew "node"
 brew "nushell"
 brew "packer"
+brew "pgcli"
 brew "pinentry-mac"
 brew "qemu"
 brew "reattach-to-user-namespace"
@@ -75,6 +77,7 @@ brew "xsv"
 cask "alfred"
 cask "amethyst"
 cask "appcleaner"
+cask "bitwarden"
 cask "brave-browser"
 cask "brooklyn"
 cask "caffeine"
@@ -102,9 +105,11 @@ cask "qlmarkdown"
 cask "qlprettypatch"
 cask "quicklook-csv"
 cask "quicklook-json"
+cask "send-to-kindle"
 cask "spectacle"
 cask "skim"
 cask "sketchup"
+cask "sonic-pi"
 cask "spotify"
 cask "transmission"
 cask "tunnelblick"
@@ -122,9 +127,13 @@ mas "The Unarchiver", id: 425424353
 mas "Slack", id: 803453959
 
 # Manual install
+# Sketchup
 # Fuji Raw Studio
 # Adobe + Nik
 # EIZO ColorNavigator
 # Ableton Live Suite
+# Addictive Keys
 # Melodics
+# Battery Health 2
+# Capture One 20
 # Synology SSL VPN Client
