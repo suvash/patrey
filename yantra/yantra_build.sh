@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # Set channel to a release
-# sudo nix-channel --add https://nixos.org/channels/nixos-19.03 nixos
+# sudo nix-channel --add https://nixos.org/channels/nixos-19.09 nixos
 # sudo nix-channel --add https://nixos.org/channels/nixos-unstable nixos-unstable
 
 # Update channels

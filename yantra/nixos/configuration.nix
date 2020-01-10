@@ -278,8 +278,6 @@
   # Redshift
   services.redshift = {
     enable = true;
-    latitude = "57.5";
-    longitude = "12";
     temperature.day = 5500;
     temperature.night = 3700;
   };
@@ -288,6 +286,13 @@
   services.cadvisor = {
     enable = true;
     port = 5050;
+  };
+
+  # Location
+  location = {
+    provider = "manual";
+    latitude = 57.5;
+    longitude = 12.0;
   };
 
   # Xserver
