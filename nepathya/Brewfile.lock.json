@@ -2,13 +2,13 @@
   "entries": {
     "tap": {
       "homebrew/core": {
-        "revision": "b952af7887949b52d5171cabd7a19f6f40d3dfb3"
+        "revision": "f6853b9b19f104d1a0f7b198c4d1e0672f6c91e6"
       },
       "homebrew/bundle": {
         "revision": "4852b2de4140b093084fd7999eaa0303bc5882ea"
       },
       "homebrew/cask": {
-        "revision": "27fc64405619aaddeac79ea975f88b55f39a463e"
+        "revision": "86d0e37b80aacd4e117f1710bd0bbc987ea06c77"
       },
       "homebrew/cask-drivers": {
         "revision": "e9e7bf96422e52af3f184f8e79beba654c34c228"
@@ -1630,6 +1630,10 @@
       "Slack": {
         "id": "803453959",
         "version": "4.2.0"
+      },
+      "Battery Health 2": {
+        "id": "1120214373",
+        "version": "1.91"
       }
     }
   },
@@ -1638,7 +1642,7 @@
       "catalina": {
         "HOMEBREW_VERSION": "2.2.2",
         "HOMEBREW_PREFIX": "/usr/local",
-        "Homebrew/homebrew-core": "b952af7887949b52d5171cabd7a19f6f40d3dfb3",
+        "Homebrew/homebrew-core": "f6853b9b19f104d1a0f7b198c4d1e0672f6c91e6",
         "CLT": "11.0.0.0.1.1567737322",
         "Xcode": "11.3",
         "macOS": "10.15.2"
