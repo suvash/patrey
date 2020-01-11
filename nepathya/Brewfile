@@ -72,6 +72,8 @@ brew "wget"
 brew "whois"
 brew "xsv"
 
+cask "ableton-live-suite"
+cask "adobe-creative-cloud"
 cask "alfred"
 cask "amethyst"
 cask "bitwarden"
@@ -88,6 +90,7 @@ cask "java11"
 cask "karabiner-elements"
 cask "kensington-trackball-works"
 cask "keybase"
+cask "melodics"
 cask "nordvpn"
 cask "opera"
 cask "sketchup"
@@ -103,11 +106,9 @@ mas "Slack", id: 803453959
 
 # Manual install
 # Fuji Raw Studio
-# Adobe + Nik
+# Nik Collection
 # EIZO ColorNavigator
-# Ableton Live Suite
 # Addictive Keys
-# Melodics
 # Battery Health 2
 # Capture One 20
 # Synology SSL VPN Client

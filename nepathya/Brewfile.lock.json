@@ -1588,6 +1588,30 @@
             "appdir": "/Applications"
           }
         }
+      },
+      "melodics": {
+        "version": "2.1.3988",
+        "options": {
+          "args": {
+            "appdir": "/Applications"
+          }
+        }
+      },
+      "adobe-creative-cloud": {
+        "version": "latest",
+        "options": {
+          "args": {
+            "appdir": "/Applications"
+          }
+        }
+      },
+      "ableton-live-suite": {
+        "version": "10.1.6",
+        "options": {
+          "args": {
+            "appdir": "/Applications"
+          }
+        }
       }
     },
     "mas": {
