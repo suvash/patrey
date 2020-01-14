@@ -79,7 +79,6 @@ with pkgs;
   baobab
   vnstat
   lm_sensors
-  # sysdig
 
   # Network tools
   traceroute
@@ -88,6 +87,7 @@ with pkgs;
   nmapsi4
   speedtest-cli
   iw
+  unstable.bandwhich
 
   # USB disk related tools
   usbutils
@@ -110,6 +110,7 @@ with pkgs;
   xsv
   unzip
   multitail
+  dos2unix
 
   # Dns related tools
   unstable.whois
