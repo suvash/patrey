@@ -124,11 +124,8 @@ newKeys x = DM.fromList $
 
         -- Launch Chrome Igcognito
         ,  ((modMask x .|. controlMask, xK_c),
-            spawn "google-chrome-stable --incognito --force-device-scale-factor=1.8")
-
-        -- Launch Brave Browser
-        ,  ((modMask x .|. controlMask, xK_t),
             spawn "brave --incognito")
+         -- spawn "google-chrome-stable --incognito --force-device-scale-factor=1.8")
 
         -- Launch Emacs
         ,  ((modMask x .|. controlMask, xK_e),
