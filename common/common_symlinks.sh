@@ -44,11 +44,6 @@ if [ ! -L $HOME/.vim ]; then
   ln -sfnv $HOME/Developer/scaffold/common/vim $HOME/.vim
 fi
 
-if [ ! -L $HOME/.vimperatorrc ]; then
-  rm -rf $HOME/.vimperatorrc 2> /dev/null
-  ln -sfnv $HOME/Developer/scaffold/common/dotfiles/vimperatorrc $HOME/.vimperatorrc
-fi
-
 if [ ! -L $HOME/.wallpapers ]; then
   rm -rf $HOME/.wallpapers 2> /dev/null
   ln -sfnv $HOME/Developer/scaffold/common/wallpapers $HOME/.wallpapers
