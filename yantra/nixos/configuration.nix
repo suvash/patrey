@@ -284,7 +284,7 @@
 
   # Cadvisor
   services.cadvisor = {
-    enable = true;
+    enable = false;
     port = 5050;
   };
 
