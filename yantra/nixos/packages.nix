@@ -21,6 +21,7 @@ with pkgs;
   vlc
   mplayer
   unstable.zathura
+  qrencode
 
   # Pulseaudio tools
   unstable.pulsemixer
@@ -88,6 +89,10 @@ with pkgs;
   speedtest-cli
   iw
   unstable.bandwhich
+
+  # Bluetooth
+  # bluezFull
+  # bluez-tools
 
   # USB disk related tools
   usbutils
@@ -181,7 +186,7 @@ with pkgs;
   # https://wiki.archlinux.org/index.php/Dell_XPS_13_(9360)#Freezing_after_waking_from_suspend
   xorg.xf86videointel
 
-  # Bluetooth
-  # blueman
+  # Communication
+  zoom-us
 
 ]
