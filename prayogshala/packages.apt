@@ -4,10 +4,3 @@ htop
 # SSH
 openssh-server
 mosh
-
-# Drivers
-ubuntu-drivers-common
-
-# Nvidia drivers
-# ubuntu-drivers devices / autoinstall
-nvidia-driver-435
