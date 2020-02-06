@@ -4,3 +4,14 @@ htop
 # SSH
 openssh-server
 mosh
+
+# Build
+cmake
+
+# Libs
+# to build nvtop
+libncurses-dev
+
+# Utilities
+tree
+mlocate
