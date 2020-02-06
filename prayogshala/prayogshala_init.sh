@@ -13,6 +13,9 @@ sudo apt install ubuntu-drivers-common --yes
 echo "Check the recommendation below..."
 ubuntu-drivers devices
 
+# Nvidia driver
+sudo apt install nvidia-driver-435 nvidia-utils-435 --yes
+
 # Symlinks
 source $HOME/Developer/scaffold/prayogshala/prayogshala_symlinks.sh
 
