@@ -23,6 +23,7 @@ if ! hash nvtop; then
     cmake .. -DNVML_RETRIEVE_HEADER_ONLINE=True
     make
     sudo make install
+    cd
     rm -rf /tmp/nvtop
     popd
 fi
