@@ -55,6 +55,7 @@
 
 (require 'configure-python-mode)
 
+(require 'configure-typescript-mode)
 (require 'configure-javascript-mode)
 (require 'configure-json-mode)
 

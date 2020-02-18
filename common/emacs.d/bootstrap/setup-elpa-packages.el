@@ -79,6 +79,8 @@
                       clojure-mode
                       cider
 
+                      typescript-mode
+
                       intero
                       haskell-mode
 
