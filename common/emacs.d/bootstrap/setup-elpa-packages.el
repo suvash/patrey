@@ -86,8 +86,8 @@
                       elm-mode
 
                       rust-mode
-		      cargo
-		      racer
+                      cargo
+                      racer
 
                       elixir-mode
                       alchemist)
