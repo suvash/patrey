@@ -3,6 +3,7 @@
 mkdir -p $HOME/.local/bin/
 mkdir -p $HOME/.config/
 mkdir -p $HOME/.config/autorandr
+mkdir -p $HOME/.config/nixpkgs
 
 if [ ! -L /etc/nixos ]; then
   sudo mv /etc/nixos /etc/nixos.orig
@@ -17,6 +18,11 @@ fi
 if [ ! -L $HOME/.Xdefaults ]; then
   rm -rf $HOME/.Xdefaults 2> /dev/null
   ln -sfnv $HOME/Developer/scaffold/yantra/dotfiles/Xresources $HOME/.Xdefaults
+fi
+
+if [ ! -L $HOME/.config/nixpkgs/config.nix ]; then
+  rm -rf $HOME/.config/nixpkgs/config.nix 2> /dev/null
+  ln -sfnv $HOME/Developer/scaffold/yantra/nixpkgs/config.nix $HOME/.config/nixpkgs/config.nix
 fi
 
 if [ ! -L $HOME/.local/bin/autoconfigure-workstation ]; then
