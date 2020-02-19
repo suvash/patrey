@@ -62,6 +62,7 @@
 
                       elpy
                       blacken
+                      py-isort
 
                       enh-ruby-mode
 
