@@ -20,3 +20,8 @@ dfc
 tree
 mlocate
 screen
+xclip
+
+# Editors
+emacs
+vim
