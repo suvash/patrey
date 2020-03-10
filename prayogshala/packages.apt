@@ -12,6 +12,11 @@ cmake
 # to build nvtop
 libncurses-dev
 
+# Hardware
+lm-sensors
+
 # Utilities
+dfc
 tree
 mlocate
+screen
