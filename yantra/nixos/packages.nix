@@ -82,6 +82,14 @@ with pkgs;
   vnstat
   lm_sensors
 
+  # System tools
+  lsb-release
+  usbutils
+  pciutils
+  dmidecode
+  sysstat
+  smartmontools
+
   # Network tools
   traceroute
   nmap
@@ -94,9 +102,6 @@ with pkgs;
   # Bluetooth
   # bluezFull
   # bluez-tools
-
-  # USB disk related tools
-  usbutils
 
   # Terminal and shells
   fish
@@ -165,7 +170,7 @@ with pkgs;
   # Nixos tools
   nix-prefetch-scripts
   nox
-  unstable.nixfmt
+  # nixfmt
 
   # Programming tools
   unstable.cargo
