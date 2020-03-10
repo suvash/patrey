@@ -95,11 +95,11 @@ cask "keybase"
 cask "melodics"
 cask "nordvpn"
 cask "opera"
-cask "sketchup"
 cask "spotify"
 cask "visual-studio-code"
 cask "vlc"
 cask "wacom-tablet"
+cask "zoomus"
 
 mas "Flycut", id: 442160987
 mas "HardwareGrowler", id: 475260933
