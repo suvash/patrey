@@ -4,7 +4,7 @@
 sudo apt update
 
 # Install all the packages mentioned in packages.apt
-cat "$HOME/.packages.apt" | awk '!/(^#|^$)/{print $0}' | xargs sudo apt install --yes
+awk '!/(^#|^$)/{print $0}' "$HOME/.packages.apt" | xargs sudo apt install --yes
 
 # Autoremove crap
 sudo apt autoremove -y
