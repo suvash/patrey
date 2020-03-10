@@ -11,6 +11,7 @@ with pkgs;
   vim
   emacs
   vscode
+  poedit
 
   # Git family
   gitFull
@@ -98,7 +99,7 @@ with pkgs;
   usbutils
 
   # Terminal and shells
-  unstable.fish
+  fish
   kitty
   termite
   tmux
