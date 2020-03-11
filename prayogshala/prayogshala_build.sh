@@ -11,7 +11,7 @@ awk '!/(^#|^$)/{print $0}' "$HOME/.packages.apt" | xargs sudo apt install --yes
 echo '--Autoremoving packages'
 sudo apt autoremove -y
 
-if ! $(cat /etc/shells | grep -q '/usr/bin/fish'); then
+if ! grep -q '/usr/bin/fish' < /etc/shells; then
   echo '--Adding fish to available shells, will need privileges.'
   echo '/usr/bin/fish' | sudo tee -a /etc/shells > /dev/null
 fi
