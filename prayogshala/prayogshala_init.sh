@@ -16,6 +16,13 @@ ubuntu-drivers devices
 # Nvidia driver
 sudo apt install nvidia-driver-435 nvidia-utils-435 --yes
 
+# Set $WORK
+if ! grep -q 'WORK' < /etc/environment; then
+  echo '--Adding $WORK to environment.'
+  sudo mkdir -p /work
+  echo 'WORK="/work"' | sudo tee -a /etc/environment > /dev/null
+fi
+
 # Symlinks
 source $HOME/Developer/scaffold/prayogshala/prayogshala_symlinks.sh
 
