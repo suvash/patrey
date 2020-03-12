@@ -16,7 +16,7 @@ fi
 SRCDIR="$WORKDIR/src"
 DATADIR="$WORKDIR/data"
 PRJDIR="$WORKDIR/projects"
-echo "Making work related directories at $DATADIR"
+echo "Making work related directories at $WORKDIR"
 mkdir -p "$DATADIR"
 mkdir -p "$SRCDIR"
 mkdir -p "$PRJDIR"
