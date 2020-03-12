@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-set -euo pipefail
+set -eo pipefail
 
 : "${WORK?Please set WORK environment variable.}"
 WORKDIR="$WORK/$USER"
@@ -69,28 +69,30 @@ if [ ! -L "$HOME/.jupyter" ]; then
 fi
 echo "Jupyter directory has been set up"
 
+# Source conda
+. /etc/profile.d/conda.sh
+
 # Fastai conda env setup
-CONDA_ENV="fastai2"
-if conda env list | grep $CONDA_ENV; then
+FASTAI_CONDA_ENV="fastai2020"
+if conda env list | grep "$FASTAI_CONDA_ENV"; then
     echo "Conda environment already installed"
 else
     echo "Setting up fastai2 conda environment"
 
-    git clone https://github.com/fastai/fastai2 "$SRCDIR/fastai2"
-    git clone https://github.com/fastai/fastcore.git "$SRCDIR/fastcore"
+    rm -rf "$SRCDIR/fastai2" && git clone https://github.com/fastai/fastai2 "$SRCDIR/fastai2"
+    rm -rf "$SRCDIR/fastcore" && git clone https://github.com/fastai/fastcore.git "$SRCDIR/fastcore"
 
-    cd "$SRCDIR/fastai2" && conda env create -f environment.yml
-    conda activate fastai2
+    cd "$SRCDIR/fastai2" && sed -i 's/fastai2/fastai2020/g' environment.yml && conda env create -f environment.yml
+    conda activate "$FASTAI_CONDA_ENV"
 
     cd "$SRCDIR/fastai2" && pip install -e ".[dev]"
     cd "$SRCDIR/fastcore" && pip install -e ".[dev]"
 
     # for nbdev
-    git clone https://github.com/fastai/nbdev.git "$SRCDIR/nbdev"
-    cd "$SRCDIR/nbdev" && pip install -e nbdev
+    pip install nbdev
 
     # for fastai2.medical.imaging
-    conda install pyarrow
+    conda install -y pyarrow
     pip install pydicom kornia opencv-python scikit-image
 fi
 
@@ -119,7 +121,7 @@ After=multi-user.target
 [Service]
 Type=simple
 PIDFile=/run/jupyter-fastai.pid
-ExecStart=$WORKDIR/.conda/envs/$CONDA_ENV/bin/jupyter-notebook --config=$WORKDIR/.jupyter/jupyter_notebook_config.py
+ExecStart=$WORKDIR/.conda/envs/$FASTAI_CONDA_ENV/bin/jupyter-notebook --config=$WORKDIR/.jupyter/jupyter_notebook_config.py
 User=$user
 Group=$group
 WorkingDirectory=$PRJDIR
