@@ -1,6 +1,7 @@
 # Shell
 fish
 finger
+fzf
 
 # System monitor
 htop
