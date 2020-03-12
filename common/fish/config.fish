@@ -35,11 +35,11 @@ if test -f $HOME/.computer
   source $HOME/.computer
 end
 
-# Conda in path if exists
+# Use miniconda if exists
 switch (uname)
-case Darwin
-  if test -d /usr/local/miniconda3
-    source /usr/local/miniconda3/etc/fish/conf.d/conda.fish
+case Linux
+  if test -f /opt/miniconda/bin/conda
+    eval /opt/miniconda/bin/conda "shell.fish" "hook" $argv | source
   end
 end
 
