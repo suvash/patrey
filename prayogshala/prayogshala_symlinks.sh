@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 
+mkdir -p "$HOME/.local/bin/"
 mkdir -p "$HOME/.config"
 mkdir -p "$HOME/.config/fish"
 
