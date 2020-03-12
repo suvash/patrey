@@ -1,0 +1,139 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+: "${WORK?Please set WORK environment variable.}"
+WORKDIR="$WORK/$USER"
+
+if [ "$WORKDIR" = "$HOME" ]; then
+  echo "Working directory cannot be set to home directory ($HOME)"
+  exit
+else
+  echo "Working directory is set to $WORKDIR"
+fi
+
+# Top level data directory
+SRCDIR="$WORKDIR/src"
+DATADIR="$WORKDIR/data"
+PRJDIR="$WORKDIR/projects"
+echo "Making work related directories at $DATADIR"
+mkdir -p "$DATADIR"
+mkdir -p "$SRCDIR"
+mkdir -p "$PRJDIR"
+
+# Conda symlink to workdir
+if [ ! -L "$HOME/.conda" ]; then
+    mkdir -p "$WORKDIR/.conda"
+    rm -rf "$HOME/.conda"
+    ln -sfv "$WORKDIR/.conda" "$HOME/.conda"
+fi
+echo "Conda directory has been set up"
+
+# Torch symlink to workdir
+if [ ! -L "$HOME/.torch" ]; then
+    mkdir -p "$WORKDIR/.torch"
+    rm -rf "$HOME/.torch"
+    ln -sfv "$WORKDIR/.torch" "$HOME/.torch"
+fi
+echo "Torch directory has been set up"
+
+# Ipython symlink to workdir
+if [ ! -L "$HOME/.ipython" ]; then
+    mkdir -p "$WORKDIR/.ipython"
+    rm -rf "$HOME/.ipython"
+    ln -sfv "$WORKDIR/.ipython" "$HOME/.ipython"
+fi
+echo "Ipython directory has been set up"
+
+# Fastai symlink to workdir
+if [ ! -L "$HOME/.fastai" ]; then
+    mkdir -p "$WORKDIR/.fastai"
+    rm -rf "$HOME/.fastai"
+    ln -sfv "$WORKDIR/.fastai" "$HOME/.fastai"
+fi
+echo "Fastai directory has been set up"
+
+# Kaggle symlink to workdir
+if [ ! -L "$HOME/.kaggle" ]; then
+    mkdir -p "$WORKDIR/.kaggle"
+    rm -rf "$HOME/.kaggle"
+    ln -sfv "$WORKDIR/.kaggle" "$HOME/.kaggle"
+fi
+echo "Kaggle directory has been set up"
+
+# Jupyter symlink to workdir
+if [ ! -L "$HOME/.jupyter" ]; then
+    mkdir -p "$WORKDIR/.jupyter"
+    rm -rf "$HOME/.jupyter"
+    ln -sfv "$WORKDIR/.jupyter" "$HOME/.jupyter"
+fi
+echo "Jupyter directory has been set up"
+
+# Fastai conda env setup
+CONDA_ENV="fastai2"
+if conda env list | grep $CONDA_ENV; then
+    echo "Conda environment already installed"
+else
+    echo "Setting up fastai2 conda environment"
+
+    git clone https://github.com/fastai/fastai2 "$SRCDIR/fastai2"
+    git clone https://github.com/fastai/fastcore.git "$SRCDIR/fastcore"
+
+    cd "$SRCDIR/fastai2" && conda env create -f environment.yml
+    conda activate fastai2
+
+    cd "$SRCDIR/fastai2" && pip install -e ".[dev]"
+    cd "$SRCDIR/fastcore" && pip install -e ".[dev]"
+
+    # for nbdev
+    git clone https://github.com/fastai/nbdev.git "$SRCDIR/nbdev"
+    cd "$SRCDIR/nbdev" && pip install -e nbdev
+
+    # for fastai2.medical.imaging
+    conda install pyarrow
+    pip install pydicom kornia opencv-python scikit-image
+fi
+
+# Fastai jupyter configuration
+if [ ! -f "$WORKDIR/.jupyter/jupyter_notebook_config.py" ]; then
+    jupyter notebook --generate-config
+    cat >> "$WORKDIR/.jupyter/jupyter_notebook_config.py" <<EOF
+c.NotebookApp.ip = '0.0.0.0'
+c.NotebookApp.port = 8080
+c.NotebookApp.open_browser = False
+c.NotebookApp.password = 'sha1:2ee130ceb100:5cf9e7579410d3782b2b9aa87b41f48c6962b4a3'
+EOF
+fi
+echo "Jupyter configuration has been set up"
+
+# Fastai jupyter systemd service definition
+if [ ! -f /etc/systemd/system/jupyter-fastai.service ]; then
+    user=$(whoami)
+    group=$(id -g -n $user)
+
+    cat <<EOF | sudo tee /etc/systemd/system/jupyter-fastai.service
+[Unit]
+Description=Jupyter Workplace
+After=multi-user.target
+
+[Service]
+Type=simple
+PIDFile=/run/jupyter-fastai.pid
+ExecStart=$WORKDIR/.conda/envs/$CONDA_ENV/bin/jupyter-notebook --config=$WORKDIR/.jupyter/jupyter_notebook_config.py
+User=$user
+Group=$group
+WorkingDirectory=$PRJDIR
+Restart=always
+RestartSec=3
+
+[Install]
+WantedBy=multi-user.target
+EOF
+fi
+
+# Fastai jupyter systemd service installation
+sudo systemctl enable jupyter-fastai.service
+sudo systemctl daemon-reload
+sudo systemctl restart jupyter-fastai.service
+
+echo "Jupyter Fastai service is now installed and running"
