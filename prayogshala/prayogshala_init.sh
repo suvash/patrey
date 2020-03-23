@@ -8,6 +8,9 @@ hostnamectl set-hostname prayogshala
 # Add ppa graphics drivers repository
 sudo add-apt-repository ppa:graphics-drivers/ppa --yes
 
+# Add regolith ppa
+sudo add-apt-repository ppa:regolith-linux/release --yes
+
 # Ubuntu drivers
 sudo apt install ubuntu-drivers-common --yes
 echo "Check the recommendation below..."
