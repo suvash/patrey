@@ -2,6 +2,8 @@
 fish
 finger
 fzf
+silversearcher-ag
+shellcheck
 
 # System monitor
 htop
@@ -26,6 +28,9 @@ tree
 mlocate
 screen
 xclip
+
+# Network
+speedtest-cli
 
 # Editors
 emacs

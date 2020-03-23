@@ -40,3 +40,7 @@ if ! hash nvtop; then
     rm -rf /tmp/nvtop
     popd
 fi
+
+if [ ! -d "$HOME/.config/base16-shell" ]; then
+  git clone https://github.com/chriskempson/base16-shell.git ~/.config/base16-shell
+fi
