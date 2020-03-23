@@ -13,12 +13,10 @@ else
 fi
 
 # Top level data directory
-SRCDIR="$WORKDIR/src"
 DATADIR="$WORKDIR/data"
 PRJDIR="$WORKDIR/projects"
 echo "Making work related directories at $WORKDIR"
 mkdir -p "$DATADIR"
-mkdir -p "$SRCDIR"
 mkdir -p "$PRJDIR"
 
 # Conda symlink to workdir
@@ -75,28 +73,18 @@ echo "Jupyter directory has been set up"
 # Fastai conda env setup
 FASTAI_CONDA_ENV="fastai2020"
 if conda env list | grep "$FASTAI_CONDA_ENV"; then
-    echo "Conda environment already installed"
+    echo "$FASTAI_CONDA_ENV environment already installed"
 else
-    echo "Setting up fastai2 conda environment"
+    echo "Setting up $FASTAI_CONDA_ENV environment"
 
-    rm -rf "$SRCDIR/fastai2" && git clone https://github.com/fastai/fastai2 "$SRCDIR/fastai2"
-    rm -rf "$SRCDIR/fastcore" && git clone https://github.com/fastai/fastcore.git "$SRCDIR/fastcore"
+    rm -rf "$PRJDIR/course-v4" && git clone https://github.com/fastai/course-v4.git "$PRJDIR/course-v4"
 
-    cd "$SRCDIR/fastai2" && sed -i 's/fastai2/fastai2020/g' environment.yml && conda env create -f environment.yml
+    cd "$PRJDIR/course-v4" && sed -i 's/fastai2/fastai2020/g' environment.yml && conda env create -f environment.yml
     conda activate "$FASTAI_CONDA_ENV"
-
-    cd "$SRCDIR/fastai2" && pip install -e ".[dev]"
-    cd "$SRCDIR/fastcore" && pip install -e ".[dev]"
-
-    # for nbdev
-    pip install nbdev
+    pip install -r requirements.txt
 
     # for nb extensions
     pip install jupyter_contrib_nbextensions
-
-    # for fastai2.medical.imaging
-    conda install -y pyarrow
-    pip install pydicom kornia opencv-python scikit-image
 fi
 
 # Fastai jupyter configuration
