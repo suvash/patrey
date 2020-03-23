@@ -91,6 +91,9 @@ else
     # for nbdev
     pip install nbdev
 
+    # for nb extensions
+    pip install jupyter_contrib_nbextensions
+
     # for fastai2.medical.imaging
     conda install -y pyarrow
     pip install pydicom kornia opencv-python scikit-image
