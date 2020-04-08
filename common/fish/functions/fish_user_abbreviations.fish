@@ -33,7 +33,7 @@ function fish_user_abbreviations
 
     abbr gsu 'git submodule update'
 
-    abbr gup "git fetch --all --prune --prune-tags; and git rebase --preserve-merges '@{upstream}'"
+    abbr gup "git fetch --all --prune --prune-tags; and git rebase --rebase-merges '@{upstream}'"
     abbr gsp "git stash; and git fetch --all -p; and git rebase -p '@{upstream}'; and git stash pop"
 
     abbr gprn 'git remote prune origin --dry-run'
