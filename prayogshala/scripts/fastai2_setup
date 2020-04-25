@@ -85,6 +85,9 @@ else
 
     # for nb extensions
     pip install jupyter_contrib_nbextensions
+    jupyter contrib nbextension install --sys-prefix
+    pip install jupyter_nbextensions_configurator
+    jupyter nbextensions_configurator enable --sys-prefix
 fi
 
 # Fastai jupyter configuration
