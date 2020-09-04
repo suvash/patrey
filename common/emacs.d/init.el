@@ -2,9 +2,6 @@
 (setq custom-file "~/.emacs.d/emacs-custom.el")
 (load custom-file)
 
-;; Autoadded - disabling because it's done in setup-elpa-packages later
-;; (package-initialize)
-
 ;; Load Bootstrap Path
 (add-to-list 'load-path "~/.emacs.d/bootstrap")
 
@@ -12,6 +9,7 @@
 (require 'sanity)
 (when (string-equal system-type "darwin") (require 'macos-setup))
 (when (string-equal system-type "gnu/linux") (require 'linux-setup))
+
 (require 'setup-elpa-packages)
 
 ;; Load Config Path
