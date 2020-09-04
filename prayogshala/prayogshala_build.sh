@@ -28,19 +28,6 @@ if ! hash conda; then
     sudo ln -sfv /opt/miniconda/etc/profile.d/conda.sh /etc/profile.d/conda.sh
 fi
 
-if ! hash nvtop; then
-    echo '--Installing nvtop'
-    pushd $PWD
-    git clone https://github.com/Syllo/nvtop.git /tmp/nvtop
-    mkdir -p /tmp/nvtop/build && cd /tmp/nvtop/build
-    cmake .. -DNVML_RETRIEVE_HEADER_ONLINE=True
-    make
-    sudo make install
-    cd
-    rm -rf /tmp/nvtop
-    popd
-fi
-
 if [ ! -d "$HOME/.config/base16-shell" ]; then
   git clone https://github.com/chriskempson/base16-shell.git ~/.config/base16-shell
 fi
