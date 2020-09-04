@@ -19,6 +19,7 @@ fi
 sudo apt install ubuntu-drivers-common --yes
 echo "Check the recommendation below..."
 ubuntu-drivers devices
+ubuntu-drivers list
 
 # Nvidia driver
 # sudo apt install nvidia-driver-435 nvidia-utils-435 --yes
