@@ -44,8 +44,3 @@ if [ ! -L "$HOME/.vim" ]; then
   rm -rf "$HOME/.vim" 2> /dev/null
   ln -sfnv "$HOME/Developer/scaffold/common/vim" "$HOME/.vim"
 fi
-
-if [ ! -L "$HOME/.local/bin/fastai2_setup" ]; then
-  rm -rf "$HOME/.local/bin/fastai2_setup" 2> /dev/null
-  ln -sfnv "$HOME/Developer/scaffold/prayogshala/scripts/fastai2_setup" "$HOME/.local/bin/fastai2_setup"
-fi

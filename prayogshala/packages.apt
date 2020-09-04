@@ -1,6 +1,3 @@
-# Desktop env
-regolith-desktop
-
 # Shell
 fish
 finger
@@ -10,6 +7,7 @@ shellcheck
 
 # System monitor
 htop
+nvtop
 
 # SSH
 openssh-server
@@ -18,17 +16,12 @@ mosh
 # Build
 cmake
 
-# Libs
-# to build nvtop
-libncurses-dev
-
 # Hardware
 lm-sensors
 
 # Utilities
 dfc
 tree
-mlocate
 screen
 xclip
 

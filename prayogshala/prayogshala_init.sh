@@ -8,9 +8,6 @@ hostnamectl set-hostname prayogshala
 # Add ppa graphics drivers repository
 sudo add-apt-repository ppa:graphics-drivers/ppa --yes
 
-# Add regolith ppa
-sudo add-apt-repository ppa:regolith-linux/release --yes
-
 # Add Spotify repository
 if [ ! -f /etc/apt/sources.list.d/spotify.list ]; then
   curl -sS https://download.spotify.com/debian/pubkey.gpg | sudo apt-key add -
@@ -26,11 +23,10 @@ ubuntu-drivers devices
 # Nvidia driver
 # sudo apt install nvidia-driver-435 nvidia-utils-435 --yes
 
-# Set $WORK
-if ! grep -q 'WORK' < /etc/environment; then
-  echo '--Adding $WORK to environment.'
-  sudo mkdir -p /work
-  echo 'WORK="/work"' | sudo tee -a /etc/environment > /dev/null
+# Set $STORE
+if ! grep -q 'STORE' < /etc/environment; then
+  echo '--Adding $STORE to environment.'
+  echo 'STORE="/store"' | sudo tee -a /etc/environment > /dev/null
 fi
 
 # Symlinks
