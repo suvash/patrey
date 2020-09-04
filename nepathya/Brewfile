@@ -76,13 +76,14 @@ brew "whois"
 brew "xsv"
 brew "yarn"
 
-cask "ableton-live-suite"
 cask "adobe-creative-cloud"
 cask "alfred"
 cask "amethyst"
+cask "anki"
 cask "bitwarden"
 cask "brave-browser"
 cask "caffeine"
+cask "dictionaries"
 cask "disk-inventory-x"
 cask "discord"
 cask "docker"
@@ -91,6 +92,7 @@ cask "firefox"
 cask "font-fira-code"
 cask "google-cloud-sdk"
 cask "google-chrome"
+cask "handbrake"
 cask "iterm2"
 cask "imageoptim"
 cask "inkscape"
@@ -102,6 +104,7 @@ cask "melodics"
 cask "ngrok"
 cask "nordvpn"
 cask "opera"
+cask "skype"
 cask "spotify"
 cask "virtualbox"
 cask "virtualbox-extension-pack"
@@ -118,6 +121,8 @@ mas "Slack", id: 803453959
 mas "Battery Health 2", id: 1120214373
 
 # Manual install
+# Ableton Live Suite
+# Audacity
 # Fuji Raw Studio
 # EIZO ColorNavigator
 # XLN Studio (Addictive Keys)
