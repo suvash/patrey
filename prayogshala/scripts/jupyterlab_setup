@@ -1,0 +1,127 @@
+#!/usr/bin/env bash
+
+set -eo pipefail
+
+: "${STORE?Please set STORE environment variable.}"
+LABDIR="$STORE/$USER"
+
+if [ "$LABDIR" = "$HOME" ]; then
+  echo "Lab directory cannot be set to home directory ($HOME)"
+  exit
+else
+  echo "Lab directory is set to $LABDIR"
+fi
+
+# Top level data directory
+DATADIR="$LABDIR/data"
+PRJDIR="$LABDIR/projects"
+echo "Making lab related directories at $LABDIR"
+mkdir -p "$DATADIR"
+mkdir -p "$PRJDIR"
+
+# Conda symlink to workdir
+if [ ! -L "$HOME/.conda" ]; then
+    mkdir -p "$LABDIR/.conda"
+    rm -rf "$HOME/.conda"
+    ln -sfv "$LABDIR/.conda" "$HOME/.conda"
+fi
+echo "Conda directory has been set up"
+
+# Torch symlink to workdir
+if [ ! -L "$HOME/.torch" ]; then
+    mkdir -p "$LABDIR/.torch"
+    rm -rf "$HOME/.torch"
+    ln -sfv "$LABDIR/.torch" "$HOME/.torch"
+fi
+echo "Torch directory has been set up"
+
+# Ipython symlink to workdir
+if [ ! -L "$HOME/.ipython" ]; then
+    mkdir -p "$LABDIR/.ipython"
+    rm -rf "$HOME/.ipython"
+    ln -sfv "$LABDIR/.ipython" "$HOME/.ipython"
+fi
+echo "Ipython directory has been set up"
+
+# Jupyter symlink to workdir
+if [ ! -L "$HOME/.jupyter" ]; then
+    mkdir -p "$LABDIR/.jupyter"
+    rm -rf "$HOME/.jupyter"
+    ln -sfv "$LABDIR/.jupyter" "$HOME/.jupyter"
+fi
+echo "Jupyter directory has been set up"
+
+# Source conda
+. /etc/profile.d/conda.sh
+
+# Lab conda env setup
+LAB_CONDA_ENV="jupyterlab"
+if conda env list | grep "$LAB_CONDA_ENV"; then
+    echo "$LAB_CONDA_ENV environment already installed"
+else
+    echo "Setting up $LAB_CONDA_ENV environment"
+
+    mkdir -p "$PRJDIR/jupyterlab"
+    cat <<EOF > "$PRJDIR/jupyterlab/environment.yml"
+---
+name: $LAB_CONDA_ENV
+channels:
+  - conda-forge
+  - pytorch
+  - defaults
+
+dependencies:
+  - jupyterlab
+  - pytorch
+  - torchvision
+  - cudatoolkit=10.2
+EOF
+
+
+    cd "$PRJDIR/jupyterlab" && conda env create -f environment.yml
+    conda activate "$LAB_CONDA_ENV"
+fi
+
+# JupyterLab configuration
+if [ ! -f "$LABDIR/.jupyter/jupyter_notebook_config.py" ]; then
+    jupyter notebook --generate-config
+    cat >> "$LABDIR/.jupyter/jupyter_notebook_config.py" <<EOF
+c.NotebookApp.ip = '0.0.0.0'
+c.NotebookApp.port = 8080
+c.NotebookApp.open_browser = False
+c.NotebookApp.password = 'sha1:2ee130ceb100:5cf9e7579410d3782b2b9aa87b41f48c6962b4a3'
+EOF
+fi
+echo "Jupyter configuration has been set up"
+
+# JupyterLab systemd service definition
+if [ ! -f /etc/systemd/system/jupyter-lab.service ]; then
+    user=$(whoami)
+    group=$(id -g -n $user)
+
+    cat <<EOF | sudo tee /etc/systemd/system/jupyter-lab.service
+[Unit]
+Description=Jupyter Workplace
+After=multi-user.target
+
+[Service]
+Type=simple
+PIDFile=/run/jupyter-lab.pid
+ExecStart=$LABDIR/.conda/envs/$LAB_CONDA_ENV/bin/jupyter-notebook --config=$LABDIR/.jupyter/jupyter_notebook_config.py
+User=$user
+Group=$group
+WorkingDirectory=$PRJDIR
+Restart=always
+RestartSec=3
+
+[Install]
+WantedBy=multi-user.target
+EOF
+fi
+
+# JupyterLab systemd service installation
+sudo systemctl enable jupyter-lab.service
+sudo systemctl daemon-reload
+sudo systemctl restart jupyter-lab.service
+
+echo "JupyterLab service is now installed and running"
