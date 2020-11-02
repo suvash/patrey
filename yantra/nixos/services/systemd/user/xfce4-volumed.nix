@@ -2,7 +2,7 @@
 
 {
   environment.systemPackages = with pkgs; [
-    xfce.xfce4volumed
+    xfce.xfce4-volumed-pulse
   ];
 
   systemd.user.services.xfce4-volumed = {
@@ -13,6 +13,6 @@
     serviceConfig.Type = "forking";
     serviceConfig.Restart = "always";
     serviceConfig.RestartSec = 2;
-    serviceConfig.ExecStart = "${pkgs.xfce.xfce4volumed}/bin/xfce4-volumed";
+    serviceConfig.ExecStart = "${pkgs.xfce.xfce4-volumed-pulse}/bin/xfce4-volumed-pulse";
   };
 }

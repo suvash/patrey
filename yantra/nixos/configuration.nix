@@ -55,13 +55,10 @@
   ];
 
   # Mount luksFormat at boot time
-  boot.initrd.luks.devices = [
-    {
-    name = "nixos";
+  boot.initrd.luks.devices.nixos = {
     device = "/dev/nvme0n1p2";
     preLVM = true;
-    }
-  ];
+  };
 
   # Clean tmp dir on boot
   boot.cleanTmpDir = true;
@@ -112,12 +109,17 @@
 
   # Localisation =========================================
 
+  # Console
+  console = {
+    font = "latarcyrheb-sun32";
+    keyMap = "us";
+  };
+
   # Select internationalisation properties.
   i18n = {
-    consoleFont = "latarcyrheb-sun32";
-    consoleKeyMap = "us";
     defaultLocale = "en_US.UTF-8";
   };
+
   i18n.inputMethod = {
     enabled = "ibus";
     ibus.engines = with pkgs.ibus-engines; [ m17n ];
@@ -221,6 +223,7 @@
   virtualisation.docker.enableOnBoot = true;
 
   virtualisation.virtualbox.host.enable = false;
+  virtualisation.virtualbox.host.enableExtensionPack = false;
 
   # Services =============================================
 
@@ -267,12 +270,12 @@
   # Unclutter
   services.unclutter-xfixes.enable = true;
 
-  # Compton
-  services.compton = {
+  # Picom
+  services.picom = {
     enable = true;
-    backend = "xrender";
-    activeOpacity = "1.0";
-    inactiveOpacity = "0.8";
+    backend = "glx";
+    activeOpacity = 1.0;
+    inactiveOpacity = 0.8;
   };
 
   # Redshift
@@ -331,10 +334,10 @@
   '';
 
   # Select a desktop manager
-  services.xserver.desktopManager.default = "none";
+  # services.xserver.desktopManager.default = "none";
 
   # Select a window manager
-  services.xserver.windowManager.default = "xmonad";
+  # services.xserver.windowManager.default = "xmonad";
   services.xserver.windowManager.xmonad.enable = true;
   services.xserver.windowManager.xmonad.enableContribAndExtras = true;
 
@@ -352,6 +355,6 @@
   # compatible, in order to avoid breaking some software such as database
   # servers. You should change this only after NixOS release notes say you
   # should.
-  system.stateVersion = "19.03";
+  system.stateVersion = "20.09";
 
 }

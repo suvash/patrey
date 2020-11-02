@@ -1,7 +1,9 @@
 #!/usr/bin/env bash
 
+set -eu
+
 # Set channel to a release
-# sudo nix-channel --add https://nixos.org/channels/nixos-19.09 nixos
+# sudo nix-channel --add https://nixos.org/channels/nixos-20.03 nixos
 # sudo nix-channel --add https://nixos.org/channels/nixos-unstable nixos-unstable
 
 # Update channels
@@ -24,8 +26,8 @@ done
 # nix-env -q --installed
 # nix-env -e docker-credential-gcr
 
-# Collect unreachable path in nix store + all generations older and than 30d
-sudo nix-collect-garbage --delete-older-than 30d
+# Collect unreachable path in nix store + all generations older and than 90d
+sudo nix-collect-garbage --delete-older-than 90d
 
 # Base16 shell download to config directory
 if [ ! -d "$HOME/.config/base16-shell" ]; then
