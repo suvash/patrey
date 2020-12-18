@@ -25,9 +25,11 @@
 ;; Turn off dialog boxes - use echo area
 (setq use-dialog-box nil)
 
-;; Turn on Line numbers and add a space
-(global-linum-mode 1)
-(setq linum-format "%d ")
+;; Highlight current line
+(global-hl-line-mode t)
+
+;; Turn on Line numbers
+(global-display-line-numbers-mode t)
 
 ;; Change yes-or-no to y-or-n
 (defalias 'yes-or-no-p 'y-or-n-p)
@@ -55,7 +57,7 @@
 (when (display-graphic-p)
   (setq x-select-request-type '(UTF8_STRING COMPOUND_TEXT TEXT STRING)))
 
-;; use gpg2 instead of gpg
+;; use gpg
 (setq epg-gpg-program "gpg")
 
 ;; set executable bit on executable buffers
