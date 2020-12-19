@@ -26,12 +26,11 @@
   "po" 'projectile-switch-project
   "pk" 'projectile-kill-buffers
 
-  "px" 'projectile-find-file
   "x" 'projectile-find-file-other-window
 
-  "r" 'projectile-replace
   "d" 'projectile-dired
   "a" 'projectile-ag
+  "r" 'deadgrep
 
   "ji" 'dumb-jump-go
   "jo" 'dumb-jump-back

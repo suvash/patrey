@@ -43,6 +43,7 @@
                       git-timemachine
 
                       ag
+                      deadgrep
 
                       flycheck
                       flycheck-yamllint
