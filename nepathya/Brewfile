@@ -70,6 +70,7 @@ cask "anki"
 cask "bitwarden"
 cask "brave-browser"
 cask "caffeine"
+cask "chrysalis"
 cask "dictionaries"
 cask "disk-inventory-x"
 cask "docker"
@@ -83,21 +84,23 @@ cask "karabiner-elements"
 cask "nordvpn"
 cask "spotify"
 cask "vlc"
+cask "zoomus"
 
 mas "The Unarchiver", id: 425424353
 mas "Slack", id: 803453959
 mas "Battery Health 2", id: 1120214373
 mas "Hotkey", id: 975890633
 
-# Manual install
+# Hardware Drivers
+# ================
 # KengistonWorks (Slimblade Trackball compatible)
 # Wacom Intuos Pro M (PTH-651 compatible)
+
+# Additional Software
+# ===================
+# Benq Palette Master ELement
+# Capture One
+# Affinity Photo
 # Nik Collection
 # Skylum Luminar etc.
 # Ableton Live
-# Affinity Photo
-# Capture One
-# Fuji Raw Studio
-# Benq Palette Master ELement
-# Chrysalis
-# Zoom
