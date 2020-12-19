@@ -10,8 +10,8 @@ pushd $PWD
 if [[ "$OSTYPE" =~ ^darwin ]] && [[ ! "$(type -P brew)" ]]; then
     echo "Installing Homebrew"
 
-    #Skip the "Press enter to continue‚Äö√Ñ¬∂" prompt.
-    true | ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
     brew doctor
 fi
 
