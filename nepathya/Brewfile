@@ -67,6 +67,7 @@ brew "xsv"
 cask "alfred"
 cask "amethyst"
 cask "anki"
+cask "betterzip"
 cask "bitwarden"
 cask "brave-browser"
 cask "caffeine"
@@ -87,9 +88,21 @@ cask "signal"
 cask "spotify"
 cask "vlc"
 cask "whatsapp"
-cask "zoomus"
+cask "zoom"
 
-mas "The Unarchiver", id: 425424353
+# Quicklook plugins
+cask "qlcolorcode"
+cask "qlstephen"
+cask "qlmarkdown"
+cask "qladdict"
+cask "qlvideo"
+cask "quicklook-csv"
+cask "quicklook-json"
+cask "ipynb-quicklook"
+cask "webpquicklook"
+cask "apparency"
+cask "suspicious-package"
+
 mas "Slack", id: 803453959
 mas "Battery Health 2", id: 1120214373
 mas "Hotkey", id: 975890633

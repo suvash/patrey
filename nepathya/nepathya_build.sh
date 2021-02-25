@@ -23,6 +23,11 @@ echo "Brew and cask cleanup"
 brew cleanup
 brew bundle cleanup --file=$HOME/Developer/scaffold/nepathya/Brewfile #--force
 
+# Remove Quicklook quarantine if not already
+if $(xattr -l ~/Library/QuickLook/QLColorCode.qlgenerator | grep -q 'com.apple.quarantine'); then
+  xattr -d -r com.apple.quarantine ~/Library/QuickLook/
+fi
+
 # Add fish to shell list if not already
 if ! $(cat /etc/shells | grep -q '/usr/local/bin/fish'); then
   echo 'Adding fish to available shells, will need privileges.'
