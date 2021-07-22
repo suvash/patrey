@@ -38,6 +38,9 @@
 ;;(setq mac-right-command-modifier nil)
 ;;(setq mac-right-control-modifier nil)
 
+;;; Set font face
+(set-face-attribute 'default nil :font "Monaco-14")
+
 (provide 'macos-setup)
 
 ;;; macos-setup ends here
