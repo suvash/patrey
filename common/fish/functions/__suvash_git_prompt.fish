@@ -22,12 +22,12 @@ set -gx fish_prompt_git_status_unmerged '☢ '
 set -gx fish_prompt_git_status_order added modified renamed copied deleted untracked unmerged
 
 function __suvash_git_prompt --description 'Sweet Git prompt'
-  set -l branch (git rev-parse --abbrev-ref HEAD ^/dev/null)
+  set -l branch (git rev-parse --abbrev-ref HEAD 2>/dev/null)
   if test -z $branch
     return
   end
 
-  set -l index (git status --porcelain ^/dev/null|cut -c 1-2|sort -u)
+  set -l index (git status --porcelain 2>/dev/null|cut -c 1-2|sort -u)
 
   if test -z "$index"
     set_color $fish_color_git_clean
