@@ -177,9 +177,16 @@
   ;;(setq mac-right-control-modifier nil)
   (message "No keys remapped"))
 
+(defun suv/exec-path-from-shell-init ()
+  (use-package exec-path-from-shell
+    :config
+    (setq exec-path-from-shell-variables '("PATH" "LANG" "LC_ALL" "SSH_AUTH_SOCK"))
+    (exec-path-from-shell-initialize)))
+
 (defun suv/darwin-only-setup ()
   (setq interprogram-cut-function 'suv/paste-to-macos)
   (setq interprogram-paste-function 'suv/copy-from-macos)
+  (suv/exec-path-from-shell-init)
   (suv/remap-macos-modifier-keys))
 
 (when (string-equal system-type "darwin")
