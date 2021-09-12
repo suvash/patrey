@@ -1,6 +1,0 @@
-[user]
-	name = Suvash Thapaliya
-	email = suvash@thapaliya.com
-[core]
-	excludesfile = ~/.gitignore
-	editor = vim

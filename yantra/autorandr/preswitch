@@ -1,3 +1,0 @@
-#!/usr/bin/env bash
-
-notify-send --urgency=LOW -t 6000 "Autorandr switching modes"

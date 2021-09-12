@@ -1,5 +1,0 @@
-/common/fish/completions/
-/common/lein/self-installs/
-*.jar
-log/
-automatic_backups/

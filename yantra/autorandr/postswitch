@@ -1,3 +1,0 @@
-#!/usr/bin/env bash
-
-notify-send --urgency=LOW -t 6000 "Autorandr mode switched" "$(xrandr -q | grep ' connected' | cut -d'+' -f1)"
