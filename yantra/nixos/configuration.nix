@@ -315,7 +315,7 @@
 
   # Enable touchpad support.
   services.xserver.libinput.enable = true;
-  services.xserver.libinput.clickMethod = "clickfinger";
+  services.xserver.libinput.touchpad.clickMethod = "clickfinger";
 
   # Select a display manager (login manager)
   services.xserver.displayManager.lightdm.enable = true;

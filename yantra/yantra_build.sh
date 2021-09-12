@@ -3,7 +3,7 @@
 set -eu
 
 # Set channel to a release
-# sudo nix-channel --add https://nixos.org/channels/nixos-20.03 nixos
+# sudo nix-channel --add https://nixos.org/channels/nixos-21.05 nixos
 # sudo nix-channel --add https://nixos.org/channels/nixos-unstable nixos-unstable
 
 # Update channels

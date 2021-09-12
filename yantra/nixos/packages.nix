@@ -10,8 +10,6 @@ with pkgs;
   # Editors
   vim
   emacs
-  vscode
-  poedit
 
   # Git family
   gitFull
@@ -27,7 +25,6 @@ with pkgs;
   # Pulseaudio tools
   unstable.pulsemixer
   pavucontrol
-  pulseeffects
   paprefs
 
   # Fuse
@@ -138,14 +135,12 @@ with pkgs;
   # Browsers
   firefox
   google-chrome
-  opera
   brave
 
   # Password management tools
   unstable.gopass
   qtpass
   rofi-pass
-  python36Packages.upass
 
   # Bling tools
   cmatrix
@@ -163,8 +158,8 @@ with pkgs;
   unstable.kubectx
 
   # Docker
-  unstable.docker-credential-gcr
-  unstable.docker_compose
+  docker-credential-gcr
+  docker_compose
   unstable.dive
 
   # Nixos tools
@@ -174,14 +169,11 @@ with pkgs;
 
   # Programming tools
   unstable.cargo
-  # unstable.stack
-  unstable.pipenv
   nodejs-10_x
-  pew
+  # pew
   pgcli
   python36Packages.yamllint
   shellcheck
-  unstable.hugo
 
   # Encryption/Decryption tools
   unstable.sops
@@ -193,6 +185,6 @@ with pkgs;
   xorg.xf86videointel
 
   # Communication
-  zoom-us
+  unstable.zoom-us
 
 ]

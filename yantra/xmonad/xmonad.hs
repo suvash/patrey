@@ -112,7 +112,7 @@ newKeys x = DM.fromList $
 
         -- Launch Spotify
         ,  ((modMask x .|. controlMask, xK_s),
-            spawn "spotify --force-device-scale-factor=1.8")
+            spawn "spotify --force-device-scale-factor=2.0")
 
         -- Launch Opera
         ,  ((modMask x .|. controlMask, xK_o),
