@@ -20,7 +20,7 @@
         paathshala = nixpkgs.lib.nixosSystem {
           inherit system;
           modules = [
-            ./nixos/hosts/paathshala/configuration.nix
+            ./hosts/paathshala/configuration.nix
           ];
         };
       };
