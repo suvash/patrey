@@ -20,7 +20,7 @@
     {
       # sudo nixos-rebuild switch --flake .#hostname
       nixosConfigurations = {
-        paathshala = nixpkgs.lib.nixosSystem {
+        paathshala = nixpkgs2305.lib.nixosSystem {
           system = x86linux;
           modules = [
             ./hosts/paathshala/configuration.nix
@@ -34,7 +34,7 @@
       # Then after : home-manager switch --flake .#username@hostname
       homeConfigurations = {
         "suvash@paathshala" = home-manager.lib.homeManagerConfiguration {
-          pkgs = nixpkgs.legacyPackages.${x86linux}; # required by home-manager
+          pkgs = nixpkgs2305.legacyPackages.${x86linux}; # required by home-manager
           modules = [ ./home.nix ];
         };
       };
