@@ -2,30 +2,42 @@
   description = "Suvash's NixOS Flake";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
-    nixpkgs2305.url = "github:nixos/nixpkgs/nixos-23.05";
+    nixpkgs_unstable.url = "github:nixos/nixpkgs/nixpkgs-unstable";
+    nixpkgs_2305.url = "github:nixos/nixpkgs/nixos-23.05";
 
     nixos-hardware.url = "github:nixos/nixos-hardware";
 
     home-manager = {
       url = "github:nix-community/home-manager/release-23.05";
-      inputs.nixpkgs.follows = "nixpkgs2305";
+      inputs.nixpkgs.follows = "nixpkgs_2305";
     };
   };
 
-  outputs = { nixpkgs, nixpkgs2305, nixos-hardware, home-manager, ... }@inputs:
+  outputs = { nixpkgs_unstable, nixpkgs_2305, nixos-hardware, home-manager, ... }@inputs:
     let
       x86linux = "x86_64-linux";
     in
     {
       # sudo nixos-rebuild switch --flake .#hostname
       nixosConfigurations = {
-        paathshala = nixpkgs2305.lib.nixosSystem {
+        paathshala = nixpkgs_2305.lib.nixosSystem rec {
           system = x86linux;
+          specialArgs = {
+            pkgs_unstable = import nixpkgs_unstable {
+              inherit system;
+              config.allowUnfree = true;
+            };
+            pkgs_stable = import nixpkgs_2305 {
+              inherit system;
+              config.allowUnfree = true;
+            };
+          };
           modules = [
             ./hosts/paathshala/configuration.nix
             nixos-hardware.nixosModules.dell-xps-13-9360
             nixos-hardware.nixosModules.common-gpu-intel
+
+            ./modules/avahi.nix
           ];
         };
       };
@@ -34,7 +46,7 @@
       # Then after : home-manager switch --flake .#username@hostname
       homeConfigurations = {
         "suvash@paathshala" = home-manager.lib.homeManagerConfiguration {
-          pkgs = nixpkgs2305.legacyPackages.${x86linux}; # required by home-manager
+          pkgs = nixpkgs_2305.legacyPackages.${x86linux}; # required by home-manager
           modules = [ ./home.nix ];
         };
       };
