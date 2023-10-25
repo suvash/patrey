@@ -14,10 +14,21 @@
 
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
+  boot.loader.systemd-boot.configurationLimit = 10;
   boot.loader.efi.canTouchEfiVariables = true;
 
   # Enable flakes and nix-command
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
+
+  # Perform automatic GC
+  nix.gc = {
+    automatic = true;
+    dates = "weekly";
+    options = "--delete-older-than 3w";
+  };
+
+  # Optimise storage
+  nix.settings.auto-optimise-store = true;
 
   networking.hostName = "paathshala"; # Define your hostname.
   # Pick only one of the below networking options.
