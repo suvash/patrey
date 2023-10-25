@@ -15,51 +15,56 @@
 
   inputs = {
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixpkgs-unstable";
-    nixpkgs-2305.url = "github:nixos/nixpkgs/nixos-23.05";
+    nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-23.05";
+    nixpkgs-master.url = "github:nixos/nixpkgs/master";
+    nixpkgs-3be4a51.url = "github:nixos/nixpkgs/3be4a51a23edfa3a3c4ceabe25328520dd1d9fd4";
 
     nixos-hardware.url = "github:nixos/nixos-hardware";
 
     home-manager = {
       url = "github:nix-community/home-manager/release-23.05";
-      inputs.nixpkgs.follows = "nixpkgs-2305";
+      inputs.nixpkgs.follows = "nixpkgs-stable";
     };
 
     alejandra.url = "github:kamadorueda/alejandra/3.0.0";
-    alejandra.inputs.nixpkgs.follows = "nixpkgs-2305";
+    alejandra.inputs.nixpkgs.follows = "nixpkgs-stable";
   };
 
   outputs = {
+    self,
     nixpkgs-unstable,
-    nixpkgs-2305,
+    nixpkgs-stable,
     nixos-hardware,
     home-manager,
     alejandra,
     ...
   } @ inputs: let
+    inherit (self) outputs;
+    # Supported systems for your flake packages, shell, etc.
     x86linux = "x86_64-linux";
+    x86darwin = "x86_64-darwin";
+    systems = [
+      x86linux
+      x86darwin
+    ];
+    forAllSystems = nixpkgs-stable.lib.genAttrs systems;
   in {
-    formatter.${x86linux} = alejandra.defaultPackage.${x86linux};
+    # Custom packages, available through 'nix build', 'nix shell', etc
+    packages = forAllSystems (system: import ./pkgs nixpkgs-stable.legacyPackages.${system});
+    # nix fmt
+    formatter = forAllSystems (system: alejandra.defaultPackage.${system});
+    # overlays
+    overlays = import ./overlays {inherit inputs;};
+    # shareable non personal nixos modules
+    nixosModules = import ./modules/nixos;
 
     # sudo nixos-rebuild switch --flake .#hostname
     nixosConfigurations = {
-      paathshala = nixpkgs-2305.lib.nixosSystem rec {
+      paathshala = nixpkgs-stable.lib.nixosSystem rec {
         system = x86linux;
-        specialArgs = {
-          pkgs-unstable = import nixpkgs-unstable {
-            inherit system;
-            config.allowUnfree = true;
-          };
-          pkgs-stable = import nixpkgs-2305 {
-            inherit system;
-            config.allowUnfree = true;
-          };
-        };
+        specialArgs = {inherit inputs outputs;};
         modules = [
           ./hosts/paathshala/configuration.nix
-          nixos-hardware.nixosModules.dell-xps-13-9360
-          nixos-hardware.nixosModules.common-gpu-intel
-
-          ./modules/avahi.nix
         ];
       };
     };
@@ -68,7 +73,7 @@
     # Then after : home-manager switch --flake .#username@hostname
     homeConfigurations = {
       "suvash@paathshala" = home-manager.lib.homeManagerConfiguration {
-        pkgs = nixpkgs-2305.legacyPackages.${x86linux}; # required by home-manager
+        pkgs = nixpkgs-stable.legacyPackages.${x86linux}; # required by home-manager
         modules = [./home.nix];
       };
     };

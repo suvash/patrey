@@ -2,12 +2,18 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running `nixos-help`).
 {
+  inputs,
+  outputs,
   config,
-  pkgs-unstable,
-  pkgs-stable,
+  pkgs,
   ...
 }: {
   imports = [
+    inputs.nixos-hardware.nixosModules.dell-xps-13-9360
+    inputs.nixos-hardware.nixosModules.common-gpu-intel
+
+    outputs.nixosModules.avahi
+
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
   ];
@@ -32,6 +38,32 @@
 
   # Trust user
   nix.settings.trusted-users = ["suvash"];
+
+  nixpkgs = {
+    overlays = [
+      # Add overlays your own flake exports (from overlays and pkgs dir):
+      outputs.overlays.additions
+      outputs.overlays.modifications
+      outputs.overlays.unstable-packages
+      outputs.overlays.master-packages
+      outputs.overlays.sha-3be4a51-packages
+
+      # You can also add overlays exported from other flakes:
+      # neovim-nightly-overlay.overlays.default
+
+      # Or define it inline, for example:
+      # (final: prev: {
+      #   hi = final.hello.overrideAttrs (oldAttrs: {
+      #     patches = [ ./change-hello-to-hi.patch ];
+      #   });
+      # })
+    ];
+    # Configure your nixpkgs instance
+    config = {
+      # Disable if you don't want unfree packages
+      allowUnfree = true;
+    };
+  };
 
   networking.hostName = "paathshala"; # Define your hostname.
   # Pick only one of the below networking options.
@@ -78,19 +110,21 @@
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
-  environment.systemPackages = with pkgs-unstable; [
-    git
-    vim
-    wget
-    tree
-  ];
+  environment.systemPackages = with pkgs.unstable;
+    [
+      git
+      vim
+      wget
+      tree
+    ]
+    ++ [pkgs.master.dfc];
 
   systemd.services.console-blank = {
     enable = true;
     description = "Blank screen";
     serviceConfig = {
       Type = "oneshot";
-      ExecStart = "${pkgs-stable.util-linux}/bin/setterm -blank 1";
+      ExecStart = "${pkgs.sha-3be4a51.util-linux}/bin/setterm -blank 1";
       TTYPath = "/dev/console";
       StandardOutput = "tty";
     };
