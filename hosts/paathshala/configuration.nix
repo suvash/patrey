@@ -4,6 +4,7 @@
 {
   inputs,
   outputs,
+  lib,
   config,
   pkgs,
   ...
@@ -17,27 +18,6 @@
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
   ];
-
-  # Use the systemd-boot EFI boot loader.
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.systemd-boot.configurationLimit = 10;
-  boot.loader.efi.canTouchEfiVariables = true;
-
-  # Enable flakes and nix-command
-  nix.settings.experimental-features = ["nix-command" "flakes"];
-
-  # Perform automatic GC
-  nix.gc = {
-    automatic = true;
-    dates = "weekly";
-    options = "--delete-older-than 3w";
-  };
-
-  # Optimise storage
-  nix.settings.auto-optimise-store = true;
-
-  # Trust user
-  nix.settings.trusted-users = ["suvash"];
 
   nixpkgs = {
     overlays = [
@@ -65,13 +45,44 @@
     };
   };
 
+  nix = {
+    # This will add each flake input as a registry
+    # To make nix3 commands consistent with your flake
+    registry = lib.mapAttrs (_: value: {flake = value;}) inputs;
+
+    # This will additionally add your inputs to the system's legacy channels
+    # Making legacy nix commands consistent as well, awesome!
+    nixPath = lib.mapAttrsToList (key: value: "${key}=${value.to.path}") config.nix.registry;
+
+    # Automatic GC
+    gc = {
+      automatic = true;
+      dates = "weekly";
+      options = "--delete-older-than 8w";
+    };
+
+    settings = {
+      # Enable flakes and new 'nix' command
+      experimental-features = "nix-command flakes";
+      # Deduplicate and optimize nix store
+      auto-optimise-store = true;
+      # Trusted users
+      trusted-users = ["suvash"];
+    };
+  };
+
+  # Use the systemd-boot EFI boot loader.
+  boot.loader.systemd-boot.enable = true;
+  boot.loader.systemd-boot.configurationLimit = 10;
+  boot.loader.efi.canTouchEfiVariables = true;
+
   networking.hostName = "paathshala"; # Define your hostname.
   # Pick only one of the below networking options.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
   networking.networkmanager.enable = true; # Easiest to use and most distros use this by default.
 
   # Set your time zone.
-  time.timeZone = "Europe/Stockholm";
+  time.timeZone = "Asia/Katmandu";
 
   # Select internationalisation properties.
   # i18n.defaultLocale = "en_US.UTF-8";
