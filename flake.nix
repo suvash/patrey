@@ -25,9 +25,6 @@
       url = "github:nix-community/home-manager/release-23.05";
       inputs.nixpkgs.follows = "nixpkgs-stable";
     };
-
-    alejandra.url = "github:kamadorueda/alejandra/3.0.0";
-    alejandra.inputs.nixpkgs.follows = "nixpkgs-stable";
   };
 
   outputs = {
@@ -36,7 +33,6 @@
     nixpkgs-stable,
     nixos-hardware,
     home-manager,
-    alejandra,
     ...
   } @ inputs: let
     inherit (self) outputs;
@@ -52,7 +48,7 @@
     # Custom packages, available through 'nix build', 'nix shell', etc
     packages = forAllSystems (system: import ./pkgs nixpkgs-stable.legacyPackages.${system});
     # nix fmt
-    formatter = forAllSystems (system: alejandra.defaultPackage.${system});
+    formatter = forAllSystems (system: nixpkgs-unstable.legacyPackages.${system}.alejandra);
     # overlays
     overlays = import ./overlays {inherit inputs;};
     # shareable non personal nixos modules
