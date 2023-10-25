@@ -30,6 +30,9 @@
   # Optimise storage
   nix.settings.auto-optimise-store = true;
 
+  # Trust user
+  nix.settings.trusted-users = [ "suvash" ];
+
   networking.hostName = "paathshala"; # Define your hostname.
   # Pick only one of the below networking options.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
