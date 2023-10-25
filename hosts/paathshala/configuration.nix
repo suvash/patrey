@@ -14,6 +14,7 @@
     inputs.nixos-hardware.nixosModules.common-gpu-intel
 
     outputs.nixosModules.avahi
+    outputs.nixosModules.pipewire
 
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
@@ -90,14 +91,14 @@
   # Google NS
   # networking.nameservers = [ "8.8.8.8" "8.8.4.4" ];
   # Cloudflare NS
-  networking.nameservers = [ "1.1.1.1" "1.0.0.1" ];
+  networking.nameservers = ["1.1.1.1" "1.0.0.1"];
 
   # Open ports in the firewall.
   networking.firewall = {
     enable = true;
     checkReversePath = "strict";
-    allowedUDPPorts = [ 7531 ];
-    allowedTCPPorts = [ 7531 ];
+    allowedUDPPorts = [7531];
+    allowedTCPPorts = [7531];
   };
 
   # Per-interface useDHCP
@@ -107,16 +108,6 @@
 
   # Set your time zone.
   time.timeZone = "Asia/Katmandu";
-
-  # Audio
-  services.pipewire = {
-    enable = true;
-    alsa.enable = true;
-    alsa.support32Bit = true;
-    pulse.enable = true;
-    jack.enable = true;
-    wireplumber.enable = true;
-  };
 
   # Select internationalisation properties.
   # i18n.defaultLocale = "en_US.UTF-8";

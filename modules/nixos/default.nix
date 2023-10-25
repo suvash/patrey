@@ -1,4 +1,4 @@
 {
-  # List your module files here
   avahi = import ./avahi.nix;
+  pipewire = import ./pipewire.nix;
 }
