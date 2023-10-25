@@ -57,6 +57,8 @@
     overlays = import ./overlays {inherit inputs;};
     # shareable non personal nixos modules
     nixosModules = import ./modules/nixos;
+    # shareable non personal home manger modules
+    homeManagerModules = import ./modules/home-manager;
 
     # sudo nixos-rebuild switch --flake .#hostname
     nixosConfigurations = {
@@ -74,7 +76,8 @@
     homeConfigurations = {
       "suvash@paathshala" = home-manager.lib.homeManagerConfiguration {
         pkgs = nixpkgs-stable.legacyPackages.${x86linux}; # required by home-manager
-        modules = [./home.nix];
+        extraSpecialArgs = {inherit inputs outputs;};
+        modules = [./home-manager/paathshala.nix];
       };
     };
   };
