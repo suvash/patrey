@@ -109,6 +109,12 @@
   # Set your time zone.
   time.timeZone = "Asia/Katmandu";
 
+  # Set hardware clock to local time
+  time.hardwareClockInLocalTime = true;
+
+  # Use chrony for ntp sync
+  services.chrony.enable = true;
+
   # Power management
   powerManagement = {
     enable = true;
@@ -119,12 +125,15 @@
   services.fwupd.enable = true;
 
   # Select internationalisation properties.
-  # i18n.defaultLocale = "en_US.UTF-8";
-  # console = {
-  #   font = "Lat2-Terminus16";
-  #   keyMap = "us";
-  #   useXkbConfig = true; # use xkbOptions in tty.
-  # };
+  i18n = {
+    defaultLocale = "en_US.UTF-8";
+  };
+
+  console = {
+    font = "latarcyrheb-sun32";
+    keyMap = "us";
+    #useXkbConfig = true; # use xkbOptions in tty.
+  };
 
   # Enable the X11 windowing system.
   # services.xserver.enable = true;
