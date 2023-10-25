@@ -1,16 +1,16 @@
 # Edit this configuration file to define what should be installed on
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running `nixos-help`).
-
-{ config, pkgs_unstable, pkgs_stable, ... }:
-
 {
-  imports =
-    [
-      # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-
-    ];
+  config,
+  pkgs_unstable,
+  pkgs_stable,
+  ...
+}: {
+  imports = [
+    # Include the results of the hardware scan.
+    ./hardware-configuration.nix
+  ];
 
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
@@ -18,7 +18,7 @@
   boot.loader.efi.canTouchEfiVariables = true;
 
   # Enable flakes and nix-command
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings.experimental-features = ["nix-command" "flakes"];
 
   # Perform automatic GC
   nix.gc = {
@@ -31,7 +31,7 @@
   nix.settings.auto-optimise-store = true;
 
   # Trust user
-  nix.settings.trusted-users = [ "suvash" ];
+  nix.settings.trusted-users = ["suvash"];
 
   networking.hostName = "paathshala"; # Define your hostname.
   # Pick only one of the below networking options.
@@ -52,9 +52,6 @@
   # Enable the X11 windowing system.
   # services.xserver.enable = true;
 
-
-
-
   # Configure keymap in X11
   # services.xserver.layout = "us";
   # services.xserver.xkbOptions = "eurosign:e,caps:escape";
@@ -72,7 +69,7 @@
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.suvash = {
     isNormalUser = true;
-    extraGroups = [ "wheel" "networkmanager" ]; # Enable ‘sudo’ for the user.
+    extraGroups = ["wheel" "networkmanager"]; # Enable ‘sudo’ for the user.
     # packages = with pkgs; [
     #   firefox
     #   tree
@@ -97,7 +94,7 @@
       TTYPath = "/dev/console";
       StandardOutput = "tty";
     };
-    wantedBy = [ "multi-user.target" ];
+    wantedBy = ["multi-user.target"];
     environment = {
       TERM = "linux";
     };
@@ -137,6 +134,4 @@
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "23.05"; # Did you read the comment?
-
 }
-
