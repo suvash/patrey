@@ -5,7 +5,7 @@
         "fenix": "fenix",
         "flakeCompat": "flakeCompat",
         "nixpkgs": [
-          "nixpkgs_2305"
+          "nixpkgs-2305"
         ]
       },
       "locked": {
@@ -64,7 +64,7 @@
     "home-manager": {
       "inputs": {
         "nixpkgs": [
-          "nixpkgs_2305"
+          "nixpkgs-2305"
         ]
       },
       "locked": {
@@ -97,7 +97,7 @@
         "type": "github"
       }
     },
-    "nixpkgs_2305": {
+    "nixpkgs-2305": {
       "locked": {
         "lastModified": 1697851979,
         "narHash": "sha256-lJ8k4qkkwdvi+t/Xc6Fn74kUuobpu9ynPGxNZR6OwoA=",
@@ -113,7 +113,7 @@
         "type": "github"
       }
     },
-    "nixpkgs_unstable": {
+    "nixpkgs-unstable": {
       "locked": {
         "lastModified": 1697915759,
         "narHash": "sha256-WyMj5jGcecD+KC8gEs+wFth1J1wjisZf8kVZH13f1Zo=",
@@ -134,8 +134,8 @@
         "alejandra": "alejandra",
         "home-manager": "home-manager",
         "nixos-hardware": "nixos-hardware",
-        "nixpkgs_2305": "nixpkgs_2305",
-        "nixpkgs_unstable": "nixpkgs_unstable"
+        "nixpkgs-2305": "nixpkgs-2305",
+        "nixpkgs-unstable": "nixpkgs-unstable"
       }
     },
     "rust-analyzer-src": {

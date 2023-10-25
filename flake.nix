@@ -14,23 +14,23 @@
   };
 
   inputs = {
-    nixpkgs_unstable.url = "github:nixos/nixpkgs/nixpkgs-unstable";
-    nixpkgs_2305.url = "github:nixos/nixpkgs/nixos-23.05";
+    nixpkgs-unstable.url = "github:nixos/nixpkgs/nixpkgs-unstable";
+    nixpkgs-2305.url = "github:nixos/nixpkgs/nixos-23.05";
 
     nixos-hardware.url = "github:nixos/nixos-hardware";
 
     home-manager = {
       url = "github:nix-community/home-manager/release-23.05";
-      inputs.nixpkgs.follows = "nixpkgs_2305";
+      inputs.nixpkgs.follows = "nixpkgs-2305";
     };
 
     alejandra.url = "github:kamadorueda/alejandra/3.0.0";
-    alejandra.inputs.nixpkgs.follows = "nixpkgs_2305";
+    alejandra.inputs.nixpkgs.follows = "nixpkgs-2305";
   };
 
   outputs = {
-    nixpkgs_unstable,
-    nixpkgs_2305,
+    nixpkgs-unstable,
+    nixpkgs-2305,
     nixos-hardware,
     home-manager,
     alejandra,
@@ -42,14 +42,14 @@
 
     # sudo nixos-rebuild switch --flake .#hostname
     nixosConfigurations = {
-      paathshala = nixpkgs_2305.lib.nixosSystem rec {
+      paathshala = nixpkgs-2305.lib.nixosSystem rec {
         system = x86linux;
         specialArgs = {
-          pkgs_unstable = import nixpkgs_unstable {
+          pkgs-unstable = import nixpkgs-unstable {
             inherit system;
             config.allowUnfree = true;
           };
-          pkgs_stable = import nixpkgs_2305 {
+          pkgs-stable = import nixpkgs-2305 {
             inherit system;
             config.allowUnfree = true;
           };
@@ -68,7 +68,7 @@
     # Then after : home-manager switch --flake .#username@hostname
     homeConfigurations = {
       "suvash@paathshala" = home-manager.lib.homeManagerConfiguration {
-        pkgs = nixpkgs_2305.legacyPackages.${x86linux}; # required by home-manager
+        pkgs = nixpkgs-2305.legacyPackages.${x86linux}; # required by home-manager
         modules = [./home.nix];
       };
     };

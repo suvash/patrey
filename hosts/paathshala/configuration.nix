@@ -3,8 +3,8 @@
 # and in the NixOS manual (accessible by running `nixos-help`).
 {
   config,
-  pkgs_unstable,
-  pkgs_stable,
+  pkgs-unstable,
+  pkgs-stable,
   ...
 }: {
   imports = [
@@ -78,7 +78,7 @@
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
-  environment.systemPackages = with pkgs_unstable; [
+  environment.systemPackages = with pkgs-unstable; [
     git
     vim
     wget
@@ -90,7 +90,7 @@
     description = "Blank screen";
     serviceConfig = {
       Type = "oneshot";
-      ExecStart = "${pkgs_stable.util-linux}/bin/setterm -blank 1";
+      ExecStart = "${pkgs-stable.util-linux}/bin/setterm -blank 1";
       TTYPath = "/dev/console";
       StandardOutput = "tty";
     };
