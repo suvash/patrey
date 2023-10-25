@@ -76,10 +76,34 @@
   boot.loader.systemd-boot.configurationLimit = 10;
   boot.loader.efi.canTouchEfiVariables = true;
 
+  boot.tmp = {
+    useTmpfs = true;
+    cleanOnBoot = true;
+  };
+
   networking.hostName = "paathshala"; # Define your hostname.
   # Pick only one of the below networking options.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
   networking.networkmanager.enable = true; # Easiest to use and most distros use this by default.
+
+  # Use specific nameservers
+  # Google NS
+  # networking.nameservers = [ "8.8.8.8" "8.8.4.4" ];
+  # Cloudflare NS
+  networking.nameservers = [ "1.1.1.1" "1.0.0.1" ];
+
+  # Open ports in the firewall.
+  networking.firewall = {
+    enable = true;
+    checkReversePath = "strict";
+    allowedUDPPorts = [ 7531 ];
+    allowedTCPPorts = [ 7531 ];
+  };
+
+  # Per-interface useDHCP
+  networking.useDHCP = false;
+  networking.interfaces.wlp58s0.useDHCP = true;
+  networking.interfaces.enp0s20f0u1u3.useDHCP = true;
 
   # Set your time zone.
   time.timeZone = "Asia/Katmandu";
