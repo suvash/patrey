@@ -109,6 +109,15 @@
   # Set your time zone.
   time.timeZone = "Asia/Katmandu";
 
+  # Power management
+  powerManagement = {
+    enable = true;
+    powertop = {enable = true;};
+  };
+
+  # Firmware update service
+  services.fwupd.enable = true;
+
   # Select internationalisation properties.
   # i18n.defaultLocale = "en_US.UTF-8";
   # console = {
