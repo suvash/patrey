@@ -16,7 +16,6 @@
     outputs.nixosModules.avahi
     outputs.nixosModules.pipewire
     #outputs.nixosModules.pulseaudio
-    outputs.nixosModules.git
 
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
@@ -169,10 +168,13 @@
     xterm.enable = false;
     xfce = {
       enable = true;
+      enableScreensaver = false;
       noDesktop = true;
       enableXfwm = false;
     };
   };
+
+  programs.thunar.enable = true;
 
   # Select a display/login manager
   services.xserver.displayManager = {
@@ -241,6 +243,7 @@
     [
       vim
       wget
+      git
     ]
     ++ [pkgs.master.dfc pkgs.unstable.ripgrep pkgs.sha-3be4a51.tree];
 
