@@ -196,6 +196,9 @@
     enableSSHSupport = true;
   };
 
+  # Mosh
+  programs.mosh.enable = true;
+
   security.sudo = {
     enable = true;
     wheelNeedsPassword = true;
