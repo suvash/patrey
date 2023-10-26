@@ -15,6 +15,8 @@
 
     outputs.nixosModules.avahi
     outputs.nixosModules.pipewire
+    #outputs.nixosModules.pulseaudio
+    outputs.nixosModules.git
 
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
@@ -135,38 +137,108 @@
     #useXkbConfig = true; # use xkbOptions in tty.
   };
 
-  # Enable the X11 windowing system.
-  # services.xserver.enable = true;
+  # Fonts
+  fonts.fonts = with pkgs.unstable; [
+    ubuntu_font_family
+    roboto
+    roboto-mono
+    roboto-slab
+    noto-fonts
+    noto-fonts-cjk
+    noto-fonts-emoji
+    noto-fonts-extra
+    lohit-fonts.devanagari
+    lohit-fonts.nepali
+    nerdfonts
+    emacs-all-the-icons-fonts
+  ];
 
-  # Configure keymap in X11
-  # services.xserver.layout = "us";
-  # services.xserver.xkbOptions = "eurosign:e,caps:escape";
+  # Enable the X Server and autorun
+  services.xserver.enable = true;
+  services.xserver.autorun = true;
 
-  # Enable CUPS to print documents.
-  # services.printing.enable = true;
+  # Configure keymap for X11
+  services.xserver.layout = "us,us";
+  services.xserver.xkbVariant = "dvorak,";
+  services.xserver.xkbOptions = "grp:shifts_toggle,ctrl:nocaps";
+  services.xserver.autoRepeatDelay = 200;
+  services.xserver.autoRepeatInterval = 60;
 
-  # Enable sound.
-  # sound.enable = true;
-  # hardware.pulseaudio.enable = true;
+  # Select a desktop manager - no window management
+  services.xserver.desktopManager = {
+    xterm.enable = false;
+    xfce = {
+      enable = true;
+      noDesktop = true;
+      enableXfwm = false;
+    };
+  };
 
-  # Enable touchpad support (enabled default in most desktopManager).
-  # services.xserver.libinput.enable = true;
+  # Select a display/login manager
+  services.xserver.displayManager = {
+    defaultSession = "xfce+i3";
+    sessionCommands = ''
+      ${pkgs.xorg.xrdb}/bin/xrdb -merge <<EOF
+      # 3840x2160 on 27" -> 163
+      # 2560x1440 on 27" -> 109
+      Xft.dpi: 163
+      EOF
+    '';
+    lightdm = {
+      enable = true;
+      # https://github.com/NixOS/nixpkgs/issues/108289#issuecomment-758263467
+      extraSeatDefaults = ''
+        user-session = xfce+i3
+      '';
+      greeters.mini = {
+        enable = true;
+        user = "suvash";
+        # https://github.com/prikhi/lightdm-mini-greeter/blob/master/data/lightdm-mini-greeter.conf
+        extraConfig = ''
+          [greeter]
+          show-password-label = false
+          show-input-cursor = false
+          password-alignment = left
+          # [greeter-theme]
+          # background-image = "/etc/wallpapers/login.png"
+        '';
+      };
+    };
+  };
+
+  # Select a window manager
+  services.xserver.windowManager = {
+    i3 = {
+      enable = true;
+      package = pkgs.i3-gaps;
+    };
+  };
+
+  # Touchpad
+  services.xserver.libinput = {
+    enable = true;
+    touchpad = {
+      tapping = true;
+      disableWhileTyping = true;
+      scrollMethod = "twofinger";
+      naturalScrolling = false;
+      middleEmulation = true;
+    };
+  };
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.suvash = {
     isNormalUser = true;
     extraGroups = ["wheel" "networkmanager"]; # Enable ‘sudo’ for the user.
-    # packages = with pkgs; [
-    #   firefox
-    #   tree
-    # ];
+    shell = pkgs.fish;
   };
+
+  programs.fish.enable = true;
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs;
     [
-      git
       vim
       wget
     ]
@@ -211,6 +283,9 @@
 
   # Enable the Tailscale daemon
   services.tailscale.enable = true;
+
+  # Blink your eyes
+  services.safeeyes.enable = true;
 
   # Logrotate
   services.logrotate.enable = true;
