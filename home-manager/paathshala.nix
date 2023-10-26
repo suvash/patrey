@@ -56,11 +56,7 @@
   home.username = "suvash";
   home.homeDirectory = "/home/suvash";
 
-  home.packages = with pkgs;
-    [
-      cmatrix
-    ]
-    ++ [
-      pkgs.unstable.ripgrep
-    ];
+  home.packages = with pkgs; [
+    cmatrix
+  ];
 }
