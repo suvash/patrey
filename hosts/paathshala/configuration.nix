@@ -240,13 +240,11 @@
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
-  environment.systemPackages = with pkgs;
-    [
-      vim
-      wget
-      git
-    ]
-    ++ [pkgs.master.dfc pkgs.unstable.ripgrep pkgs.sha-3be4a51.tree];
+  environment.systemPackages = with pkgs; [
+    vim
+    wget
+    git
+  ];
 
   systemd.services.console-blank = {
     enable = true;
