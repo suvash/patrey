@@ -57,6 +57,17 @@
   home.homeDirectory = "/home/suvash";
 
   home.packages = with pkgs; [
+    cmake
+    gnumake
+
+    paprefs
+    ncpamixer
+    pamixer
+    pamix
+
+    spotify
+
+    
     cmatrix
   ];
 
@@ -110,7 +121,6 @@
   programs.fuzzel.enable = false; # configure, wayland
   programs.fzf.enable = true; # configure
 
-  programs.gallery-dl.enable = false; # investigate
   programs.gh.enable = true; # configure
 
   programs.gpg.enable = false; # investigate together with services
@@ -199,6 +209,7 @@
 
   services.batsignal.enable = true;
   services.betterlockscreen.enable = true;
+  services.blueman-applet.enable = true;
 
   services.caffeine.enable = true;
   services.cbatticon.enable = true;
@@ -225,8 +236,9 @@
   services.pasystray.enable = true; # pulseaudio
   services.picom.enable = true; # configure
   services.playerctld.enable = true;
+
   services.polybar = {
-    enable = true;
+    enable = false;
     package = pkgs.polybar.override {
       alsaSupport = true;
       githubSupport = true;
@@ -260,6 +272,7 @@
     enable = true;
     mapExpression = {Control_L = "Escape";};
   };
+
   services.xidlehook.enable = false; # configure compare screenlocks
   services.xscreensaver.enable = false; # configure compare above
   services.xsettingsd.enable = false; # configure
@@ -268,8 +281,20 @@
   # Xsession
   xsession.windowManager.i3 = {
     enable = true;
-    config = {
-      bars = [];
+    config = rec {
+      # bars = []; # using polybar instead
+      modifier = "Mod4";
+      keybindings = lib.mkOptionDefault {
+        "${modifier}+d" = "exec ${pkgs.rofi}/bin/rofi -show drun";
+        "${modifier}+Shift+e" = "exec ${pkgs.xfce.xfce4-session}/bin/xfce4-session-logout";
+
+        "${modifier}+ctrl+6" = "exec ${pkgs.playerctl}/bin/playerctl previous";
+        "${modifier}+ctrl+8" = "exec ${pkgs.playerctl}/bin/playerctl play-pause";
+        "${modifier}+ctrl+0" = "exec ${pkgs.playerctl}/bin/playerctl next";
+
+        "${modifier}+ctrl+Up" = "exec ${pkgs.pulseaudio}/bin/pactl set-sink-volume @DEFAULT_SINK@ +10%";
+        "${modifier}+ctrl+Down" = "exec ${pkgs.pulseaudio}/bin/pactl set-sink-volume @DEFAULT_SINK@ -10%";
+      };
       gaps = {
         inner = 4;
         smartGaps = true;

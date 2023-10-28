@@ -102,11 +102,6 @@
     allowedTCPPorts = [7531];
   };
 
-  # Per-interface useDHCP
-  networking.useDHCP = false;
-  networking.interfaces.wlp58s0.useDHCP = true;
-  networking.interfaces.enp0s20f0u1u3.useDHCP = true;
-
   # Set your time zone.
   time.timeZone = "Asia/Katmandu";
 
@@ -121,6 +116,12 @@
     enable = true;
     powertop = {enable = true;};
   };
+
+  # ACPILight
+  hardware.acpilight.enable = true;
+
+  # Bluetooth
+  hardware.bluetooth.enable = true;
 
   # Firmware update service
   services.fwupd.enable = true;
@@ -231,7 +232,7 @@
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.suvash = {
     isNormalUser = true;
-    extraGroups = ["wheel" "networkmanager"]; # Enable ‘sudo’ for the user.
+    extraGroups = ["wheel" "networkmanager" "video"]; # Enable ‘sudo’ for the user.
     shell = pkgs.fish;
   };
 
@@ -286,6 +287,9 @@
 
   # Enable the Tailscale daemon
   services.tailscale.enable = true;
+
+  # Bluetooth
+  services.blueman.enable = true;
 
   # Logrotate
   services.logrotate.enable = true;
