@@ -7,6 +7,8 @@
   ...
 }: {
   imports = [
+    inputs.nix-index-database.hmModules.nix-index
+
     outputs.homeManagerModules.git # configure
     outputs.homeManagerModules.fish # configure
     outputs.homeManagerModules.starship # configure
@@ -92,6 +94,7 @@
   programs.btop.enable = true; # configure
 
   programs.chromium.enable = true; # configure
+
   programs.dircolors.enable = false; # investigate
   programs.direnv = {
     enable = true;
