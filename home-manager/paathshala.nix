@@ -128,6 +128,9 @@
     ispell
     shellcheck
 
+    # browser
+    brave
+
     # communication
     slack
     discord
@@ -355,12 +358,31 @@
         "${modifier}+d" = "exec ${pkgs.rofi}/bin/rofi -show drun";
         "${modifier}+Shift+e" = "exec ${pkgs.xfce.xfce4-session}/bin/xfce4-session-logout";
 
+        "${modifier}+j" = "focus left";
+        "${modifier}+k" = "focus down";
+        "${modifier}+l" = "focus up";
+        "${modifier}+semicolon" = "focus right";
+
+        "${modifier}+Shift+j" = "move left";
+        "${modifier}+Shift+k" = "move down";
+        "${modifier}+Shift+l" = "move up";
+        "${modifier}+Shift+semicolon" = "move right";
+        "${modifier}+n" = "move workspace to output next";
+
         "${modifier}+ctrl+6" = "exec ${pkgs.playerctl}/bin/playerctl previous";
         "${modifier}+ctrl+8" = "exec ${pkgs.playerctl}/bin/playerctl play-pause";
         "${modifier}+ctrl+0" = "exec ${pkgs.playerctl}/bin/playerctl next";
 
         "${modifier}+ctrl+Up" = "exec ${pkgs.pulseaudio}/bin/pactl set-sink-volume @DEFAULT_SINK@ +10%";
         "${modifier}+ctrl+Down" = "exec ${pkgs.pulseaudio}/bin/pactl set-sink-volume @DEFAULT_SINK@ -10%";
+
+        "${modifier}+ctrl+e" = "exec emacs";
+        "${modifier}+ctrl+f" = "exec firefox";
+        "${modifier}+ctrl+b" = "exec brave --incognito";
+        "${modifier}+ctrl+c" = "exec chromium --incognito";
+        "${modifier}+ctrl+q" = "exec qutebrowser";
+        "${modifier}+ctrl+s" = "exec spotify";
+        "${modifier}+ctrl+x" = "exec systemctl --user restart xcape";
       };
       gaps = {
         inner = 4;
