@@ -118,8 +118,6 @@
   programs.helix.enable = true; # configure
   programs.htop.enable = true; # configure
 
-  programs.i3status.enable = false; # configure
-  programs.i3status-rust.enable = false; # configure
   programs.info.enable = true;
 
   programs.jq.enable = true;
@@ -167,7 +165,13 @@
   programs.swaylock.enable = false; # configure, sway
 
   programs.taskwarrior.enable = true; # configure
-  programs.tealdeer.enable = true; # configure
+  programs.tealdeer = {
+    enable = true;
+    settings = {
+      display.compact = true;
+      updates.auto_update = true;
+    };
+  };
   programs.tmux.enable = true; # configure
   programs.translate-shell.enable = true; # configure
 
@@ -221,7 +225,18 @@
   services.pasystray.enable = true; # pulseaudio
   services.picom.enable = true; # configure
   services.playerctld.enable = true;
-  services.polybar.enable = false; # configure
+  services.polybar = {
+    enable = true;
+    package = pkgs.polybar.override {
+      alsaSupport = true;
+      githubSupport = true;
+      i3Support = true;
+      iwSupport = true;
+      nlSupport = true;
+      pulseSupport = true;
+    };
+    script = "polybar &";
+  };
   services.poweralertd.enable = true;
   services.pulseeffects.enable = false; # pulseaudio
 
@@ -231,7 +246,7 @@
   services.screen-locker.enable = lib.mkForce false; # configure compare betterlockscreen
   services.stalonetray.enable = false; # configure
   services.swayidle.enable = false; # configure, sway
-  services.sxhkd.enable = false; # configure instead of i3
+  services.sxhkd.enable = false; # configure instead of i3 keybindings
   services.systembus-notify.enable = true;
 
   services.udiskie.enable = true; # configure
@@ -249,4 +264,17 @@
   services.xscreensaver.enable = false; # configure compare above
   services.xsettingsd.enable = false; # configure
   services.xsuspender.enable = false; # configure
+
+  # Xsession
+  xsession.windowManager.i3 = {
+    enable = true;
+    config = {
+      bars = [];
+      gaps = {
+        inner = 4;
+        smartGaps = true;
+        smartBorders = "on";
+      };
+    };
+  };
 }
