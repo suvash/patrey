@@ -287,9 +287,6 @@
   # Enable the Tailscale daemon
   services.tailscale.enable = true;
 
-  # Blink your eyes
-  services.safeeyes.enable = true;
-
   # Logrotate
   services.logrotate.enable = true;
 
@@ -310,6 +307,9 @@
 
   # Usbmuxd (Data to/from iOS)
   services.usbmuxd.enable = true;
+
+  # udisks2 service
+  services.udisks2.enable = true;
 
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).

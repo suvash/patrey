@@ -3,8 +3,9 @@
 
   environment.systemPackages = with pkgs; [
     playerctl
-    easyeffects
   ];
+
+  programs.dconf.enable = true;
 
   services.pipewire = {
     enable = true;
