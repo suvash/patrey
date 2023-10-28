@@ -58,7 +58,25 @@
     cmatrix
   ];
 
+  # Options to investigate
+  # home
+  # i18n
+  # nix
+  # pam
+  # systemd.user
+  # wayland
+  # xdg
+  # xfconf.settings
+  # xsession
+
   programs.home-manager.enable = true;
+
+  # things
+
+  fonts.fontconfig.enable = true;
+
+  gtk.enable = true; # configure
+  qt.enable = true; # configure
 
   # Programs
 
