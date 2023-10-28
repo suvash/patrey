@@ -7,9 +7,9 @@
   ...
 }: {
   imports = [
-    outputs.homeManagerModules.git
-    outputs.homeManagerModules.fish
-    outputs.homeManagerModules.starship
+    outputs.homeManagerModules.git # configure
+    outputs.homeManagerModules.fish # configure
+    outputs.homeManagerModules.starship # configure
 
     # Or modules exported from other flakes (such as nix-colors):
     # inputs.nix-colors.homeManagerModules.default
@@ -59,7 +59,113 @@
   ];
 
   programs.home-manager.enable = true;
-  programs.git.enable = true;
+
+  # Programs
+
+  programs.alacritty.enable = true; # configure
+  programs.autojump.enable = true; # configure
+  programs.autorandr.enable = true; # configure
+
+  programs.bash.enable = true; # configure
+  programs.bashmount.enable = true;
+  programs.bat.enable = true; # configure
+  programs.bottom.enable = true; # configure
+  programs.broot.enable = true; # configure
+  programs.btop.enable = true; # configure
+
+  programs.chromium.enable = true; # configure
+  programs.dircolors.enable = false; # investigate
+  programs.direnv = {
+    enable = true;
+    nix-direnv.enable = true;
+  };
+
+  programs.emacs.enable = true; # configure
+  programs.exa.enable = true; # configure
+
+  programs.feh.enable = true; # configure
+  programs.firefox.enable = true; # configure
+
+  programs.fuzzel.enable = false; # configure, wayland
+  programs.fzf.enable = true; # configure
+
+  programs.gallery-dl.enable = false; # investigate
+  programs.gh.enable = true; # configure
+
+  programs.gpg.enable = false; # investigate together with services
+
+  programs.helix.enable = true; # configure
+  programs.htop.enable = true; # configure
+
+  programs.i3status.enable = false; # configure
+  programs.i3status-rust.enable = false; # configure
+  programs.info.enable = true;
+
+  programs.jq.enable = true;
+
+  programs.k9s.enable = false;
+  programs.keychain.enable = false; # investigate
+  programs.kitty.enable = true; # configure
+
+  programs.less.enable = true;
+  programs.lf.enable = true; # investigate
+  programs.librewolf.enable = true; # investigate
+  programs.lsd.enable = true; # investigate
+
+  programs.man.enable = true;
+  programs.mangohud.enable = true; # configure
+  programs.mpv.enable = true; # configure
+
+  programs.navi.enable = true; # investigate
+  programs.neovim.enable = true; # configure
+  programs.newsboat.enable = false; # investigate
+  programs.nix-index.enable = true; # investigate
+  programs.nnn.enable = true; # investigate
+  programs.noti.enable = true; # investigate
+  programs.nushell.enable = true; # configure
+
+  programs.obs-studio.enable = false; # configure
+
+  programs.pandoc.enable = true; # configure
+  programs.papis.enable = false; # investigate
+  programs.pazi.enable = false; # investigate, compare to zoxide
+  programs.pet.enable = false; # investigate
+  programs.pistol.enable = true; # configure
+  programs.pls.enable = true; # configure
+
+  programs.qutebrowser.enable = true; # configure
+
+  programs.readline.enable = true; # configure
+  programs.rofi.enable = true; # configure
+
+  programs.sioyek.enable = true; # configure
+  programs.skim.enable = true; # configure
+  programs.sm64ex.enable = false; # configure
+
+  programs.ssh.enable = false; # configure
+  programs.swaylock.enable = false; # configure, sway
+
+  programs.taskwarrior.enable = true; # configure
+  programs.tealdeer.enable = true; # configure
+  programs.tmux.enable = true; # configure
+  programs.translate-shell.enable = true; # configure
+
+  programs.vim = {
+    enable = true;
+    defaultEditor = true;
+  };
+  programs.vscode.enable = true; # configure
+
+  programs.watson.enable = true; # configure
+  programs.waybar.enable = false; # configure, sway
+  programs.wlogout.enable = false; # configure, sway
+  programs.wofi.enable = false; # configure, sway
+
+  programs.yt-dlp.enable = true; # configure
+
+  programs.zathura.enable = true; # configure
+  programs.zellij.enable = true; # configure
+  programs.zoxide.enable = true; # configure
 
   # Services
 
