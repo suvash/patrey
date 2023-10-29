@@ -55,6 +55,7 @@
   home.sessionVariables = {
     EDITOR = "nvim";
     TERMINAL = "kitty";
+    PATREY_PATH = "$HOME/patrey";
   };
 
   home.file.".screenshots/.keep".text = "";

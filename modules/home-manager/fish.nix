@@ -82,6 +82,10 @@
       ll = "ls -lah";
       lsd = "tree --dirsfirst -ChF -L 1";
 
+      # nix things
+      "nrs" = "sudo nixos-rebuild switch --flake $PATREY_PATH#(hostname)";
+      "hms" = "home-manager switch --flake $PATREY_PATH#(whoami)@(hostname)";
+
       # git things
       gu = "gitui";
       ga = "git add";
