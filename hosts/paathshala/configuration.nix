@@ -15,7 +15,7 @@
 
     outputs.nixosModules.avahi
     outputs.nixosModules.pipewire
-    #outputs.nixosModules.pulseaudio
+    outputs.nixosModules.yubikey
 
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
