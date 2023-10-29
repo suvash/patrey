@@ -216,7 +216,21 @@
   programs.mpv.enable = true; # configure
 
   programs.navi.enable = true; # investigate
-  programs.neovim.enable = true; # configure
+  programs.neovim = {
+    enable = true;
+    plugins = with pkgs.vimPlugins; [
+      base16-vim
+    ];
+    extraLuaConfig = ''
+      local cmd = vim.cmd
+      local g = vim.g
+      local current_theme_name = os.getenv('BASE16_THEME')
+      if current_theme_name and g.colors_name ~= 'base16-'..current_theme_name then
+        cmd('let base16colorspace=256')
+        cmd('colorscheme base16-'..current_theme_name)
+      end
+    '';
+  };
   programs.newsboat.enable = false; # investigate
   programs.nix-index.enable = true; # investigate
   programs.nnn.enable = true; # investigate
@@ -258,6 +272,17 @@
   programs.vim = {
     enable = true;
     defaultEditor = true;
+    plugins = with pkgs.vimPlugins; [
+      base16-vim
+    ];
+    extraConfig = ''
+      if exists('$BASE16_THEME')
+          \ && (!exists('g:colors_name')
+          \ || g:colors_name != 'base16-$BASE16_THEME')
+        let base16colorspace=256
+        colorscheme base16-$BASE16_THEME
+      endif
+    '';
   };
   programs.vscode.enable = true; # configure
 
