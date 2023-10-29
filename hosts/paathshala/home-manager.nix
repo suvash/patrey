@@ -218,7 +218,6 @@
   services.avizo.enable = false; # configure, wayland
 
   services.batsignal.enable = true;
-  services.betterlockscreen.enable = true;
   services.blueman-applet.enable = true;
 
   services.caffeine.enable = true;
@@ -274,7 +273,7 @@
   services.random-background.enable = false; # configure
 
   services.safeeyes.enable = true;
-  services.screen-locker.enable = lib.mkForce false; # configure compare betterlockscreen
+  services.screen-locker.enable = false;
   services.stalonetray.enable = false; # configure
   services.swayidle.enable = false; # configure, sway
   services.sxhkd.enable = false; # configure instead of i3 keybindings
@@ -292,7 +291,25 @@
     mapExpression = {Control_L = "Escape";};
   };
 
-  services.xidlehook.enable = false; # configure compare screenlocks
+  services.xidlehook = {
+    enable = true;
+    environment = {
+      "PRIMARY_DISPLAY" = "$(xrandr | awk '/ primary/{print $1}')";
+    };
+    not-when-audio = true;
+    not-when-fullscreen = true;
+    timers = [
+      {
+        delay = 30;
+        command = "xrandr --output \"$PRIMARY_DISPLAY\" --brightness .5";
+        canceller = "xrandr --output \"$PRIMARY_DISPLAY\" --brightness 1";
+      }
+      {
+        delay = 60;
+        command = "${pkgs.i3lock}/bin/i3lock --nofork --ignore-empty-password --show-failed-attempts --color=3A4D39";
+      }
+    ];
+  };
   services.xscreensaver.enable = false; # configure compare above
   services.xsettingsd.enable = false; # configure
   services.xsuspender.enable = false; # configure
