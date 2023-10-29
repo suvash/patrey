@@ -87,7 +87,7 @@
       "suvash@paathshala" = home-manager.lib.homeManagerConfiguration {
         pkgs = nixpkgs-stable.legacyPackages.${x86linux}; # required by home-manager
         extraSpecialArgs = {inherit inputs outputs;};
-        modules = [./home-manager/paathshala.nix];
+        modules = [./hosts/paathshala/home-manager.nix];
       };
     };
   };
