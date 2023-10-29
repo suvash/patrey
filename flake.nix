@@ -35,6 +35,10 @@
       url = "github:tinted-theming/base16-shell";
       flake = false;
     };
+    base16-fzf = {
+      url = "github:tinted-theming/base16-fzf";
+      flake = false;
+    };
   };
 
   outputs = {

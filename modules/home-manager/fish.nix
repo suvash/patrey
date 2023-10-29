@@ -6,7 +6,8 @@
   programs.fish = {
     enable = true;
     interactiveShellInit = ''
-      set BASE16_SHELL_PATH "${inputs.base16-shell}"
+      set -Ux BASE16_FZF_PATH "${inputs.base16-fzf}"
+      set -Ux BASE16_SHELL_PATH "${inputs.base16-shell}"
       source "$BASE16_SHELL_PATH/profile_helper.fish"
     '';
     functions = {
