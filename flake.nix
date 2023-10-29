@@ -30,6 +30,11 @@
       url = "github:Mic92/nix-index-database";
       inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
+
+    base16-shell = {
+      url = "github:tinted-theming/base16-shell";
+      flake = false;
+    };
   };
 
   outputs = {
