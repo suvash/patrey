@@ -61,6 +61,8 @@
     TERMINAL = "kitty";
   };
 
+  home.file.".screenshots/.keep".text = "";
+
   home.packages = with pkgs; [
     cmake
     gnumake
@@ -86,7 +88,6 @@
     # X server
     brightnessctl
     arandr
-    flameshot
     libnotify
 
     # Hardware
@@ -187,7 +188,6 @@
   };
 
   programs.emacs.enable = true; # configure
-  programs.exa.enable = true; # configure
 
   programs.feh.enable = true; # configure
   programs.firefox.enable = true; # configure
@@ -213,7 +213,6 @@
   programs.less.enable = true;
   programs.lf.enable = true; # investigate
   programs.librewolf.enable = true; # investigate
-  programs.lsd.enable = true; # investigate
 
   programs.man.enable = true;
   programs.mangohud.enable = true; # configure
@@ -320,7 +319,16 @@
   services.emacs.enable = false; # configure
   services.espanso.enable = false; # configure
 
-  services.flameshot.enable = false; # configure
+  services.flameshot = {
+    enable = true;
+    settings = {
+      General = {
+        saveAsFileExtension = "png";
+        disabledTrayIcon = true;
+        showStartupLaunchMessage = false;
+      };
+    };
+  };
   services.fusuma.enable = false; # configure
 
   services.gammastep.enable = false; # configure
@@ -382,9 +390,15 @@
     config = rec {
       # bars = []; # using polybar instead
       modifier = "Mod4";
+
+      fonts = {
+        names = ["Ubuntu Mono"];
+        size = 14.0;
+        style = "";
+      };
+
       keybindings = lib.mkOptionDefault {
         "${modifier}+d" = "exec ${pkgs.rofi}/bin/rofi -show drun";
-        "${modifier}+Shift+e" = "exec ${pkgs.xfce.xfce4-session}/bin/xfce4-session-logout";
 
         "${modifier}+j" = "focus left";
         "${modifier}+k" = "focus down";
@@ -397,10 +411,16 @@
         "${modifier}+Shift+semicolon" = "move right";
         "${modifier}+n" = "move workspace to output next";
 
+        "${modifier}+Shift+3" = "exec ${pkgs.flameshot}/bin/flameshot full --path ~/.screenshots";
+        "${modifier}+Shift+4" = "exec ${pkgs.flameshot}/bin/flameshot gui --path ~/.screenshots";
+
+        "${modifier}+Shift+e" = "exec ${pkgs.xfce.xfce4-session}/bin/xfce4-session-logout";
+
         "${modifier}+ctrl+6" = "exec ${pkgs.playerctl}/bin/playerctl previous";
         "${modifier}+ctrl+8" = "exec ${pkgs.playerctl}/bin/playerctl play-pause";
         "${modifier}+ctrl+0" = "exec ${pkgs.playerctl}/bin/playerctl next";
 
+        "${modifier}+ctrl+v" = "exec CM_LAUNCHER=rofi ${pkgs.clipmenu}/bin/clipmenu";
         "${modifier}+ctrl+t" = "exec ${pkgs.fish}/bin/fish -c toggle_xfce_theme";
 
         "${modifier}+ctrl+Up" = "exec ${pkgs.pulseaudio}/bin/pactl set-sink-volume @DEFAULT_SINK@ +10%";
@@ -414,11 +434,15 @@
         "${modifier}+ctrl+s" = "exec spotify";
         "${modifier}+ctrl+x" = "exec systemctl --user restart xcape";
       };
+
       gaps = {
         inner = 4;
         smartGaps = true;
         smartBorders = "on";
       };
     };
+
+    extraConfig = ''
+    '';
   };
 }
