@@ -137,6 +137,17 @@
     #useXkbConfig = true; # use xkbOptions in tty.
   };
 
+  # Login/Lock screen image
+  environment.etc."wallpapers/login.png" = {
+    mode = "0555";
+    source = ../../wallpapers/unlock/pawel-czerwinski-fPN1w7bIuNU-unsplash.png;
+  };
+
+  environment.etc."wallpapers/lock.png" = {
+    mode = "0555";
+    source = ../../wallpapers/unlock/pawel-czerwinski-zd50NyMmNVg-unsplash.png;
+  };
+
   # Fonts
   fonts.fonts = with pkgs.unstable; [
     ubuntu_font_family
@@ -202,8 +213,8 @@
           show-password-label = false
           show-input-cursor = false
           password-alignment = left
-          # [greeter-theme]
-          # background-image = "/etc/wallpapers/login.png"
+          [greeter-theme]
+          background-image = "/etc/wallpapers/login.png"
         '';
       };
     };

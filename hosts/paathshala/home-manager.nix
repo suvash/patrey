@@ -60,6 +60,11 @@
 
   home.file.".screenshots/.keep".text = "";
 
+  home.file.".wallpapers" = {
+    source = ../../wallpapers/background;
+    recursive = true;
+  };
+
   # Options to investigate
   # home
   # i18n
@@ -283,7 +288,12 @@
   services.poweralertd.enable = true;
   services.pulseeffects.enable = false; # pulseaudio
 
-  services.random-background.enable = false; # configure
+  services.random-background = {
+    enable = true;
+    display = "center";
+    imageDirectory = "%h/.wallpapers";
+    interval = "1h";
+  };
 
   services.safeeyes.enable = true;
   services.screen-locker.enable = false;
@@ -319,7 +329,7 @@
       }
       {
         delay = 60;
-        command = "${pkgs.i3lock}/bin/i3lock --nofork --ignore-empty-password --show-failed-attempts --color=3A4D39";
+        command = "${pkgs.i3lock}/bin/i3lock --nofork --ignore-empty-password --show-failed-attempts  --image /etc/wallpapers/lock.png";
       }
     ];
   };
@@ -364,8 +374,10 @@
         "${modifier}+ctrl+0" = "exec ${pkgs.playerctl}/bin/playerctl next";
 
         "${modifier}+ctrl+v" = "exec CM_LAUNCHER=rofi ${pkgs.clipmenu}/bin/clipmenu";
+        "${modifier}+ctrl+w" = "exec ${pkgs.feh}/bin/feh --bg-tile --no-fehbg --randomize ~/.wallpapers";
         "${modifier}+ctrl+t" = "exec ${pkgs.fish}/bin/fish -c toggle_xfce_theme";
-        "${modifier}+ctrl+l" = "exec ${pkgs.i3lock}/bin/i3lock --nofork --ignore-empty-password --show-failed-attempts --color=3A4D39";
+        "${modifier}+ctrl+l" = "exec ${pkgs.i3lock}/bin/i3lock --nofork --ignore-empty-password --show-failed-attempts --image /etc/wallpapers/lock.png";
+
         "${modifier}+ctrl+Up" = "exec ${pkgs.pulseaudio}/bin/pactl set-sink-volume @DEFAULT_SINK@ +10%";
         "${modifier}+ctrl+Down" = "exec ${pkgs.pulseaudio}/bin/pactl set-sink-volume @DEFAULT_SINK@ -10%";
 
