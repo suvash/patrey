@@ -56,6 +56,11 @@
   home.username = "suvash";
   home.homeDirectory = "/home/suvash";
 
+  home.sessionVariables = {
+    EDITOR = "nvim";
+    TERMINAL = "kitty";
+  };
+
   home.packages = with pkgs; [
     cmake
     gnumake
@@ -170,7 +175,7 @@
   programs.bashmount.enable = true;
   programs.bat.enable = true; # configure
   programs.bottom.enable = true; # configure
-  programs.broot.enable = true; # configure
+  programs.broot.enable = false; # configure
   programs.btop.enable = true; # configure
 
   programs.chromium.enable = true; # configure
@@ -214,7 +219,7 @@
   programs.mangohud.enable = true; # configure
   programs.mpv.enable = true; # configure
 
-  programs.navi.enable = true; # investigate
+  programs.navi.enable = false; # investigate
   programs.neovim = {
     enable = true;
     plugins = with pkgs.vimPlugins; [
@@ -251,7 +256,7 @@
   programs.rofi.enable = true; # configure
 
   programs.sioyek.enable = true; # configure
-  programs.skim.enable = true; # configure
+  programs.skim.enable = false; # configure, compare fzf
   programs.sm64ex.enable = false; # configure
 
   programs.ssh.enable = false; # configure
@@ -270,7 +275,6 @@
 
   programs.vim = {
     enable = true;
-    defaultEditor = true;
     plugins = with pkgs.vimPlugins; [
       base16-vim
     ];
@@ -285,7 +289,7 @@
   };
   programs.vscode.enable = true; # configure
 
-  programs.watson.enable = true; # configure
+  programs.watson.enable = false; # configure
   programs.waybar.enable = false; # configure, sway
   programs.wlogout.enable = false; # configure, sway
   programs.wofi.enable = false; # configure, sway
@@ -294,7 +298,7 @@
 
   programs.zathura.enable = true; # configure
   programs.zellij.enable = true; # configure
-  programs.zoxide.enable = true; # configure
+  programs.zoxide.enable = false; # configure
 
   # Services
 
