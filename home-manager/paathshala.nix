@@ -373,6 +373,8 @@
         "${modifier}+ctrl+8" = "exec ${pkgs.playerctl}/bin/playerctl play-pause";
         "${modifier}+ctrl+0" = "exec ${pkgs.playerctl}/bin/playerctl next";
 
+        "${modifier}+ctrl+t" = "exec ${pkgs.fish}/bin/fish -c toggle_xfce_theme";
+
         "${modifier}+ctrl+Up" = "exec ${pkgs.pulseaudio}/bin/pactl set-sink-volume @DEFAULT_SINK@ +10%";
         "${modifier}+ctrl+Down" = "exec ${pkgs.pulseaudio}/bin/pactl set-sink-volume @DEFAULT_SINK@ -10%";
 
