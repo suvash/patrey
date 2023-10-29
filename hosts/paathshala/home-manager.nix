@@ -122,7 +122,14 @@
 
   programs.k9s.enable = false;
   programs.keychain.enable = false; # investigate
-  programs.kitty.enable = true; # configure
+
+  programs.kitty = {
+    enable = true;
+    settings = {
+      font_family = "Ubuntu Mono";
+      font_size = "12";
+    };
+  };
 
   programs.less.enable = true;
   programs.lf.enable = true; # investigate
@@ -166,7 +173,12 @@
   programs.qutebrowser.enable = true; # configure
 
   programs.readline.enable = true; # configure
-  programs.rofi.enable = true; # configure
+
+  programs.rofi = {
+    enable = true;
+    font = "Ubuntu Mono 18";
+    terminal = "${pkgs.kitty}/bin/kitty";
+  };
 
   programs.sioyek.enable = true; # configure
   programs.skim.enable = false; # configure, compare fzf
