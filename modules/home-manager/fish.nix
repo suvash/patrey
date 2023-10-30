@@ -149,6 +149,7 @@
 
       # other
       du = "du -chs *";
+      dg = "dig +noall +answer";
       fonts = "fc-list : family";
       httpserve = "python -m http.server 7531";
       kssh = "kitty +kitten ssh";
