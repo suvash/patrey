@@ -17,6 +17,8 @@
     outputs.nixosModules.pipewire
     outputs.nixosModules.yubikey
 
+    ./settings.nix
+
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
   ];
@@ -69,7 +71,7 @@
       # Deduplicate and optimize nix store
       auto-optimise-store = true;
       # Trusted users
-      trusted-users = ["suvash"];
+      trusted-users = ["${config.settings.username}"];
     };
   };
 
@@ -83,7 +85,7 @@
     cleanOnBoot = true;
   };
 
-  networking.hostName = "paathshala"; # Define your hostname.
+  networking.hostName = "${config.settings.hostname}";
   # Pick only one of the below networking options.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
   networking.networkmanager.enable = true; # Easiest to use and most distros use this by default.
@@ -103,7 +105,7 @@
   };
 
   # Set your time zone.
-  time.timeZone = "Asia/Katmandu";
+  time.timeZone = "${config.settings.timezone_ktm}";
 
   # Set hardware clock to local time
   time.hardwareClockInLocalTime = true;
@@ -139,7 +141,7 @@
 
   # Env vars
   environment.variables = {
-    EDITOR = "vim";
+    EDITOR = "${config.settings.edtr}";
     PATREY_PATH = "$HOME/patrey";
     DOCKER_HOST = "unix://$XDG_RUNTIME_DIR/docker.sock";
   };
@@ -220,7 +222,7 @@
       '';
       greeters.mini = {
         enable = true;
-        user = "suvash";
+        user = "${config.settings.username}";
         # https://github.com/prikhi/lightdm-mini-greeter/blob/master/data/lightdm-mini-greeter.conf
         extraConfig = ''
           [greeter]
@@ -255,7 +257,7 @@
   };
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.suvash = {
+  users.users.${config.settings.username} = {
     isNormalUser = true;
     extraGroups = ["wheel" "networkmanager" "video" "audio"];
     shell = pkgs.fish;
