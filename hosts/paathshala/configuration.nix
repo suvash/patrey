@@ -137,6 +137,13 @@
     #useXkbConfig = true; # use xkbOptions in tty.
   };
 
+  # Env vars
+  environment.variables = {
+    EDITOR = "vim";
+    PATREY_PATH = "$HOME/patrey";
+    DOCKER_HOST = "unix://$XDG_RUNTIME_DIR/docker.sock";
+  };
+
   # Login/Lock screen image
   environment.etc."wallpapers/login.png" = {
     mode = "0555";
@@ -163,6 +170,13 @@
     nerdfonts
     emacs-all-the-icons-fonts
   ];
+
+  # Virtualisation
+  virtualisation.docker = {
+    rootless.enable = true;
+    autoPrune.enable = true;
+    enableOnBoot.enable = true;
+  };
 
   # Enable the X Server and autorun
   services.xserver.enable = true;
@@ -243,7 +257,7 @@
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.suvash = {
     isNormalUser = true;
-    extraGroups = ["wheel" "networkmanager" "video"]; # Enable ‘sudo’ for the user.
+    extraGroups = ["wheel" "networkmanager" "video" "audio"];
     shell = pkgs.fish;
   };
 
