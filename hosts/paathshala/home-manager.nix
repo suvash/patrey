@@ -13,6 +13,7 @@
     outputs.homeManagerModules.fish # configure
     outputs.homeManagerModules.starship # configure
 
+    ./settings.nix
     ./home-packages.nix
   ];
 
@@ -49,12 +50,12 @@
 
   home.stateVersion = "23.05";
 
-  home.username = "suvash";
-  home.homeDirectory = "/home/suvash";
+  home.username = "${config.settings.username}";
+  home.homeDirectory = "/home/${config.settings.username}";
 
   home.sessionVariables = {
-    EDITOR = "nvim";
-    TERMINAL = "kitty";
+    EDITOR = "${config.settings.editor}";
+    TERMINAL = "${config.settings.terminal}";
   };
 
   home.file.".screenshots/.keep".text = "";

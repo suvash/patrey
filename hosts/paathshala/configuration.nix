@@ -261,6 +261,13 @@
     isNormalUser = true;
     extraGroups = ["wheel" "networkmanager" "video" "audio"];
     shell = pkgs.fish;
+    openssh = {
+      authorizedKeys = {
+        keyFiles = [
+          (../../keys + "/${config.settings.username}.ssh.key")
+        ];
+      };
+    };
   };
 
   programs.fish.enable = true;
