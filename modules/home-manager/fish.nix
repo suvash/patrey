@@ -77,6 +77,7 @@
       "..." = "../..";
       "...." = "../../..";
       "....." = "../../../..";
+      p = "cd $PATREY_PATH";
       b = "bat";
       v = "vim (fzf --preview 'bat --number --color=always {}')";
       ll = "ls -lah";
