@@ -80,6 +80,7 @@
       p = "cd $PATREY_PATH";
       b = "bat";
       v = "vim (fzf --preview 'bat --number --color=always {}')";
+      n = "nvim";
       ll = "ls -lah";
       lsd = "tree --dirsfirst -ChF -L 1";
 

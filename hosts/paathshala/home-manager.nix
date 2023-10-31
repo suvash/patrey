@@ -9,9 +9,10 @@
   imports = [
     inputs.nix-index-database.hmModules.nix-index
 
-    outputs.homeManagerModules.git # configure
-    outputs.homeManagerModules.fish # configure
-    outputs.homeManagerModules.starship # configure
+    outputs.homeManagerModules.git
+    outputs.homeManagerModules.fish
+    outputs.homeManagerModules.starship
+    outputs.homeManagerModules.neovim
 
     ./settings.nix
     ./home-packages.nix
@@ -145,21 +146,6 @@
   programs.mpv.enable = true; # configure
 
   programs.navi.enable = false; # investigate
-  programs.neovim = {
-    enable = true;
-    plugins = with pkgs.vimPlugins; [
-      base16-vim
-    ];
-    extraLuaConfig = ''
-      local cmd = vim.cmd
-      local g = vim.g
-      local current_theme_name = os.getenv('BASE16_THEME')
-      if current_theme_name and g.colors_name ~= 'base16-'..current_theme_name then
-        cmd('let base16colorspace=256')
-        cmd('colorscheme base16-'..current_theme_name)
-      end
-    '';
-  };
   programs.newsboat.enable = false; # investigate
   programs.nix-index.enable = true; # investigate
   programs.nnn.enable = true; # investigate
