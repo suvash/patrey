@@ -3,6 +3,10 @@
   config,
   ...
 }: {
+  home.packages = with pkgs; [
+    fzy
+  ];
+
   programs.neovim = {
     enable = true;
     plugins = with pkgs.vimPlugins; [
@@ -10,9 +14,33 @@
         plugin = telescope-nvim;
         type = "lua";
         config = ''
-          local builtin = require('telescope.builtin')
-          vim.keymap.set('n', '<leader>pf', builtin.find_files, {})
-          vim.keymap.set('n', '<leader>pg', builtin.live_grep, {})
+          local telebuiltin = require('telescope.builtin')
+          local teleactions = require('telescope.actions')
+          require('telescope').setup {
+            defaults = {
+              mappings = {
+                i = {
+                  ["<esc>"] = teleactions.close
+                },
+              },
+            },
+            extensions = {
+              fzy_native = {
+                override_generic_sorter = false,
+                override_file_sorter = true,
+              }
+            }
+          }
+          vim.keymap.set('n', '<leader>pf', telebuiltin.find_files, {})
+          vim.keymap.set('n', '<leader>pg', telebuiltin.live_grep, {})
+        '';
+      }
+
+      {
+        plugin = telescope-fzy-native-nvim;
+        type = "lua";
+        config = ''
+          require('telescope').load_extension('fzy_native')
         '';
       }
 
