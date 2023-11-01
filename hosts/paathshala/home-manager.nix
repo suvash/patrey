@@ -66,6 +66,19 @@
     recursive = true;
   };
 
+  xdg.userDirs = {
+    enable = true;
+    createDirectories = true;
+    download = "${config.home.homeDirectory}/downloads";
+    desktop = "${config.home.homeDirectory}/nope/Desktop";
+    documents = "${config.home.homeDirectory}/nope/Documents";
+    music = "${config.home.homeDirectory}/nope/Music";
+    pictures = "${config.home.homeDirectory}/nope/Pictures";
+    publicShare = "${config.home.homeDirectory}/nope/Public";
+    templates = "${config.home.homeDirectory}/nope/Templates";
+    videos = "${config.home.homeDirectory}/nope/Videos";
+  };
+
   # Options to investigate
   # home
   # i18n
