@@ -13,27 +13,7 @@
       {
         plugin = telescope-nvim;
         type = "lua";
-        config = ''
-          local telebuiltin = require('telescope.builtin')
-          local teleactions = require('telescope.actions')
-          require('telescope').setup {
-            defaults = {
-              mappings = {
-                i = {
-                  ["<esc>"] = teleactions.close
-                },
-              },
-            },
-            extensions = {
-              fzy_native = {
-                override_generic_sorter = false,
-                override_file_sorter = true,
-              }
-            }
-          }
-          vim.keymap.set('n', '<leader>pf', telebuiltin.find_files, {})
-          vim.keymap.set('n', '<leader>pg', telebuiltin.live_grep, {})
-        '';
+        config = builtins.readFile ./neovim/telescope-nvim.lua;
       }
 
       {
@@ -47,42 +27,19 @@
       {
         plugin = nvim-web-devicons;
         type = "lua";
-        config = ''
-          require('nvim-web-devicons').setup {
-            default = true;
-            strict = true;
-            color_icons = true;
-          }
-        '';
+        config = builtins.readFile ./neovim/nvim-web-devicons.lua;
       }
 
       {
         plugin = nvim-treesitter.withAllGrammars;
         type = "lua";
-        config = ''
-          require'nvim-treesitter.configs'.setup {
-            highlight = {
-              -- `false` will disable the whole extension
-              enable = true,
-              -- list of parsers that will be disabled
-              disable = { },
-              --
-              additional_vim_regex_highlighting = false,
-            },
-          }
-        '';
+        config = builtins.readFile ./neovim/nvim-treesitter.lua;
       }
 
       {
         plugin = base16-vim;
         type = "lua";
-        config = ''
-          local current_theme_name = os.getenv('BASE16_THEME')
-          if current_theme_name and vim.g.colors_name ~= 'base16-'..current_theme_name then
-            vim.cmd('let base16colorspace=256')
-            vim.cmd('colorscheme base16-'..current_theme_name)
-          end
-        '';
+        config = builtins.readFile ./neovim/base16-vim.lua;
       }
 
       {
