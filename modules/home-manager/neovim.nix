@@ -5,10 +5,23 @@
 }: {
   home.packages = with pkgs; [
     fzy
+
+    # language servers
+    elixir-ls
+    python311Packages.ruff-lsp
+    nodePackages.bash-language-server
+    nodePackages.dockerfile-language-server-nodejs
+    nodePackages.typescript-language-server
+    rust-analyzer
+    terraform-ls
   ];
 
   programs.neovim = {
     enable = true;
+
+    withNodeJs = false;
+    withPython3 = false;
+    withRuby = false;
 
     extraLuaConfig = builtins.readFile ./neovim/sanity.lua + builtins.readFile ./neovim/mappings.lua + "\n--PLUGINS\n";
 
@@ -65,7 +78,7 @@
         plugin = gitsigns-nvim;
         type = "lua";
         config = ''
-         require('gitsigns').setup() 
+          require('gitsigns').setup()
         '';
       }
 
@@ -90,6 +103,12 @@
         plugin = friendly-snippets;
       }
 
+      {
+        plugin = nvim-lspconfig;
+        type = "lua";
+        config = builtins.readFile ./neovim/nvim-lspconfig.lua;
+      }
+
       # autocompletion
       nvim-cmp
       cmp-nvim-lsp
@@ -98,6 +117,5 @@
       cmp_luasnip
       cmp-nvim-lua
     ];
-
   };
 }
