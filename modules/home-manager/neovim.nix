@@ -45,6 +45,18 @@
       }
 
       {
+        plugin = nvim-web-devicons;
+        type = "lua";
+        config = ''
+          require('nvim-web-devicons').setup {
+            default = true;
+            strict = true;
+            color_icons = true;
+          }
+        '';
+      }
+
+      {
         plugin = nvim-treesitter.withAllGrammars;
         type = "lua";
         config = ''
