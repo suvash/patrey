@@ -158,20 +158,26 @@
   };
 
   # Fonts
-  fonts.fonts = with pkgs.unstable; [
-    ubuntu_font_family
-    roboto
-    roboto-mono
-    roboto-slab
-    noto-fonts
-    noto-fonts-cjk
-    noto-fonts-emoji
-    noto-fonts-extra
-    lohit-fonts.devanagari
-    lohit-fonts.nepali
-    nerdfonts
-    emacs-all-the-icons-fonts
-  ];
+  fonts = {
+    enableDefaultFonts = true;
+    fontconfig = {
+      enable = true;
+    };
+    fonts = with pkgs.unstable; [
+      ubuntu_font_family
+      roboto
+      roboto-mono
+      roboto-slab
+      noto-fonts
+      noto-fonts-cjk
+      noto-fonts-emoji
+      noto-fonts-extra
+      lohit-fonts.devanagari
+      lohit-fonts.nepali
+      nerdfonts
+      emacs-all-the-icons-fonts
+    ];
+  };
 
   # Virtualisation
   virtualisation.docker = {
