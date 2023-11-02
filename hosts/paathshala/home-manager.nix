@@ -242,7 +242,14 @@
   services.clipman.enable = false; # configure, wayland
   services.clipmenu.enable = true;
 
-  services.dunst.enable = true;
+  services.dunst = {
+    enable = true;
+    iconTheme = {
+      name = "Adwaita";
+      package = pkgs.gnome.adwaita-icon-theme;
+      size = "16x16";
+    };
+  };
 
   services.easyeffects.enable = true;
   services.emacs.enable = false; # configure
