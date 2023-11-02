@@ -19,13 +19,24 @@
   programs.neovim = {
     enable = true;
 
-    withNodeJs = false;
-    withPython3 = false;
-    withRuby = false;
+    withNodeJs = true;
+    withPython3 = true;
+    withRuby = true;
 
     extraLuaConfig = builtins.readFile ./neovim/sanity.lua + builtins.readFile ./neovim/mappings.lua + "\n--PLUGINS\n";
 
     plugins = with pkgs.vimPlugins; [
+      {
+        plugin = dashboard-nvim;
+        type = "lua";
+        config = builtins.readFile ./neovim/dashboard-nvim.lua;
+      }
+
+      {
+        plugin = vim-bbye;
+        type = "lua";
+      }
+
       {
         plugin = telescope-nvim;
         type = "lua";
@@ -75,14 +86,6 @@
       }
 
       {
-        plugin = gitsigns-nvim;
-        type = "lua";
-        config = ''
-          require('gitsigns').setup()
-        '';
-      }
-
-      {
         plugin = comment-nvim;
         type = "lua";
         config = ''
@@ -99,15 +102,46 @@
       }
 
       {
-        # dependency for luasnip
-        plugin = friendly-snippets;
-      }
-
-      {
         plugin = nvim-lspconfig;
         type = "lua";
         config = builtins.readFile ./neovim/nvim-lspconfig.lua;
       }
+
+      {
+        plugin = nvim-ts-autotag;
+        type = "lua";
+        config = ''
+          require('nvim-ts-autotag').setup()
+        '';
+      }
+
+      {
+        plugin = bufferline-nvim;
+        type = "lua";
+        config = ''
+          require("bufferline").setup{}
+        '';
+      }
+
+      {
+        plugin = gitsigns-nvim;
+        type = "lua";
+        config = ''
+          require('gitsigns').setup()
+        '';
+      }
+
+      {
+        plugin = lspkind-nvim;
+        type = "lua";
+        config = builtins.readFile ./neovim/lspkind-nvim.lua;
+      }
+
+      # other
+      nvim-autopairs
+
+      # dependency for luasnip
+      friendly-snippets
 
       # autocompletion
       nvim-cmp
