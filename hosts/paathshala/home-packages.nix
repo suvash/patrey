@@ -25,6 +25,8 @@
     brightnessctl
     arandr
     libnotify
+    xclip
+    xsel
 
     # Hardware
     lshw
