@@ -23,7 +23,7 @@
     withPython3 = true;
     withRuby = true;
 
-    extraLuaConfig = builtins.readFile ./neovim/sanity.lua + builtins.readFile ./neovim/mappings.lua + "\n--PLUGINS\n";
+    extraLuaConfig = builtins.readFile ./neovim/options.lua + builtins.readFile ./neovim/keymaps.lua + "\n--PLUGINS\n";
 
     plugins = with pkgs.vimPlugins; [
       {

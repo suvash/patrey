@@ -16,4 +16,5 @@
   };
 
   programs.gitui.enable = true;
+  programs.lazygit.enable = true;
 }
