@@ -23,7 +23,13 @@ vim.keymap.set("n", "<C-Down>", ":resize -5<CR>")
 vim.keymap.set("n", "<C-Left>", ":vertical resize -5<CR>")
 vim.keymap.set("n", "<C-Right>", ":vertical resize +5<CR>")
 
--- previous next buffer
+-- previous next delete buffer
 vim.keymap.set("n", "<leader>bp", vim.cmd.bp)
 vim.keymap.set("n", "<leader>bn", vim.cmd.bn)
+vim.keymap.set("n", "<leader>bs", vim.cmd.w)
+vim.keymap.set("n", "<leader>bd", vim.cmd.Bd) -- not the usual bd, Bd from bbye
+vim.keymap.set("n", "<leader>bx", vim.cmd.bd) -- the usual bd
 
+-- Insert
+
+vim.keymap.set("i", "uu", "<ESC>") -- quick Esc
