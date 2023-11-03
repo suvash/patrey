@@ -1,6 +1,8 @@
+local telescope = require('telescope')
 local telebuiltin = require('telescope.builtin')
 local teleactions = require('telescope.actions')
-require('telescope').setup {
+
+telescope.setup {
   defaults = {
     mappings = {
       i = {
@@ -15,6 +17,8 @@ require('telescope').setup {
     }
   }
 }
+
+
 vim.keymap.set('n', '<leader>pf', telebuiltin.find_files, {})
 vim.keymap.set('n', '<leader>pg', telebuiltin.live_grep, {})
 

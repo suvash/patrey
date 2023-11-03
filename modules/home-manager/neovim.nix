@@ -4,7 +4,7 @@
   ...
 }: {
   home.packages = with pkgs; [
-    fzy
+    fzy     # telescope fzy extension
 
     # language servers these should really be set up in individual projects
     elixir-ls
@@ -112,8 +112,13 @@
         '';
       }
 
-      # other
-      nvim-autopairs
+      {
+        plugin = nvim-autopairs;
+        type = "lua";
+        config = ''
+          require('nvim-autopairs').setup()
+        '';
+      }
 
       # LSP
 

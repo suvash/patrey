@@ -1,6 +1,7 @@
 local cmp = require 'cmp'
 local cmp_action = require('lsp-zero').cmp_action()
 local lspkind = require 'lspkind'
+local cmp_autopairs = require('nvim-autopairs.completion.cmp')
 
 cmp.setup({
   snippet = {
@@ -79,3 +80,6 @@ cmp.setup.cmdline(':', {
     }
   })
 })
+
+-- autpair on confirm done
+cmp.event:on('confirm_done', cmp_autopairs.on_confirm_done())
