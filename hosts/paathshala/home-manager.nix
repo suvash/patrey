@@ -335,7 +335,11 @@
       }
       {
         delay = 60;
-        command = "${pkgs.i3lock}/bin/i3lock --nofork --ignore-empty-password --show-failed-attempts  --image /etc/wallpapers/lock.png";
+        command = "xrandr --output \"$PRIMARY_DISPLAY\" --brightness 1;${pkgs.i3lock}/bin/i3lock --nofork --ignore-empty-password --image /etc/wallpapers/lock.png";
+      }
+      {
+        delay = 1800;
+        command = "systemctl suspend";
       }
     ];
   };
