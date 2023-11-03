@@ -370,8 +370,8 @@
         "${modifier}+Shift+semicolon" = "move right";
         "${modifier}+n" = "move workspace to output next";
 
-        "${modifier}+Shift+3" = "exec ${pkgs.flameshot}/bin/flameshot full --path ~/.screenshots";
-        "${modifier}+Shift+4" = "exec ${pkgs.flameshot}/bin/flameshot gui --path ~/.screenshots";
+        "${modifier}+ctrl+3" = "exec ${pkgs.flameshot}/bin/flameshot full --path ~/.screenshots";
+        "${modifier}+ctrl+4" = "exec ${pkgs.flameshot}/bin/flameshot gui --path ~/.screenshots";
 
         "${modifier}+Shift+e" = "exec ${pkgs.xfce.xfce4-session}/bin/xfce4-session-logout";
 
