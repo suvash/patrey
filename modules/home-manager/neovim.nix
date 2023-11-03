@@ -94,14 +94,6 @@
       }
 
       {
-        plugin = luasnip;
-        type = "lua";
-        config = ''
-          require("luasnip.loaders.from_vscode").lazy_load()
-        '';
-      }
-
-      {
         plugin = nvim-lspconfig;
         type = "lua";
         config = builtins.readFile ./neovim/nvim-lspconfig.lua;
@@ -143,13 +135,29 @@
       # dependency for luasnip
       friendly-snippets
 
-      # autocompletion
-      nvim-cmp
-      cmp-nvim-lsp
-      cmp-buffer
-      cmp-path
-      cmp_luasnip
-      cmp-nvim-lua
+      # snippets
+      {
+        plugin = luasnip;
+        type = "lua";
+        config = ''
+          require("luasnip.loaders.from_vscode").lazy_load()
+        '';
+      }
+
+      # completions
+      {
+        plugin = nvim-cmp;
+        type = "lua";
+        config = builtins.readFile ./neovim/nvim-cmp.lua;
+      }
+
+      cmp-buffer # buffer completion source
+      cmp-path # path completion source
+      cmp-cmdline # cmdline completion source
+      cmp-nvim-lsp # lsp completion source
+      cmp_luasnip # luasnip completion source
+      cmp-nvim-lua # nvim lua runtim api source
+
     ];
   };
 }
