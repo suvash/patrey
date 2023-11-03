@@ -28,12 +28,6 @@
 
     plugins = with pkgs.vimPlugins; [
       {
-        plugin = dashboard-nvim;
-        type = "lua";
-        config = builtins.readFile ./neovim/dashboard-nvim.lua;
-      }
-
-      {
         plugin = vim-bbye;
         type = "lua";
       }
