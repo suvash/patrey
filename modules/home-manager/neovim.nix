@@ -117,11 +117,7 @@
 
       # LSP
 
-      {
-        plugin = nvim-lspconfig;
-        type = "lua";
-        # config = builtins.readFile ./neovim/nvim-lspconfig.lua;
-      }
+      nvim-lspconfig
 
       {
         plugin = lsp-zero-nvim;
@@ -142,9 +138,10 @@
       }
 
       lspkind-nvim # cmp formatting
+      cmp-cmdline # cmdline completion source
+      cmp-calc # calc completion source
       cmp-buffer # buffer completion source
       cmp-path # path completion source
-      cmp-cmdline # cmdline completion source
       cmp-nvim-lsp # lsp completion source
       cmp_luasnip # luasnip completion source
       cmp-nvim-lua # nvim lua runtim api source

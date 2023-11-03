@@ -12,8 +12,19 @@ cmp.setup({
     fields = {'abbr', 'kind', 'menu'},
     format = lspkind.cmp_format({
       mode = 'symbol_text', -- show only symbol annotations
-      maxwidth = 60, -- prevent the popup from showing more than provided characters (e.g 50 will not show more than 50 characters)
+      maxwidth = 30, -- prevent the popup from showing more than provided characters (e.g 50 will not show more than 50 characters)
       ellipsis_char = '...', -- when popup menu exceed maxwidth, the truncated part would show ellipsis_char instead (must define maxwidth first)
+      before = function (entry, vim_item)
+        -- Cmp Source
+        vim_item.menu = ({
+          calc     = "[Clc]",
+          buffer   = "[Bfr]",
+          nvim_lsp = "[LSP]",
+          luasnip  = "[Snp]",
+          nvim_lua = "[Lua]",
+        })[entry.source.name]
+        return vim_item
+      end
     })
   },
   window = {
@@ -35,6 +46,7 @@ cmp.setup({
     { name = 'luasnip' },
     { name = 'buffer' },
     { name = 'path' },
+    { name = 'calc' },
   }),
   preselect = 'item',
   completion = {
@@ -43,4 +55,27 @@ cmp.setup({
   experimental = {
     ghost_text = true
   },
+})
+
+-- `/` cmdline setup.
+cmp.setup.cmdline({'/', '?'}, {
+  mapping = cmp.mapping.preset.cmdline(),
+  sources = {
+    { name = 'buffer' }
+  }
+})
+
+-- `:` cmdline setup.
+cmp.setup.cmdline(':', {
+  mapping = cmp.mapping.preset.cmdline(),
+  sources = cmp.config.sources({
+    { name = 'path' }
+  }, {
+    {
+      name = 'cmdline',
+      option = {
+        ignore_cmds = { 'Man', '!' }
+      }
+    }
+  })
 })
