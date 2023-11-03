@@ -30,6 +30,11 @@ vim.keymap.set("n", "<leader>bs", vim.cmd.w)
 vim.keymap.set("n", "<leader>bd", vim.cmd.Bd) -- not the usual bd, Bd from bbye
 vim.keymap.set("n", "<leader>bx", vim.cmd.bd) -- the usual bd
 
+-- quit
+vim.keymap.set("n", "<leader>wq", vim.cmd.wq)
+vim.keymap.set("n", "<leader>qa", vim.cmd.qa)
+vim.keymap.set("n", "<leader>qa", vim.cmd.qa)
+
 -- Insert
 
 vim.keymap.set("i", "uu", "<ESC>") -- quick Esc

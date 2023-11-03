@@ -6,7 +6,7 @@
   home.packages = with pkgs; [
     fzy
 
-    # language servers
+    # language servers these should really be set up in individual projects
     elixir-ls
     lua-language-server
     python311Packages.ruff-lsp
@@ -95,12 +95,6 @@
       }
 
       {
-        plugin = nvim-lspconfig;
-        type = "lua";
-        config = builtins.readFile ./neovim/nvim-lspconfig.lua;
-      }
-
-      {
         plugin = nvim-ts-autotag;
         type = "lua";
         config = ''
@@ -124,19 +118,27 @@
         '';
       }
 
-      {
-        plugin = lspkind-nvim;
-        type = "lua";
-        config = builtins.readFile ./neovim/lspkind-nvim.lua;
-      }
-
       # other
       nvim-autopairs
 
-      # dependency for luasnip
+      # LSP
+
+      {
+        plugin = nvim-lspconfig;
+        type = "lua";
+        # config = builtins.readFile ./neovim/nvim-lspconfig.lua;
+      }
+
+      {
+        plugin = lsp-zero-nvim;
+        type = "lua";
+        config = builtins.readFile ./neovim/lsp-zero-nvim.lua;
+      }
+
+      # CMP
+
       friendly-snippets
 
-      # snippets
       {
         plugin = luasnip;
         type = "lua";
@@ -145,13 +147,7 @@
         '';
       }
 
-      # completions
-      {
-        plugin = nvim-cmp;
-        type = "lua";
-        config = builtins.readFile ./neovim/nvim-cmp.lua;
-      }
-
+      lspkind-nvim # cmp formatting
       cmp-buffer # buffer completion source
       cmp-path # path completion source
       cmp-cmdline # cmdline completion source
@@ -159,6 +155,11 @@
       cmp_luasnip # luasnip completion source
       cmp-nvim-lua # nvim lua runtim api source
 
+      {
+        plugin = nvim-cmp;
+        type = "lua";
+        config = builtins.readFile ./neovim/nvim-cmp.lua;
+      }
     ];
   };
 }
