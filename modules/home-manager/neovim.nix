@@ -8,6 +8,7 @@
 
     # language servers
     elixir-ls
+    lua-language-server
     python311Packages.ruff-lsp
     nodePackages.bash-language-server
     nodePackages.dockerfile-language-server-nodejs
