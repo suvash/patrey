@@ -42,7 +42,7 @@
         plugin = telescope-fzy-native-nvim;
         type = "lua";
         config = ''
-          require('telescope').load_extension('fzy_native')
+          require("telescope").load_extension("fzy_native")
         '';
       }
 
@@ -68,7 +68,7 @@
         plugin = undotree;
         type = "lua";
         config = ''
-          vim.keymap.set('n', '<leader>ut', vim.cmd.UndotreeToggle)
+          vim.keymap.set("n", "<leader>ut", vim.cmd.UndotreeToggle)
         '';
       }
 
@@ -76,7 +76,7 @@
         plugin = vim-fugitive;
         type = "lua";
         config = ''
-          vim.keymap.set('n', '<leader>gg', vim.cmd.Git)
+          vim.keymap.set("n", "<leader>gg", vim.cmd.Git)
         '';
       }
 
@@ -84,7 +84,7 @@
         plugin = comment-nvim;
         type = "lua";
         config = ''
-          require('Comment').setup()
+          require("Comment").setup()
         '';
       }
 
@@ -92,7 +92,7 @@
         plugin = nvim-ts-autotag;
         type = "lua";
         config = ''
-          require('nvim-ts-autotag').setup()
+          require("nvim-ts-autotag").setup()
         '';
       }
 
@@ -100,7 +100,7 @@
         plugin = bufferline-nvim;
         type = "lua";
         config = ''
-          require("bufferline").setup{}
+          require("bufferline").setup()
         '';
       }
 
@@ -108,7 +108,7 @@
         plugin = gitsigns-nvim;
         type = "lua";
         config = ''
-          require('gitsigns').setup()
+          require("gitsigns").setup()
         '';
       }
 
@@ -116,7 +116,7 @@
         plugin = nvim-tree-lua;
         type = "lua";
         config = ''
-          require('nvim-tree').setup()
+          require("nvim-tree").setup()
         '';
       }
 
@@ -124,7 +124,7 @@
         plugin = nvim-autopairs;
         type = "lua";
         config = ''
-          require('nvim-autopairs').setup()
+          require("nvim-autopairs").setup()
         '';
       }
 

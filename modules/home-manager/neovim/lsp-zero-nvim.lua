@@ -1,12 +1,12 @@
-local lsp_zero = require('lsp-zero')
+local lsp_zero = require("lsp-zero")
 
 lsp_zero.on_attach(function(client, bufnr)
-  -- see :help lsp-zero-keybindings
-  -- to learn the available actions
-  lsp_zero.default_keymaps({buffer = bufnr})
+	-- see :help lsp-zero-keybindings
+	-- to learn the available actions
+	lsp_zero.default_keymaps({ buffer = bufnr })
 end)
 
-local lspconfig = require('lspconfig')
+local lspconfig = require("lspconfig")
 
 lspconfig.bashls.setup({})
 lspconfig.dockerls.setup({})
@@ -17,4 +17,4 @@ lspconfig.ruff_lsp.setup({})
 lspconfig.rust_analyzer.setup({})
 -- lspconfig.tailwindcss.setup({}) -- install language server
 lspconfig.terraformls.setup({})
-lspconfig.tsserver.setup ({})
+lspconfig.tsserver.setup({})
