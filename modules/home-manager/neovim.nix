@@ -165,6 +165,15 @@
         config = builtins.readFile ./neovim/nvim-cmp.lua;
       }
 
+      # Trouble
+      {
+        plugin = trouble-nvim;
+        type = "lua";
+        config = ''
+          require("trouble").setup()
+        '';
+      }
+
     ];
   };
 }

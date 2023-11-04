@@ -17,6 +17,10 @@ vim.g.maplocalleader = " "
 -- Explore
 vim.keymap.set("n", "<leader>n.", ":NvimTreeFindFileToggle<CR>")
 
+-- Trouble
+vim.keymap.set("n", "<leader>tt", ":TroubleToggle<CR>")
+
+
 -- Resize with arrows
 vim.keymap.set("n", "<C-Up>", ":resize +5<CR>")
 vim.keymap.set("n", "<C-Down>", ":resize -5<CR>")
