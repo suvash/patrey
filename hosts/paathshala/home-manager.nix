@@ -12,10 +12,11 @@
     outputs.homeManagerModules.git
     outputs.homeManagerModules.fish
     outputs.homeManagerModules.starship
-    outputs.homeManagerModules.neovim
 
     ./settings.nix
     ./home-packages.nix
+
+    ../../modules/home-manager/neovim.nix
   ];
 
   nixpkgs = {
