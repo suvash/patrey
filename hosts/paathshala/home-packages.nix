@@ -1,4 +1,4 @@
-{pkgs, ...}: {
+{ pkgs, ... }: {
   home.packages = with pkgs; [
     cmake
     gnumake
@@ -66,10 +66,12 @@
     dnsutils
     whois
 
-    # linters
+    # linters / formatters
     yamllint
     ispell
     shellcheck
+    shfmt
+    nixfmt
 
     # browser
     brave

@@ -1,11 +1,4 @@
-{
-  inputs,
-  outputs,
-  lib,
-  config,
-  pkgs,
-  ...
-}: {
+{ inputs, outputs, lib, config, pkgs, ... }: {
   imports = [
     inputs.nix-index-database.hmModules.nix-index
 
@@ -205,9 +198,7 @@
 
   programs.vim = {
     enable = true;
-    plugins = with pkgs.vimPlugins; [
-      base16-vim
-    ];
+    plugins = with pkgs.vimPlugins; [ base16-vim ];
     extraConfig = ''
       if exists('$BASE16_THEME')
           \ && (!exists('g:colors_name')
@@ -318,7 +309,7 @@
 
   services.xcape = {
     enable = true;
-    mapExpression = {Control_L = "Escape";};
+    mapExpression = { Control_L = "Escape"; };
   };
 
   services.xidlehook = {
@@ -331,12 +322,13 @@
     timers = [
       {
         delay = 30;
-        command = "xrandr --output \"$PRIMARY_DISPLAY\" --brightness .5";
-        canceller = "xrandr --output \"$PRIMARY_DISPLAY\" --brightness 1";
+        command = ''xrandr --output "$PRIMARY_DISPLAY" --brightness .5'';
+        canceller = ''xrandr --output "$PRIMARY_DISPLAY" --brightness 1'';
       }
       {
         delay = 60;
-        command = "xrandr --output \"$PRIMARY_DISPLAY\" --brightness 1;${pkgs.i3lock}/bin/i3lock --nofork --ignore-empty-password --image /etc/wallpapers/lock.png";
+        command = ''
+          xrandr --output "$PRIMARY_DISPLAY" --brightness 1;${pkgs.i3lock}/bin/i3lock --nofork --ignore-empty-password --image /etc/wallpapers/lock.png'';
       }
       {
         delay = 1800;
@@ -356,7 +348,7 @@
       modifier = "Mod4";
 
       fonts = {
-        names = ["Ubuntu Mono"];
+        names = [ "Ubuntu Mono" ];
         size = 14.0;
         style = "";
       };
@@ -375,22 +367,32 @@
         "${modifier}+Shift+semicolon" = "move right";
         "${modifier}+n" = "move workspace to output next";
 
-        "${modifier}+ctrl+3" = "exec ${pkgs.flameshot}/bin/flameshot full --path ~/.screenshots";
-        "${modifier}+ctrl+4" = "exec ${pkgs.flameshot}/bin/flameshot gui --path ~/.screenshots";
+        "${modifier}+ctrl+3" =
+          "exec ${pkgs.flameshot}/bin/flameshot full --path ~/.screenshots";
+        "${modifier}+ctrl+4" =
+          "exec ${pkgs.flameshot}/bin/flameshot gui --path ~/.screenshots";
 
-        "${modifier}+Shift+e" = "exec ${pkgs.xfce.xfce4-session}/bin/xfce4-session-logout";
+        "${modifier}+Shift+e" =
+          "exec ${pkgs.xfce.xfce4-session}/bin/xfce4-session-logout";
 
         "${modifier}+ctrl+6" = "exec ${pkgs.playerctl}/bin/playerctl previous";
-        "${modifier}+ctrl+8" = "exec ${pkgs.playerctl}/bin/playerctl play-pause";
+        "${modifier}+ctrl+8" =
+          "exec ${pkgs.playerctl}/bin/playerctl play-pause";
         "${modifier}+ctrl+0" = "exec ${pkgs.playerctl}/bin/playerctl next";
 
-        "${modifier}+ctrl+v" = "exec CM_LAUNCHER=rofi ${pkgs.clipmenu}/bin/clipmenu";
-        "${modifier}+ctrl+w" = "exec ${pkgs.feh}/bin/feh --bg-tile --no-fehbg --randomize ~/.wallpapers";
-        "${modifier}+ctrl+t" = "exec ${pkgs.fish}/bin/fish -c toggle_xfce_theme";
-        "${modifier}+ctrl+l" = "exec ${pkgs.i3lock}/bin/i3lock --nofork --ignore-empty-password --show-failed-attempts --image /etc/wallpapers/lock.png";
+        "${modifier}+ctrl+v" =
+          "exec CM_LAUNCHER=rofi ${pkgs.clipmenu}/bin/clipmenu";
+        "${modifier}+ctrl+w" =
+          "exec ${pkgs.feh}/bin/feh --bg-tile --no-fehbg --randomize ~/.wallpapers";
+        "${modifier}+ctrl+t" =
+          "exec ${pkgs.fish}/bin/fish -c toggle_xfce_theme";
+        "${modifier}+ctrl+l" =
+          "exec ${pkgs.i3lock}/bin/i3lock --nofork --ignore-empty-password --show-failed-attempts --image /etc/wallpapers/lock.png";
 
-        "${modifier}+ctrl+Up" = "exec ${pkgs.pulseaudio}/bin/pactl set-sink-volume @DEFAULT_SINK@ +10%";
-        "${modifier}+ctrl+Down" = "exec ${pkgs.pulseaudio}/bin/pactl set-sink-volume @DEFAULT_SINK@ -10%";
+        "${modifier}+ctrl+Up" =
+          "exec ${pkgs.pulseaudio}/bin/pactl set-sink-volume @DEFAULT_SINK@ +10%";
+        "${modifier}+ctrl+Down" =
+          "exec ${pkgs.pulseaudio}/bin/pactl set-sink-volume @DEFAULT_SINK@ -10%";
 
         "${modifier}+ctrl+e" = "exec emacs";
         "${modifier}+ctrl+f" = "exec firefox";
@@ -408,7 +410,6 @@
       };
     };
 
-    extraConfig = ''
-    '';
+    extraConfig = "";
   };
 }

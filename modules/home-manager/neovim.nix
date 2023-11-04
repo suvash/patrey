@@ -1,10 +1,6 @@
-{
-  pkgs,
-  config,
-  ...
-}: {
+{ pkgs, ... }: {
   home.packages = with pkgs; [
-    fzy     # telescope fzy extension
+    fzy # telescope fzy extension
 
     # language servers these should really be set up in individual projects
     elixir-ls
@@ -24,7 +20,11 @@
     withPython3 = true;
     withRuby = true;
 
-    extraLuaConfig = builtins.readFile ./neovim/options.lua + builtins.readFile ./neovim/keymaps.lua + "\n--PLUGINS\n";
+    extraLuaConfig = builtins.readFile ./neovim/options.lua
+      + builtins.readFile ./neovim/keymaps.lua + ''
+
+        --PLUGINS
+      '';
 
     plugins = with pkgs.vimPlugins; [
       {
@@ -164,6 +164,7 @@
         type = "lua";
         config = builtins.readFile ./neovim/nvim-cmp.lua;
       }
+
     ];
   };
 }

@@ -1,9 +1,4 @@
-{
-  config,
-  pkgs,
-  lib,
-  ...
-}: {
+{ config, pkgs, lib, ... }: {
   options = {
     settings = {
       username = lib.mkOption {

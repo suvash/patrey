@@ -1,14 +1,7 @@
 # Edit this configuration file to define what should be installed on
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running `nixos-help`).
-{
-  inputs,
-  outputs,
-  lib,
-  config,
-  pkgs,
-  ...
-}: {
+{ inputs, outputs, lib, config, pkgs, ... }: {
   imports = [
     inputs.nixos-hardware.nixosModules.dell-xps-13-9360
     inputs.nixos-hardware.nixosModules.common-gpu-intel
@@ -52,11 +45,12 @@
   nix = {
     # This will add each flake input as a registry
     # To make nix3 commands consistent with your flake
-    registry = lib.mapAttrs (_: value: {flake = value;}) inputs;
+    registry = lib.mapAttrs (_: value: { flake = value; }) inputs;
 
     # This will additionally add your inputs to the system's legacy channels
     # Making legacy nix commands consistent as well, awesome!
-    nixPath = lib.mapAttrsToList (key: value: "${key}=${value.to.path}") config.nix.registry;
+    nixPath = lib.mapAttrsToList (key: value: "${key}=${value.to.path}")
+      config.nix.registry;
 
     # Automatic GC
     gc = {
@@ -71,7 +65,7 @@
       # Deduplicate and optimize nix store
       auto-optimise-store = true;
       # Trusted users
-      trusted-users = ["${config.settings.username}"];
+      trusted-users = [ "${config.settings.username}" ];
     };
   };
 
@@ -88,20 +82,21 @@
   networking.hostName = "${config.settings.hostname}";
   # Pick only one of the below networking options.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-  networking.networkmanager.enable = true; # Easiest to use and most distros use this by default.
+  networking.networkmanager.enable =
+    true; # Easiest to use and most distros use this by default.
 
   # Use specific nameservers
   # Google NS
   # networking.nameservers = [ "8.8.8.8" "8.8.4.4" ];
   # Cloudflare NS
-  networking.nameservers = ["1.1.1.1" "1.0.0.1"];
+  networking.nameservers = [ "1.1.1.1" "1.0.0.1" ];
 
   # Open ports in the firewall.
   networking.firewall = {
     enable = true;
     checkReversePath = "strict";
-    allowedUDPPorts = [7531];
-    allowedTCPPorts = [7531];
+    allowedUDPPorts = [ 7531 ];
+    allowedTCPPorts = [ 7531 ];
   };
 
   # Set your time zone.
@@ -116,7 +111,7 @@
   # Power management
   powerManagement = {
     enable = true;
-    powertop = {enable = true;};
+    powertop = { enable = true; };
   };
 
   # ACPILight
@@ -129,9 +124,7 @@
   services.fwupd.enable = true;
 
   # Select internationalisation properties.
-  i18n = {
-    defaultLocale = "en_US.UTF-8";
-  };
+  i18n = { defaultLocale = "en_US.UTF-8"; };
 
   console = {
     font = "latarcyrheb-sun32";
@@ -160,9 +153,7 @@
   # Fonts
   fonts = {
     enableDefaultFonts = true;
-    fontconfig = {
-      enable = true;
-    };
+    fontconfig = { enable = true; };
     fonts = with pkgs.unstable; [
       ubuntu_font_family
       roboto
@@ -265,13 +256,11 @@
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.${config.settings.username} = {
     isNormalUser = true;
-    extraGroups = ["wheel" "networkmanager" "video" "audio"];
+    extraGroups = [ "wheel" "networkmanager" "video" "audio" ];
     shell = pkgs.fish;
     openssh = {
       authorizedKeys = {
-        keyFiles = [
-          (../../keys + "/${config.settings.username}.ssh.key")
-        ];
+        keyFiles = [ (../../keys + "/${config.settings.username}.ssh.key") ];
       };
     };
   };
@@ -280,11 +269,7 @@
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
-  environment.systemPackages = with pkgs; [
-    vim
-    wget
-    git
-  ];
+  environment.systemPackages = with pkgs; [ vim wget git ];
 
   systemd.services.console-blank = {
     enable = true;
@@ -295,10 +280,8 @@
       TTYPath = "/dev/console";
       StandardOutput = "tty";
     };
-    wantedBy = ["multi-user.target"];
-    environment = {
-      TERM = "linux";
-    };
+    wantedBy = [ "multi-user.target" ];
+    environment = { TERM = "linux"; };
   };
 
   # Some programs need SUID wrappers, can be configured further or are
