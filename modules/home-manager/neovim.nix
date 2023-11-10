@@ -52,6 +52,33 @@ in {
 
     plugins = with pkgs;
       [
+        # Notify
+        {
+          plugin = vimPlugins.nvim-notify;
+          type = "lua";
+          config = ''
+            vim.notify = require("notify")
+          '';
+        }
+
+        # Indent
+        {
+          plugin = unstable.vimPlugins.indent-blankline-nvim;
+          type = "lua";
+          config = ''
+            require('ibl').setup()
+          '';
+        }
+
+        # Leap
+        {
+          plugin = vimPlugins.leap-nvim;
+          type = "lua";
+          config = ''
+            require('leap').add_default_mappings()
+          '';
+        }
+
         {
           plugin = vimPlugins.vim-bbye;
           type = "lua";
@@ -82,6 +109,8 @@ in {
           type = "lua";
           config = builtins.readFile ./neovim/nvim-treesitter.lua;
         }
+
+        vimPlugins.vim-illuminate
 
         {
           plugin = vimPlugins.base16-vim;
@@ -150,6 +179,14 @@ in {
           type = "lua";
           config = ''
             require("nvim-autopairs").setup()
+          '';
+        }
+
+        {
+          plugin = vimPlugins.nvim-ts-autotag;
+          type = "lua";
+          config = ''
+            require("nvim-ts-autotag").setup()
           '';
         }
 
