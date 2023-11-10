@@ -1,7 +1,7 @@
-{ pkgs, ... }: {
+{pkgs, ...}: {
   security.rtkit.enable = true;
 
-  environment.systemPackages = with pkgs; [ playerctl ];
+  environment.systemPackages = with pkgs; [playerctl];
 
   programs.dconf.enable = true;
 

@@ -1,4 +1,8 @@
-{ inputs, pkgs, ... }: {
+{
+  inputs,
+  pkgs,
+  ...
+}: {
   programs.fish = {
     enable = true;
 
@@ -94,15 +98,12 @@
       gp = "git push";
       gpf = "git push --force-with-lease";
       gpu = "git push --set-upstream origin (git branch --show-current)";
-      gpuf =
-        "git push --set-upstream origin (git branch --show-current) --force-with-lease";
+      gpuf = "git push --set-upstream origin (git branch --show-current) --force-with-lease";
       gpd = "git push --delete origin (git branch --show-current)";
       gsi = "git submodule init";
       gsu = "git submodule update";
-      gup =
-        "git fetch --all --prune --prune-tags; and git rebase --rebase-merges '@{upstream}'";
-      gsp =
-        "git stash; and git fetch --all -p; and git rebase --rebase-merges '@{upstream}'; and git stash pop";
+      gup = "git fetch --all --prune --prune-tags; and git rebase --rebase-merges '@{upstream}'";
+      gsp = "git stash; and git fetch --all -p; and git rebase --rebase-merges '@{upstream}'; and git stash pop";
       gprn = "git remote prune origin --dry-run";
       gm = "git merge --no-ff --log";
       gc = "git commit -v";

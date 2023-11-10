@@ -1,5 +1,8 @@
-{ inputs, pkgs, ... }:
-let
+{
+  inputs,
+  pkgs,
+  ...
+}: let
   lsp-zero-nvim-3 = pkgs.vimUtils.buildVimPlugin {
     name = "lsp-zero-nvim-3";
     src = inputs.lsp-zero-nvim-3;
@@ -39,8 +42,10 @@ in {
     withPython3 = true;
     withRuby = true;
 
-    extraLuaConfig = builtins.readFile ./neovim/options.lua
-      + builtins.readFile ./neovim/keymaps.lua + ''
+    extraLuaConfig =
+      builtins.readFile ./neovim/options.lua
+      + builtins.readFile ./neovim/keymaps.lua
+      + ''
 
         --PLUGINS
       '';
@@ -197,7 +202,8 @@ in {
           type = "lua";
           config = builtins.readFile ./neovim/toggleterm-nvim.lua;
         }
-      ] ++ [
+      ]
+      ++ [
         # LSP
 
         pkgs.vimPlugins.nvim-lspconfig
