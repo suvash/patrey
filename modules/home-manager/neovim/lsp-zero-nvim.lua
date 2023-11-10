@@ -1,20 +1,25 @@
 local lsp_zero = require("lsp-zero")
 
 lsp_zero.on_attach(function(client, bufnr)
-	-- see :help lsp-zero-keybindings
-	-- to learn the available actions
-	lsp_zero.default_keymaps({ buffer = bufnr })
+  lsp_zero.default_keymaps({ buffer = bufnr })
+  print(client.name .. ": LSP attached !")
 end)
 
-local lspconfig = require("lspconfig")
+lsp_zero.set_sign_icons({
+  error = '✘',
+  warn = '▲',
+  hint = '⚑',
+  info = '»'
+})
 
-lspconfig.bashls.setup({})
-lspconfig.dockerls.setup({})
-lspconfig.elixirls.setup({}) -- configure the cmd
--- lspconfig.emmet_ls.setup({}) -- install language server
-lspconfig.lua_ls.setup({}) -- configure the cmd
-lspconfig.ruff_lsp.setup({})
-lspconfig.rust_analyzer.setup({})
--- lspconfig.tailwindcss.setup({}) -- install language server
-lspconfig.terraformls.setup({})
-lspconfig.tsserver.setup({})
+lsp_zero.format_on_save({
+  format_opts = {
+    async = false,
+    timeout_ms = 10000,
+  },
+  servers = {
+    ['lua_ls'] = { 'lua' },
+    ['tsserver'] = { 'javascript', 'typescript' },
+    ['rust_analyzer'] = { 'rust' },
+  }
+})

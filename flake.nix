@@ -36,6 +36,10 @@
       url = "github:tinted-theming/base16-fzf";
       flake = false;
     };
+    lsp-zero-nvim-3 = {
+      url = "github:VonHeikemen/lsp-zero.nvim/v3.x";
+      flake = false;
+    };
   };
 
   outputs = { self, nixpkgs-unstable, nixpkgs-stable, nixos-hardware
