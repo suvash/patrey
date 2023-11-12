@@ -148,7 +148,13 @@
     settings = {
       font_family = "Ubuntu Mono";
       font_size = "12";
+      scrollback_lines = 100000;
+      enable_audio_bell = false;
     };
+    extraConfig = ''
+      modify_font underline_position 2px
+      modify_font underline_thickness 2px
+    '';
   };
 
   programs.less.enable = true;
