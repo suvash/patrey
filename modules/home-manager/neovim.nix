@@ -11,24 +11,25 @@ in {
   home.packages = with pkgs; [
     fzy # telescope fzy extension
 
-    # diagnostics tools used by lsp via none-ls
-    # bash
-    shfmt
-    shellcheck
+    # tools used by lsp via none-ls
     # nix
     unstable.alejandra
+    deadnix
+    statix
     # js
     nodePackages.eslint
-    # js
-    stylua
-    luaPackages.luacheck
     # linters
 
     # language servers these should really be set up in individual projects
     elixir-ls
+    # lua
+    luaPackages.luacheck
     lua-language-server
     python311Packages.ruff-lsp
+    # bash
+    shellcheck
     nodePackages.bash-language-server
+
     nodePackages.dockerfile-language-server-nodejs
     nodePackages.typescript-language-server
     rust-analyzer
@@ -190,13 +191,6 @@ in {
           '';
         }
 
-        # Formatting
-        {
-          plugin = unstable.vimPlugins.none-ls-nvim;
-          type = "lua";
-          config = builtins.readFile ./neovim/none-ls.lua;
-        }
-
         # CMP
 
         vimPlugins.friendly-snippets
@@ -243,7 +237,18 @@ in {
       ++ [
         # LSP
 
-        pkgs.vimPlugins.nvim-lspconfig
+        # those without dedicated lsp (or other tools)
+        {
+          plugin = unstable.vimPlugins.none-ls-nvim;
+          type = "lua";
+          config = builtins.readFile ./neovim/none-ls.lua;
+        }
+
+        {
+          plugin = pkgs.vimPlugins.nvim-lspconfig;
+          type = "lua";
+          config = builtins.readFile ./neovim/nvim-lspconfig.lua;
+        }
 
         {
           plugin = lsp-zero-nvim-3;

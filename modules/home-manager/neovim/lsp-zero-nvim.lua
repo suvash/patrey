@@ -18,6 +18,7 @@ lsp_zero.format_on_save({
     timeout_ms = 10000,
   },
   servers = {
+    ['null-ls'] = { 'nix', 'sh', 'bash' },
     ['lua_ls'] = { 'lua' },
     ['tsserver'] = { 'javascript', 'typescript' },
     ['rust_analyzer'] = { 'rust' },
