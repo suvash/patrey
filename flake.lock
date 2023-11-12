@@ -32,6 +32,22 @@
         "type": "github"
       }
     },
+    "base16-tmux": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1696725902,
+        "narHash": "sha256-wDPg5elZPcQpu7Df0lI5O8Jv4A3T6jUQIVg63KDU+3Q=",
+        "owner": "tinted-theming",
+        "repo": "base16-tmux",
+        "rev": "c02050bebb60dbb20cb433cd4d8ce668ecc11ba7",
+        "type": "github"
+      },
+      "original": {
+        "owner": "tinted-theming",
+        "repo": "base16-tmux",
+        "type": "github"
+      }
+    },
     "home-manager": {
       "inputs": {
         "nixpkgs": [
@@ -173,6 +189,7 @@
       "inputs": {
         "base16-fzf": "base16-fzf",
         "base16-shell": "base16-shell",
+        "base16-tmux": "base16-tmux",
         "home-manager": "home-manager",
         "lsp-zero-nvim-3": "lsp-zero-nvim-3",
         "nix-index-database": "nix-index-database",

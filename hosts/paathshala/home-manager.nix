@@ -206,7 +206,19 @@
       updates.auto_update = true;
     };
   };
-  programs.tmux.enable = true; # configure
+  programs.tmux = {
+    enable = true;
+    shortcut = "a";
+    baseIndex = 1;
+    clock24 = true;
+    historyLimit = 100000;
+    keyMode = "emacs";
+    terminal = "screen-256color";
+    sensibleOnTop = true;
+    extraConfig = ''
+      source-file ${inputs.base16-tmux}/colors/base16-onedark.conf
+    '';
+  };
   programs.translate-shell.enable = true; # configure
 
   programs.vim = {

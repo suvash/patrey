@@ -35,6 +35,11 @@
       url = "github:tinted-theming/base16-fzf";
       flake = false;
     };
+    base16-tmux = {
+      url = "github:tinted-theming/base16-tmux";
+      flake = false;
+    };
+
     lsp-zero-nvim-3 = {
       url = "github:VonHeikemen/lsp-zero.nvim/v3.x";
       flake = false;
@@ -45,7 +50,6 @@
     self,
     nixpkgs-unstable,
     nixpkgs-stable,
-    nixos-hardware,
     home-manager,
     ...
   } @ inputs: let
@@ -68,7 +72,7 @@
     overlays = import ./overlays {inherit inputs;};
     # shareable non personal nixos modules
     nixosModules = import ./modules/nixos;
-    # shareable non personal home manger modules
+    # shareable non personal home manager modules
     homeManagerModules = import ./modules/home-manager;
 
     # sudo nixos-rebuild switch --flake .#hostname
