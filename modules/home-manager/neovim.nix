@@ -255,6 +255,14 @@ in {
           type = "lua";
           config = builtins.readFile ./neovim/lsp-zero-nvim.lua;
         }
+
+        {
+          plugin = pkgs.unstable.vimPlugins.nvim-lsp-notify;
+          type = "lua";
+          config = ''
+            require("lsp-notify").setup()
+          '';
+        }
       ];
   };
 }
