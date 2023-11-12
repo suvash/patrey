@@ -14,7 +14,9 @@ null_ls.setup({
     null_ls.builtins.hover.printenv,
     -- git
     null_ls.builtins.code_actions.gitsigns,
+    null_ls.builtins.diagnostics.gitlint,
     -- spellcheck
     null_ls.builtins.completion.spell,
+    null_ls.builtins.diagnostics.codespell,
   },
 })
