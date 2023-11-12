@@ -16,6 +16,9 @@ in {
     unstable.alejandra
     deadnix
     statix
+    # bash sh
+    beautysh
+    shellcheck
     # js
     nodePackages.eslint
     # linters
@@ -26,9 +29,6 @@ in {
     luaPackages.luacheck
     lua-language-server
     python311Packages.ruff-lsp
-    # bash
-    shellcheck
-    nodePackages.bash-language-server
 
     nodePackages.dockerfile-language-server-nodejs
     nodePackages.typescript-language-server
