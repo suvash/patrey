@@ -40,13 +40,7 @@ in {
     withPython3 = true;
     withRuby = true;
 
-    extraLuaConfig =
-      builtins.readFile ./neovim/options.lua
-      + builtins.readFile ./neovim/keymaps.lua
-      + ''
-
-        --PLUGINS
-      '';
+    extraLuaConfig = builtins.readFile ./neovim/options.lua + builtins.readFile ./neovim/keymaps.lua;
 
     plugins = with pkgs;
       [
