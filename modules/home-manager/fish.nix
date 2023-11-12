@@ -28,10 +28,14 @@
             set target $theme_dark
           end
           set theme_target "base16-$target"
-          set subject "Toggling light/dark SHELL theme"
-          set body "Switching to $target theme"
-          ${pkgs.libnotify}/bin/notify-send --urgency=NORMAL $subject $body
           eval $theme_target
+          set body "Switching to $target theme"
+          if set -q DISPLAY; and set -q XDG_SESSION_TYPE; and test "$XDG_SESSION_TYPE" = "x11"
+            set subject "Toggling light/dark SHELL theme"
+            ${pkgs.libnotify}/bin/notify-send --urgency=NORMAL $subject $body
+          else
+            echo $body
+          end
         '';
       };
       get_xfce_theme = {
