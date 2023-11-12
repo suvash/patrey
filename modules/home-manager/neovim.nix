@@ -21,6 +21,7 @@ in {
     shellcheck
     # linters
     codespell
+    gitlint
 
     # language servers these should really be set up in individual projects
     # lua
