@@ -24,7 +24,7 @@ lsp_zero.format_on_save({
   servers = {
     ['null-ls'] = { 'nix', 'sh', 'bash' },
     ['lua_ls'] = { 'lua' },
+    ['jsonls'] = { 'json' },
     ['tsserver'] = { 'javascript', 'typescript' },
-    ['rust_analyzer'] = { 'rust' },
   }
 })

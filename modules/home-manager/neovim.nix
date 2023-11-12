@@ -19,21 +19,18 @@ in {
     # bash sh
     beautysh
     shellcheck
-    # js
-    nodePackages.eslint
     # linters
+    codespell
 
     # language servers these should really be set up in individual projects
-    elixir-ls
     # lua
     luaPackages.luacheck
     lua-language-server
-    python311Packages.ruff-lsp
-
-    nodePackages.dockerfile-language-server-nodejs
+    # vscode extracted lang servers - json
+    nodePackages.vscode-langservers-extracted
+    # nodejs - js - ts
+    nodePackages.typescript
     nodePackages.typescript-language-server
-    rust-analyzer
-    terraform-ls
   ];
 
   programs.neovim = {
