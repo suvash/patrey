@@ -18,6 +18,7 @@
 
     ../../modules/home-manager/neovim.nix
     ../../modules/home-manager/tmux.nix
+    ../../modules/home-manager/i3status.nix
   ];
 
   nixpkgs = {
@@ -286,18 +287,6 @@
   services.picom.enable = true; # configure
   services.playerctld.enable = true;
 
-  services.polybar = {
-    enable = false;
-    package = pkgs.polybar.override {
-      alsaSupport = true;
-      githubSupport = true;
-      i3Support = true;
-      iwSupport = true;
-      nlSupport = true;
-      pulseSupport = true;
-    };
-    script = "polybar &";
-  };
   services.poweralertd.enable = true;
   services.pulseeffects.enable = false; # pulseaudio
 
@@ -359,8 +348,14 @@
   xsession.windowManager.i3 = {
     enable = true;
     config = rec {
-      # bars = []; # using polybar instead
       modifier = "Mod4";
+
+      bars = [
+        {
+          position = "bottom";
+          statusCommand = "${pkgs.i3status-rust}/bin/i3status-rs  ~/.config/i3status-rust/config-laptop.toml";
+        }
+      ];
 
       fonts = {
         names = ["Ubuntu Mono"];
