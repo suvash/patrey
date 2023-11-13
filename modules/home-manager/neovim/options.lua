@@ -36,7 +36,8 @@ vim.opt.smartindent = true                                          -- use smart
 vim.opt.hlsearch = false                                            -- highlight all matches on previous search pattern
 vim.opt.incsearch = true                                            -- incremental search much better
 
-vim.opt.timeoutlen = 1000                                           -- time to wait for a mapped sequence to complete (in milliseconds)
+vim.opt.timeout = true;                                             -- turn on timeout
+vim.opt.timeoutlen = 500                                            -- time to wait for a mapped sequence to complete (in milliseconds)
 vim.opt.updatetime = 300                                            -- faster completion (4000ms default)
 
 vim.opt.colorcolumn = "120"                                         -- color the col at 120 chars

@@ -73,6 +73,14 @@ in {
         }
 
         {
+          plugin = vimPlugins.which-key-nvim;
+          type = "lua";
+          config = ''
+            require('which-key').setup()
+          '';
+        }
+
+        {
           plugin = vimPlugins.vim-bbye;
           type = "lua";
         }
