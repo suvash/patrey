@@ -40,5 +40,3 @@ vim.keymap.set("n", "<leader>qa", vim.cmd.qa)
 vim.keymap.set("n", "<leader>qa", vim.cmd.qa)
 
 -- Insert
-
-vim.keymap.set("i", "uu", "<ESC>") -- quick Esc
