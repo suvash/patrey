@@ -136,8 +136,7 @@
 
   console = {
     font = "latarcyrheb-sun32";
-    keyMap = "us";
-    #useXkbConfig = true; # use xkbOptions in tty.
+    useXkbConfig = true;
   };
 
   # Env vars
