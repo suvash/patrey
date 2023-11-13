@@ -159,6 +159,7 @@
       fonts = "fc-list : family";
       httpserve = "python -m http.server 7531";
       kssh = "kitty +kitten ssh";
+      myip = "curl ifconfig.me/ip";
 
       # fish functions
       tst = "toggle_shell_theme";
