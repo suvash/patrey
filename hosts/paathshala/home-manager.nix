@@ -151,6 +151,7 @@
       font_size = "12";
       scrollback_lines = 100000;
       enable_audio_bell = false;
+      hide_window_decorations = "yes";
     };
     extraConfig = ''
       modify_font underline_position 2px
@@ -408,12 +409,13 @@
       };
 
       gaps = {
-        inner = 4;
+        inner = 2;
         smartGaps = true;
         smartBorders = "on";
       };
     };
 
-    extraConfig = "";
+    extraConfig = ''
+    '';
   };
 }
