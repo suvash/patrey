@@ -1,4 +1,11 @@
-{inputs, ...}: {
+{
+  inputs,
+  pkgs,
+  ...
+}: {
+  home.packages = with pkgs; [
+    tmux-mem-cpu-load
+  ];
   programs.tmux = {
     enable = true;
     shortcut = "a";
@@ -9,9 +16,15 @@
     terminal = "screen-256color";
     sensibleOnTop = true;
     extraConfig = ''
+      # escape time (for vim)
+      set -sg escape-time 1
+
+      # bind r to source tmux conf
+      bind C-r source-file ~/.config/tmux/tmux.conf \; display 'Sourced ~/.config/tmux/tmux.conf'
+
       # Automatically set window title
       set-window-option -g automatic-rename on
-      set-option -g set-titles on
+      set -g set-titles on
 
       # Remap split keys
       unbind %
@@ -30,12 +43,21 @@
       bind K resize-pane -U 5
       bind L resize-pane -R 5
 
-      # Set window notifications
-      setw -g monitor-activity on
-      setw -g visual-activity on
+      # new window
+      bind C-c new-window
 
-      # Rename a new window properly (default working dir)
-      bind c new-window \; command-prompt -p "Name for this new window: " "rename-window '%%'"
+      # Status
+      set -g status-position top
+      set -g status on
+      set -g status-justify "centre"
+      set -g status-interval 4
+      set -g status-left-length 28
+      set -g status-left "#(hostname | cut --characters 1-4).. | #(tmux-mem-cpu-load --interval 4 --averages-count 0 --graph-lines 0)"
+      set -g status-right-length 28
+      set -g status-right "#(date +'%H:%M | %a %Y/%m/%d | W%V')"
+
+      # Show hide status Bar
+      bind C-s set -g status
 
       # base16
       source-file ${inputs.base16-tmux}/colors/base16-onedark.conf
