@@ -149,7 +149,7 @@
     enable = true;
     settings = {
       font_family = "Ubuntu Mono";
-      font_size = "12";
+      font_size = "14";
       scrollback_lines = 100000;
       enable_audio_bell = false;
       hide_window_decorations = "yes";
@@ -350,18 +350,19 @@
     config = rec {
       modifier = "Mod4";
 
+      fonts = {
+        size = 10.0;
+      };
+
       bars = [
         {
           position = "bottom";
           statusCommand = "${pkgs.i3status-rust}/bin/i3status-rs  ~/.config/i3status-rust/config-laptop.toml";
+          fonts = {
+            size = 10.0;
+          };
         }
       ];
-
-      fonts = {
-        names = ["Ubuntu Mono"];
-        size = 14.0;
-        style = "";
-      };
 
       keybindings = lib.mkOptionDefault {
         "${modifier}+d" = "exec ${pkgs.rofi}/bin/rofi -show drun";
