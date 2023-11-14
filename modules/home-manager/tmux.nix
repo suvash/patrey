@@ -60,7 +60,7 @@
       bind C-s set -g status
 
       # base16
-      source-file ${inputs.base16-tmux}/colors/base16-onedark.conf
+      source-file ${inputs.base16-tmux}/colors/base16-greenscreen.conf
     '';
   };
 }
