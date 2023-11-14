@@ -83,6 +83,7 @@
 
     # bling
     cmatrix
+    neofetch
     master.hollywood
   ];
 }
