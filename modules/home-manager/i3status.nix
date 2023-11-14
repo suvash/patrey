@@ -67,7 +67,7 @@
             interval = 5;
             timezone = "Europe/Stockholm";
             # format = "$icon $timestamp.datetime(f:'W%W %a %m/%d %H:%M %Z', l:sv_SE)";
-            format = "$icon $timestamp.datetime(f:'%H:%M', l:sv_SE)";
+            format = "$icon $timestamp.datetime(f:'%H:%M %Z', l:sv_SE)";
           }
 
           {
