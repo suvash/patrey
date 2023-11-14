@@ -213,9 +213,9 @@
     defaultSession = "xfce+i3";
     sessionCommands = ''
       ${pkgs.xorg.xrdb}/bin/xrdb -merge <<EOF
-      # 3840x2160 on 27" -> 163
-      # 2560x1440 on 27" -> 109
-      Xft.dpi: 163
+      # 1928x180 on 13.3" -> 166
+      # https://dpi.lv/#1920%C3%971080@13.3%E2%80%B3
+      Xft.dpi: 166
       EOF
     '';
     lightdm = {
