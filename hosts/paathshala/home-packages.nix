@@ -73,6 +73,9 @@
     shfmt
     nixfmt
 
+    # creds
+    authy
+
     # browser
     brave
 
