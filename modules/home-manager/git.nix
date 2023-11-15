@@ -8,6 +8,11 @@
       signByDefault = false;
     };
     ignores = ["DS_Store" "*.swp"];
+    extraConfig = {
+      init = {
+        defaultBranch = "main";
+      };
+    };
     lfs.enable = true;
     diff-so-fancy.enable = true;
   };
