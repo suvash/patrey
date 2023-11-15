@@ -27,7 +27,7 @@ in {
     # lua
     luaPackages.luacheck
     lua-language-server
-    # vscode extracted lang servers - json
+    # vscode extracted lang servers - json, html
     nodePackages.vscode-langservers-extracted
     # nodejs - js - ts
     nodePackages.typescript

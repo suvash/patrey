@@ -23,6 +23,7 @@ lsp_zero.format_on_save({
   },
   servers = {
     ['null-ls'] = { 'nix', 'sh', 'bash' },
+    ['html'] = { 'html' },
     ['lua_ls'] = { 'lua' },
     ['jsonls'] = { 'json' },
     ['tsserver'] = { 'javascript', 'typescript' },
