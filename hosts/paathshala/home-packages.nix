@@ -79,6 +79,10 @@
     # browser
     brave
 
+    # xfce Utilities
+    # for keyboard volume buttons
+    xfce.xfce4-volumed-pulse
+
     # communication
     slack
     discord

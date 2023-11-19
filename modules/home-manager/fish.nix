@@ -14,6 +14,22 @@
 
     functions = {
       getignore = "curl -sL https://www.gitignore.io/api/$argv";
+      configure_xfce = {
+        description = "set xfce settings (custom lock command, related settings)";
+        body = ''
+          # custom lock command to be used by xfce
+          xfconf-query --create -c xfce4-session -p /general/LockCommand -t string -s "${pkgs.i3lock}/bin/i3lock --nofork --ignore-empty-password --show-failed-attempts --image /etc/wallpapers/lock.png";
+          # lock screen on suspend and hibernate
+          xfconf-query -c xfce4-session -p /shutdown/LockScreen -s true
+          xfconf-query -c xfce4-power-manager -p /xfce4-power-manager/lock-screen-suspend-hibernate -s true
+          # disable saved sessions
+          xfconf-query -c xfce4-session -p /general/SaveOnExit -s false
+          # lid action on ac : suspend
+          xfconf-query -c xfce4-power-manager -p /xfce4-power-manager/lid-action-on-ac -s 1
+          # lid action on battery : hibernate
+          xfconf-query -c xfce4-power-manager -p /xfce4-power-manager/lid-action-on-battery -s 2
+        '';
+      };
       toggle_shell_theme = {
         description = "toggle between dark & light theme for shell";
         body = ''
