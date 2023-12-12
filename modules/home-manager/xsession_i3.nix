@@ -57,7 +57,6 @@
         "${modifier}+ctrl+v" = "exec CM_LAUNCHER=rofi ${pkgs.clipmenu}/bin/clipmenu";
         "${modifier}+ctrl+w" = "exec ${pkgs.feh}/bin/feh --bg-tile --no-fehbg --randomize ~/.wallpapers";
         "${modifier}+ctrl+t" = "exec ${pkgs.fish}/bin/fish -c toggle_xfce_theme";
-        "${modifier}+ctrl+l" = "exec ${pkgs.i3lock}/bin/i3lock --nofork --ignore-empty-password --show-failed-attempts --image /etc/wallpapers/lock.png";
 
         "${modifier}+ctrl+space" = "exec ${pkgs.kitty}/bin/kitty --class='__scratch_terminal'"; # check scratchpad
 
