@@ -246,7 +246,6 @@
   services.blueman-applet.enable = true;
 
   services.caffeine.enable = true;
-  services.cbatticon.enable = true;
   services.clipman.enable = false; # configure, wayland
   services.clipmenu.enable = true;
 

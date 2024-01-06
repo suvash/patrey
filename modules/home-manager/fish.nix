@@ -28,6 +28,8 @@
           xfconf-query -c xfce4-power-manager -p /xfce4-power-manager/lid-action-on-ac -s 1
           # lid action on battery : hibernate
           xfconf-query -c xfce4-power-manager -p /xfce4-power-manager/lid-action-on-battery -s 2
+          # show power tray icon
+          xfconf-query -c xfce4-power-manager -p /xfce4-power-manager/show-tray-icon -s true
           # xfce icon theme
           xfconf-query -c xsettings -p /Net/IconThemeName -s Adwaita
         '';
