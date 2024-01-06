@@ -34,6 +34,8 @@
     hardinfo
     lm_sensors
     lsof
+    lsb-release
+    dmidecode
 
     # webcam
     v4l-utils
