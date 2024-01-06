@@ -172,6 +172,7 @@
 
       # system
       dmsg = "dmesg -w -L";
+      battery = "upower -i /org/freedesktop/UPower/devices/battery_BAT0";
 
       # other
       du = "du -chs *";
