@@ -159,9 +159,9 @@
 
   # Fonts
   fonts = {
-    enableDefaultFonts = true;
+    enableDefaultPackages = true;
     fontconfig = {enable = true;};
-    fonts = with pkgs.unstable; [
+    packages = with pkgs.unstable; [
       ubuntu_font_family
       roboto
       roboto-mono
