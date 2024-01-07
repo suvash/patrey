@@ -19,19 +19,57 @@
         body = ''
           # custom lock command to be used by xfce
           xfconf-query --create -c xfce4-session -p /general/LockCommand -t string -s "${pkgs.i3lock}/bin/i3lock --nofork --ignore-empty-password --show-failed-attempts --image /etc/wallpapers/lock.png";
+          # xfce icon theme
+          xfconf-query -c xsettings -p /Net/IconThemeName -s Adwaita
           # lock screen on suspend and hibernate
           xfconf-query -c xfce4-session -p /shutdown/LockScreen -s true
           xfconf-query -c xfce4-power-manager -p /xfce4-power-manager/lock-screen-suspend-hibernate -s true
           # disable saved sessions
           xfconf-query -c xfce4-session -p /general/SaveOnExit -s false
-          # lid action on ac : suspend
-          xfconf-query -c xfce4-power-manager -p /xfce4-power-manager/lid-action-on-ac -s 1
-          # lid action on battery : hibernate
-          xfconf-query -c xfce4-power-manager -p /xfce4-power-manager/lid-action-on-battery -s 2
           # show power tray icon
           xfconf-query -c xfce4-power-manager -p /xfce4-power-manager/show-tray-icon -s true
-          # xfce icon theme
-          xfconf-query -c xsettings -p /Net/IconThemeName -s Adwaita
+          # brightness step count
+          xfconf-query -c xfce4-power-manager -p /xfce4-power-manager/brightness-step-count -s 20
+          # power button action : ask
+          xfconf-query -c xfce4-power-manager -p /xfce4-power-manager/power-button-action -s 3
+          # critical power level : 5
+          xfconf-query -c xfce4-power-manager -p /xfce4-power-manager/critical-power-level -s 5
+          # critical power action on battery : hibernate
+          xfconf-query -c xfce4-power-manager -p /xfce4-power-manager/critical-power-action -s 2
+          # inactivity sleep mode on battery activate in minutes
+          #
+          xfconf-query -c xfce4-power-manager -p /xfce4-power-manager/inactivity-on-battery -s 10
+          # inactivity sleep mode on battery : suspend
+          xfconf-query -c xfce4-power-manager -p /xfce4-power-manager/inactivity-sleep-mode-on-battery -s 1
+          # lid action on battery : hibernate
+          xfconf-query -c xfce4-power-manager -p /xfce4-power-manager/lid-action-on-battery -s 1
+          # brightness reduce on battery after seconds
+          xfconf-query -c xfce4-power-manager -p /xfce4-power-manager/brightness-on-battery -s 15
+          # brightness reduce level on battery
+          xfconf-query -c xfce4-power-manager -p /xfce4-power-manager/brightness-level-on-battery -s 20
+          # display blank on battery after minutes
+          xfconf-query -c xfce4-power-manager -p /xfce4-power-manager/blank-on-battery -s 1
+          # display sleep on battery after minutes
+          xfconf-query -c xfce4-power-manager -p /xfce4-power-manager/dpms-on-battery-sleep -s 3
+          # display off on battery after minutes
+          xfconf-query -c xfce4-power-manager -p /xfce4-power-manager/dpms-on-battery-off -s 5
+          #
+          # inactivity sleep mode on ac activate in minutes
+          xfconf-query -c xfce4-power-manager -p /xfce4-power-manager/inactivity-on-ac -s 20
+          # inactivity sleep mode on ac : suspend
+          xfconf-query -c xfce4-power-manager -p /xfce4-power-manager/inactivity-sleep-mode-on-ac -s 1
+          # lid action on ac : hibernate
+          xfconf-query -c xfce4-power-manager -p /xfce4-power-manager/lid-action-on-ac -s 1
+          # brightness reduce on ac after seconds
+          xfconf-query -c xfce4-power-manager -p /xfce4-power-manager/brightness-on-ac -s 15
+          # brightness reduce level on ac
+          xfconf-query -c xfce4-power-manager -p /xfce4-power-manager/brightness-level-on-ac -s 80
+          # display blank on ac after minutes
+          xfconf-query -c xfce4-power-manager -p /xfce4-power-manager/blank-on-ac -s 5
+          # display sleep on ac after minutes
+          xfconf-query -c xfce4-power-manager -p /xfce4-power-manager/dpms-on-ac-sleep -s 10
+          # display off on ac after minutes
+          xfconf-query -c xfce4-power-manager -p /xfce4-power-manager/dpms-on-ac-off -s 15
         '';
       };
       toggle_shell_theme = {

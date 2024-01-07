@@ -316,7 +316,7 @@
   };
 
   services.xidlehook = {
-    enable = true;
+    enable = false;
     environment = {
       "PRIMARY_DISPLAY" = "$(xrandr | awk '/ primary/{print $1}')";
     };
