@@ -316,7 +316,7 @@
   };
 
   services.xidlehook = {
-    enable = false;
+    enable = true;
     environment = {
       "PRIMARY_DISPLAY" = "$(xrandr | awk '/ primary/{print $1}')";
     };
@@ -324,17 +324,13 @@
     not-when-fullscreen = true;
     timers = [
       {
-        delay = 30;
-        command = ''xrandr --output "$PRIMARY_DISPLAY" --brightness .5'';
-        canceller = ''xrandr --output "$PRIMARY_DISPLAY" --brightness 1'';
-      }
-      {
-        delay = 60;
+        delay = 45;
         command = ''
-          xrandr --output "$PRIMARY_DISPLAY" --brightness 1;${pkgs.i3lock}/bin/i3lock --nofork --ignore-empty-password --image /etc/wallpapers/lock.png'';
+          ${pkgs.i3lock}/bin/i3lock --nofork --ignore-empty-password --image /etc/wallpapers/lock.png
+        '';
       }
       {
-        delay = 1800;
+        delay = 900;
         command = "systemctl suspend";
       }
     ];

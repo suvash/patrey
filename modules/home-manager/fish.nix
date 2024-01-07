@@ -47,12 +47,6 @@
           xfconf-query -c xfce4-power-manager -p /xfce4-power-manager/brightness-on-battery -s 15
           # brightness reduce level on battery
           xfconf-query -c xfce4-power-manager -p /xfce4-power-manager/brightness-level-on-battery -s 20
-          # display blank on battery after minutes
-          xfconf-query -c xfce4-power-manager -p /xfce4-power-manager/blank-on-battery -s 1
-          # display sleep on battery after minutes
-          xfconf-query -c xfce4-power-manager -p /xfce4-power-manager/dpms-on-battery-sleep -s 3
-          # display off on battery after minutes
-          xfconf-query -c xfce4-power-manager -p /xfce4-power-manager/dpms-on-battery-off -s 5
           #
           # inactivity sleep mode on ac activate in minutes
           xfconf-query -c xfce4-power-manager -p /xfce4-power-manager/inactivity-on-ac -s 20
@@ -64,12 +58,20 @@
           xfconf-query -c xfce4-power-manager -p /xfce4-power-manager/brightness-on-ac -s 15
           # brightness reduce level on ac
           xfconf-query -c xfce4-power-manager -p /xfce4-power-manager/brightness-level-on-ac -s 80
+          #
+          xfconf-query -c xfce4-power-manager -p /xfce4-power-manager/dpms-enabled -s true
+          # display blank on battery after minutes
+          xfconf-query -c xfce4-power-manager -p /xfce4-power-manager/blank-on-battery -s 0
+          # display sleep on battery after minutes
+          xfconf-query -c xfce4-power-manager -p /xfce4-power-manager/dpms-on-battery-sleep -s 1
+          # display off on battery after minutes
+          xfconf-query -c xfce4-power-manager -p /xfce4-power-manager/dpms-on-battery-off -s 3
           # display blank on ac after minutes
-          xfconf-query -c xfce4-power-manager -p /xfce4-power-manager/blank-on-ac -s 5
+          xfconf-query -c xfce4-power-manager -p /xfce4-power-manager/blank-on-ac -s 0
           # display sleep on ac after minutes
-          xfconf-query -c xfce4-power-manager -p /xfce4-power-manager/dpms-on-ac-sleep -s 10
+          xfconf-query -c xfce4-power-manager -p /xfce4-power-manager/dpms-on-ac-sleep -s 5
           # display off on ac after minutes
-          xfconf-query -c xfce4-power-manager -p /xfce4-power-manager/dpms-on-ac-off -s 15
+          xfconf-query -c xfce4-power-manager -p /xfce4-power-manager/dpms-on-ac-off -s 10
         '';
       };
       toggle_shell_theme = {
@@ -210,7 +212,7 @@
 
       # system
       dmsg = "dmesg -w -L";
-      battery = "upower -i /org/freedesktop/UPower/devices/battery_BAT0";
+      battery = "upower -i /org/freedesktop/UPower/devices/battery_BAT0 | grep time";
 
       # other
       du = "du -chs *";
