@@ -335,7 +335,31 @@
   services.upower.enable = true;
 
   # Enable TLP daemon
-  services.tlp.enable = true;
+  services.tlp = {
+    enable = true;
+    settings = {
+      # Settings available at https://linrunner.de/tlp/
+      CPU_DRIVER_OPMODE_ON_AC = "active";
+      CPU_DRIVER_OPMODE_ON_BAT = "active";
+      CPU_SCALING_GOVERNOR_ON_AC = "performance";
+      CPU_SCALING_GOVERNOR_ON_BAT = "powersave";
+      CPU_ENERGY_PERF_POLICY_ON_AC = "performance";
+      CPU_ENERGY_PERF_POLICY_ON_BAT = "power";
+      CPU_MIN_PERF_ON_AC = 10;
+      CPU_MAX_PERF_ON_AC = 100;
+      CPU_MIN_PERF_ON_BAT = 10;
+      CPU_MAX_PERF_ON_BAT = 60;
+      CPU_BOOST_ON_AC = 1;
+      CPU_BOOST_ON_BAT = 0;
+      CPU_HWP_DYN_BOOST_ON_AC = 1;
+      CPU_HWP_DYN_BOOST_ON_BAT = 0;
+      DEVICES_TO_DISABLE_ON_STARTUP = "bluetooth wwan";
+      DEVICES_TO_ENABLE_ON_STARTUP = "wifi";
+      DEVICES_TO_DISABLE_ON_LAN_CONNECT = "wifi";
+      DEVICES_TO_ENABLE_ON_LAN_DISCONNECT = "wifi";
+      # TLP_DEBUG = "arg bat disk lock nm path pm ps rf run sysfs udev usb";
+    };
+  };
 
   # Usbmuxd (Data to/from iOS)
   services.usbmuxd.enable = true;
