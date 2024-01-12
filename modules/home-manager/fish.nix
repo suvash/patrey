@@ -18,7 +18,7 @@
         description = "set xfce settings (custom lock command, related settings)";
         body = ''
           # custom lock command to be used by xfce
-          xfconf-query --create -c xfce4-session -p /general/LockCommand -t string -s "${pkgs.i3lock}/bin/i3lock --nofork --ignore-empty-password --show-failed-attempts --image /etc/wallpapers/lock.png";
+          xfconf-query --create -c xfce4-session -p /general/LockCommand -t string -s "${pkgs.i3lock}/bin/i3lock --ignore-empty-password --show-failed-attempts --image /etc/wallpapers/lock.png";
           # xfce icon theme
           xfconf-query -c xsettings -p /Net/IconThemeName -s Adwaita
           # lock screen on suspend and hibernate

@@ -326,7 +326,7 @@
       {
         delay = 45;
         command = ''
-          ${pkgs.i3lock}/bin/i3lock --nofork --ignore-empty-password --image /etc/wallpapers/lock.png
+          ${pkgs.i3lock}/bin/i3lock --ignore-empty-password --image /etc/wallpapers/lock.png
         '';
       }
       {
