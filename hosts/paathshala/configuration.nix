@@ -105,7 +105,7 @@
   };
 
   # Set your time zone.
-  time.timeZone = "${config.settings.timezone_ktm}";
+  time.timeZone = "${config.settings.timezone_sthlm}";
 
   # Set hardware clock to local time
   time.hardwareClockInLocalTime = true;
