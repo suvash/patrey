@@ -90,6 +90,9 @@
     discord
     zoom-us
 
+    # editors
+    obsidian
+
     # bling
     cmatrix
     neofetch
