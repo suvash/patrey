@@ -287,7 +287,13 @@
   services.mako.enable = false; # configure, wayland
 
   services.pasystray.enable = true; # pulseaudio
-  services.picom.enable = true; # configure
+
+  services.picom = {
+    enable = true;
+    fade = true;
+    fadeDelta = 3;
+  };
+
   services.playerctld.enable = true;
 
   services.poweralertd.enable = true;
