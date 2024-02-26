@@ -89,6 +89,7 @@
     slack
     discord
     zoom-us
+    webex
 
     # editors
     obsidian
