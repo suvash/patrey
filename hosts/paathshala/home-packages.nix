@@ -8,6 +8,7 @@
     ncpamixer
     pamixer
     pamix
+    pavucontrol
 
     # Entertainment
     spotify
