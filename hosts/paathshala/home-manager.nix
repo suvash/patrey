@@ -291,7 +291,7 @@
   services.picom = {
     enable = true;
     fade = true;
-    fadeDelta = 3;
+    fadeDelta = 4;
   };
 
   services.playerctld.enable = true;
