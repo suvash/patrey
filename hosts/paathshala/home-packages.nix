@@ -79,6 +79,9 @@
     # creds
     authy
 
+    # infrastructure
+    flyctl
+
     # browser
     brave
 
