@@ -61,6 +61,7 @@
     nmap
     master.cfspeedtest
     speedtest-cli
+    magic-wormhole
 
     # console
     parallel
