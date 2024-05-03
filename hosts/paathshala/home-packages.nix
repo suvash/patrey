@@ -88,13 +88,16 @@
     xfce.xfce4-volumed-pulse
 
     # communication
+    thunderbird
     slack
+    zulip
     discord
     zoom-us
     webex
 
     # editors
     obsidian
+    figma-linux
 
     # bling
     cmatrix
