@@ -77,9 +77,6 @@
     shfmt
     nixfmt
 
-    # creds
-    authy
-
     # infrastructure
     flyctl
 

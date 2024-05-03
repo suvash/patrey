@@ -8,7 +8,6 @@
 }: {
   imports = [
     inputs.nixos-hardware.nixosModules.dell-xps-13-9360
-    inputs.nixos-hardware.nixosModules.common-gpu-intel
 
     outputs.nixosModules.avahi
     outputs.nixosModules.pipewire
@@ -172,8 +171,7 @@
       noto-fonts-extra
       lohit-fonts.devanagari
       lohit-fonts.nepali
-      nerdfonts
-      emacs-all-the-icons-fonts
+      (nerdfonts.override {fonts = ["FiraCode" "DroidSansMono"];})
     ];
   };
 
