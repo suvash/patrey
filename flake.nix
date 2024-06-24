@@ -11,14 +11,14 @@
 
   inputs = {
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixpkgs-unstable";
-    nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-23.11";
+    nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-24.05";
     nixpkgs-master.url = "github:nixos/nixpkgs/master";
     nixpkgs-3be4a51.url = "github:nixos/nixpkgs/3be4a51a23edfa3a3c4ceabe25328520dd1d9fd4";
 
     nixos-hardware.url = "github:nixos/nixos-hardware";
 
     home-manager = {
-      url = "github:nix-community/home-manager/release-23.11";
+      url = "github:nix-community/home-manager/release-24.05";
       inputs.nixpkgs.follows = "nixpkgs-stable";
     };
 
