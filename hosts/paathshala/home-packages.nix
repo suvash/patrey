@@ -62,6 +62,7 @@
     master.cfspeedtest
     speedtest-cli
     magic-wormhole
+    wakeonlan
 
     # console
     parallel
