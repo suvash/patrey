@@ -1,7 +1,7 @@
 {
   services.avahi = {
     openFirewall = true;
-    nssmdns = true; # Allows software to use Avahi to resolve.
+    nssmdns4 = true; # Allows software to use Avahi to resolve.
     enable = true;
     publish = {
       enable = true;

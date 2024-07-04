@@ -187,9 +187,9 @@
   services.xserver.autorun = true;
 
   # Configure keymap for X11
-  services.xserver.layout = "us,us";
-  services.xserver.xkbVariant = "dvorak,";
-  services.xserver.xkbOptions = "grp:shifts_toggle,ctrl:nocaps";
+  services.xserver.xkb.layout = "us,us";
+  services.xserver.xkb.variant = "dvorak,";
+  services.xserver.xkb.options = "grp:shifts_toggle,ctrl:nocaps";
   services.xserver.autoRepeatDelay = 200;
   services.xserver.autoRepeatInterval = 60;
 
@@ -207,8 +207,8 @@
   programs.thunar.enable = true;
 
   # Select a display/login manager
+  services.displayManager.defaultSession = "xfce+i3";
   services.xserver.displayManager = {
-    defaultSession = "xfce+i3";
     sessionCommands = ''
       ${pkgs.xorg.xrdb}/bin/xrdb -merge <<EOF
       # 1928x1080 on 13.3" -> 166
@@ -247,7 +247,7 @@
   };
 
   # Touchpad
-  services.xserver.libinput = {
+  services.libinput = {
     enable = true;
     touchpad = {
       tapping = true;
