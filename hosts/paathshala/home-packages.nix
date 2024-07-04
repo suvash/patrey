@@ -74,9 +74,6 @@
     # linters / formatters
     yamllint
     ispell
-    shellcheck
-    shfmt
-    nixfmt
 
     # infrastructure
     flyctl

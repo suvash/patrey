@@ -17,8 +17,8 @@ in {
     deadnix
     statix
     # bash sh
-    beautysh
-    shellcheck
+    shfmt
+    shellharden
     # linters
     codespell
     gitlint

@@ -8,9 +8,8 @@ null_ls.setup({
     null_ls.builtins.diagnostics.deadnix,
     null_ls.builtins.code_actions.statix,
     -- sh/bash
-    null_ls.builtins.formatting.beautysh,
-    null_ls.builtins.diagnostics.shellcheck,
-    null_ls.builtins.code_actions.shellcheck,
+    null_ls.builtins.formatting.shellharden,
+    null_ls.builtins.formatting.shfmt,
     null_ls.builtins.hover.printenv,
     -- git
     null_ls.builtins.code_actions.gitsigns,
