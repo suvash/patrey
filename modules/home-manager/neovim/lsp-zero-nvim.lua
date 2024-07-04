@@ -28,5 +28,6 @@ lsp_zero.format_on_save({
     ['jsonls'] = { 'json' },
     ['tsserver'] = { 'javascript', 'typescript' },
     ['elixirls'] = { 'elixir', 'heex' },
+    ['ruff'] = { 'python' },
   }
 })

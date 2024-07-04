@@ -32,6 +32,9 @@ in {
     # nodejs - js - ts
     nodePackages.typescript
     nodePackages.typescript-language-server
+    # python
+    pyright
+    ruff
     # elixir
     elixir-ls
     # css
@@ -256,6 +259,9 @@ in {
 
             require'lspconfig'.jsonls.setup({})
             require'lspconfig'.tsserver.setup({})
+
+            require'lspconfig'.pyright.setup({})
+            require'lspconfig'.ruff.setup({})
 
             require'lspconfig'.elixirls.setup({
               cmd = { "${pkgs.elixir-ls}/lib/language_server.sh" };
