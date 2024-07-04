@@ -267,7 +267,15 @@ in {
               cmd = { "${pkgs.elixir-ls}/lib/language_server.sh" };
             })
 
-            require'lspconfig'.tailwindcss.setup({})
+            require'lspconfig'.tailwindcss.setup({
+              init_options = {
+                userLanguages = {
+                  elixir = "html-eex",
+                  eelixir = "html-eex",
+                  heex = "html-eex",
+                },
+              },
+            })
 
             --Enable (broadcasting) snippet capability for completion
             local snippet_capabilities = vim.lsp.protocol.make_client_capabilities()
