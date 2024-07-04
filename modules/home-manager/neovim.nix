@@ -34,6 +34,8 @@ in {
     nodePackages.typescript-language-server
     # elixir
     elixir-ls
+    # css
+    tailwindcss-language-server
   ];
 
   programs.neovim = {
@@ -258,6 +260,8 @@ in {
             require'lspconfig'.elixirls.setup({
               cmd = { "${pkgs.elixir-ls}/lib/language_server.sh" };
             })
+
+            require'lspconfig'.tailwindcss.setup({})
 
             --Enable (broadcasting) snippet capability for completion
             local snippet_capabilities = vim.lsp.protocol.make_client_capabilities()
