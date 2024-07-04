@@ -27,5 +27,6 @@ lsp_zero.format_on_save({
     ['lua_ls'] = { 'lua' },
     ['jsonls'] = { 'json' },
     ['tsserver'] = { 'javascript', 'typescript' },
+    ['elixirls'] = { 'elixir', 'heex' },
   }
 })

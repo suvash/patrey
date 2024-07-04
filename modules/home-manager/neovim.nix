@@ -32,6 +32,8 @@ in {
     # nodejs - js - ts
     nodePackages.typescript
     nodePackages.typescript-language-server
+    # elixir
+    elixir-ls
   ];
 
   programs.neovim = {
@@ -247,7 +249,30 @@ in {
         {
           plugin = pkgs.vimPlugins.nvim-lspconfig;
           type = "lua";
-          config = builtins.readFile ./neovim/nvim-lspconfig.lua;
+          config = ''
+            require'lspconfig'.lua_ls.setup({})
+
+            require'lspconfig'.jsonls.setup({})
+            require'lspconfig'.tsserver.setup({})
+
+            require'lspconfig'.elixirls.setup({
+              cmd = { "${pkgs.elixir-ls}/lib/language_server.sh" };
+            })
+
+            --Enable (broadcasting) snippet capability for completion
+            local snippet_capabilities = vim.lsp.protocol.make_client_capabilities()
+            snippet_capabilities.textDocument.completion.completionItem.snippetSupport = true
+
+            require'lspconfig'.html.setup {
+              capabilities = snippet_capabilities,
+              configurationSection = { "html", "css", "javascript" },
+              embeddedLanguages = {
+                css = true,
+                javascript = true
+              },
+              provideFormatter = true
+            }
+          '';
         }
 
         {
