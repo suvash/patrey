@@ -95,6 +95,7 @@
     discord
     zoom-us
     webex
+    libreoffice
 
     # editors
     obsidian
