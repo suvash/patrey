@@ -70,6 +70,15 @@ in {
           '';
         }
 
+        # Dired
+        {
+          plugin = unstable.vimPlugins.indent-blankline-nvim;
+          type = "lua";
+          config = ''
+            require('ibl').setup()
+          '';
+        }
+
         # Leap
         {
           plugin = vimPlugins.leap-nvim;

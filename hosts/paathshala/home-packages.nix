@@ -73,6 +73,7 @@
 
     # linters / formatters
     yamllint
+    shellcheck
     ispell
 
     # infrastructure
