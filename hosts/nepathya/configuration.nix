@@ -8,6 +8,7 @@
 }: {
   imports = [
     ./settings.nix
+    ./homebrew.nix
   ];
 
   # ENVIRONMENT =====================================================================
@@ -19,13 +20,27 @@
   environment.variables = {
     LANG = "en_US.UTF-8";
     PATREY_PATH = "$HOME/Developer/patrey";
-    EDITOR = "${config.settings.edtr}";
+    EDITOR = "${config.settings.editor}";
   };
 
   # Create /etc/bashrc, /etc/zshrc and /etc/fish/... that loads the nix-darwin environment.
   programs.bash.enable = true;
   programs.zsh.enable = true;
   programs.fish.enable = true;
+
+  # NETWORKING ======================================================================
+
+  networking = {
+    computerName = "${config.settings.computername}";
+    hostName = "${config.settings.hostname}";
+    localHostName = "${config.settings.hostname}";
+
+    # cloudflare dns
+    dns = ["1.1.1.1" "1.0.0.1" "2606:4700:4700::1111" "2606:4700:4700::1001"];
+
+    # networksetup -listallnetworkservices
+    knownNetworkServices = ["Wi-Fi" "iPhone USB"];
+  };
 
   # PROGRAMS ========================================================================
 

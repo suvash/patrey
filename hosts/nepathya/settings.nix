@@ -17,7 +17,11 @@
         default = "nepathya";
         type = with lib.types; uniq str;
       };
-      edtr = lib.mkOption {
+      computername = lib.mkOption {
+        default = "नेपथ्य";
+        type = with lib.types; uniq str;
+      };
+      editor = lib.mkOption {
         default = "vim";
         type = with lib.types; uniq str;
       };
