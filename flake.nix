@@ -1,5 +1,5 @@
 {
-  description = "Suvash's NixOS Flake";
+  description = "Suvash's NixOS+Darwin Flakes";
 
   nixConfig = {
     substituters = ["https://cache.nixos.org/"];
@@ -14,6 +14,12 @@
     nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-24.05";
     nixpkgs-master.url = "github:nixos/nixpkgs/master";
     nixpkgs-3be4a51.url = "github:nixos/nixpkgs/3be4a51a23edfa3a3c4ceabe25328520dd1d9fd4";
+
+    nixpkgs-darwin-stable.url = "github:nixos/nixpkgs/nixpkgs-24.05-darwin";
+    nix-darwin = {
+      url = "github:LnL7/nix-darwin";
+      inputs.nixpkgs.follows = "nixpkgs-darwin-stable";
+    };
 
     nixos-hardware.url = "github:nixos/nixos-hardware";
 
@@ -51,6 +57,8 @@
     nixpkgs-unstable,
     nixpkgs-stable,
     home-manager,
+    nixpkgs-darwin-stable,
+    nix-darwin,
     ...
   } @ inputs: let
     inherit (self) outputs;
@@ -81,6 +89,15 @@
         system = x86linux;
         specialArgs = {inherit inputs outputs;};
         modules = [./hosts/paathshala/configuration.nix];
+      };
+    };
+
+    # First time: nix run nix-darwin -- switch --flake .#nepathya
+    # darwin-rebuild build --flake .#hostname
+    darwinConfigurations = {
+      nepathya = nix-darwin.lib.darwinSystem rec {
+        specialArgs = {inherit inputs outputs;};
+        modules = [./hosts/nepathya/configuration.nix];
       };
     };
 
