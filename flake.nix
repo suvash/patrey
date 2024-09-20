@@ -101,7 +101,7 @@
       };
     };
 
-    # First time : nix run home-manager/release-23.05 -- switch --flake .#username@hostname
+    # First time : nix run home-manager/release-24.05 -- switch --flake .#username@hostname
     # Then after : home-manager switch --flake .#username@hostname
     homeConfigurations = {
       "suvash@paathshala" = home-manager.lib.homeManagerConfiguration {
@@ -109,6 +109,15 @@
           nixpkgs-stable.legacyPackages.${x86linux}; # required by home-manager
         extraSpecialArgs = {inherit inputs outputs;};
         modules = [./hosts/paathshala/home-manager.nix];
+      };
+
+      # First time : nix run home-manager/release-24.05 -- switch --flake .#username@hostname
+      # Then after : home-manager switch --flake .#username@hostname
+      "suvash@nepathya" = home-manager.lib.homeManagerConfiguration {
+        pkgs =
+          nixpkgs-stable.legacyPackages.${x86darwin}; # required by home-manager
+        extraSpecialArgs = {inherit inputs outputs;};
+        modules = [./hosts/nepathya/home-manager.nix];
       };
     };
   };

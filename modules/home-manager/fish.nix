@@ -150,6 +150,7 @@
 
       # nix things
       "nrs" = "sudo nixos-rebuild switch --flake $PATREY_PATH#(hostname)";
+      "drs" = "darwin-rebuild switch --flake $PATREY_PATH#(hostname)";
       "hms" = "home-manager switch --flake $PATREY_PATH#(whoami)@(hostname)";
 
       # git things

@@ -14,13 +14,16 @@
   # ENVIRONMENT =====================================================================
 
   # System level packages
-  environment.systemPackages = with pkgs; [cmatrix git];
+  environment.systemPackages = with pkgs; [];
+
+  # Shells
+  environment.shells = [pkgs.fish];
 
   # Env vars
   environment.variables = {
     LANG = "en_US.UTF-8";
     PATREY_PATH = "$HOME/Developer/patrey";
-    EDITOR = "${config.settings.editor}";
+    EDITOR = "${config.settings.edtr}";
   };
 
   # Create /etc/bashrc, /etc/zshrc and /etc/fish/... that loads the nix-darwin environment.
@@ -56,6 +59,10 @@
     name = "${config.settings.username}";
     home = "/Users/${config.settings.username}";
   };
+
+  system.activationScripts.setFishAsShell.text = ''
+    dscl . -create /Users/${config.settings.username} UserShell /run/current-system/sw/bin/fish
+  '';
 
   # NIX =============================================================================
 
