@@ -78,9 +78,11 @@
       (system: nixpkgs-unstable.legacyPackages.${system}.alejandra);
     # overlays
     overlays = import ./overlays {inherit inputs;};
-    # shareable non personal nixos modules
+    # shareable nixos modules
     nixosModules = import ./modules/nixos;
-    # shareable non personal home manager modules
+    # shareable darwin modules
+    darwinModules = import ./modules/darwin;
+    # shareable home manager modules
     homeManagerModules = import ./modules/home-manager;
 
     # sudo nixos-rebuild switch --flake .#hostname

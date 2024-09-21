@@ -7,6 +7,8 @@
   ...
 }: {
   imports = [
+    outputs.darwinModules.skhd
+
     ./settings.nix
     ./homebrew.nix
   ];
