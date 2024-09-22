@@ -54,4 +54,29 @@
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
+
+  # Programs
+  programs.autojump.enable = true;
+
+  programs.bottom.enable = true;
+  programs.btop.enable = true;
+
+  programs.direnv = {
+    enable = true;
+    nix-direnv.enable = true;
+  };
+
+  programs.fzf.enable = true;
+
+  programs.htop.enable = true; # configure
+
+  programs.info.enable = true;
+
+  programs.tealdeer = {
+    enable = true;
+    settings = {
+      display.compact = true;
+      updates.auto_update = true;
+    };
+  };
 }

@@ -20,7 +20,6 @@
 
     # File & Directory tools
     fd
-    fzf
     which
     less
     rlwrap
@@ -30,7 +29,6 @@
 
     # Watchers followers etc
     watch
-    direnv
 
     # Compression
     gzip
@@ -38,8 +36,6 @@
     pigz
 
     # System tools
-    htop
-    btop
     glances
     lsof
     pstree
@@ -67,9 +63,6 @@
     # Development tools
     tokei
     pgcli
-
-    # Documentation tools
-    tldr
 
     # Terminals / shells
     fasd
