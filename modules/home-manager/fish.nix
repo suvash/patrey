@@ -212,6 +212,7 @@
       ports = "netstat -tunap";
 
       # system
+      h = "hostname";
       dmsg = "dmesg -w -L";
       battery = "upower -i /org/freedesktop/UPower/devices/battery_BAT0 | grep time";
 
