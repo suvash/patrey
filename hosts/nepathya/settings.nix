@@ -21,12 +21,8 @@
         default = "नेपथ्य";
         type = with lib.types; uniq str;
       };
-      edtr = lib.mkOption {
-        default = "vim";
-        type = with lib.types; uniq str;
-      };
       editor = lib.mkOption {
-        default = "nvim";
+        default = "vim";
         type = with lib.types; uniq str;
       };
     };

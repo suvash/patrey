@@ -25,7 +25,6 @@
   environment.variables = {
     LANG = "en_US.UTF-8";
     PATREY_PATH = "$HOME/Developer/patrey";
-    EDITOR = "${config.settings.edtr}";
   };
 
   # Create /etc/bashrc, /etc/zshrc and /etc/fish/... that loads the nix-darwin environment.
