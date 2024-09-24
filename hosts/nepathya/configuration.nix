@@ -92,8 +92,12 @@
   nix.package = pkgs.nix;
   services.nix-daemon.enable = true;
 
-  # Necessary for using flakes on this system.
-  nix.settings.experimental-features = "nix-command flakes";
+  nix.settings = {
+    # for using flakes
+    experimental-features = "nix-command flakes";
+    # for adding subtituters and their keys
+    trusted-users = [ "${config.settings.username}" ];
+  };
 
   # Set Git commit hash for darwin-version.
   # system.configurationRevision = self.rev or self.dirtyRev or null;
