@@ -17,9 +17,16 @@
       cleanup = "zap";
     };
 
-    taps = [];
+    taps = [
+      "d12frosted/emacs-plus"
+    ];
 
-    brews = [];
+    brews = [
+      {
+        name = "emacs-plus";
+        args = [ "with-modern-doom3-icon" ];
+      }
+    ];
 
     masApps = {
       "Bitwarden" = 1352778147;
