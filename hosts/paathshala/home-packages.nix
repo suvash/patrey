@@ -82,6 +82,9 @@
     # browser
     brave
 
+    # editors
+    unstable.code-cursor
+
     # xfce Utilities
     # for keyboard volume buttons
     xfce.xfce4-volumed-pulse
