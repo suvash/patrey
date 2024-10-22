@@ -1,11 +1,14 @@
 {
-  description = "Suvash's NixOS Flake";
+  description = "Suvash's NixOS+Darwin Flakes";
 
   nixConfig = {
-    substituters = ["https://cache.nixos.org/"];
-    extra-substituters = ["https://nix-community.cachix.org"];
+    extra-substituters = [
+      "https://nix-community.cachix.org"
+      "https://suvash.cachix.org"
+    ];
     extra-trusted-public-keys = [
       "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
+      "suvash.cachix.org-1:ZJaRn/gUWxarb/rtYiP3njBLUBw+JYpKSg9dDS0NKjM="
     ];
   };
 
@@ -14,6 +17,12 @@
     nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-24.05";
     nixpkgs-master.url = "github:nixos/nixpkgs/master";
     nixpkgs-3be4a51.url = "github:nixos/nixpkgs/3be4a51a23edfa3a3c4ceabe25328520dd1d9fd4";
+
+    nixpkgs-darwin-stable.url = "github:nixos/nixpkgs/nixpkgs-24.05-darwin";
+    nix-darwin = {
+      url = "github:LnL7/nix-darwin";
+      inputs.nixpkgs.follows = "nixpkgs-darwin-stable";
+    };
 
     nixos-hardware.url = "github:nixos/nixos-hardware";
 
@@ -51,6 +60,8 @@
     nixpkgs-unstable,
     nixpkgs-stable,
     home-manager,
+    nixpkgs-darwin-stable,
+    nix-darwin,
     ...
   } @ inputs: let
     inherit (self) outputs;
@@ -70,9 +81,11 @@
       (system: nixpkgs-unstable.legacyPackages.${system}.alejandra);
     # overlays
     overlays = import ./overlays {inherit inputs;};
-    # shareable non personal nixos modules
+    # shareable nixos modules
     nixosModules = import ./modules/nixos;
-    # shareable non personal home manager modules
+    # shareable darwin modules
+    darwinModules = import ./modules/darwin;
+    # shareable home manager modules
     homeManagerModules = import ./modules/home-manager;
 
     # sudo nixos-rebuild switch --flake .#hostname
@@ -84,7 +97,16 @@
       };
     };
 
-    # First time : nix run home-manager/release-23.05 -- switch --flake .#username@hostname
+    # First time: nix run nix-darwin -- switch --flake .#nepathya
+    # darwin-rebuild build --flake .#hostname
+    darwinConfigurations = {
+      nepathya = nix-darwin.lib.darwinSystem rec {
+        specialArgs = {inherit inputs outputs;};
+        modules = [./hosts/nepathya/configuration.nix];
+      };
+    };
+
+    # First time : nix run home-manager/release-24.05 -- switch --flake .#username@hostname
     # Then after : home-manager switch --flake .#username@hostname
     homeConfigurations = {
       "suvash@paathshala" = home-manager.lib.homeManagerConfiguration {
@@ -92,6 +114,15 @@
           nixpkgs-stable.legacyPackages.${x86linux}; # required by home-manager
         extraSpecialArgs = {inherit inputs outputs;};
         modules = [./hosts/paathshala/home-manager.nix];
+      };
+
+      # First time : nix run home-manager/release-24.05 -- switch --flake .#username@hostname
+      # Then after : home-manager switch --flake .#username@hostname
+      "suvash@nepathya" = home-manager.lib.homeManagerConfiguration {
+        pkgs =
+          nixpkgs-stable.legacyPackages.${x86darwin}; # required by home-manager
+        extraSpecialArgs = {inherit inputs outputs;};
+        modules = [./hosts/nepathya/home-manager.nix];
       };
     };
   };

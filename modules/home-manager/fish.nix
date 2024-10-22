@@ -150,6 +150,7 @@
 
       # nix things
       "nrs" = "sudo nixos-rebuild switch --flake $PATREY_PATH#(hostname)";
+      "drs" = "darwin-rebuild switch --flake $PATREY_PATH#(hostname)";
       "hms" = "home-manager switch --flake $PATREY_PATH#(whoami)@(hostname)";
 
       # git things
@@ -211,6 +212,7 @@
       ports = "netstat -tunap";
 
       # system
+      h = "hostname";
       dmsg = "dmesg -w -L";
       battery = "upower -i /org/freedesktop/UPower/devices/battery_BAT0 | grep time";
 
