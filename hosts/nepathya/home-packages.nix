@@ -82,6 +82,7 @@
     ispell
     yamllint
     shellcheck
+    pandoc
 
     # Benchmark
     speedtest-cli

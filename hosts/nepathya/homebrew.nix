@@ -1,8 +1,4 @@
-{
-  config,
-  pkgs,
-  ...
-}: {
+{...}: {
   homebrew = {
     enable = true;
 
@@ -24,7 +20,7 @@
     brews = [
       {
         name = "emacs-plus";
-        args = [ "with-modern-doom3-icon" ];
+        args = ["with-modern-doom3-icon" "with-native-comp"];
       }
     ];
 
@@ -52,6 +48,7 @@
       "chrysalis"
       "coconutbattery"
       "cursor"
+      "dbeaver-community"
       "discord"
       "disk-inventory-x"
       "docker"
