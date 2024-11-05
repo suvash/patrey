@@ -216,6 +216,10 @@
       dmsg = "dmesg -w -L";
       battery = "upower -i /org/freedesktop/UPower/devices/battery_BAT0 | grep time";
 
+      # APP_ENV
+      devenv = "echo 'APP_ENV=development' > .env";
+      stgenv = "echo 'APP_ENV=staging' > .env";
+
       # other
       du = "du -chs *";
       dg = "dig +noall +answer";

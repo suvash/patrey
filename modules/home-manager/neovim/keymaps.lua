@@ -15,6 +15,7 @@ vim.g.maplocalleader = " "
 -- Normal
 
 -- Explore
+vim.keymap.set("n", "<leader>..", ":Ex<CR>")
 vim.keymap.set("n", "<leader>n.", ":NvimTreeFindFileToggle<CR>")
 
 -- Trouble
