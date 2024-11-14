@@ -37,6 +37,8 @@ in {
     ruff
     # elixir
     elixir-ls
+    # zig
+    zls
     # css
     tailwindcss-language-server
   ];
@@ -262,6 +264,7 @@ in {
 
             require'lspconfig'.pyright.setup({})
             require'lspconfig'.ruff.setup({})
+            require'lspconfig'.zls.setup({})
 
             require'lspconfig'.elixirls.setup({
               cmd = { "${pkgs.elixir-ls}/lib/language_server.sh" };
