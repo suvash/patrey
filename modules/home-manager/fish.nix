@@ -181,7 +181,7 @@
       gbd = "git branch --delete";
       gbdf = "git branch --delete --force";
       gcp = "git cherry-pick";
-      gl = "git log --oneline --decorate=full";
+      gl = "git log --oneline --graph --decorate=full";
       grhh = "git reset HEAD --hard";
       gcln = "git clean -f -d";
       gdmlb = "git branch --merged | grep -v '*' | xargs -n 1 git branch -d";
