@@ -91,6 +91,13 @@
     cmatrix
     neofetch
 
+    # age
+    age
+    age-plugin-yubikey
+
+    # zig
+    zig
+
     # Scripts
     (pkgs.writeShellScriptBin "my-hello" ''
       echo "Hello, ${config.home.username}!"
