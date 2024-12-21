@@ -56,6 +56,15 @@
   # Nicely reload system units when changing configs
   systemd.user.startServices = "sd-switch";
 
+  # Workaround for Failed to restart syncthingtray.service: Unit tray.target not found.
+  # - https://github.com/nix-community/home-manager/issues/2064
+  systemd.user.targets.tray = {
+    Unit = {
+      Description = "Home Manager System Tray";
+      Requires = ["graphical-session-pre.target"];
+    };
+  };
+
   home.stateVersion = "23.05";
 
   home.username = "${config.settings.username}";
@@ -307,6 +316,7 @@
   };
 
   services.safeeyes.enable = true;
+  services.snixembed.enable = true;
   services.screen-locker.enable = false;
   services.stalonetray.enable = false; # configure
   services.swayidle.enable = false; # configure, sway
