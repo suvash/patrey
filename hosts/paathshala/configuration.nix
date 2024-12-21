@@ -171,7 +171,7 @@
       noto-fonts-extra
       lohit-fonts.devanagari
       lohit-fonts.nepali
-      (nerdfonts.override {fonts = ["FiraCode" "DroidSansMono"];})
+      nerd-fonts.droid-sans-mono
     ];
   };
 
