@@ -40,7 +40,7 @@
 
     # webcam
     v4l-utils
-    gnome.cheese
+    cheese
 
     # monitoring
     iotop
