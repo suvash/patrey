@@ -13,6 +13,7 @@
     # Entertainment
     spotify
     vlc
+    mplayer
 
     # File tools
     fd
