@@ -84,6 +84,7 @@
 
     # editors
     unstable.code-cursor
+    unstable.zed-editor
 
     # xfce Utilities
     # for keyboard volume buttons
