@@ -104,6 +104,9 @@
     obsidian
     figma-linux
 
+    # documents
+    calibre
+
     # bling
     cmatrix
     neofetch
