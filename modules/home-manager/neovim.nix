@@ -16,6 +16,7 @@ in {
     unstable.alejandra
     deadnix
     statix
+    nixd
     # bash sh
     shfmt
     shellharden
@@ -260,7 +261,7 @@ in {
             require'lspconfig'.lua_ls.setup({})
 
             require'lspconfig'.jsonls.setup({})
-            require'lspconfig'.tsserver.setup({})
+            require'lspconfig'.ts_ls.setup({})
 
             require'lspconfig'.pyright.setup({})
             require'lspconfig'.ruff.setup({})
