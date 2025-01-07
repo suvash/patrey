@@ -1,8 +1,4 @@
-{
-  inputs,
-  pkgs,
-  ...
-}: {
+{pkgs, ...}: {
   home.packages = with pkgs; [
     tmux-mem-cpu-load
   ];
@@ -58,9 +54,6 @@
 
       # Show hide status Bar
       bind C-s set -g status
-
-      # base16
-      source-file ${inputs.base16-tmux}/colors/base16-greenscreen.conf
     '';
   };
 }

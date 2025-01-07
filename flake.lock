@@ -1,53 +1,5 @@
 {
   "nodes": {
-    "base16-fzf": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1734225876,
-        "narHash": "sha256-yEMwr2+rMev9YHtrY7qduNwX4gBIKSyX/HClqndu594=",
-        "owner": "tinted-theming",
-        "repo": "base16-fzf",
-        "rev": "6feaca09573a2af3cd2c4bd5b3270e4f65719fbc",
-        "type": "github"
-      },
-      "original": {
-        "owner": "tinted-theming",
-        "repo": "base16-fzf",
-        "type": "github"
-      }
-    },
-    "base16-shell": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1734227268,
-        "narHash": "sha256-yRFoqWanATVuxtNpw+cgORWY5MALnt131/yeCPPEk0I=",
-        "owner": "tinted-theming",
-        "repo": "base16-shell",
-        "rev": "839f96d22a5b3a702444b2b19513b2e751ff748a",
-        "type": "github"
-      },
-      "original": {
-        "owner": "tinted-theming",
-        "repo": "base16-shell",
-        "type": "github"
-      }
-    },
-    "base16-tmux": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1734224912,
-        "narHash": "sha256-1y/a9zKXYSq8ygmofr8UGByAehrauTH8QW8jdpYziMI=",
-        "owner": "tinted-theming",
-        "repo": "base16-tmux",
-        "rev": "20396f130e477512632c37f72590b71f59dbef88",
-        "type": "github"
-      },
-      "original": {
-        "owner": "tinted-theming",
-        "repo": "base16-tmux",
-        "type": "github"
-      }
-    },
     "flake-compat": {
       "flake": false,
       "locked": {
@@ -294,11 +246,11 @@
     },
     "nixpkgs-unstable_2": {
       "locked": {
-        "lastModified": 1734435836,
-        "narHash": "sha256-kMBQ5PRiFLagltK0sH+08aiNt3zGERC2297iB6vrvlU=",
+        "lastModified": 1735523292,
+        "narHash": "sha256-opBsbR/nrGxiiF6XzlVluiHYb6yN/hEwv+lBWTy9xoM=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "4989a246d7a390a859852baddb1013f825435cee",
+        "rev": "6d97d419e5a9b36e6293887a89a078cf85f5a61b",
         "type": "github"
       },
       "original": {
@@ -310,9 +262,6 @@
     },
     "root": {
       "inputs": {
-        "base16-fzf": "base16-fzf",
-        "base16-shell": "base16-shell",
-        "base16-tmux": "base16-tmux",
         "ghostty": "ghostty",
         "home-manager": "home-manager",
         "lsp-zero-nvim-3": "lsp-zero-nvim-3",

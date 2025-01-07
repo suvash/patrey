@@ -74,8 +74,8 @@
             block = "toggle";
             format = "$icon ";
             command_state = "${pkgs.fish}/bin/fish -c get_xfce_theme | grep dark";
-            command_on = "${pkgs.fish}/bin/fish -c toggle_xfce_theme";
-            command_off = "${pkgs.fish}/bin/fish -c toggle_xfce_theme";
+            command_on = "${pkgs.fish}/bin/fish -c toggle_light_dark_theme";
+            command_off = "${pkgs.fish}/bin/fish -c toggle_light_dark_theme";
             interval = 5;
           }
 

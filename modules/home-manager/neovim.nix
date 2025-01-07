@@ -124,9 +124,9 @@ in {
         vimPlugins.vim-illuminate
 
         {
-          plugin = vimPlugins.base16-vim;
+          plugin = vimPlugins.catppuccin-nvim;
           type = "lua";
-          config = builtins.readFile ./neovim/base16-vim.lua;
+          config = builtins.readFile ./neovim/colorscheme.lua;
         }
 
         {

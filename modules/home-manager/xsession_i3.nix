@@ -56,7 +56,7 @@
 
         "${modifier}+ctrl+v" = "exec CM_LAUNCHER=rofi ${pkgs.clipmenu}/bin/clipmenu";
         "${modifier}+ctrl+w" = "exec ${pkgs.feh}/bin/feh --bg-tile --no-fehbg --randomize ~/.wallpapers";
-        "${modifier}+ctrl+t" = "exec ${pkgs.fish}/bin/fish -c toggle_xfce_theme";
+        "${modifier}+ctrl+t" = "exec ${pkgs.xfce.xfce4-terminal}/bin/xfce4-terminal -e 'fish -c toggle_light_dark_theme'";
 
         "${modifier}+ctrl+space" = "exec ${pkgs.kitty}/bin/kitty --class='__scratch_terminal'"; # check scratchpad
 

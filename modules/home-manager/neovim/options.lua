@@ -19,7 +19,7 @@ vim.opt.signcolumn =
 vim.opt.splitbelow = true                                           -- all horizontal splits to go below current window
 vim.opt.splitright = true                                           -- all vertical splits to go to the right of current window
 
-vim.opt.termguicolors = true                                        -- set term gui colors (most terminals support this)
+vim.opt.termguicolors = false                                       -- disable true color support
 
 vim.opt.scrolloff = 8                                               -- minimum number of rows to start scrolling at the edges
 vim.opt.sidescrolloff = 8                                           -- minimum number of columns to start scrolling at the edges

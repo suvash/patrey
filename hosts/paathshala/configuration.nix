@@ -246,6 +246,25 @@
     };
   };
 
+  # Enable XDG portal
+  xdg.portal = {
+    enable = true;
+    config = {
+      common = {
+        default = [
+          "gtk"
+          "gnome"
+          "kde"
+        ];
+      };
+    };
+    extraPortals = [
+      pkgs.xdg-desktop-portal-gtk
+      pkgs.xdg-desktop-portal-gnome
+      pkgs.xdg-desktop-portal-kde
+    ];
+  };
+
   # Touchpad
   services.libinput = {
     enable = true;

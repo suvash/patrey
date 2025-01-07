@@ -8,7 +8,6 @@
   imports = [
     outputs.homeManagerModules.git
     outputs.homeManagerModules.fish
-    outputs.homeManagerModules.starship
 
     ./settings.nix
     ./home-packages.nix

@@ -10,7 +10,6 @@
 
     outputs.homeManagerModules.git
     outputs.homeManagerModules.fish
-    outputs.homeManagerModules.starship
 
     ./settings.nix
     ./home-packages.nix
@@ -160,6 +159,7 @@
 
   programs.kitty = {
     enable = true;
+    package = pkgs.unstable.kitty;
     settings = {
       font_family = "Ubuntu Mono";
       font_size = "14";
@@ -225,18 +225,7 @@
 
   programs.translate-shell.enable = true; # configure
 
-  programs.vim = {
-    enable = true;
-    plugins = with pkgs.vimPlugins; [base16-vim];
-    extraConfig = ''
-      if exists('$BASE16_THEME')
-          \ && (!exists('g:colors_name')
-          \ || g:colors_name != 'base16-$BASE16_THEME')
-        let base16colorspace=256
-        colorscheme base16-$BASE16_THEME
-      endif
-    '';
-  };
+  programs.vim.enable = true;
   programs.vscode.enable = true; # configure
 
   programs.watson.enable = false; # configure

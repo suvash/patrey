@@ -36,19 +36,6 @@
       inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
 
-    base16-shell = {
-      url = "github:tinted-theming/base16-shell";
-      flake = false;
-    };
-    base16-fzf = {
-      url = "github:tinted-theming/base16-fzf";
-      flake = false;
-    };
-    base16-tmux = {
-      url = "github:tinted-theming/base16-tmux";
-      flake = false;
-    };
-
     lsp-zero-nvim-3 = {
       url = "github:VonHeikemen/lsp-zero.nvim/v3.x";
       flake = false;

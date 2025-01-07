@@ -1,15 +1,8 @@
-{
-  inputs,
-  pkgs,
-  ...
-}: {
+{pkgs, ...}: {
   programs.fish = {
     enable = true;
 
     interactiveShellInit = ''
-      set -Ux BASE16_FZF_PATH "${inputs.base16-fzf}"
-      set -Ux BASE16_SHELL_PATH "${inputs.base16-shell}"
-      source "$BASE16_SHELL_PATH/profile_helper.fish"
     '';
 
     functions = {
@@ -74,30 +67,6 @@
           xfconf-query -c xfce4-power-manager -p /xfce4-power-manager/dpms-on-ac-off -s 10
         '';
       };
-      toggle_shell_theme = {
-        description = "toggle between dark & light theme for shell";
-        body = ''
-          set theme_light "one-light"
-          set theme_dark "onedark"
-          switch $BASE16_THEME
-          case $theme_light
-            set target $theme_dark
-          case $theme_dark
-            set target $theme_light
-          case "*"
-            set target $theme_dark
-          end
-          set theme_target "base16-$target"
-          eval $theme_target
-          set body "Switching to $target theme"
-          if set -q DISPLAY; and set -q XDG_SESSION_TYPE; and test "$XDG_SESSION_TYPE" = "x11"
-            set subject "Toggling light/dark SHELL theme"
-            ${pkgs.libnotify}/bin/notify-send --urgency=NORMAL $subject $body
-          else
-            echo $body
-          end
-        '';
-      };
       get_xfce_theme = {
         description = "get current xfce theme";
         body = ''
@@ -113,25 +82,49 @@
           eval $command
         '';
       };
-      toggle_xfce_theme = {
-        description = "toggle between dark & light theme for xfce";
+      set_gtk_theme = {
+        description = "set a gtk theme";
+        body = ''
+          set theme $argv
+          set command "gsettings set org.gnome.desktop.interface gtk-theme $theme"
+          eval $command
+        '';
+      };
+      set_gtk_colorscheme = {
+        description = "set a gtk colorscheme";
+        body = ''
+          set colorscheme $argv
+          set command "gsettings set org.gnome.desktop.interface color-scheme $colorscheme"
+          eval $command
+        '';
+      };
+      toggle_light_dark_theme = {
+        description = "toggle between dark & light theme";
         body = ''
           set theme_light "Adwaita"
+          set colorscheme_light "prefer-light"
           set theme_dark "Adwaita-dark"
+          set colorscheme_dark "prefer-dark"
           set theme_current (get_xfce_theme)
           set theme_target ""
+          set color_scheme_target ""
           switch $theme_current
           case $theme_light
             set theme_target $theme_dark
+            set colorscheme_target $colorscheme_dark
           case $theme_dark
             set theme_target $theme_light
+            set colorscheme_target $colorscheme_light
           case "*"
             set theme_target $theme_dark
+            set colorscheme_target $colorscheme_dark
           end
           set subject "Toggling light/dark XFCE theme"
           set body "Switching to $theme_target theme"
           ${pkgs.libnotify}/bin/notify-send --urgency=NORMAL $subject $body
           set_xfce_theme $theme_target
+          set_gtk_theme $theme_target
+          set_gtk_colorscheme $colorscheme_target
         '';
       };
     };
@@ -143,7 +136,7 @@
       "....." = "../../../..";
       p = "cd $PATREY_PATH";
       b = "bat";
-      v = "vim (fzf --preview 'bat --number --color=always {}')";
+      v = "vim (fzf --color 16 --preview 'bat --number --color=always {}')";
       n = "nvim";
       ll = "ls -lah";
       lsd = "tree --dirsfirst -ChF -L 1";
@@ -228,7 +221,7 @@
       myip = "curl ifconfig.me/ip";
 
       # fish functions
-      tst = "toggle_shell_theme";
+      tt = "toggle_light_dark_theme";
     };
   };
 }
