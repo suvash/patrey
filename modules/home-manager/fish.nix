@@ -136,7 +136,7 @@
       "....." = "../../../..";
       p = "cd $PATREY_PATH";
       b = "bat";
-      v = "vim (fzf --color 16 --preview 'bat --number --color=always {}')";
+      v = "vim (rg --files | fzf --color 16 --preview 'bat --number --color=always {}')";
       n = "nvim";
       ll = "ls -lah";
       lsd = "tree --dirsfirst -ChF -L 1";
