@@ -45,6 +45,7 @@
       "arc"
       "brave-browser"
       "blackhole-16ch"
+      "calibre"
       "chrysalis"
       "coconutbattery"
       "cursor"
