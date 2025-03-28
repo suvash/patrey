@@ -26,25 +26,26 @@
 
     masApps = {
       "Bitwarden" = 1352778147;
+      "Blinks" = 998804308;
       "Hand Mirror" = 1502839586;
       "Mactracker" = 430255202;
       "NetSpot" = 514951692;
       "Save to Pocket" = 1477385213;
       "Slack" = 803453959;
       "Tailscale" = 1475387142;
-      "Vimari" = 1480933944;
-      "iNet Network Scanner" = 403304796;
       "Todoist" = 585829637;
-      "Blinks" = 998804308;
+      "Vimari" = 1480933944;
+      "WhatsApp" = 310633997;
+      "iNet Network Scanner" = 403304796;
     };
 
     casks = [
       "amethyst"
       "anki"
-      "authy"
       "arc"
-      "brave-browser"
+      "authy"
       "blackhole-16ch"
+      "brave-browser"
       "calibre"
       "chrysalis"
       "coconutbattery"
@@ -53,16 +54,15 @@
       "discord"
       "disk-inventory-x"
       "docker"
-      "firefox"
       "figma"
+      "firefox"
       "google-chrome"
       "iterm2"
-      "thunderbird"
       "karabiner-elements"
       "keepingyouawake"
-      "kensingtonworks"
       "keka"
       "kekaexternalhelper"
+      "kensingtonworks"
       "kindle"
       "kitty"
       "libreoffice"
@@ -71,18 +71,18 @@
       "obsidian"
       "postman"
       "raycast"
+      "send-to-kindle"
       "signal"
       "spotify"
-      "send-to-kindle"
-      "vlc"
+      "thunderbird"
       "visual-studio-code"
-      "webex"
+      "vlc"
       "wacom-tablet"
-      "whatsapp"
-      "zotero"
-      "zoom"
-      "zulip"
+      "webex"
       "zed"
+      "zoom"
+      "zotero"
+      "zulip"
     ];
   };
 }
