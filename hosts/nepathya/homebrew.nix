@@ -43,6 +43,7 @@
       "amethyst"
       "anki"
       "authy"
+      "brave-browser"
       "calibre"
       "chrysalis"
       "coconutbattery"
