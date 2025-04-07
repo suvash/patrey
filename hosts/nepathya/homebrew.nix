@@ -19,8 +19,8 @@
 
     brews = [
       {
-        name = "emacs-plus";
-        args = ["with-modern-doom3-icon" "with-native-comp"];
+        name = "emacs-plus@30";
+        args = ["with-modern-doom3-icon"];
       }
     ];
 
