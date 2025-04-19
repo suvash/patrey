@@ -7,7 +7,16 @@
       key = "5E73D2B2";
       signByDefault = false;
     };
-    ignores = [".DS_Store" "*.swp"];
+    ignores = [
+      # Apple stuff
+      ".DS_Store"
+
+      # Editors
+      "*.swp"
+
+      # Secrets
+      "*.env"
+    ];
     extraConfig = {
       init = {
         defaultBranch = "main";
