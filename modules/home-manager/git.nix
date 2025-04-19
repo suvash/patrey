@@ -7,7 +7,7 @@
       key = "5E73D2B2";
       signByDefault = false;
     };
-    ignores = ["DS_Store" "*.swp"];
+    ignores = [".DS_Store" "*.swp"];
     extraConfig = {
       init = {
         defaultBranch = "main";

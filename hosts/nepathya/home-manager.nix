@@ -51,6 +51,13 @@
     # '';
   };
 
+  # Impure link
+  xdg.configFile = {
+    "karabiner/karabiner.json" = {
+      source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/${config.settings.patreydir}/modules/impure/karabiner/karabiner.json";
+    };
+  };
+
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 

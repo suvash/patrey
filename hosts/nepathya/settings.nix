@@ -25,6 +25,11 @@
         default = "vim";
         type = with lib.types; uniq str;
       };
+      patreydir = lib.mkOption {
+        # relative to $HOME
+        default = "Developer/patrey";
+        type = with lib.types; uniq str;
+      };
     };
   };
 }
