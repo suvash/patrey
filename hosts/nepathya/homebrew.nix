@@ -42,7 +42,6 @@
     casks = [
       "amethyst"
       "anki"
-      "authy"
       "brave-browser"
       "calibre"
       "chrysalis"
@@ -51,6 +50,7 @@
       "discord"
       "disk-inventory-x"
       "docker"
+      "ente-auth"
       "figma"
       "firefox"
       "google-chrome"
