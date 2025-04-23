@@ -108,6 +108,9 @@
       obsidian
       figma-linux
 
+      # benchmark
+      geekbench
+
       # documents
       calibre
 
