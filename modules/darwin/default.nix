@@ -1,0 +1,3 @@
+{
+  skhd = import ./skhd.nix;
+}
