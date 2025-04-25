@@ -14,11 +14,11 @@
         type = with lib.types; uniq str;
       };
       hostname = lib.mkOption {
-        default = "nepathya";
+        default = "mancha";
         type = with lib.types; uniq str;
       };
       computername = lib.mkOption {
-        default = "नेपथ्य";
+        default = "मञ्च";
         type = with lib.types; uniq str;
       };
       editor = lib.mkOption {

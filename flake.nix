@@ -88,12 +88,12 @@
       };
     };
 
-    # First time: nix run nix-darwin -- switch --flake .#nepathya
+    # First time: nix run nix-darwin -- switch --flake .#mancha
     # darwin-rebuild build --flake .#hostname
     darwinConfigurations = {
-      nepathya = nix-darwin.lib.darwinSystem rec {
+      mancha = nix-darwin.lib.darwinSystem rec {
         specialArgs = {inherit inputs outputs;};
-        modules = [./hosts/nepathya/configuration.nix];
+        modules = [./hosts/mancha/configuration.nix];
       };
     };
 
@@ -109,11 +109,11 @@
 
       # First time : nix run home-manager/release-24.11 -- switch --flake .#username@hostname
       # Then after : home-manager switch --flake .#username@hostname
-      "suvash@nepathya" = home-manager.lib.homeManagerConfiguration {
+      "suvash@mancha" = home-manager.lib.homeManagerConfiguration {
         pkgs =
           nixpkgs-stable.legacyPackages.${x86darwin}; # required by home-manager
         extraSpecialArgs = {inherit inputs outputs;};
-        modules = [./hosts/nepathya/home-manager.nix];
+        modules = [./hosts/mancha/home-manager.nix];
       };
     };
   };
