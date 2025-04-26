@@ -1,16 +1,16 @@
 {
   description = "Suvash's NixOS+Darwin Flakes";
 
-  nixConfig = {
-    extra-substituters = [
-      "https://nix-community.cachix.org"
-      "https://suvash.cachix.org"
-    ];
-    extra-trusted-public-keys = [
-      "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
-      "suvash.cachix.org-1:ZJaRn/gUWxarb/rtYiP3njBLUBw+JYpKSg9dDS0NKjM="
-    ];
-  };
+  # nixConfig = {
+  #   extra-substituters = [
+  #     "https://nix-community.cachix.org"
+  #     "https://suvash.cachix.org"
+  #   ];
+  #   extra-trusted-public-keys = [
+  #     "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
+  #     "suvash.cachix.org-1:ZJaRn/gUWxarb/rtYiP3njBLUBw+JYpKSg9dDS0NKjM="
+  #   ];
+  # };
 
   inputs = {
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixpkgs-unstable";
