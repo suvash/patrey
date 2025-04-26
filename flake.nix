@@ -55,7 +55,8 @@
     # Supported systems for your flake packages, shell, etc.
     x86linux = "x86_64-linux";
     x86darwin = "x86_64-darwin";
-    systems = [x86linux x86darwin];
+    adarwin = "aarch64-darwin";
+    systems = [x86linux x86darwin adarwin];
     forAllSystems = nixpkgs-stable.lib.genAttrs systems;
   in {
     # Custom packages, available through 'nix build', 'nix shell', etc
@@ -84,9 +85,14 @@
       };
     };
 
-    # First time: nix run nix-darwin -- switch --flake .#mancha
+    # First time: nix run nix-darwin -- switch --flake .#nepathya
     # darwin-rebuild build --flake .#hostname
     darwinConfigurations = {
+      nepathya = nix-darwin.lib.darwinSystem rec {
+        specialArgs = {inherit inputs outputs;};
+        modules = [./hosts/nepathya/configuration.nix];
+      };
+
       mancha = nix-darwin.lib.darwinSystem rec {
         specialArgs = {inherit inputs outputs;};
         modules = [./hosts/mancha/configuration.nix];
@@ -105,6 +111,13 @@
 
       # First time : nix run home-manager/release-24.11 -- switch --flake .#username@hostname
       # Then after : home-manager switch --flake .#username@hostname
+      "suvash@nepathya" = home-manager.lib.homeManagerConfiguration {
+        pkgs =
+          nixpkgs-stable.legacyPackages.${adarwin}; # required by home-manager
+        extraSpecialArgs = {inherit inputs outputs;};
+        modules = [./hosts/nepathya/home-manager.nix];
+      };
+
       "suvash@mancha" = home-manager.lib.homeManagerConfiguration {
         pkgs =
           nixpkgs-stable.legacyPackages.${x86darwin}; # required by home-manager
