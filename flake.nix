@@ -40,10 +40,6 @@
       url = "github:VonHeikemen/lsp-zero.nvim/v3.x";
       flake = false;
     };
-
-    ghostty = {
-      url = "github:ghostty-org/ghostty";
-    };
   };
 
   outputs = {
