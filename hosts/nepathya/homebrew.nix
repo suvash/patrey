@@ -31,15 +31,20 @@
 
     masApps = {
       "Bitwarden" = 1352778147;
-      # "Blinks" = 998804308;
-      # "Hand Mirror" = 1502839586;
-      # "Mactracker" = 430255202;
-      # "NetSpot" = 514951692;
-      # "Save to Pocket" = 1477385213;
-      # "Slack" = 803453959;
-      # "Tailscale" = 1475387142;
-      # "WhatsApp" = 310633997;
-      # "iNet Network Scanner" = 403304796;
+      "Blinks" = 998804308;
+      "GarageBand" = 682658836;
+      "Hand Mirror" = 1502839586;
+      "Keynote" = 409183694;
+      "Numbers" = 409203825;
+      "Pages" = 409201541;
+      "iMovie" = 408981434;
+      "Mactracker" = 430255202;
+      "NetSpot" = 514951692;
+      "Save to Pocket" = 1477385213;
+      "Slack" = 803453959;
+      "Tailscale" = 1475387142;
+      "WhatsApp" = 310633997;
+      "iNet Network Scanner" = 403304796;
     };
 
     casks = [
