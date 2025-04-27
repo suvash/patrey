@@ -50,6 +50,7 @@
       "discord"
       "disk-inventory-x"
       "docker"
+      "eloston-chromium"
       "emacs"
       "ente-auth"
       "figma"
@@ -78,7 +79,6 @@
       "zoom"
       "zotero"
       "zulip"
-      { name = "google-chrome"; args = {require_sha = false;}; }
       { name = "onyx"; args = {require_sha = false;}; }
       { name = "spotify"; args = {require_sha = false;}; }
     ];

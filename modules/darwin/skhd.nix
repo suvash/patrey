@@ -13,7 +13,8 @@
 
       ctrl + cmd - f : open ~/Applications/Casks/Firefox.app
       ctrl + cmd - o : open ~/Applications/Casks/Orion.app
-      ctrl + cmd - b : open ~/Applications/Casks/Brave\ Browser.app/Contents/MacOS/Brave\ Browser --incognito
+      ctrl + cmd - c : ~/Applications/Casks/Chromium.app/Contents/MacOS/Chromium --incognito
+      ctrl + cmd - b : ~/Applications/Casks/Brave\ Browser.app/Contents/MacOS/Brave\ Browser --incognito
     '';
   };
 }
