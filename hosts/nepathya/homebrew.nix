@@ -14,7 +14,7 @@
     };
 
     taps = [
-      # "d12frosted/emacs-plus"
+      "d12frosted/emacs-plus"
     ];
 
     caskArgs = {
@@ -23,10 +23,10 @@
     };
 
     brews = [
-      # {
-      #   name = "emacs-plus@30";
-      #   args = ["with-modern-doom3-icon"];
-      # }
+      {
+        name = "emacs-plus@30";
+        args = ["with-imagemagick" "with-modern-doom3-icon"];
+      }
     ];
 
     masApps = {
