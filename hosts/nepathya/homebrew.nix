@@ -47,14 +47,15 @@
       "calibre"
       "chrysalis"
       "cursor"
+      "claude"
       "discord"
-      "disk-inventory-x"
       "docker"
       "eloston-chromium"
       "emacs"
       "ente-auth"
       "figma"
       "firefox"
+      "ghostty"
       "hovrly"
       "iina"
       "jordanbaird-ice"
@@ -81,6 +82,10 @@
       "zulip"
       { name = "onyx"; args = {require_sha = false;}; }
       { name = "spotify"; args = {require_sha = false;}; }
+      { name = "vuescan"; args = {require_sha = false;}; }
+      # Rosetta 2 needed
+      # "disk-inventory-x"
+      # "send-to-kindle"
     ];
   };
 }
