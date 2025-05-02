@@ -68,6 +68,10 @@
       "linear-linear"
       "obsidian"
       "orion"
+      "qlcolorcode"
+      "qlmarkdown"
+      "qlstephen"
+      "qlvideo"
       "raycast"
       "sf-symbols"
       "shottr"
@@ -80,9 +84,12 @@
       "zoom"
       "zotero"
       "zulip"
+      { name = "apparency"; args = {require_sha = false;}; }
       { name = "lm-studio"; args = {appdir = "/Applications";}; }
       { name = "onyx"; args = {require_sha = false;}; }
+      { name = "quicklook-json"; args = {require_sha = false;}; }
       { name = "spotify"; args = {require_sha = false;}; }
+      { name = "suspicious-package"; args = {require_sha = false;}; }
       { name = "vuescan"; args = {require_sha = false;}; }
       # Rosetta 2 needed
       # "disk-inventory-x"
