@@ -35,20 +35,12 @@
     EDITOR = "${config.settings.editor}";
   };
 
-  # Home Manager is pretty good at managing dotfiles. The primary way to manage
-  # plain files is through 'home.file'.
   home.file = {
     # Needed for smart card to work
     ".gnupg/scdaemon.conf".text = "disable-ccid";
 
     # Hushlogin
     ".hushlogin".text = "For quieter logins. See `man login`.";
-
-    # # You can also set the file content immediately.
-    # ".gradle/gradle.properties".text = ''
-    #   org.gradle.console=verbose
-    #   org.gradle.daemon.idletimeout=3600000
-    # '';
   };
 
   # Impure link
