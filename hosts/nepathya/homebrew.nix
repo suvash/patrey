@@ -80,6 +80,7 @@
       "zoom"
       "zotero"
       "zulip"
+      { name = "lm-studio"; args = {appdir = "/Applications";}; }
       { name = "onyx"; args = {require_sha = false;}; }
       { name = "spotify"; args = {require_sha = false;}; }
       { name = "vuescan"; args = {require_sha = false;}; }
