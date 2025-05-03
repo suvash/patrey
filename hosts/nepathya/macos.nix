@@ -151,5 +151,7 @@
       autoLoginUser = null;
     };
 
+    menuExtraClock.IsAnalog = true;
+
   };
 }
