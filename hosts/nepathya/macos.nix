@@ -93,6 +93,15 @@
       "com.apple.trackpad.scaling" = 1.5;
     };
 
+    WindowManager = {
+      GloballyEnabled = false;
+      EnableStandardClickToShowDesktop = false;
+      EnableTiledWindowMargins = true;
+      EnableTilingByEdgeDrag = true;
+      EnableTopTilingByEdgeDrag = true;
+      StandardHideDesktopIcons = true;
+      StandardHideWidgets = true;
+    };
 
   };
 }
