@@ -153,5 +153,14 @@
 
     menuExtraClock.IsAnalog = true;
 
+    screencapture = {
+      disable-shadow = true;
+      include-date = true;
+      location = "~/.screenshots";
+      show-thumbnail = true;
+      target = "file";
+      type = "png";
+    };
+
   };
 }
