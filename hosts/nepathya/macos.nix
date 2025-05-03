@@ -1,4 +1,7 @@
-{...}: {
+{
+  config,
+  ...
+}: {
   system.defaults = {
     dock = {
       appswitcher-all-displays = true;
@@ -109,6 +112,27 @@
       stealthenabled = 1;
       allowsignedenabled = 1;
       allowdownloadsignedenabled = 1;
+    };
+
+    finder = {
+      AppleShowAllFiles = true;
+      CreateDesktop = false;
+      FXDefaultSearchScope = "SCcf";
+      FXEnableExtensionChangeWarning = false;
+      FXPreferredViewStyle = "clmv";
+      FXRemoveOldTrashItems = false;
+      NewWindowTarget = "Other";
+      NewWindowTargetPath = "file:///Users/${config.settings.username}/";
+      QuitMenuItem = true;
+      ShowHardDrivesOnDesktop = false;
+      ShowExternalHardDrivesOnDesktop = true;
+      ShowMountedServersOnDesktop = true;
+      ShowRemovableMediaOnDesktop = true;
+      ShowPathbar = true;
+      ShowStatusBar = true;
+      _FXShowPosixPathInTitle = true;
+      _FXSortFoldersFirst = true;
+      _FXSortFoldersFirstOnDesktop = true;
     };
   };
 }
