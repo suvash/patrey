@@ -103,5 +103,12 @@
       StandardHideWidgets = true;
     };
 
+    alf = {
+      globalstate = 1;
+      loggingenabled = 1;
+      stealthenabled = 1;
+      allowsignedenabled = 1;
+      allowdownloadsignedenabled = 1;
+    };
   };
 }
