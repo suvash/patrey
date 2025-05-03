@@ -134,5 +134,22 @@
       _FXSortFoldersFirst = true;
       _FXSortFoldersFirstOnDesktop = true;
     };
+
+    hitoolbox.AppleFnUsageType = "Start Dictation";
+
+    loginwindow = {
+      DisableConsoleAccess = true;
+      GuestEnabled = false;
+      LoginwindowText = "${config.settings.computername}";
+      PowerOffDisabledWhileLoggedIn = false;
+      RestartDisabled = false;
+      RestartDisabledWhileLoggedIn = false;
+      SHOWFULLNAME = false;
+      ShutDownDisabled = false;
+      ShutDownDisabledWhileLoggedIn = false;
+      SleepDisabled = false;
+      autoLoginUser = null;
+    };
+
   };
 }
