@@ -43,6 +43,7 @@
     };
 
     casks = [
+      "amethyst"
       "anki"
       "brave-browser"
       "calibre"
