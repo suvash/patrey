@@ -168,11 +168,6 @@
         type = "png";
       };
 
-      screensaver = {
-        askForPassword = true;
-        askForPasswordDelay = 0;
-      };
-
       spaces.spans-displays = false;
 
       trackpad = {
