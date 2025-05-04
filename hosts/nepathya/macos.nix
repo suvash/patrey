@@ -179,5 +179,9 @@
      TrackpadThreeFingerDrag = true;
      TrackpadThreeFingerTapGesture = 2;
     };
+
+    universalaccess = {
+      reduceMotion = true;
+    }
   };
 }
