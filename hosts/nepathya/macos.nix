@@ -70,8 +70,8 @@
         AppleMetricUnits = 1;
         AppleMeasurementUnits = "Centimeters";
         AppleWindowTabbingMode = "fullscreen";
-        InitialKeyRepeat = 5;
-        KeyRepeat = 1;
+        InitialKeyRepeat = 15;
+        KeyRepeat = 2;
         NSAutomaticDashSubstitutionEnabled = false;
         NSAutomaticInlinePredictionEnabled = false;
         NSAutomaticPeriodSubstitutionEnabled = false;
