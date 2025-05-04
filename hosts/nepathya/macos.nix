@@ -162,5 +162,22 @@
       type = "png";
     };
 
+    screensaver = {
+      askForPassword = true;
+      askForPasswordDelay = 0;
+    };
+
+    spaces.spans-displays = false;
+
+    trackpad = {
+     ActuationStrength = 0; # Silent clicking
+     Clicking = true; # Tap to Click
+     Dragging = false; # Tap to Drag
+     FirstClickThreshold = 1;
+     SecondClickThreshold = 2;
+     TrackpadRightClick = true;
+     TrackpadThreeFingerDrag = true;
+     TrackpadThreeFingerTapGesture = 2;
+    };
   };
 }
