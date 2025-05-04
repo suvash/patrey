@@ -64,17 +64,21 @@
       "karabiner-elements"
       "keka"
       "kekaexternalhelper"
+      "knockknock"
       "keycastr"
       "kitty"
       "latest"
       "linear-linear"
+      "netiquette"
       "obsidian"
       "orion"
+      "oversight"
       "qlcolorcode"
       "qlmarkdown"
       "qlstephen"
       "qlvideo"
       "raycast"
+      "reikey"
       "sf-symbols"
       "shottr"
       "signal"
@@ -88,6 +92,7 @@
       "zulip"
       { name = "apparency"; args = {require_sha = false;}; }
       { name = "lm-studio"; args = {appdir = "/Applications";}; }
+      { name = "lulu"; args = {appdir = "/Applications";}; }
       { name = "onyx"; args = {require_sha = false;}; }
       { name = "quicklook-json"; args = {require_sha = false;}; }
       { name = "spotify"; args = {require_sha = false;}; }
