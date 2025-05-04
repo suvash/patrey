@@ -73,6 +73,7 @@
       "obsidian"
       "orion"
       "oversight"
+      "omnidisksweeper"
       "qlcolorcode"
       "qlmarkdown"
       "qlstephen"
@@ -99,8 +100,8 @@
       { name = "suspicious-package"; args = {require_sha = false;}; }
       { name = "vuescan"; args = {require_sha = false;}; }
       # Rosetta 2 needed
-      # "disk-inventory-x"
-      # "send-to-kindle"
+      # "disk-inventory-x" # using omnidisksweeper instead
+      # "send-to-kindle" # using calibre instead
     ];
   };
 }
