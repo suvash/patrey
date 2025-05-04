@@ -166,7 +166,7 @@
         _FXSortFoldersFirstOnDesktop = true;
       };
 
-      hitoolbox.AppleFnUsageType = "Start Dictation";
+      hitoolbox.AppleFnUsageType = "Show Emoji & Symbols";
 
       loginwindow = {
         DisableConsoleAccess = true;
