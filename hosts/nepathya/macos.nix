@@ -5,8 +5,33 @@
   system = {
     startup.chime = false;
 
-    # activationScripts.userDefaults.text = ''
-    # '';
+    activationScripts.userDefaults.text = ''
+      mkdir -p ~/.screenshots
+
+      # Show hidden system folders
+      chflags nohidden ~/Library
+      sudo chflags nohidden /Volumes
+
+      # Language toggle indicator
+      defaults write kCFPreferencesAnyApplication TSMLanguageIndicatorEnabled -bool "true"
+
+      # Help menu behind other windows
+      defaults write com.apple.helpviewer "DevMode" -bool "true"
+
+      # Textedit plain text, normal quotes & UTF-8 saves
+      defaults write com.apple.TextEdit RichText -int 0
+      defaults write com.apple.TextEdit PlainTextEncodingForWrite -int 4
+      defaults write com.apple.TextEdit "SmartQuotes" -bool "false"
+
+      # Safari
+      defaults write com.apple.Safari "ShowFullURLInSmartSearchField" -bool "true"
+
+      # TimeMachine
+      defaults write com.apple.TimeMachine "DoNotOfferNewDisksForBackup" -bool "true"
+
+      # Undocumented apply settings without restart
+      /System/Library/PrivateFrameworks/SystemAdministration.framework/Resources/activateSettings -u
+    '';
 
     defaults = {
       dock = {
