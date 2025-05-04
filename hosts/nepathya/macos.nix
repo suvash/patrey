@@ -79,7 +79,7 @@
         NSAutomaticSpellingCorrectionEnabled = false;
         NSAutomaticWindowAnimationsEnabled = false;
         NSDisableAutomaticTermination = true;
-        NSDocumentSaveNewDocumentsToCloud = true;
+        NSDocumentSaveNewDocumentsToCloud = false;
         NSNavPanelExpandedStateForSaveMode = true;
         NSNavPanelExpandedStateForSaveMode2 = true;
         NSScrollAnimationEnabled = true;
@@ -126,7 +126,7 @@
         FXDefaultSearchScope = "SCcf";
         FXEnableExtensionChangeWarning = false;
         FXPreferredViewStyle = "clmv";
-        FXRemoveOldTrashItems = false;
+        FXRemoveOldTrashItems = true;
         NewWindowTarget = "Other";
         NewWindowTargetPath = "file:///Users/${config.settings.username}/";
         QuitMenuItem = true;
