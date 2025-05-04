@@ -53,6 +53,10 @@
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 
+  # man and info
+  programs.man.enable = true;
+  programs.info.enable = true;
+
   # Programs
   programs.autojump.enable = true;
   programs.bat.enable = true;
@@ -68,8 +72,6 @@
   programs.fzf.enable = true;
 
   programs.htop.enable = true; # configure
-
-  programs.info.enable = true;
 
   programs.tealdeer = {
     enable = true;

@@ -5,6 +5,9 @@
   system = {
     startup.chime = false;
 
+    # activationScripts.userDefaults.text = ''
+    # '';
+
     defaults = {
       dock = {
         appswitcher-all-displays = true;

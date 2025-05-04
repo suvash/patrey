@@ -11,6 +11,7 @@
       autoUpdate = false;
       upgrade = false;
       cleanup = "zap";
+      # extraFlags = [ "--verbose" ];
     };
 
     taps = [];
