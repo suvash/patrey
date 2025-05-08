@@ -1,16 +1,16 @@
 {
   description = "Suvash's NixOS+Darwin Flakes";
 
-  nixConfig = {
-    extra-substituters = [
-      "https://nix-community.cachix.org"
-      "https://suvash.cachix.org"
-    ];
-    extra-trusted-public-keys = [
-      "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
-      "suvash.cachix.org-1:ZJaRn/gUWxarb/rtYiP3njBLUBw+JYpKSg9dDS0NKjM="
-    ];
-  };
+  # nixConfig = {
+  #   extra-substituters = [
+  #     "https://nix-community.cachix.org"
+  #     "https://suvash.cachix.org"
+  #   ];
+  #   extra-trusted-public-keys = [
+  #     "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
+  #     "suvash.cachix.org-1:ZJaRn/gUWxarb/rtYiP3njBLUBw+JYpKSg9dDS0NKjM="
+  #   ];
+  # };
 
   inputs = {
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixpkgs-unstable";
@@ -40,10 +40,6 @@
       url = "github:VonHeikemen/lsp-zero.nvim/v3.x";
       flake = false;
     };
-
-    ghostty = {
-      url = "github:ghostty-org/ghostty";
-    };
   };
 
   outputs = {
@@ -59,7 +55,8 @@
     # Supported systems for your flake packages, shell, etc.
     x86linux = "x86_64-linux";
     x86darwin = "x86_64-darwin";
-    systems = [x86linux x86darwin];
+    adarwin = "aarch64-darwin";
+    systems = [x86linux x86darwin adarwin];
     forAllSystems = nixpkgs-stable.lib.genAttrs systems;
   in {
     # Custom packages, available through 'nix build', 'nix shell', etc
@@ -88,9 +85,14 @@
       };
     };
 
-    # First time: nix run nix-darwin -- switch --flake .#mancha
+    # First time: nix run nix-darwin -- switch --flake .#nepathya
     # darwin-rebuild build --flake .#hostname
     darwinConfigurations = {
+      nepathya = nix-darwin.lib.darwinSystem rec {
+        specialArgs = {inherit inputs outputs;};
+        modules = [./hosts/nepathya/configuration.nix];
+      };
+
       mancha = nix-darwin.lib.darwinSystem rec {
         specialArgs = {inherit inputs outputs;};
         modules = [./hosts/mancha/configuration.nix];
@@ -109,6 +111,13 @@
 
       # First time : nix run home-manager/release-24.11 -- switch --flake .#username@hostname
       # Then after : home-manager switch --flake .#username@hostname
+      "suvash@nepathya" = home-manager.lib.homeManagerConfiguration {
+        pkgs =
+          nixpkgs-stable.legacyPackages.${adarwin}; # required by home-manager
+        extraSpecialArgs = {inherit inputs outputs;};
+        modules = [./hosts/nepathya/home-manager.nix];
+      };
+
       "suvash@mancha" = home-manager.lib.homeManagerConfiguration {
         pkgs =
           nixpkgs-stable.legacyPackages.${x86darwin}; # required by home-manager
