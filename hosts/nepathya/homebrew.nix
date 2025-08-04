@@ -35,7 +35,6 @@
       "iMovie" = 408981434;
       "Mactracker" = 430255202;
       "NetSpot" = 514951692;
-      "Save to Pocket" = 1477385213;
       "Slack" = 803453959;
       "Tailscale" = 1475387142;
       "WhatsApp" = 310633997;
@@ -84,6 +83,7 @@
       "shottr"
       "signal"
       "stats"
+      "microsoft-teams"
       "vlc"
       "wacom-tablet"
       "windsurf"
