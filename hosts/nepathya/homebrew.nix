@@ -79,6 +79,7 @@
       "qlvideo"
       "raycast"
       "reikey"
+      "repo-prompt"
       "sf-symbols"
       "shottr"
       "signal"
