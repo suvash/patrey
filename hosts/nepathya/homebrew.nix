@@ -89,6 +89,7 @@
       "wacom-tablet"
       "windsurf"
       "zed"
+      "zen"
       "zoom"
       "zotero"
       "zulip"
