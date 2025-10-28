@@ -68,6 +68,13 @@
     tokei
     pgcli
 
+    # hardware tools
+    yubikey-manager
+
+    # media tools
+    imagemagick
+    ffmpeg
+
     # Terminals / shells
     tmux
     zellij

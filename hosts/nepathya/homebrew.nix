@@ -88,6 +88,7 @@
       "vlc"
       "wacom-tablet"
       "windsurf"
+      "yubico-authenticator"
       "zed"
       "zen"
       "zoom"
