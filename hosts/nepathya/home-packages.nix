@@ -61,6 +61,8 @@
     wakeonlan
     dogdns
     magic-wormhole
+    trippy
+    stuntman
 
     # Development tools
     tokei
