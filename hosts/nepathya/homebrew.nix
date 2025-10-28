@@ -38,6 +38,7 @@
       "Slack" = 803453959;
       "Tailscale" = 1475387142;
       "WhatsApp" = 310633997;
+      "WireGuard" = 1451685025;
       "iNet Network Scanner" = 403304796;
     };
 
@@ -67,6 +68,7 @@
       "knockknock"
       "latest"
       "linear-linear"
+      "macwhisper"
       "microsoft-teams"
       "netiquette"
       "obsidian"
@@ -85,6 +87,7 @@
       "signal"
       "stats"
       "ungoogled-chromium"
+      "utm"
       "vlc"
       "wacom-tablet"
       "windsurf"
