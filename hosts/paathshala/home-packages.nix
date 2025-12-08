@@ -52,7 +52,7 @@
       iftop
       unstable.dfc
       duf
-      unstable.du-dust
+      unstable.dust
       dstat
       powertop
       ncdu

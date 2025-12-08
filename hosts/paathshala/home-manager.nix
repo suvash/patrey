@@ -6,7 +6,7 @@
   ...
 }: {
   imports = [
-    inputs.nix-index-database.hmModules.nix-index
+    inputs.nix-index-database.homeModules.nix-index
 
     outputs.homeManagerModules.git
     outputs.homeManagerModules.fish

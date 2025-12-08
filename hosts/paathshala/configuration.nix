@@ -161,14 +161,13 @@
     enableDefaultPackages = true;
     fontconfig = {enable = true;};
     packages = with pkgs.unstable; [
-      ubuntu_font_family
+      ubuntu-classic
       roboto
       roboto-mono
       roboto-slab
       noto-fonts
       noto-fonts-cjk-sans
-      noto-fonts-emoji
-      noto-fonts-extra
+      noto-fonts-color-emoji
       lohit-fonts.devanagari
       lohit-fonts.nepali
       nerd-fonts.droid-sans-mono
