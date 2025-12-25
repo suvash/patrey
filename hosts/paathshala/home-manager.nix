@@ -195,7 +195,6 @@
   programs.pazi.enable = false; # investigate, compare to zoxide
   programs.pet.enable = false; # investigate
   programs.pistol.enable = true; # configure
-  programs.pls.enable = true; # configure
 
   programs.qutebrowser.enable = true; # configure
 
