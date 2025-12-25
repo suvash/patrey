@@ -25,7 +25,7 @@
       master.silver-searcher
       pigz
       unzip
-      sha-3be4a51.tree
+      tree
 
       # X server
       brightnessctl

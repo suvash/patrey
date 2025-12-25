@@ -26,7 +26,6 @@
       outputs.overlays.modifications
       outputs.overlays.unstable-packages
       outputs.overlays.master-packages
-      outputs.overlays.sha-3be4a51-packages
 
       # You can also add overlays exported from other flakes:
       # neovim-nightly-overlay.overlays.default
