@@ -107,10 +107,7 @@
   time.timeZone = "${config.settings.timezone_sthlm}";
 
   # Set hardware clock to local time
-  time.hardwareClockInLocalTime = true;
-
-  # Use chrony for ntp sync
-  services.chrony.enable = true;
+  time.hardwareClockInLocalTime = false;
 
   # Power management
   powerManagement = {
@@ -241,7 +238,6 @@
   services.xserver.windowManager = {
     i3 = {
       enable = true;
-      package = pkgs.i3-gaps;
     };
   };
 
@@ -260,7 +256,7 @@
     extraPortals = [
       pkgs.xdg-desktop-portal-gtk
       pkgs.xdg-desktop-portal-gnome
-      pkgs.xdg-desktop-portal-kde
+      pkgs.kdePackages.xdg-desktop-portal-kde
     ];
   };
 

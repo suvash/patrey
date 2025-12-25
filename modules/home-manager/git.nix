@@ -1,8 +1,13 @@
 {...}: {
   programs.git = {
     enable = true;
-    userEmail = "suvash@gmail.com";
-    userName = "Suvash Thapaliya";
+    settings = {
+      user.name = "Suvash Thapaliya";
+      user.email = "suvash@gmail.com";
+      init = {
+        defaultBranch = "main";
+      };
+    };
     signing = {
       key = "5E73D2B2";
       signByDefault = false;
@@ -17,15 +22,13 @@
       # Secrets
       "*.env"
     ];
-    extraConfig = {
-      init = {
-        defaultBranch = "main";
-      };
-    };
     lfs.enable = true;
-    diff-so-fancy.enable = true;
   };
 
+  programs.diff-so-fancy = {
+    enable = true;
+    enableGitIntegration = true;
+  };
   programs.gitui.enable = true;
   programs.lazygit.enable = true;
 }

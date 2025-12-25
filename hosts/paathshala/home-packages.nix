@@ -37,7 +37,6 @@
       # Hardware
       lshw
       hwinfo
-      hardinfo
       lm_sensors
       lsof
       lsb-release
@@ -53,7 +52,6 @@
       unstable.dfc
       duf
       unstable.dust
-      dstat
       powertop
       ncdu
       baobab

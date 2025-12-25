@@ -315,8 +315,6 @@
   services.udiskie.enable = true; # configure
   services.unclutter.enable = true;
 
-  services.volnoti.enable = true;
-
   services.wlsunset.enable = false; # configure, wayland
 
   services.xcape = {
