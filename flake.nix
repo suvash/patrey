@@ -106,15 +106,6 @@
         extraSpecialArgs = {inherit inputs outputs;};
         modules = [./hosts/paathshala/home-manager.nix];
       };
-
-      # First time : nix run home-manager/release-25.11 -- switch --flake .#username@hostname
-      # Then after : home-manager switch --flake .#username@hostname
-      "suvash@mancha" = home-manager.lib.homeManagerConfiguration {
-        pkgs =
-          nixpkgs-stable.legacyPackages.${x86darwin}; # required by home-manager
-        extraSpecialArgs = {inherit inputs outputs;};
-        modules = [./hosts/mancha/home-manager.nix];
-      };
     };
   };
 }
