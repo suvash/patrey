@@ -116,6 +116,5 @@
       cmatrix
       neofetch
       master.hollywood
-    ]
-    ++ [inputs.ghostty.packages.x86_64-linux.default];
+    ];
 }
