@@ -2,12 +2,16 @@
 # your system. Help is available in the configuration.nix(5) man page, on
 # https://search.nixos.org/options and in the NixOS manual (`nixos-help`).
 {
+  inputs,
+  outputs,
   config,
   lib,
   pkgs,
   ...
 }: {
   imports = [
+    outputs.nixosModules.avahi
+
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
   ];
@@ -19,6 +23,11 @@
 
   # Blacklist broken bluetooth kernel modules
   boot.blacklistedKernelModules = ["bluetooth" "btusb" "btrtl" "btbcm" "btmtk" "btintel"];
+
+  boot.tmp = {
+    useTmpfs = true;
+    cleanOnBoot = true;
+  };
 
   nix = {
     # Automatic GC
@@ -49,6 +58,9 @@
 
   # Set your time zone.
   time.timeZone = "Europe/Stockholm";
+
+  # Set hardware clock to local time
+  time.hardwareClockInLocalTime = false;
 
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
@@ -119,22 +131,17 @@
 
   # List services that you want to enable:
 
+  # Firmware update service
+  services.fwupd.enable = true;
+
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
 
-  # Avahi
-  services.avahi = {
-    enable = true;
-    nssmdns4 = true;
-    publish = {
-      enable = true;
-      addresses = true;
-      workstation = true;
-    };
-  };
-
   # Tailscale
   services.tailscale.enable = true;
+
+  # Vnstat
+  services.vnstat.enable = true;
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
