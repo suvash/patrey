@@ -81,6 +81,12 @@
         specialArgs = {inherit inputs outputs;};
         modules = [./hosts/paathshala/configuration.nix];
       };
+
+      lle = nixpkgs-stable.lib.nixosSystem rec {
+        system = x86linux;
+        specialArgs = {inherit inputs outputs;};
+        modules = [./hosts/lle/configuration.nix];
+      };
     };
 
     # First time: nix run nix-darwin -- switch --flake .#mancha
