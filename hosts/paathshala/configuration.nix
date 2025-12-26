@@ -68,7 +68,7 @@
       # Deduplicate and optimize nix store
       auto-optimise-store = true;
       # Trusted users
-      trusted-users = ["${config.settings.username}"];
+      trusted-users = ["@wheel"];
     };
   };
 

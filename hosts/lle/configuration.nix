@@ -18,8 +18,24 @@
   # Blacklist broken bluetooth kernel modules
   boot.blacklistedKernelModules = [ "bluetooth" "btusb" "btrtl" "btbcm" "btmtk" "btintel" ];
 
-  # Enabled flakes
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix = {
+    # Automatic GC
+    gc = {
+      automatic = true;
+      dates = "weekly";
+      options = "--delete-older-than 8w";
+    };
+
+    settings = {
+      # Enable flakes and new 'nix' command
+      experimental-features = "nix-command flakes";
+      # Deduplicate and optimize nix store
+      auto-optimise-store = true;
+      # Trusted users
+      trusted-users = ["@wheel"];
+    };
+  };
+
 
   # Nixos
   nixpkgs.config.allowUnfree = true;
