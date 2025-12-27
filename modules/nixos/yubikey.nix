@@ -1,5 +1,9 @@
 {pkgs, lib, config, ...}: {
   programs.yubikey-manager.enable = true;
+  programs.i3lock = {
+    enable = true;
+    u2fSupport = true;
+  };
 
   services.pcscd.enable = true;
   services.udev.packages = [pkgs.yubikey-personalization];
@@ -27,6 +31,7 @@
     services = {
       sudo.u2fAuth = true;
       login.u2fAuth = true;
+      i3lock.u2fAuth = true;
     };
   };
 
