@@ -311,7 +311,6 @@
     enableSSHSupport = true;
   };
 
-  # Mosh
   programs.mosh.enable = true;
 
   security.sudo = {
