@@ -10,10 +10,14 @@
   ...
 }: {
   imports = [
-    outputs.nixosModules.avahi
-
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
+
+    # common modules
+    outputs.nixosModules.avahi
+
+    # local modules
+    ./home-assistant.nix
   ];
 
   # Use the systemd-boot EFI boot loader.
@@ -98,7 +102,7 @@
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.d = {
     isNormalUser = true;
-    extraGroups = ["wheel"]; # Enable ‘sudo’ for the user.
+    extraGroups = ["wheel" "dialout"]; # Enable ‘sudo’ for the user.
     packages = with pkgs; [
       cmatrix
     ];
@@ -120,6 +124,8 @@
     dust
     dfc
     git
+    lsof
+    psmisc
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
