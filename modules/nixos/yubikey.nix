@@ -30,7 +30,7 @@
     };
     services = {
       sudo.u2fAuth = true;
-      login.u2fAuth = true;
+      login.u2fAuth = false;
       i3lock.u2fAuth = true;
     };
   };
