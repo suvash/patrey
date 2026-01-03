@@ -35,6 +35,11 @@
       inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
 
+    sops-nix = {
+      url = "github:Mic92/sops-nix";
+      inputs.nixpkgs.follows = "nixpkgs-stable";
+    };
+
     lsp-zero-nvim-3 = {
       url = "github:VonHeikemen/lsp-zero.nvim/v3.x";
       flake = false;
