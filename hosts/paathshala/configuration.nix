@@ -8,6 +8,7 @@
 }: {
   imports = [
     inputs.nixos-hardware.nixosModules.dell-xps-13-9360
+    inputs.sops-nix.nixosModules.sops
 
     outputs.nixosModules.avahi
     outputs.nixosModules.pipewire
@@ -274,7 +275,7 @@
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.${config.settings.username} = {
     isNormalUser = true;
-    extraGroups = ["wheel" "networkmanager" "video" "audio"];
+    extraGroups = ["wheel" "keys" "networkmanager" "video" "audio"];
     shell = pkgs.fish;
     openssh = {
       authorizedKeys = {
@@ -319,6 +320,17 @@
   };
 
   # List services that you want to enable:
+
+  # Sops secrets
+  sops.defaultSopsFile = ./sops/secrets.yaml;
+
+  sops.age.generateKey = false;
+  sops.age.sshKeyPaths = ["/etc/ssh/ssh_host_ed25519_key"];
+  sops.gnupg.sshKeyPaths = [];
+
+  sops.secrets = {
+    "empty/for/now" = {};
+  };
 
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
