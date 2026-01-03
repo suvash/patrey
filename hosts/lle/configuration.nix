@@ -128,6 +128,11 @@
     git
     lsof
     psmisc
+
+    # Encryption
+    age
+    sops
+    ssh-to-age
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
