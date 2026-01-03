@@ -8,6 +8,11 @@
       cmake
       gnumake
 
+      # Encryption
+      age
+      sops
+      ssh-to-age
+
       # Pulseaudio
       paprefs
       ncpamixer
