@@ -3,123 +3,122 @@
   inputs,
   ...
 }: {
-  home.packages = with pkgs;
-    [
-      cmake
-      gnumake
+  home.packages = with pkgs; [
+    cmake
+    gnumake
 
-      # Encryption
-      age
-      sops
-      ssh-to-age
+    # Encryption
+    age
+    sops
+    ssh-to-age
 
-      # Pulseaudio
-      paprefs
-      ncpamixer
-      pamixer
-      pamix
-      pavucontrol
+    # Pulseaudio
+    paprefs
+    ncpamixer
+    pamixer
+    pamix
+    pavucontrol
 
-      # Entertainment
-      spotify
-      vlc
+    # Entertainment
+    spotify
+    vlc
 
-      # File tools
-      fd
-      unstable.ripgrep
-      master.silver-searcher
-      pigz
-      unzip
-      tree
+    # File tools
+    fd
+    unstable.ripgrep
+    master.silver-searcher
+    pigz
+    unzip
+    tree
 
-      # X server
-      brightnessctl
-      arandr
-      libnotify
-      xclip
-      xsel
+    # X server
+    brightnessctl
+    arandr
+    libnotify
+    xclip
+    xsel
 
-      # Hardware
-      lshw
-      hwinfo
-      lm_sensors
-      lsof
-      lsb-release
-      dmidecode
+    # Hardware
+    lshw
+    hwinfo
+    lm_sensors
+    lsof
+    lsb-release
+    dmidecode
 
-      # webcam
-      v4l-utils
-      cheese
+    # webcam
+    v4l-utils
+    cheese
 
-      # monitoring
-      iotop
-      iftop
-      unstable.dfc
-      duf
-      unstable.dust
-      powertop
-      ncdu
-      baobab
+    # monitoring
+    iotop
+    iftop
+    unstable.dfc
+    duf
+    unstable.dust
+    powertop
+    ncdu
+    baobab
 
-      # network
-      iw
-      ethtool
-      traceroute
-      gping
-      nmap
-      master.cfspeedtest
-      speedtest-cli
-      magic-wormhole
-      wakeonlan
+    # network
+    iw
+    ethtool
+    traceroute
+    gping
+    nmap
+    master.cfspeedtest
+    speedtest-cli
+    magic-wormhole
+    wakeonlan
 
-      # console
-      parallel
+    # console
+    parallel
 
-      # dns
-      dnsutils
-      whois
+    # dns
+    dnsutils
+    whois
 
-      # linters / formatters
-      yamllint
-      shellcheck
-      ispell
+    # linters / formatters
+    yamllint
+    shellcheck
+    ispell
 
-      # infrastructure
-      flyctl
+    # infrastructure
+    flyctl
 
-      # browser
-      brave
+    # browser
+    brave
 
-      # editors
-      unstable.code-cursor
-      unstable.zed-editor
+    # editors
+    unstable.code-cursor
+    unstable.zed-editor
 
-      # xfce Utilities
-      # for keyboard volume buttons
-      xfce.xfce4-volumed-pulse
+    # xfce Utilities
+    # for keyboard volume buttons
+    xfce.xfce4-volumed-pulse
 
-      # communication
-      thunderbird
-      slack
-      zulip
-      discord
-      zoom-us
-      webex
-      libreoffice
+    # communication
+    thunderbird
+    slack
+    zulip
+    discord
+    zoom-us
+    webex
+    libreoffice
 
-      # editors
-      obsidian
-      figma-linux
+    # editors
+    obsidian
+    figma-linux
 
-      # benchmark
-      geekbench
+    # benchmark
+    geekbench
 
-      # documents
-      calibre
+    # documents
+    calibre
 
-      # bling
-      cmatrix
-      neofetch
-      master.hollywood
-    ];
+    # bling
+    cmatrix
+    neofetch
+    master.hollywood
+  ];
 }
