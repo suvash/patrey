@@ -13,6 +13,8 @@
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
 
+    inputs.sops-nix.nixosModules.sops
+
     # common modules
     outputs.nixosModules.avahi
 
@@ -102,7 +104,7 @@
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.d = {
     isNormalUser = true;
-    extraGroups = ["wheel" "dialout"]; # Enable ‘sudo’ for the user.
+    extraGroups = ["wheel" "keys" "dialout"]; # Enable ‘sudo’ for the user.
     packages = with pkgs; [
       cmatrix
     ];
@@ -138,6 +140,19 @@
 
   # List services that you want to enable:
 
+  # Sops secrets
+  sops.defaultSopsFile = ./sops/secrets.yaml;
+
+  sops.age.generateKey = false;
+  sops.age.sshKeyPaths = ["/etc/ssh/ssh_host_ed25519_key"];
+  sops.gnupg.sshKeyPaths = [];
+
+  sops.secrets = {
+    "cloudflare/cert.pem" = {};
+    "cloudflare/tunnels/lle/id" = {};
+    "cloudflare/tunnels/lle/creds.json" = {};
+  };
+
   # Firmware update service
   services.fwupd.enable = true;
 
@@ -146,6 +161,21 @@
 
   # Tailscale
   services.tailscale.enable = true;
+
+  # Cloudflare tunnels
+  services.cloudflared = {
+    enable = true;
+    certificateFile = "${config.sops.secrets."cloudflare/cert.pem".path}";
+    tunnels = {
+      "lle" = {
+        credentialsFile = "${config.sops.secrets."cloudflare/tunnels/lle/creds.json".path}";
+        ingress = {
+          "ha.hait.xyz" = "http://localhost:8123";
+        };
+        default = "http_status:404";
+      };
+    };
+  };
 
   # Vnstat
   services.vnstat.enable = true;
