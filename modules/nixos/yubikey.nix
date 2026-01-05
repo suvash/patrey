@@ -1,4 +1,9 @@
-{pkgs, lib, config, ...}: {
+{
+  pkgs,
+  lib,
+  config,
+  ...
+}: {
   programs.yubikey-manager.enable = true;
   programs.i3lock = {
     enable = true;
