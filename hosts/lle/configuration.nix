@@ -19,6 +19,7 @@
     outputs.nixosModules.avahi
 
     # local modules
+    ./nfs.nix
     ./home-assistant.nix
   ];
 
