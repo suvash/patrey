@@ -183,6 +183,12 @@
     };
   };
 
+  # Plex
+  services.plex = {
+    enable = true;
+    openFirewall = true;
+  };
+
   # Vnstat
   services.vnstat.enable = true;
 
