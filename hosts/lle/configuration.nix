@@ -20,6 +20,7 @@
 
     # local modules
     ./nfs.nix
+    ./sabnzbd.nix
     ./home-assistant.nix
   ];
 
@@ -105,7 +106,7 @@
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.d = {
     isNormalUser = true;
-    extraGroups = ["wheel" "keys" "dialout"]; # Enable ‘sudo’ for the user.
+    extraGroups = ["wheel" "keys" "dialout" "sabnzbd"];
     packages = with pkgs; [
       cmatrix
     ];
