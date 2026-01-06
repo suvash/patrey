@@ -13,13 +13,13 @@
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
 
-    inputs.sops-nix.nixosModules.sops
-
     # common modules
     outputs.nixosModules.avahi
 
     # local modules
     ./nfs.nix
+    ./sops.nix
+    ./cloudflared.nix
     ./sabnzbd.nix
     ./home-assistant.nix
   ];
@@ -130,11 +130,6 @@
     git
     lsof
     psmisc
-
-    # Encryption
-    age
-    sops
-    ssh-to-age
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
@@ -147,19 +142,6 @@
 
   # List services that you want to enable:
 
-  # Sops secrets
-  sops.defaultSopsFile = ./sops/secrets.yaml;
-
-  sops.age.generateKey = false;
-  sops.age.sshKeyPaths = ["/etc/ssh/ssh_host_ed25519_key"];
-  sops.gnupg.sshKeyPaths = [];
-
-  sops.secrets = {
-    "cloudflare/cert.pem" = {};
-    "cloudflare/tunnels/lle/id" = {};
-    "cloudflare/tunnels/lle/creds.json" = {};
-  };
-
   # Firmware update service
   services.fwupd.enable = true;
 
@@ -168,21 +150,6 @@
 
   # Tailscale
   services.tailscale.enable = true;
-
-  # Cloudflare tunnels
-  services.cloudflared = {
-    enable = true;
-    certificateFile = "${config.sops.secrets."cloudflare/cert.pem".path}";
-    tunnels = {
-      "lle" = {
-        credentialsFile = "${config.sops.secrets."cloudflare/tunnels/lle/creds.json".path}";
-        ingress = {
-          "ha.hait.xyz" = "http://localhost:8123";
-        };
-        default = "http_status:404";
-      };
-    };
-  };
 
   # Plex
   services.plex = {
