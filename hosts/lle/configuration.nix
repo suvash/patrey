@@ -20,8 +20,10 @@
     ./nfs.nix
     ./sops.nix
     ./cloudflared.nix
-    ./sabnzbd.nix
     ./home-assistant.nix
+    ./sabnzbd.nix
+    ./radarr.nix
+    ./sonarr.nix
   ];
 
   # Use the systemd-boot EFI boot loader.
