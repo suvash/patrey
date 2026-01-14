@@ -31,6 +31,7 @@
       "zha"
       "apple_tv"
       "synology_dsm"
+      "thread"
     ];
     config = {
       # Includes dependencies for a basic setup
