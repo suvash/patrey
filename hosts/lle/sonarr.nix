@@ -1,14 +1,20 @@
 {config, ...}: {
   services.sonarr = {
     enable = true;
-    settings.server.port = 40200;
+    user = "sonarr";
+    group = "sonarr";
+    settings.server.port = 40300;
   };
 
-  networking.firewall.allowedTCPPorts = [40200];
+  users.users.sonarr = {
+    extraGroups = ["${config.users.groups.media.name}"];
+  };
+
+  networking.firewall.allowedTCPPorts = [40300];
 
   services.cloudflared = {
     tunnels."lle".ingress = {
-      "tv.hait.xyz" = "http://localhost:${toString 40200}";
+      "tv.hait.xyz" = "http://localhost:${toString 40300}";
     };
   };
 }

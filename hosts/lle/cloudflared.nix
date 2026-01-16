@@ -14,7 +14,7 @@
   };
 
   services.cloudflared = {
-    enable = false;
+    enable = true;
     certificateFile = "${config.sops.secrets."cloudflare/cert.pem".path}";
     tunnels = {
       "lle" = {

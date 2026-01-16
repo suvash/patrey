@@ -1,7 +1,7 @@
 ---
 keys:
   - &pgp_suvash D9202921A7F1C7E826065EB0B990712C8FBFC4CC!
-  - &age_lle age1xsgfyz7j5mrnn4stacptjrxm0d4kuzqwzljfz04mds330nt8tp8qkzkdj2
+  - &age_lle age14t3gdtpq0ar9kzznlqyjuvqs4cfw2yleqm2hz28mqws89p75e39sm484tt
   - &age_paathshala age18x5naguqtajnml26hjdltuesg30dpse2ejzper6zpdquvklq6f0qy59yss
 creation_rules:
   - path_regex: hosts/lle/sops/[^/]+\.(yaml|json|env|ini)$

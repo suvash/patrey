@@ -2,10 +2,8 @@
 # your system. Help is available in the configuration.nix(5) man page, on
 # https://search.nixos.org/options and in the NixOS manual (`nixos-help`).
 {
-  inputs,
   outputs,
   config,
-  lib,
   pkgs,
   ...
 }: {
@@ -16,14 +14,19 @@
     # common modules
     outputs.nixosModules.avahi
 
-    # local modules
-    ./nfs.nix
+    # secrets & cloudflared
     ./sops.nix
     ./cloudflared.nix
-    ./home-assistant.nix
+
+    # media serving
+    ./plex.nix
     ./sabnzbd.nix
+    ./prowlarr.nix
     ./radarr.nix
     ./sonarr.nix
+
+    # home automation
+    ./home-assistant.nix
   ];
 
   # Use the systemd-boot EFI boot loader.
@@ -31,6 +34,8 @@
   boot.loader.systemd-boot.configurationLimit = 10;
   boot.loader.efi.canTouchEfiVariables = true;
 
+  # Turn off bluetooth
+  hardware.bluetooth.enable = false;
   # Blacklist broken bluetooth kernel modules
   boot.blacklistedKernelModules = ["bluetooth" "btusb" "btrtl" "btbcm" "btmtk" "btintel"];
 
@@ -105,10 +110,15 @@
   # Enable touchpad support (enabled default in most desktopManager).
   # services.libinput.enable = true;
 
-  # Define a user account. Don't forget to set a password with ‘passwd’.
+  # User accounts
   users.users.d = {
     isNormalUser = true;
-    extraGroups = ["wheel" "keys" "dialout" "sabnzbd"];
+    extraGroups = [
+      "${config.users.groups.wheel.name}"
+      "${config.users.groups.media.name}"
+      "${config.users.groups.keys.name}"
+      "${config.users.groups.dialout.name}"
+    ];
     packages = with pkgs; [
       cmatrix
     ];
@@ -118,6 +128,22 @@
       };
     };
   };
+
+  # Media folder permissions
+  users.groups.media = {
+    gid = 1001;
+  };
+
+  users.users.media = {
+    isSystemUser = true;
+    group = "${config.users.groups.media.name}";
+    uid = 1001;
+    description = "Media files owner";
+  };
+
+  systemd.tmpfiles.rules = [
+    "d /media 2770 ${config.users.users.media.name} ${config.users.groups.media.name} -"
+  ];
 
   # programs.firefox.enable = true;
 
@@ -132,6 +158,7 @@
     git
     lsof
     psmisc
+    tree
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
@@ -152,12 +179,6 @@
 
   # Tailscale
   services.tailscale.enable = true;
-
-  # Plex
-  services.plex = {
-    enable = true;
-    openFirewall = true;
-  };
 
   # Vnstat
   services.vnstat.enable = true;

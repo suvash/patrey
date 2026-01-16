@@ -4,7 +4,7 @@
   ...
 }: {
   users.users.hass = {
-    extraGroups = ["dialout"];
+    extraGroups = ["${config.users.groups.dialout.name}"];
   };
 
   systemd.services.home-assistant.serviceConfig = {
@@ -38,7 +38,7 @@
       # https://www.home-assistant.io/integrations/default_config/
       default_config = {};
       http = {
-        server_host = "::1";
+        server_host = "::";
         trusted_proxies = ["::1"];
         use_x_forwarded_for = true;
       };

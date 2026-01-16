@@ -1,14 +1,20 @@
 {config, ...}: {
   services.radarr = {
     enable = true;
-    settings.server.port = 40100;
+    user = "radarr";
+    group = "radarr";
+    settings.server.port = 40200;
   };
 
-  networking.firewall.allowedTCPPorts = [40100];
+  users.users.radarr = {
+    extraGroups = ["${config.users.groups.media.name}"];
+  };
+
+  networking.firewall.allowedTCPPorts = [40200];
 
   services.cloudflared = {
     tunnels."lle".ingress = {
-      "mv.hait.xyz" = "http://localhost:${toString 40100}";
+      "mv.hait.xyz" = "http://localhost:${toString 40200}";
     };
   };
 }
