@@ -1,16 +1,16 @@
 {
   description = "Suvash's NixOS+Darwin Flakes";
 
-  nixConfig = {
-    extra-substituters = [
-      "https://nix-community.cachix.org"
-      "https://suvash.cachix.org"
-    ];
-    extra-trusted-public-keys = [
-      "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
-      "suvash.cachix.org-1:ZJaRn/gUWxarb/rtYiP3njBLUBw+JYpKSg9dDS0NKjM="
-    ];
-  };
+  # nixConfig = {
+  #   extra-substituters = [
+  #     "https://nix-community.cachix.org"
+  #     "https://suvash.cachix.org"
+  #   ];
+  #   extra-trusted-public-keys = [
+  #     "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
+  #     "suvash.cachix.org-1:ZJaRn/gUWxarb/rtYiP3njBLUBw+JYpKSg9dDS0NKjM="
+  #   ];
+  # };
 
   inputs = {
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixpkgs-unstable";
@@ -59,7 +59,8 @@
     # Supported systems for your flake packages, shell, etc.
     x86linux = "x86_64-linux";
     x86darwin = "x86_64-darwin";
-    systems = [x86linux x86darwin];
+    adarwin = "aarch64-darwin";
+    systems = [x86linux x86darwin adarwin];
     forAllSystems = nixpkgs-stable.lib.genAttrs systems;
   in {
     # Custom packages, available through 'nix build', 'nix shell', etc
@@ -94,12 +95,12 @@
       };
     };
 
-    # First time: nix run nix-darwin -- switch --flake .#mancha
+    # First time: nix run nix-darwin -- switch --flake .#nepathya
     # darwin-rebuild build --flake .#hostname
     darwinConfigurations = {
-      mancha = nix-darwin.lib.darwinSystem rec {
+      nepathya = nix-darwin.lib.darwinSystem rec {
         specialArgs = {inherit inputs outputs;};
-        modules = [./hosts/mancha/configuration.nix];
+        modules = [./hosts/nepathya/configuration.nix];
       };
     };
 

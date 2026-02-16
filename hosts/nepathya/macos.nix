@@ -1,0 +1,214 @@
+{
+  config,
+  ...
+}: {
+  system = {
+    startup.chime = false;
+
+    activationScripts.userDefaults.text = ''
+      mkdir -p ~/.screenshots
+
+      # Show hidden system folders
+      chflags nohidden ~/Library
+      sudo chflags nohidden /Volumes
+
+      # Language toggle indicator
+      defaults write kCFPreferencesAnyApplication TSMLanguageIndicatorEnabled -bool "true"
+
+      # Help menu behind other windows
+      defaults write com.apple.helpviewer "DevMode" -bool "true"
+
+      # Textedit plain text, normal quotes & UTF-8 saves
+      defaults write com.apple.TextEdit RichText -int 0
+      defaults write com.apple.TextEdit PlainTextEncodingForWrite -int 4
+      defaults write com.apple.TextEdit "SmartQuotes" -bool "false"
+
+      # Safari
+      defaults write com.apple.Safari "ShowFullURLInSmartSearchField" -bool "true"
+
+      # TimeMachine
+      defaults write com.apple.TimeMachine "DoNotOfferNewDisksForBackup" -bool "true"
+
+      # Undocumented apply settings without restart
+      /System/Library/PrivateFrameworks/SystemAdministration.framework/Resources/activateSettings -u
+    '';
+
+    defaults = {
+      dock = {
+        appswitcher-all-displays = true;
+        autohide = true;
+        autohide-delay = 0.0;
+        autohide-time-modifier = 0.0;
+        dashboard-in-overlay = false;
+        enable-spring-load-actions-on-all-items = true;
+        expose-animation-duration = 0.2;
+        expose-group-apps = false;
+        largesize = 36;
+        launchanim = true;
+        magnification = false;
+        mineffect = "scale";
+        minimize-to-application = true;
+        mouse-over-hilite-stack = false;
+        mru-spaces = false;
+        orientation = "bottom";
+        persistent-apps = [];
+        persistent-others = [];
+        scroll-to-open = false;
+        show-process-indicators = true;
+        show-recents = false;
+        showhidden = true;
+        slow-motion-allowed = false;
+        static-only = true;
+        tilesize = 24;
+        wvous-bl-corner = 11; # Launchpad
+        wvous-br-corner = 5; # Start Screen Saver
+        wvous-tl-corner = 4; # Desktop
+        wvous-tr-corner = 12; # Notification Center
+      };
+
+      ".GlobalPreferences" = {
+        "com.apple.sound.beep.sound" = "/System/Library/Sounds/Funk.aiff";
+      };
+
+      ActivityMonitor = {
+        IconType = 6; # CPU Usage
+        OpenMainWindow = true;
+        ShowCategory = 100; # All Processes
+        SortColumn = "CPUUsage";
+        SortDirection = 0; # Descending
+      };
+
+      LaunchServices.LSQuarantine = true;
+
+      NSGlobalDomain = {
+        AppleEnableSwipeNavigateWithScrolls = true;
+        AppleEnableMouseSwipeNavigateWithScrolls = true;
+        AppleInterfaceStyleSwitchesAutomatically = true;
+        AppleKeyboardUIMode = 3;
+        ApplePressAndHoldEnabled = false;
+        AppleScrollerPagingBehavior = true;
+        AppleShowAllExtensions = true;
+        AppleShowAllFiles = true;
+        AppleShowScrollBars = "Always";
+        AppleSpacesSwitchOnActivate = true;
+        AppleTemperatureUnit = "Celsius";
+        AppleMetricUnits = 1;
+        AppleMeasurementUnits = "Centimeters";
+        AppleWindowTabbingMode = "fullscreen";
+        InitialKeyRepeat = 15;
+        KeyRepeat = 2;
+        NSAutomaticDashSubstitutionEnabled = false;
+        NSAutomaticInlinePredictionEnabled = false;
+        NSAutomaticPeriodSubstitutionEnabled = false;
+        NSAutomaticQuoteSubstitutionEnabled = false;
+        NSAutomaticSpellingCorrectionEnabled = false;
+        NSAutomaticWindowAnimationsEnabled = false;
+        NSDisableAutomaticTermination = true;
+        NSDocumentSaveNewDocumentsToCloud = false;
+        NSNavPanelExpandedStateForSaveMode = true;
+        NSNavPanelExpandedStateForSaveMode2 = true;
+        NSScrollAnimationEnabled = true;
+        NSTableViewDefaultSizeMode = 2;
+        NSTextShowsControlCharacters = true;
+        NSUseAnimatedFocusRing = false;
+        NSWindowResizeTime = 0.001;
+        PMPrintingExpandedStateForPrint = true;
+        PMPrintingExpandedStateForPrint2 = true;
+        _HIHideMenuBar = false;
+        "com.apple.keyboard.fnState" = false;
+        "com.apple.mouse.tapBehavior" = 1;
+        "com.apple.sound.beep.feedback" = 0;
+        "com.apple.sound.beep.volume" = 0.7788;
+        "com.apple.springing.delay" = 0.0;
+        "com.apple.springing.enabled" = true;
+        "com.apple.swipescrolldirection" = true;
+        "com.apple.trackpad.enableSecondaryClick" = true;
+        "com.apple.trackpad.forceClick" = true;
+        "com.apple.trackpad.scaling" = 1.5;
+      };
+
+      WindowManager = {
+        GloballyEnabled = false;
+        EnableStandardClickToShowDesktop = false;
+        EnableTiledWindowMargins = true;
+        EnableTilingByEdgeDrag = true;
+        EnableTopTilingByEdgeDrag = true;
+        StandardHideDesktopIcons = true;
+        StandardHideWidgets = true;
+      };
+
+      alf = {
+        globalstate = 1;
+        loggingenabled = 1;
+        stealthenabled = 1;
+        allowsignedenabled = 1;
+        allowdownloadsignedenabled = 1;
+      };
+
+      finder = {
+        AppleShowAllFiles = true;
+        CreateDesktop = false;
+        FXDefaultSearchScope = "SCcf";
+        FXEnableExtensionChangeWarning = false;
+        FXPreferredViewStyle = "clmv";
+        FXRemoveOldTrashItems = true;
+        NewWindowTarget = "Other";
+        NewWindowTargetPath = "file:///Users/${config.settings.username}/";
+        QuitMenuItem = true;
+        ShowHardDrivesOnDesktop = false;
+        ShowExternalHardDrivesOnDesktop = true;
+        ShowMountedServersOnDesktop = true;
+        ShowRemovableMediaOnDesktop = true;
+        ShowPathbar = true;
+        ShowStatusBar = true;
+        _FXShowPosixPathInTitle = true;
+        _FXSortFoldersFirst = true;
+        _FXSortFoldersFirstOnDesktop = true;
+      };
+
+      hitoolbox.AppleFnUsageType = "Show Emoji & Symbols";
+
+      loginwindow = {
+        DisableConsoleAccess = true;
+        GuestEnabled = false;
+        LoginwindowText = "${config.settings.computername}";
+        PowerOffDisabledWhileLoggedIn = false;
+        RestartDisabled = false;
+        RestartDisabledWhileLoggedIn = false;
+        SHOWFULLNAME = false;
+        ShutDownDisabled = false;
+        ShutDownDisabledWhileLoggedIn = false;
+        SleepDisabled = false;
+        autoLoginUser = null;
+      };
+
+      menuExtraClock.IsAnalog = true;
+
+      screencapture = {
+        disable-shadow = true;
+        include-date = true;
+        location = "~/.screenshots";
+        show-thumbnail = true;
+        target = "file";
+        type = "png";
+      };
+
+      spaces.spans-displays = false;
+
+      trackpad = {
+       ActuationStrength = 0; # Silent clicking
+       Clicking = true; # Tap to Click
+       Dragging = false; # Tap to Drag
+       FirstClickThreshold = 1;
+       SecondClickThreshold = 2;
+       TrackpadRightClick = true;
+       TrackpadThreeFingerDrag = true;
+       TrackpadThreeFingerTapGesture = 2;
+      };
+
+      universalaccess = {
+        reduceMotion = true;
+      };
+    };
+  };
+}
