@@ -6,7 +6,7 @@
   ...
 }: {
   imports = [
-    inputs.nix-index-database.hmModules.nix-index
+    inputs.nix-index-database.homeModules.nix-index
 
     outputs.homeManagerModules.git
     outputs.homeManagerModules.fish
@@ -27,7 +27,6 @@
       outputs.overlays.modifications
       outputs.overlays.unstable-packages
       outputs.overlays.master-packages
-      outputs.overlays.sha-3be4a51-packages
 
       # You can also add overlays exported from other flakes:
       # neovim-nightly-overlay.overlays.default
@@ -195,7 +194,6 @@
   programs.pazi.enable = false; # investigate, compare to zoxide
   programs.pet.enable = false; # investigate
   programs.pistol.enable = true; # configure
-  programs.pls.enable = true; # configure
 
   programs.qutebrowser.enable = true; # configure
 
@@ -314,8 +312,6 @@
 
   services.udiskie.enable = true; # configure
   services.unclutter.enable = true;
-
-  services.volnoti.enable = true;
 
   services.wlsunset.enable = false; # configure, wayland
 

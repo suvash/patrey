@@ -14,26 +14,30 @@
 
   inputs = {
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixpkgs-unstable";
-    nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-24.11";
+    nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-25.11";
     nixpkgs-master.url = "github:nixos/nixpkgs/master";
-    nixpkgs-3be4a51.url = "github:nixos/nixpkgs/3be4a51a23edfa3a3c4ceabe25328520dd1d9fd4";
 
-    nixpkgs-darwin-stable.url = "github:nixos/nixpkgs/nixpkgs-24.11-darwin";
+    nixpkgs-darwin-stable.url = "github:nixos/nixpkgs/nixpkgs-25.11-darwin";
     nix-darwin = {
-      url = "github:nix-darwin/nix-darwin/nix-darwin-24.11";
+      url = "github:nix-darwin/nix-darwin/nix-darwin-25.11";
       inputs.nixpkgs.follows = "nixpkgs-darwin-stable";
     };
 
     nixos-hardware.url = "github:nixos/nixos-hardware";
 
     home-manager = {
-      url = "github:nix-community/home-manager/release-24.11";
+      url = "github:nix-community/home-manager/release-25.11";
       inputs.nixpkgs.follows = "nixpkgs-stable";
     };
 
     nix-index-database = {
-      url = "github:Mic92/nix-index-database";
+      url = "github:nix-community/nix-index-database";
       inputs.nixpkgs.follows = "nixpkgs-unstable";
+    };
+
+    sops-nix = {
+      url = "github:Mic92/sops-nix";
+      inputs.nixpkgs.follows = "nixpkgs-stable";
     };
 
     lsp-zero-nvim-3 = {
@@ -83,6 +87,12 @@
         specialArgs = {inherit inputs outputs;};
         modules = [./hosts/paathshala/configuration.nix];
       };
+
+      lle = nixpkgs-stable.lib.nixosSystem rec {
+        system = x86linux;
+        specialArgs = {inherit inputs outputs;};
+        modules = [./hosts/lle/configuration.nix];
+      };
     };
 
     # First time: nix run nix-darwin -- switch --flake .#nepathya
@@ -94,7 +104,7 @@
       };
     };
 
-    # First time : nix run home-manager/release-24.11 -- switch --flake .#username@hostname
+    # First time : nix run home-manager/release-25.11 -- switch --flake .#username@hostname
     # Then after : home-manager switch --flake .#username@hostname
     homeConfigurations = {
       "suvash@paathshala" = home-manager.lib.homeManagerConfiguration {
@@ -102,15 +112,6 @@
           nixpkgs-stable.legacyPackages.${x86linux}; # required by home-manager
         extraSpecialArgs = {inherit inputs outputs;};
         modules = [./hosts/paathshala/home-manager.nix];
-      };
-
-      # First time : nix run home-manager/release-24.11 -- switch --flake .#username@hostname
-      # Then after : home-manager switch --flake .#username@hostname
-      "suvash@nepathya" = home-manager.lib.homeManagerConfiguration {
-        pkgs =
-          nixpkgs-stable.legacyPackages.${adarwin}; # required by home-manager
-        extraSpecialArgs = {inherit inputs outputs;};
-        modules = [./hosts/nepathya/home-manager.nix];
       };
     };
   };

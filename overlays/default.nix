@@ -26,11 +26,4 @@
       config.allowUnfree = true;
     };
   };
-
-  sha-3be4a51-packages = final: _prev: {
-    sha-3be4a51 = import inputs.nixpkgs-3be4a51 {
-      system = final.system;
-      config.allowUnfree = true;
-    };
-  };
 }

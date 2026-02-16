@@ -8,6 +8,7 @@
 }: {
   imports = [
     inputs.nixos-hardware.nixosModules.dell-xps-13-9360
+    inputs.sops-nix.nixosModules.sops
 
     outputs.nixosModules.avahi
     outputs.nixosModules.pipewire
@@ -26,7 +27,6 @@
       outputs.overlays.modifications
       outputs.overlays.unstable-packages
       outputs.overlays.master-packages
-      outputs.overlays.sha-3be4a51-packages
 
       # You can also add overlays exported from other flakes:
       # neovim-nightly-overlay.overlays.default
@@ -69,7 +69,7 @@
       # Deduplicate and optimize nix store
       auto-optimise-store = true;
       # Trusted users
-      trusted-users = ["${config.settings.username}"];
+      trusted-users = ["@wheel"];
     };
   };
 
@@ -107,10 +107,7 @@
   time.timeZone = "${config.settings.timezone_sthlm}";
 
   # Set hardware clock to local time
-  time.hardwareClockInLocalTime = true;
-
-  # Use chrony for ntp sync
-  services.chrony.enable = true;
+  time.hardwareClockInLocalTime = false;
 
   # Power management
   powerManagement = {
@@ -161,14 +158,13 @@
     enableDefaultPackages = true;
     fontconfig = {enable = true;};
     packages = with pkgs.unstable; [
-      ubuntu_font_family
+      ubuntu-classic
       roboto
       roboto-mono
       roboto-slab
       noto-fonts
       noto-fonts-cjk-sans
-      noto-fonts-emoji
-      noto-fonts-extra
+      noto-fonts-color-emoji
       lohit-fonts.devanagari
       lohit-fonts.nepali
       nerd-fonts.droid-sans-mono
@@ -242,7 +238,6 @@
   services.xserver.windowManager = {
     i3 = {
       enable = true;
-      package = pkgs.i3-gaps;
     };
   };
 
@@ -261,7 +256,7 @@
     extraPortals = [
       pkgs.xdg-desktop-portal-gtk
       pkgs.xdg-desktop-portal-gnome
-      pkgs.xdg-desktop-portal-kde
+      pkgs.kdePackages.xdg-desktop-portal-kde
     ];
   };
 
@@ -280,11 +275,11 @@
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.${config.settings.username} = {
     isNormalUser = true;
-    extraGroups = ["wheel" "networkmanager" "video" "audio"];
+    extraGroups = ["wheel" "keys" "networkmanager" "video" "audio"];
     shell = pkgs.fish;
     openssh = {
       authorizedKeys = {
-        keyFiles = [(../../keys + "/${config.settings.username}.ssh.key")];
+        keyFiles = [(../../keys + "/${config.settings.username}.ssh.keys")];
       };
     };
   };
@@ -317,7 +312,6 @@
     enableSSHSupport = true;
   };
 
-  # Mosh
   programs.mosh.enable = true;
 
   security.sudo = {
@@ -326,6 +320,17 @@
   };
 
   # List services that you want to enable:
+
+  # Sops secrets
+  sops.defaultSopsFile = ./sops/secrets.yaml;
+
+  sops.age.generateKey = false;
+  sops.age.sshKeyPaths = ["/etc/ssh/ssh_host_ed25519_key"];
+  sops.gnupg.sshKeyPaths = [];
+
+  sops.secrets = {
+    "empty/for/now" = {};
+  };
 
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;

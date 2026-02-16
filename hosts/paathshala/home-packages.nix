@@ -3,121 +3,122 @@
   inputs,
   ...
 }: {
-  home.packages = with pkgs;
-    [
-      cmake
-      gnumake
+  home.packages = with pkgs; [
+    cmake
+    gnumake
 
-      # Pulseaudio
-      paprefs
-      ncpamixer
-      pamixer
-      pamix
-      pavucontrol
+    # Encryption
+    age
+    sops
+    ssh-to-age
 
-      # Entertainment
-      spotify
-      vlc
+    # Pulseaudio
+    paprefs
+    ncpamixer
+    pamixer
+    pamix
+    pavucontrol
 
-      # File tools
-      fd
-      unstable.ripgrep
-      master.silver-searcher
-      pigz
-      unzip
-      sha-3be4a51.tree
+    # Entertainment
+    spotify
+    vlc
 
-      # X server
-      brightnessctl
-      arandr
-      libnotify
-      xclip
-      xsel
+    # File tools
+    fd
+    unstable.ripgrep
+    master.silver-searcher
+    pigz
+    unzip
+    tree
 
-      # Hardware
-      lshw
-      hwinfo
-      hardinfo
-      lm_sensors
-      lsof
-      lsb-release
-      dmidecode
+    # X server
+    brightnessctl
+    arandr
+    libnotify
+    xclip
+    xsel
 
-      # webcam
-      v4l-utils
-      cheese
+    # Hardware
+    lshw
+    hwinfo
+    lm_sensors
+    lsof
+    lsb-release
+    dmidecode
 
-      # monitoring
-      iotop
-      iftop
-      unstable.dfc
-      duf
-      unstable.du-dust
-      dstat
-      powertop
-      ncdu
-      baobab
+    # webcam
+    v4l-utils
+    cheese
 
-      # network
-      iw
-      ethtool
-      traceroute
-      gping
-      nmap
-      master.cfspeedtest
-      speedtest-cli
-      magic-wormhole
-      wakeonlan
+    # monitoring
+    iotop
+    iftop
+    unstable.dfc
+    duf
+    unstable.dust
+    powertop
+    ncdu
+    baobab
 
-      # console
-      parallel
+    # network
+    iw
+    ethtool
+    traceroute
+    gping
+    nmap
+    master.cfspeedtest
+    speedtest-cli
+    magic-wormhole
+    wakeonlan
 
-      # dns
-      dnsutils
-      whois
+    # console
+    parallel
 
-      # linters / formatters
-      yamllint
-      shellcheck
-      ispell
+    # dns
+    dnsutils
+    whois
 
-      # infrastructure
-      flyctl
+    # linters / formatters
+    yamllint
+    shellcheck
+    ispell
 
-      # browser
-      brave
+    # infrastructure
+    flyctl
 
-      # editors
-      unstable.code-cursor
-      unstable.zed-editor
+    # browser
+    brave
 
-      # xfce Utilities
-      # for keyboard volume buttons
-      xfce.xfce4-volumed-pulse
+    # editors
+    unstable.code-cursor
+    unstable.zed-editor
 
-      # communication
-      thunderbird
-      slack
-      zulip
-      discord
-      zoom-us
-      webex
-      libreoffice
+    # xfce Utilities
+    # for keyboard volume buttons
+    xfce.xfce4-volumed-pulse
 
-      # editors
-      obsidian
-      figma-linux
+    # communication
+    thunderbird
+    slack
+    zulip
+    discord
+    zoom-us
+    webex
+    libreoffice
 
-      # benchmark
-      geekbench
+    # editors
+    obsidian
+    figma-linux
 
-      # documents
-      calibre
+    # benchmark
+    geekbench
 
-      # bling
-      cmatrix
-      neofetch
-      master.hollywood
-    ]
-    ++ [inputs.ghostty.packages.x86_64-linux.default];
+    # documents
+    calibre
+
+    # bling
+    cmatrix
+    neofetch
+    master.hollywood
+  ];
 }
