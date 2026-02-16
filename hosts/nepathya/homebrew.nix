@@ -100,14 +100,38 @@
       "zoom"
       "zotero"
       "zulip"
-      { name = "apparency"; args = {require_sha = false;}; }
-      { name = "lm-studio"; args = {appdir = "/Applications";}; }
-      { name = "lulu"; args = {appdir = "/Applications";}; }
-      { name = "onyx"; args = {require_sha = false;}; }
-      { name = "quicklook-json"; args = {require_sha = false;}; }
-      { name = "spotify"; args = {require_sha = false;}; }
-      { name = "suspicious-package"; args = {require_sha = false;}; }
-      { name = "vuescan"; args = {require_sha = false;}; }
+      {
+        name = "apparency";
+        args = {require_sha = false;};
+      }
+      {
+        name = "lm-studio";
+        args = {appdir = "/Applications";};
+      }
+      {
+        name = "lulu";
+        args = {appdir = "/Applications";};
+      }
+      {
+        name = "onyx";
+        args = {require_sha = false;};
+      }
+      {
+        name = "quicklook-json";
+        args = {require_sha = false;};
+      }
+      {
+        name = "spotify";
+        args = {require_sha = false;};
+      }
+      {
+        name = "suspicious-package";
+        args = {require_sha = false;};
+      }
+      {
+        name = "vuescan";
+        args = {require_sha = false;};
+      }
       # Rosetta 2 needed
       # "disk-inventory-x" # using omnidisksweeper instead
       # "send-to-kindle" # using calibre instead

@@ -1,13 +1,10 @@
-{
-  config,
-  ...
-}: {
+{config, ...}: {
   networking.applicationFirewall = {
-    enable = true;  # replaces globalstate
-    blockAllIncoming = false;  # set based on your old globalstate value
-    enableStealthMode = true;  # replaces stealthenabled
-    allowSignedApp = true;  # replaces allowdownloadsignedenabled
-    allowSigned = true;  # replaces allowsignedenabled
+    enable = true;
+    blockAllIncoming = false;
+    enableStealthMode = true;
+    allowSignedApp = true;
+    allowSigned = true;
   };
 
   system = {
@@ -198,14 +195,14 @@
       spaces.spans-displays = false;
 
       trackpad = {
-       ActuationStrength = 0; # Silent clicking
-       Clicking = true; # Tap to Click
-       Dragging = false; # Tap to Drag
-       FirstClickThreshold = 1;
-       SecondClickThreshold = 2;
-       TrackpadRightClick = true;
-       TrackpadThreeFingerDrag = true;
-       TrackpadThreeFingerTapGesture = 2;
+        ActuationStrength = 0; # Silent clicking
+        Clicking = true; # Tap to Click
+        Dragging = false; # Tap to Drag
+        FirstClickThreshold = 1;
+        SecondClickThreshold = 2;
+        TrackpadRightClick = true;
+        TrackpadThreeFingerDrag = true;
+        TrackpadThreeFingerTapGesture = 2;
       };
 
       universalaccess = {
