@@ -92,11 +92,6 @@
         specialArgs = {inherit inputs outputs;};
         modules = [./hosts/nepathya/configuration.nix];
       };
-
-      mancha = nix-darwin.lib.darwinSystem rec {
-        specialArgs = {inherit inputs outputs;};
-        modules = [./hosts/mancha/configuration.nix];
-      };
     };
 
     # First time : nix run home-manager/release-24.11 -- switch --flake .#username@hostname
@@ -116,13 +111,6 @@
           nixpkgs-stable.legacyPackages.${adarwin}; # required by home-manager
         extraSpecialArgs = {inherit inputs outputs;};
         modules = [./hosts/nepathya/home-manager.nix];
-      };
-
-      "suvash@mancha" = home-manager.lib.homeManagerConfiguration {
-        pkgs =
-          nixpkgs-stable.legacyPackages.${x86darwin}; # required by home-manager
-        extraSpecialArgs = {inherit inputs outputs;};
-        modules = [./hosts/mancha/home-manager.nix];
       };
     };
   };
