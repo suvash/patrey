@@ -49,7 +49,7 @@
     # Disk tools
     dfc
     duf
-    du-dust
+    dust
 
     # Network tools
     curl
@@ -83,7 +83,6 @@
     # Format parsers
     jq
     yq
-    xsv
 
     # Linters & Checkers etc
     ispell

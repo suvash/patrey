@@ -2,7 +2,17 @@
   config,
   ...
 }: {
+  networking.applicationFirewall = {
+    enable = true;  # replaces globalstate
+    blockAllIncoming = false;  # set based on your old globalstate value
+    enableStealthMode = true;  # replaces stealthenabled
+    allowSignedApp = true;  # replaces allowdownloadsignedenabled
+    allowSigned = true;  # replaces allowsignedenabled
+  };
+
   system = {
+    primaryUser = "${config.settings.username}";
+
     startup.chime = false;
 
     activationScripts.userDefaults.text = ''
@@ -135,14 +145,6 @@
         EnableTopTilingByEdgeDrag = true;
         StandardHideDesktopIcons = true;
         StandardHideWidgets = true;
-      };
-
-      alf = {
-        globalstate = 1;
-        loggingenabled = 1;
-        stealthenabled = 1;
-        allowsignedenabled = 1;
-        allowdownloadsignedenabled = 1;
       };
 
       finder = {

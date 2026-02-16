@@ -29,6 +29,5 @@
     enable = true;
     enableGitIntegration = true;
   };
-  programs.gitui.enable = true;
   programs.lazygit.enable = true;
 }
