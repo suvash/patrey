@@ -113,6 +113,13 @@
         extraSpecialArgs = {inherit inputs outputs;};
         modules = [./hosts/paathshala/home-manager.nix];
       };
+
+      "suvash@nepathya" = home-manager.lib.homeManagerConfiguration {
+        pkgs =
+          nixpkgs-stable.legacyPackages.${adarwin}; # required by home-manager
+        extraSpecialArgs = {inherit inputs outputs;};
+        modules = [./hosts/nepathya/home-manager.nix];
+      };
     };
   };
 }
