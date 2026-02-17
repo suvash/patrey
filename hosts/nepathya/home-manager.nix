@@ -20,11 +20,12 @@
     overlays = [
       outputs.overlays.unstable-packages
     ];
-    # Configure your nixpkgs instance
     config = {
       allowUnfree = true;
     };
   };
+
+  nix.package = pkgs.nix;
 
   home.stateVersion = "24.11"; # DO NOT CHANGE THIS!!!
 
@@ -61,7 +62,6 @@
   programs.autojump.enable = true;
   programs.bat.enable = true;
 
-  # programs.bottom.enable = true;
   programs.btop.enable = true;
 
   programs.direnv = {

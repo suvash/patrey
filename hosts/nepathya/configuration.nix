@@ -25,12 +25,7 @@
     };
   };
 
-  nix.settings = {
-    # for using flakes
-    # experimental-features = "nix-command flakes";
-    # for adding subtituters and their keys
-    # trusted-users = ["${config.settings.username}"];
-  };
+  nix.settings.trusted-users = [ "@admin" "${config.settings.username}" ];
 
   # ENVIRONMENT =====================================================================
 
