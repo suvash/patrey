@@ -4,10 +4,12 @@
   nixConfig = {
     extra-substituters = [
       "https://nix-community.cachix.org"
+      "https://cache.nixos-cuda.org"
       "https://suvash.cachix.org"
     ];
     extra-trusted-public-keys = [
       "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
+      "cache.nixos-cuda.org:74DUi4Ye579gUqzH4ziL9IyiJBlDpMRn9MBN8oNan9M="
       "suvash.cachix.org-1:ZJaRn/gUWxarb/rtYiP3njBLUBw+JYpKSg9dDS0NKjM="
     ];
   };
@@ -92,6 +94,12 @@
         system = x86linux;
         specialArgs = {inherit inputs outputs;};
         modules = [./hosts/lle/configuration.nix];
+      };
+
+      karkhana = nixpkgs-stable.lib.nixosSystem rec {
+        system = x86linux;
+        specialArgs = {inherit inputs outputs;};
+        modules = [./hosts/karkhana/configuration.nix];
       };
     };
 
