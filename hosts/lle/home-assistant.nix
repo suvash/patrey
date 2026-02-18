@@ -1,6 +1,7 @@
 {
   lib,
   config,
+  pkgs,
   ...
 }: {
   users.users.hass = {
@@ -32,6 +33,9 @@
       "apple_tv"
       "synology_dsm"
       "thread"
+    ];
+    customComponents = with pkgs.home-assistant-custom-components; [
+      adaptive_lighting
     ];
     config = {
       # Includes dependencies for a basic setup
