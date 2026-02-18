@@ -51,7 +51,6 @@
       "claude"
       "cursor"
       "discord"
-      "docker-desktop"
       "emacs-app"
       "ente-auth"
       "figma"

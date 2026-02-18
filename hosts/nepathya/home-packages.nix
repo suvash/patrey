@@ -42,6 +42,11 @@
     lsof
     pstree
 
+    # containers etc.
+    colima
+    docker
+    docker-compose
+
     # Git family
     git
     tig
