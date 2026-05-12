@@ -9,6 +9,7 @@
 
     # GNU bundles
     coreutils-full
+    util-linux
     binutils
     findutils
 
@@ -43,7 +44,7 @@
     pstree
 
     # containers etc.
-    colima
+    unstable.colima
     docker
     docker-compose
 
@@ -72,6 +73,7 @@
     # Development tools
     tokei
     pgcli
+    static-web-server
 
     # hardware tools
     yubikey-manager
