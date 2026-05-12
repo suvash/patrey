@@ -117,10 +117,6 @@
         args = {require_sha = false;};
       }
       {
-        name = "quicklook-json";
-        args = {require_sha = false;};
-      }
-      {
         name = "spotify";
         args = {require_sha = false;};
       }
