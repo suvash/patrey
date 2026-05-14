@@ -1,7 +1,12 @@
-{ inputs, outputs, config, lib, pkgs, ... }:
-
 {
-  imports = [ 
+  inputs,
+  outputs,
+  config,
+  lib,
+  pkgs,
+  ...
+}: {
+  imports = [
     outputs.nixosModules.avahi
     outputs.nixosModules.yubikey
 
@@ -96,7 +101,7 @@
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.suvash = {
     isNormalUser = true;
-    extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
+    extraGroups = ["wheel"]; # Enable ‘sudo’ for the user.
     shell = pkgs.fish;
     packages = with pkgs; [
       tree
@@ -109,7 +114,6 @@
   };
 
   programs.fish.enable = true;
-
 
   # List packages installed in system profile.
   # You can use https://search.nixos.org/ to find more packages (and options).
@@ -173,6 +177,4 @@
   #
   # For more information, see `man configuration.nix` or https://nixos.org/manual/nixos/stable/options#opt-system.stateVersion .
   system.stateVersion = "25.11"; # Did you read the comment?
-
 }
-

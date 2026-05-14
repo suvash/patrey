@@ -1,6 +1,9 @@
-{config, pkgs, ...}:
 {
-  services.xserver.videoDrivers = [ "modesetting" "nvidia" ];
+  config,
+  pkgs,
+  ...
+}: {
+  services.xserver.videoDrivers = ["modesetting" "nvidia"];
 
   hardware.graphics = {
     enable = true;
@@ -20,19 +23,17 @@
     cudaSupport = true;
   };
 
-  environment.systemPackages = with pkgs; [
-    nvtopPackages.full
-
-  ] ++ [
-
-    # BLAS & CUDA enabled llama-cpp
-    (pkgs.master.llama-cpp.override {
-      blasSupport = true;
-      cudaSupport = true;
-      rocmSupport = false;
-      metalSupport = false;
-    })
-
-  ];
-
+  environment.systemPackages = with pkgs;
+    [
+      nvtopPackages.full
+    ]
+    ++ [
+      # BLAS & CUDA enabled llama-cpp
+      (pkgs.master.llama-cpp.override {
+        blasSupport = true;
+        cudaSupport = true;
+        rocmSupport = false;
+        metalSupport = false;
+      })
+    ];
 }

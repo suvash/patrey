@@ -181,7 +181,7 @@
   services.tailscale = {
     enable = true;
     useRoutingFeatures = "server";
-    extraSetFlags = [ "--advertise-exit-node" ];
+    extraSetFlags = ["--advertise-exit-node"];
   };
 
   # Vnstat

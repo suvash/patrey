@@ -25,7 +25,7 @@
     };
   };
 
-  nix.settings.trusted-users = [ "@admin" "${config.settings.username}" ];
+  nix.settings.trusted-users = ["@admin" "${config.settings.username}"];
 
   # ENVIRONMENT =====================================================================
 
