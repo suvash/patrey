@@ -42,6 +42,7 @@
     # System tools
     lsof
     pstree
+    macmon
 
     # containers etc.
     unstable.colima
@@ -74,6 +75,9 @@
     tokei
     pgcli
     static-web-server
+
+    # inference
+    master.llama-cpp
 
     # hardware tools
     yubikey-manager
