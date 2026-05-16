@@ -77,7 +77,13 @@
     static-web-server
 
     # inference
-    master.llama-cpp
+    (master.llama-cpp.override
+      {
+        blasSupport = true;
+        cudaSupport = false;
+        rocmSupport = false;
+        metalSupport = true;
+      })
 
     # hardware tools
     yubikey-manager

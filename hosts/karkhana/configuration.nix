@@ -25,7 +25,7 @@
 
   # blacklist
   # copyfail disable kernel module
-  boot.blacklistedKernelModules = [ "algif_aead" ];
+  boot.blacklistedKernelModules = ["algif_aead"];
 
   # Boot
   boot.tmp = {
