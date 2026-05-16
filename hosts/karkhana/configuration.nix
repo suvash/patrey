@@ -12,6 +12,7 @@
 
     ./settings.nix
     ./nvidia.nix
+    ./sway-system.nix
 
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
@@ -125,6 +126,10 @@
     git
     ripgrep
   ];
+
+  environment.variables = {
+    PATREY_PATH = "$HOME/patrey";
+  };
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.

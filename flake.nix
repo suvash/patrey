@@ -122,6 +122,13 @@
         modules = [./hosts/paathshala/home-manager.nix];
       };
 
+      "suvash@karkhana" = home-manager.lib.homeManagerConfiguration {
+        pkgs =
+          nixpkgs-stable.legacyPackages.${x86linux}; # required by home-manager
+        extraSpecialArgs = {inherit inputs outputs;};
+        modules = [./hosts/karkhana/home-manager.nix];
+      };
+
       "suvash@nepathya" = home-manager.lib.homeManagerConfiguration {
         pkgs =
           nixpkgs-stable.legacyPackages.${adarwin}; # required by home-manager
