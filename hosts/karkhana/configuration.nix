@@ -23,6 +23,10 @@
   boot.loader.systemd-boot.configurationLimit = 10;
   boot.loader.efi.canTouchEfiVariables = true;
 
+  # blacklist
+  # copyfail disable kernel module
+  boot.blacklistedKernelModules = [ "algif_aead" ];
+
   # Boot
   boot.tmp = {
     useTmpfs = true;
