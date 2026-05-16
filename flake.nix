@@ -60,9 +60,8 @@
     inherit (self) outputs;
     # Supported systems for your flake packages, shell, etc.
     x86linux = "x86_64-linux";
-    x86darwin = "x86_64-darwin";
     adarwin = "aarch64-darwin";
-    systems = [x86linux x86darwin adarwin];
+    systems = [x86linux adarwin];
     forAllSystems = nixpkgs-stable.lib.genAttrs systems;
   in {
     # Custom packages, available through 'nix build', 'nix shell', etc
@@ -81,6 +80,26 @@
     darwinModules = import ./modules/darwin;
     # shareable home manager modules
     homeManagerModules = import ./modules/home-manager;
+
+    # devshell
+    devShells =
+      forAllSystems
+      (system: let
+        pkgs = nixpkgs-unstable.legacyPackages.${system};
+      in {
+        default = pkgs.mkShell {
+          packages = with pkgs; [
+            # Nix tooling
+            nil
+            nix-tree
+
+            # Secrets
+            sops
+            age
+            ssh-to-age
+          ];
+        };
+      });
 
     # sudo nixos-rebuild switch --flake .#hostname
     nixosConfigurations = {
