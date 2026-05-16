@@ -1,3 +1,9 @@
+#editors
 *.swp
 
+#nix
 /result
+
+# direnv
+.env
+.direnv/

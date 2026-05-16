@@ -130,6 +130,8 @@
     dfc
     git
     ripgrep
+
+    pciutils
   ];
 
   environment.variables = {
