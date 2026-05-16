@@ -108,6 +108,7 @@
     isNormalUser = true;
     extraGroups = ["wheel"]; # Enable ‘sudo’ for the user.
     shell = pkgs.fish;
+    linger = true;
     packages = with pkgs; [
       tree
     ];
@@ -156,6 +157,15 @@
 
   # Vnstat
   services.vnstat.enable = true;
+
+  # Docker
+  virtualisation.docker = {
+    enable = false;
+    rootless = {
+      enable = true;
+      setSocketVariable = true;
+    };
+  };
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
