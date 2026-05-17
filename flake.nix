@@ -42,6 +42,11 @@
       inputs.nixpkgs.follows = "nixpkgs-stable";
     };
 
+    llama-cpp = {
+      url = "github:ggml-org/llama.cpp/b9190";
+      flake = false;
+    };
+
     lsp-zero-nvim-3 = {
       url = "github:VonHeikemen/lsp-zero.nvim/v3.x";
       flake = false;

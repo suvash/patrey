@@ -20,6 +20,7 @@
     overlays = [
       outputs.overlays.unstable-packages
       outputs.overlays.master-packages
+      outputs.overlays.llama-cpp-packages
     ];
     config = {
       allowUnfree = true;

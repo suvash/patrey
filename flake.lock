@@ -21,6 +21,23 @@
         "type": "github"
       }
     },
+    "llama-cpp": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1778967736,
+        "narHash": "sha256-Ww5hej97I/gSRd5BJhCYOstAtzPQ3S789/5OlnvyaMc=",
+        "owner": "ggml-org",
+        "repo": "llama.cpp",
+        "rev": "b64739ea393b3c9d07cc9907e0a611f707838051",
+        "type": "github"
+      },
+      "original": {
+        "owner": "ggml-org",
+        "ref": "b9190",
+        "repo": "llama.cpp",
+        "type": "github"
+      }
+    },
     "lsp-zero-nvim-3": {
       "flake": false,
       "locked": {
@@ -161,6 +178,7 @@
     "root": {
       "inputs": {
         "home-manager": "home-manager",
+        "llama-cpp": "llama-cpp",
         "lsp-zero-nvim-3": "lsp-zero-nvim-3",
         "nix-darwin": "nix-darwin",
         "nix-index-database": "nix-index-database",

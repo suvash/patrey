@@ -26,4 +26,6 @@
       config.allowUnfree = true;
     };
   };
+
+  llama-cpp-packages = import ./llama-cpp.nix {inherit inputs;};
 }

@@ -77,7 +77,7 @@
     static-web-server
 
     # inference
-    (master.llama-cpp.override
+    (llama-cpp-from-input
       {
         blasSupport = true;
         cudaSupport = false;
