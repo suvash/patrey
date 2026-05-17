@@ -51,6 +51,7 @@
   nixpkgs = {
     overlays = [
       outputs.overlays.master-packages
+      outputs.overlays.llama-cpp-packages
     ];
     config = {
       allowUnfree = true;

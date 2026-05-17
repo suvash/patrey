@@ -28,8 +28,7 @@
       nvtopPackages.full
     ]
     ++ [
-      # BLAS & CUDA enabled llama-cpp
-      (pkgs.master.llama-cpp.override {
+      (llama-cpp-from-input {
         blasSupport = true;
         cudaSupport = true;
         rocmSupport = false;
