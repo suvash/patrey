@@ -131,6 +131,7 @@
     dfc
     git
     ripgrep
+    tmux
 
     pciutils
   ];
