@@ -102,6 +102,9 @@
             sops
             age
             ssh-to-age
+
+            # dev
+            bun
           ];
         };
       });
