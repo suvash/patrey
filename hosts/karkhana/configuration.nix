@@ -12,6 +12,7 @@
 
     ./settings.nix
     ./nvidia.nix
+    ./virtualisation.nix
     ./sway-system.nix
 
     # Include the results of the hardware scan.
@@ -163,13 +164,6 @@
   services.vnstat.enable = true;
 
   # Docker
-  virtualisation.docker = {
-    enable = false;
-    rootless = {
-      enable = true;
-      setSocketVariable = true;
-    };
-  };
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
