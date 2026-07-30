@@ -19,9 +19,9 @@
     nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-26.05";
     nixpkgs-master.url = "github:nixos/nixpkgs/master";
 
-    nixpkgs-darwin-stable.url = "github:nixos/nixpkgs/nixpkgs-25.11-darwin";
+    nixpkgs-darwin-stable.url = "github:nixos/nixpkgs/nixpkgs-26.05-darwin";
     nix-darwin = {
-      url = "github:nix-darwin/nix-darwin/nix-darwin-25.11";
+      url = "github:nix-darwin/nix-darwin/nix-darwin-26.05";
       inputs.nixpkgs.follows = "nixpkgs-darwin-stable";
     };
 
@@ -139,7 +139,7 @@
       };
     };
 
-    # First time : nix run home-manager/release-25.11 -- switch --flake .#username@hostname
+    # First time : nix run home-manager/release-26.05 -- switch --flake .#username@hostname
     # Then after : home-manager switch --flake .#username@hostname
     homeConfigurations = {
       "suvash@paathshala" = home-manager.lib.homeManagerConfiguration {
