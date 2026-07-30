@@ -66,7 +66,7 @@
     gping
     nmap
     wakeonlan
-    dogdns
+    doggo
     magic-wormhole
     trippy
     stuntman
@@ -111,6 +111,6 @@
 
     # bling
     cmatrix
-    neofetch
+    fastfetch
   ];
 }
