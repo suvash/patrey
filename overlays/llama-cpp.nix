@@ -40,9 +40,11 @@ in {
         (input: (input.name or "") != "npm-config-hook")
         oldAttrs.nativeBuildInputs
         ++ [llamaCppImportNpmLock.hooks.linkNodeModulesHook];
-      preConfigure = ''
-        printf '%s\n' ${lib.escapeShellArg llamaCppCommit} > COMMIT
-        linkNodeModulesHook
-      '' + oldAttrs.preConfigure;
+      preConfigure =
+        ''
+          printf '%s\n' ${lib.escapeShellArg llamaCppCommit} > COMMIT
+          linkNodeModulesHook
+        ''
+        + oldAttrs.preConfigure;
     });
 }
