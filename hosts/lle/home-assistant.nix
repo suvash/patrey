@@ -27,6 +27,7 @@
       # https://www.home-assistant.io/integrations/isal
       "isal"
       # Additional
+      "datetime"
       "homekit_controller"
       "homeassistant_connect_zbt2"
       "zha"
