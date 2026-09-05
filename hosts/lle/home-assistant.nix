@@ -34,9 +34,17 @@
       "apple_tv"
       "synology_dsm"
       "thread"
+
+      # required by ha-tapo-control
+      "ffmpeg"
+      "onvif"
+      "stream"
+      "network"
     ];
     customComponents = with pkgs.home-assistant-custom-components; [
       adaptive_lighting
+
+      (pkgs.callPackage ./ha-tapo-control.nix { })
     ];
     config = {
       # Includes dependencies for a basic setup
