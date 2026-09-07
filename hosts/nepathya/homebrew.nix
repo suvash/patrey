@@ -49,7 +49,6 @@
       "calibre"
       "chrysalis"
       "claude"
-      "cursor"
       "discord"
       "dbeaver-community"
       "emacs-app"
@@ -58,24 +57,19 @@
       "firefox"
       "ghostty"
       "handy"
-      "hovrly"
-      "iina"
       "jordanbaird-ice"
       "karabiner-elements"
       "keka"
       "kekaexternalhelper"
-      "keycastr"
       "kitty"
       "knockknock"
       "latest"
       "linear-linear"
       "macdown"
       "microsoft-teams"
-      "modern-csv"
       "netiquette"
       "obsidian"
       "omnidisksweeper"
-      "orion"
       "oversight"
       "plex"
       "qlcolorcode"
@@ -84,16 +78,13 @@
       "quicklook-video"
       "raycast"
       "reikey"
-      "repo-prompt"
       "sf-symbols"
-      "shottr"
       "signal"
       "stats"
       "ungoogled-chromium"
       "utm"
       "vlc"
       "wacom-tablet"
-      "windsurf"
       "yubico-authenticator"
       "zed"
       "zen"
@@ -128,9 +119,6 @@
         name = "vuescan";
         args = {require_sha = false;};
       }
-      # Rosetta 2 needed
-      # "disk-inventory-x" # using omnidisksweeper instead
-      # "send-to-kindle" # using calibre instead
     ];
   };
 }

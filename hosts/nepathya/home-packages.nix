@@ -109,6 +109,10 @@
     # Benchmark
     speedtest-cli
 
+    # kube
+    kubectl
+    k9s
+
     # bling
     cmatrix
     fastfetch
