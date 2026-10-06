@@ -14,7 +14,7 @@
 
   services.cloudflared = {
     tunnels."lle".ingress = {
-      "mv.hait.xyz" = "http://localhost:${toString 40200}";
+      "mv.errbrr.com" = "http://localhost:${toString 40200}";
     };
   };
 }

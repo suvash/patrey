@@ -358,7 +358,7 @@
 
   services.cloudflared = {
     tunnels."lle".ingress = {
-      "ha.hait.xyz" = "http://localhost:${toString config.services.home-assistant.config.http.server_port}";
+      "ha.errbrr.com" = "http://localhost:${toString config.services.home-assistant.config.http.server_port}";
     };
   };
 }

@@ -8,7 +8,7 @@
 
   services.cloudflared = {
     tunnels."lle".ingress = {
-      "pw.hait.xyz" = "http://localhost:${toString 40100}";
+      "pw.errbrr.com" = "http://localhost:${toString 40100}";
     };
   };
 }

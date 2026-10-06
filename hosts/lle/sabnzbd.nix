@@ -17,7 +17,7 @@
 
   services.cloudflared = {
     tunnels."lle".ingress = {
-      "sb.hait.xyz" = "http://localhost:${toString 40000}";
+      "sb.errbrr.com" = "http://localhost:${toString 40000}";
     };
   };
 }
