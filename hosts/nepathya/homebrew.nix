@@ -65,7 +65,6 @@
       "knockknock"
       "latest"
       "linear-linear"
-      "macdown"
       "microsoft-teams"
       "netiquette"
       "obsidian"
