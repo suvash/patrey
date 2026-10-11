@@ -2,7 +2,7 @@
   services.immich = {
     package = pkgs.unstable.immich;
     enable = true;
-    host = 0.0.0.0;
+    host = "0.0.0.0";
     port = 2283;
     openFirewall = true;
     environment = {

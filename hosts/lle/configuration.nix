@@ -63,8 +63,16 @@
     };
   };
 
-  # Nixos
-  nixpkgs.config.allowUnfree = true;
+  # Nixpkgs
+  nixpkgs = {
+    overlays = [
+      outputs.overlays.unstable-packages
+    ];
+    config = {
+      allowUnfree = true;
+    };
+  };
+
 
   # Define your hostname.
   networking.hostName = "lle";
