@@ -24,6 +24,7 @@
     ./prowlarr.nix
     ./radarr.nix
     ./sonarr.nix
+    ./immich.nix
 
     # home automation
     ./home-assistant.nix
