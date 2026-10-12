@@ -18,6 +18,9 @@
     ./sops.nix
     ./cloudflared.nix
 
+    # nas mounts
+    ./nfs.nix
+
     # media serving
     ./plex.nix
     ./sabnzbd.nix

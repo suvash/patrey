@@ -8,6 +8,7 @@
     environment = {
       IMMICH_LOG_LEVEL = "warn";
     };
+    machine-learning.enable = true;
   };
 
   services.cloudflared = {
