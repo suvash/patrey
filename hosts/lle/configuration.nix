@@ -27,6 +27,9 @@
     ./prowlarr.nix
     ./radarr.nix
     ./sonarr.nix
+    ./lidarr.nix
+
+    # photos
     ./immich.nix
 
     # home automation
