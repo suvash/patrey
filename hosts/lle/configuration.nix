@@ -79,7 +79,6 @@
     };
   };
 
-
   # Define your hostname.
   networking.hostName = "lle";
 

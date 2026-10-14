@@ -1,7 +1,4 @@
-{
-  config,
-  ...
-}: {
+{config, ...}: {
   services.sabnzbd = {
     enable = true;
     user = "sabnzbd";

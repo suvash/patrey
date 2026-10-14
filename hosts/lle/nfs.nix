@@ -1,5 +1,4 @@
-{outputs, ...}:
-{
+{outputs, ...}: {
   imports = [
     outputs.nixosModules.nfs_mounts
   ];

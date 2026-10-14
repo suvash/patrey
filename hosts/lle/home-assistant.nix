@@ -44,7 +44,7 @@
     customComponents = with pkgs.home-assistant-custom-components; [
       adaptive_lighting
 
-      (pkgs.callPackage ./ha-tapo-control.nix { })
+      (pkgs.callPackage ./ha-tapo-control.nix {})
     ];
     config = {
       # Includes dependencies for a basic setup
