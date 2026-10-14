@@ -12,7 +12,7 @@
   };
 
   services.cloudflared = {
-    tunnels."lle".ingress = {
+    tunnels."lle-errbrr-com".ingress = {
       "im.errbrr.com" = "http://localhost:${toString 2283}";
     };
   };

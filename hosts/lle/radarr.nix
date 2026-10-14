@@ -13,7 +13,7 @@
   networking.firewall.allowedTCPPorts = [40200];
 
   services.cloudflared = {
-    tunnels."lle".ingress = {
+    tunnels."lle-errbrr-com".ingress = {
       "mv.errbrr.com" = "http://localhost:${toString 40200}";
     };
   };

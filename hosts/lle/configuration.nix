@@ -32,6 +32,9 @@
     # photos
     ./immich.nix
 
+    # code
+    ./gitea.nix
+
     # home automation
     ./home-assistant.nix
   ];

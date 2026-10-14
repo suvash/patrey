@@ -13,7 +13,7 @@
   networking.firewall.allowedTCPPorts = [8686];
 
   services.cloudflared = {
-    tunnels."lle".ingress = {
+    tunnels."lle-errbrr-com".ingress = {
       "mz.errbrr.com" = "http://localhost:${toString 8686}";
     };
   };

@@ -7,7 +7,7 @@
   networking.firewall.allowedTCPPorts = [40100];
 
   services.cloudflared = {
-    tunnels."lle".ingress = {
+    tunnels."lle-errbrr-com".ingress = {
       "pw.errbrr.com" = "http://localhost:${toString 40100}";
     };
   };

@@ -357,7 +357,7 @@
   ];
 
   services.cloudflared = {
-    tunnels."lle".ingress = {
+    tunnels."lle-errbrr-com".ingress = {
       "ha.errbrr.com" = "http://localhost:${toString config.services.home-assistant.config.http.server_port}";
     };
   };
