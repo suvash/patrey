@@ -36,6 +36,7 @@
       "Mactracker" = 430255202;
       "NetSpot" = 514951692;
       "Slack" = 803453959;
+      "Shelv" = 6762255865;
       "Tailscale" = 1475387142;
       "WhatsApp" = 310633997;
       "WireGuard" = 1451685025;
