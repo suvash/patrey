@@ -71,6 +71,7 @@
       "omnidisksweeper"
       "oversight"
       "plex"
+      "plexamp"
       "qlmarkdown"
       "quicklook-video"
       "raycast"
