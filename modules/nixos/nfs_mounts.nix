@@ -1,7 +1,10 @@
-{ config, lib, ... }:
-
-let
-  inherit (lib)
+{
+  config,
+  lib,
+  ...
+}: let
+  inherit
+    (lib)
     filterAttrs
     mapAttrs'
     mkIf
@@ -9,24 +12,24 @@ let
     nameValuePair
     optional
     optionals
-    types;
+    types
+    ;
 
   cfg = config.services.nfsMounts;
   enabled = filterAttrs (_: m: m.enable) cfg;
 
   mkOptions = m:
-    [ "_netdev" "nofail" "x-systemd.mount-timeout=${toString m.mountTimeout}s" ]
+    ["_netdev" "nofail" "x-systemd.mount-timeout=${toString m.mountTimeout}s"]
     ++ optional m.readOnly "ro"
     ++ optional (m.nfsVersion != null) "nfsvers=${m.nfsVersion}"
     ++ optionals m.automount (
-      [ "noauto" "x-systemd.automount" ]
+      ["noauto" "x-systemd.automount"]
       ++ optional (m.idleTimeout > 0) "x-systemd.idle-timeout=${toString m.idleTimeout}"
     )
     ++ m.extraOptions;
-in
-{
+in {
   options.services.nfsMounts = mkOption {
-    default = { };
+    default = {};
     description = ''
       NFS shares to mount, keyed by an arbitrary name. Each entry becomes a
       `fileSystems` entry, with lazy automounting and boot-safe defaults.
@@ -38,7 +41,7 @@ in
         nfsVersion = "4.2";
       };
     };
-    type = types.attrsOf (types.submodule ({ name, ... }: {
+    type = types.attrsOf (types.submodule ({name, ...}: {
       options = {
         enable = mkOption {
           type = types.bool;
@@ -71,7 +74,7 @@ in
         };
 
         nfsVersion = mkOption {
-          type = types.nullOr (types.enum [ "3" "4" "4.0" "4.1" "4.2" ]);
+          type = types.nullOr (types.enum ["3" "4" "4.0" "4.1" "4.2"]);
           default = null;
           description = "Pin the NFS version. Null lets client and server negotiate.";
         };
@@ -96,23 +99,25 @@ in
 
         extraOptions = mkOption {
           type = types.listOf types.str;
-          default = [ ];
-          example = [ "soft" "timeo=50" ];
+          default = [];
+          example = ["soft" "timeo=50"];
           description = "Additional mount options.";
         };
       };
     }));
   };
 
-  config = mkIf (enabled != { }) {
-    boot.supportedFilesystems = [ "nfs" ];
+  config = mkIf (enabled != {}) {
+    boot.supportedFilesystems = ["nfs"];
 
-    fileSystems = mapAttrs'
-      (_: m: nameValuePair m.mountPoint {
-        device = "${m.server}:${m.export}";
-        fsType = "nfs";
-        options = mkOptions m;
-      })
+    fileSystems =
+      mapAttrs'
+      (_: m:
+        nameValuePair m.mountPoint {
+          device = "${m.server}:${m.export}";
+          fsType = "nfs";
+          options = mkOptions m;
+        })
       enabled;
   };
 }
