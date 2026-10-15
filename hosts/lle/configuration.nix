@@ -29,6 +29,7 @@
     ./sonarr.nix
     ./lidarr.nix
     ./navidrome.nix
+    ./aurral.nix
 
     # photos
     ./immich.nix

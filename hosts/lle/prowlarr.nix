@@ -1,4 +1,4 @@
-{config, ...}: {
+{...}: {
   services.prowlarr = {
     enable = true;
     settings.server.port = 40100;
