@@ -9,6 +9,7 @@
   imports = [
     outputs.nixosModules.avahi
     outputs.nixosModules.yubikey
+    outputs.nixosModules.pki_blacklist
 
     ./settings.nix
     ./nvidia.nix
