@@ -18,7 +18,7 @@
 
   services.cloudflared = {
     tunnels."lle-errbrr-com".ingress = {
-      "mp.errbrr.com" = "http://localhost:${toString 4533}";
+      "nv.errbrr.com" = "http://localhost:${toString 4533}";
     };
   };
 }
