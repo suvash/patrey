@@ -245,7 +245,7 @@
               ];
               for = {
                 hours = 0;
-                minutes = 1;
+                minutes = 3;
                 seconds = 0;
               };
               to = [
