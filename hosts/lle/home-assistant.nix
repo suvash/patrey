@@ -352,6 +352,136 @@
             }
           ];
         }
+
+        {
+          id = "kitchen_motion_hallway_night_light";
+          alias = "Kitchen Motion Hallway Night Light";
+          description = "";
+          mode = "restart";
+          triggers = [
+            {
+              id = "motion_detected";
+              trigger = "state";
+              entity_id = [
+                "binary_sensor.kitchen_motion"
+              ];
+              from = [
+                "off"
+              ];
+              to = [
+                "on"
+              ];
+            }
+            {
+              id = "motion_cleared";
+              trigger = "state";
+              entity_id = [
+                "binary_sensor.kitchen_motion"
+              ];
+              from = [
+                "on"
+              ];
+              for = {
+                hours = 0;
+                minutes = 10;
+                seconds = 0;
+              };
+              to = [
+                "off"
+              ];
+            }
+          ];
+          conditions = [];
+          actions = [
+            {
+              choose = [
+                {
+                  conditions = [
+                    {
+                      condition = "trigger";
+                      id = [
+                        "motion_detected"
+                      ];
+                    }
+                    {
+                      condition = "numeric_state";
+                      entity_id = "sensor.kitchen_motion_illuminance";
+                      below = 15;
+                    }
+                    {
+                      condition = "state";
+                      entity_id = "light.hallway_lamp";
+                      state = "off";
+                    }
+                  ];
+                  sequence = [
+                    {
+                      action = "adaptive_lighting.set_manual_control";
+                      data = {
+                        entity_id = "switch.adaptive_lighting_adaptive_lighting";
+                        lights = [
+                          "light.hallway_lamp"
+                        ];
+                        manual_control = true;
+                      };
+                    }
+                    {
+                      action = "light.turn_on";
+                      metadata = {};
+                      data = {
+                        brightness_pct = 5; # ~13 in 0-255 range
+                        transition = 1;
+                      };
+                      target = {
+                        entity_id = "light.hallway_lamp";
+                      };
+                    }
+                  ];
+                }
+                {
+                  conditions = [
+                    {
+                      condition = "trigger";
+                      id = [
+                        "motion_cleared"
+                      ];
+                    }
+                    {
+                      condition = "numeric_state";
+                      entity_id = "light.hallway_lamp";
+                      attribute = "brightness";
+                      above = 12;
+                      below = 14;
+                    }
+                  ];
+                  sequence = [
+                    {
+                      action = "light.turn_off";
+                      metadata = {};
+                      data = {
+                        transition = 1;
+                      };
+                      target = {
+                        entity_id = "light.hallway_lamp";
+                      };
+                    }
+                    {
+                      action = "adaptive_lighting.set_manual_control";
+                      data = {
+                        entity_id = "switch.adaptive_lighting_adaptive_lighting";
+                        lights = [
+                          "light.hallway_lamp"
+                        ];
+                        manual_control = false;
+                      };
+                    }
+                  ];
+                }
+              ];
+            }
+          ];
+        }
+
       ];
     };
   };
