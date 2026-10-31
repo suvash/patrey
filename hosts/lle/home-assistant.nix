@@ -220,8 +220,8 @@
         }
 
         {
-          id = "kitchen_presence_night_light_combined";
-          alias = "Kitchen Presence Night Light Control";
+          id = "living_room_presence_night_light_combined";
+          alias = "Living room Presence Night Light Control";
           description = "";
           mode = "restart";
           triggers = [
@@ -229,7 +229,7 @@
               id = "presence_detected";
               trigger = "state";
               entity_id = [
-                "binary_sensor.kitchen_presence"
+                "binary_sensor.living_room_presence"
               ];
               from = [
                 "off"
@@ -242,7 +242,7 @@
               id = "presence_cleared";
               trigger = "state";
               entity_id = [
-                "binary_sensor.kitchen_presence"
+                "binary_sensor.living_room_presence"
               ];
               from = [
                 "on"
