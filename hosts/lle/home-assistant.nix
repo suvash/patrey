@@ -150,13 +150,15 @@
                       action = "light.turn_on";
                       data = {
                         brightness_pct = 10;
-                        transition = 15;
+                        transition = 5;
                       };
                       target = {
-                        area_id = [
-                          "living_room"
-                          "kitchen"
-                        ];
+                        entity_id = ''
+                          {{ (area_entities('living_room') + area_entities('kitchen'))
+                             | select('match', 'light\.')
+                             | select('is_state', 'on')
+                             | list }}
+                        '';
                       };
                     }
                   ];
@@ -175,13 +177,15 @@
                       action = "light.turn_on";
                       data = {
                         brightness_pct = 5;
-                        transition = 15;
+                        transition = 5;
                       };
                       target = {
-                        area_id = [
-                          "living_room"
-                          "kitchen"
-                        ];
+                        entity_id = ''
+                          {{ (area_entities('living_room') + area_entities('kitchen'))
+                             | select('match', 'light\.')
+                             | select('is_state', 'on')
+                             | list }}
+                        '';
                       };
                     }
                   ];
@@ -199,7 +203,7 @@
                     {
                       action = "light.turn_off";
                       data = {
-                        transition = 15;
+                        transition = 5;
                       };
                       target = {
                         area_id = [
