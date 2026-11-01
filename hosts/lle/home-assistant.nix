@@ -272,7 +272,7 @@
                     }
                     {
                       condition = "time";
-                      after = "22:00:00";
+                      after = "20:30:00";
                       before = "08:00:00";
                     }
                     {
@@ -473,7 +473,7 @@
                     }
                     {
                       condition = "time";
-                      after = "22:00:00";
+                      after = "20:30:00";
                       before = "08:00:00";
                     }
                     {
