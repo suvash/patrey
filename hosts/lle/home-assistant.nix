@@ -55,6 +55,21 @@
         trusted_proxies = ["::1"];
         use_x_forwarded_for = true;
       };
+      template = [
+        {
+          binary_sensor = [
+            {
+              name = "Hallway activity";
+              # Hallway is "active" when either neighbour is; delay_off is the hallway's own timeout
+              state = ''
+                {{ is_state('binary_sensor.kitchen_motion', 'on')
+                   or is_state('binary_sensor.living_room_presence', 'on') }}
+              '';
+              delay_off = "00:05:00";
+            }
+          ];
+        }
+      ];
       automation = [
         {
           id = "turn_off_living_room_kitchen_sunrise";
@@ -220,41 +235,25 @@
         }
 
         {
-          id = "living_room_presence_night_light_combined";
-          alias = "Living room Presence Night Light Control";
+          id = "living_room_presence_night_light";
+          alias = "Living Room Presence Night Light";
           description = "";
           mode = "restart";
           triggers = [
             {
               id = "presence_detected";
               trigger = "state";
-              entity_id = [
-                "binary_sensor.living_room_presence"
-              ];
-              from = [
-                "off"
-              ];
-              to = [
-                "on"
-              ];
+              entity_id = [ "binary_sensor.living_room_presence" ];
+              from = [ "off" ];
+              to = [ "on" ];
             }
             {
               id = "presence_cleared";
               trigger = "state";
-              entity_id = [
-                "binary_sensor.living_room_presence"
-              ];
-              from = [
-                "on"
-              ];
-              for = {
-                hours = 0;
-                minutes = 3;
-                seconds = 0;
-              };
-              to = [
-                "off"
-              ];
+              entity_id = [ "binary_sensor.living_room_presence" ];
+              from = [ "on" ];
+              to = [ "off" ];
+              for = { hours = 0; minutes = 6; seconds = 0; };
             }
           ];
           conditions = [];
@@ -263,86 +262,50 @@
               choose = [
                 {
                   conditions = [
-                    {
-                      condition = "trigger";
-                      id = [
-                        "presence_detected"
-                      ];
-                    }
-                    {
-                      condition = "time";
-                      after = "22:00:00";
-                      before = "08:00:00";
-                    }
-                    {
-                      condition = "state";
-                      entity_id = "light.hallway_lamp";
-                      state = "off";
-                    }
+                    { condition = "trigger"; id = [ "presence_detected" ]; }
+                    { condition = "time"; after = "22:00:00"; before = "08:00:00"; }
+                    { condition = "state"; entity_id = "light.living_room_floor_lamp"; state = "off"; }
                   ];
                   sequence = [
                     {
                       action = "adaptive_lighting.set_manual_control";
                       data = {
                         entity_id = "switch.adaptive_lighting_adaptive_lighting";
-                        lights = [
-                          "light.hallway_lamp"
-                        ];
+                        lights = [ "light.living_room_floor_lamp" ];
                         manual_control = true;
                       };
                     }
                     {
                       action = "light.turn_on";
                       metadata = {};
-                      data = {
-                        brightness_pct = 5; # ~13 in 0-255 range
-                        transition = 1;
-                      };
-                      target = {
-                        entity_id = "light.hallway_lamp";
-                      };
+                      data = { brightness_pct = 14; transition = 1; }; # ~36 in 0-255
+                      target = { entity_id = "light.living_room_floor_lamp"; };
                     }
                   ];
                 }
                 {
                   conditions = [
-                    {
-                      condition = "trigger";
-                      id = [
-                        "presence_cleared"
-                      ];
-                    }
-                    {
-                      condition = "time";
-                      after = "22:00:00";
-                      before = "08:00:00";
-                    }
+                    { condition = "trigger"; id = [ "presence_cleared" ]; }
                     {
                       condition = "numeric_state";
-                      entity_id = "light.hallway_lamp";
+                      entity_id = "light.living_room_floor_lamp";
                       attribute = "brightness";
-                      above = 12;
-                      below = 14;
+                      above = 34;
+                      below = 38;
                     }
                   ];
                   sequence = [
                     {
                       action = "light.turn_off";
                       metadata = {};
-                      data = {
-                        transition = 1;
-                      };
-                      target = {
-                        entity_id = "light.hallway_lamp";
-                      };
+                      data = { transition = 1; };
+                      target = { entity_id = "light.living_room_floor_lamp"; };
                     }
                     {
                       action = "adaptive_lighting.set_manual_control";
                       data = {
                         entity_id = "switch.adaptive_lighting_adaptive_lighting";
-                        lights = [
-                          "light.hallway_lamp"
-                        ];
+                        lights = [ "light.living_room_floor_lamp" ];
                         manual_control = false;
                       };
                     }
@@ -354,41 +317,25 @@
         }
 
         {
-          id = "kitchen_motion_hallway_night_light";
-          alias = "Kitchen Motion Hallway Night Light";
+          id = "kitchen_motion_night_light";
+          alias = "Kitchen Motion Night Light";
           description = "";
           mode = "restart";
           triggers = [
             {
               id = "motion_detected";
               trigger = "state";
-              entity_id = [
-                "binary_sensor.kitchen_motion"
-              ];
-              from = [
-                "off"
-              ];
-              to = [
-                "on"
-              ];
+              entity_id = [ "binary_sensor.kitchen_motion" ];
+              from = [ "off" ];
+              to = [ "on" ];
             }
             {
               id = "motion_cleared";
               trigger = "state";
-              entity_id = [
-                "binary_sensor.kitchen_motion"
-              ];
-              from = [
-                "on"
-              ];
-              for = {
-                hours = 0;
-                minutes = 10;
-                seconds = 0;
-              };
-              to = [
-                "off"
-              ];
+              entity_id = [ "binary_sensor.kitchen_motion" ];
+              from = [ "on" ];
+              to = [ "off" ];
+              for = { hours = 0; minutes = 5; seconds = 0; };
             }
           ];
           conditions = [];
@@ -397,81 +344,50 @@
               choose = [
                 {
                   conditions = [
-                    {
-                      condition = "trigger";
-                      id = [
-                        "motion_detected"
-                      ];
-                    }
-                    {
-                      condition = "numeric_state";
-                      entity_id = "sensor.kitchen_motion_illuminance";
-                      below = 15;
-                    }
-                    {
-                      condition = "state";
-                      entity_id = "light.hallway_lamp";
-                      state = "off";
-                    }
+                    { condition = "trigger"; id = [ "motion_detected" ]; }
+                    { condition = "numeric_state"; entity_id = "sensor.kitchen_motion_illuminance"; below = 15; }
+                    { condition = "state"; entity_id = "light.kitchen_lamp"; state = "off"; }
                   ];
                   sequence = [
                     {
                       action = "adaptive_lighting.set_manual_control";
                       data = {
                         entity_id = "switch.adaptive_lighting_adaptive_lighting";
-                        lights = [
-                          "light.hallway_lamp"
-                        ];
+                        lights = [ "light.kitchen_lamp" ];
                         manual_control = true;
                       };
                     }
                     {
                       action = "light.turn_on";
                       metadata = {};
-                      data = {
-                        brightness_pct = 5; # ~13 in 0-255 range
-                        transition = 1;
-                      };
-                      target = {
-                        entity_id = "light.hallway_lamp";
-                      };
+                      data = { brightness_pct = 18; transition = 1; }; # ~46 in 0-255
+                      target = { entity_id = "light.kitchen_lamp"; };
                     }
                   ];
                 }
                 {
                   conditions = [
-                    {
-                      condition = "trigger";
-                      id = [
-                        "motion_cleared"
-                      ];
-                    }
+                    { condition = "trigger"; id = [ "motion_cleared" ]; }
                     {
                       condition = "numeric_state";
-                      entity_id = "light.hallway_lamp";
+                      entity_id = "light.kitchen_lamp";
                       attribute = "brightness";
-                      above = 12;
-                      below = 14;
+                      above = 44;
+                      below = 48;
                     }
                   ];
                   sequence = [
                     {
                       action = "light.turn_off";
                       metadata = {};
-                      data = {
-                        transition = 1;
-                      };
-                      target = {
-                        entity_id = "light.hallway_lamp";
-                      };
+                      data = { transition = 1; };
+                      target = { entity_id = "light.kitchen_lamp"; };
                     }
                     {
                       action = "adaptive_lighting.set_manual_control";
                       data = {
                         entity_id = "switch.adaptive_lighting_adaptive_lighting";
-                        lights = [
-                          "light.hallway_lamp"
-                        ];
+                        lights = [ "light.kitchen_lamp" ];
                         manual_control = false;
                       };
                     }
@@ -482,6 +398,86 @@
           ];
         }
 
+        {
+          id = "hallway_night_light";
+          alias = "Hallway Night Light";
+          description = "";
+          mode = "restart";
+          triggers = [
+            {
+              id = "active";
+              trigger = "state";
+              entity_id = [ "binary_sensor.hallway_activity" ];
+              from = [ "off" ];
+              to = [ "on" ];
+            }
+            {
+              id = "idle";
+              trigger = "state";
+              entity_id = [ "binary_sensor.hallway_activity" ];
+              from = [ "on" ];
+              to = [ "off" ];
+            }
+          ];
+          conditions = [];
+          actions = [
+            {
+              choose = [
+                {
+                  conditions = [
+                    { condition = "trigger"; id = [ "active" ]; }
+                    { condition = "time"; after = "22:00:00"; before = "08:00:00"; }
+                    { condition = "state"; entity_id = "light.hallway_lamp"; state = "off"; }
+                  ];
+                  sequence = [
+                    {
+                      action = "adaptive_lighting.set_manual_control";
+                      data = {
+                        entity_id = "switch.adaptive_lighting_adaptive_lighting";
+                        lights = [ "light.hallway_lamp" ];
+                        manual_control = true;
+                      };
+                    }
+                    {
+                      action = "light.turn_on";
+                      metadata = {};
+                      data = { brightness_pct = 16; transition = 1; }; # ~41 in 0-255
+                      target = { entity_id = "light.hallway_lamp"; };
+                    }
+                  ];
+                }
+                {
+                  conditions = [
+                    { condition = "trigger"; id = [ "idle" ]; }
+                    {
+                      condition = "numeric_state";
+                      entity_id = "light.hallway_lamp";
+                      attribute = "brightness";
+                      above = 39;
+                      below = 43;
+                    }
+                  ];
+                  sequence = [
+                    {
+                      action = "light.turn_off";
+                      metadata = {};
+                      data = { transition = 1; };
+                      target = { entity_id = "light.hallway_lamp"; };
+                    }
+                    {
+                      action = "adaptive_lighting.set_manual_control";
+                      data = {
+                        entity_id = "switch.adaptive_lighting_adaptive_lighting";
+                        lights = [ "light.hallway_lamp" ];
+                        manual_control = false;
+                      };
+                    }
+                  ];
+                }
+              ];
+            }
+          ];
+        }
       ];
     };
   };
