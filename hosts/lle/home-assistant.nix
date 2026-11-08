@@ -34,6 +34,8 @@
       "apple_tv"
       "synology_dsm"
       "thread"
+      # marantz avr
+      "denonavr"
 
       # required by ha-tapo-control
       "ffmpeg"
