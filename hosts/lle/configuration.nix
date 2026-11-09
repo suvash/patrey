@@ -40,6 +40,7 @@
 
     # home automation
     ./home-assistant.nix
+    ./music-assistant.nix
   ];
 
   # Use the systemd-boot EFI boot loader.

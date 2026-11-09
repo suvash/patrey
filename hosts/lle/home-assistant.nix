@@ -36,6 +36,8 @@
       "thread"
       # marantz avr
       "denonavr"
+      "heos"
+      "music_assistant"
 
       # required by ha-tapo-control
       "ffmpeg"
