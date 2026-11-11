@@ -16,6 +16,9 @@
     ./virtualisation.nix
     ./sway-system.nix
 
+    # services
+    ./frigate.nix
+
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
   ];
