@@ -27,7 +27,10 @@
     nodejs = final.master.nodejs;
   };
 in {
-  llama-cpp-from-input = args:
+  llama-cpp-from-input = args: let
+    cudaSupport = args.cudaSupport or (final.master.config.cudaSupport && !(args.syclSupport or false));
+    cudaPackages = args.cudaPackages or final.master.cudaPackages;
+  in
     (final.master.llama-cpp.override args).overrideAttrs (oldAttrs: {
       version = llamaCppVersion;
       src = inputs.llama-cpp;
@@ -35,6 +38,11 @@ in {
       npmDepsHash = null;
       npmDeps = llamaCppNodeModules;
       dontLinkNodeModules = true;
+      # Recent ggml CUDA code includes nvml.h; NVML's headers are shipped
+      # separately from nvcc and cudart in nixpkgs.
+      buildInputs = oldAttrs.buildInputs ++ lib.optionals cudaSupport [
+        (lib.getOutput "include" cudaPackages.cuda_nvml_dev)
+      ];
       nativeBuildInputs =
         builtins.filter
         (input: (input.name or "") != "npm-config-hook")
