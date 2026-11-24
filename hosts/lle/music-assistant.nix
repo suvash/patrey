@@ -1,4 +1,22 @@
 {...}: {
+  nixpkgs.overlays = [
+    (_final: prev: {
+      pythonPackagesExtensions = prev.pythonPackagesExtensions ++ [
+        (_pythonFinal: pythonPrev: {
+          gql = pythonPrev.gql.overridePythonAttrs (oldAttrs: {
+            # graphql-core 3.2.13 changes introspection query / AST rendering.
+            # gql 4.0.0's exact-output comparisons predate those changes;
+            # keep the other 714 offline tests and the import check enabled.
+            disabledTests = (oldAttrs.disabledTests or []) ++ [
+              "test_get_introspection_query_ast"
+              "test_node_tree_with_loc"
+            ];
+          });
+        })
+      ];
+    })
+  ];
+
   services.music-assistant = {
     enable = true;
     providers = [
