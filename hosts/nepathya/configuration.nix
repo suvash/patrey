@@ -8,7 +8,6 @@
 }: {
   imports = [
     outputs.darwinModules.skhd
-    outputs.nixosModules.pki_blacklist
 
     ./settings.nix
     ./macos.nix

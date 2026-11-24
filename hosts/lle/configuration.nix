@@ -13,7 +13,6 @@
 
     # common modules
     outputs.nixosModules.avahi
-    outputs.nixosModules.pki_blacklist
 
     # secrets & cloudflared
     ./sops.nix
