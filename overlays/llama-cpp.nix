@@ -11,7 +11,7 @@
   llamaCppLockedRev = llamaCppLock.locked.rev or (throw "llama-cpp input must be locked to a git revision");
   llamaCppInputRev = inputs.llama-cpp.rev or (throw "llama-cpp input must expose a git revision");
   llamaCppImportNpmLock = final.master.importNpmLock;
-  llamaCppUiRoot = "tools/ui";
+  llamaCppUiRoot = "ui/apps/chat";
   llamaCppVersion =
     if llamaCppLockedRev != llamaCppInputRev
     then throw "llama-cpp flake.lock rev ${llamaCppLockedRev} does not match input rev ${llamaCppInputRev}; run `nix flake update llama-cpp`"
@@ -40,11 +40,34 @@ in {
         (input: (input.name or "") != "npm-config-hook")
         oldAttrs.nativeBuildInputs
         ++ [llamaCppImportNpmLock.hooks.linkNodeModulesHook];
-      preConfigure =
-        ''
-          printf '%s\n' ${lib.escapeShellArg llamaCppCommit} > COMMIT
-          linkNodeModulesHook
-        ''
-        + oldAttrs.preConfigure;
+      # Both PWA generators copy the favicons. Copies from the Nix store retain
+      # their read-only mode, so allow the second generator to overwrite them.
+      postPatch = (oldAttrs.postPatch or "") + ''
+        substituteInPlace ${llamaCppUiRoot}/scripts/brand-favicons.ts \
+          --replace-fail "{ copyFileSync, mkdirSync }" "{ chmodSync, copyFileSync, mkdirSync }" \
+          --replace-fail \
+            'copyFileSync(require.resolve(specifier), resolve(outDir, fileName));' \
+            'copyFileSync(require.resolve(specifier), resolve(outDir, fileName)); chmodSync(resolve(outDir, fileName), 0o644);'
+      '';
+      # Build in the full source tree: Chat compiles ui/lib/ui and ui/lib/voice
+      # directly, using the dependencies installed for the app.
+      preConfigure = ''
+        linkNodeModulesHook
+        pushd ${llamaCppUiRoot}
+        LLAMA_BUILD_NUMBER=b${llamaCppVersion} npm run build
+        test -s dist/index.html
+        popd
+      '';
+      # The nixpkgs recipe pins these independently of version/src.
+      cmakeFlags =
+        builtins.filter
+        (flag: !(lib.hasPrefix "-DLLAMA_BUILD_NUMBER" flag || lib.hasPrefix "-DLLAMA_BUILD_COMMIT" flag))
+        oldAttrs.cmakeFlags
+        ++ [
+          (lib.cmakeFeature "LLAMA_BUILD_NUMBER" llamaCppVersion)
+          (lib.cmakeFeature "LLAMA_BUILD_COMMIT" llamaCppCommit)
+          (lib.cmakeBool "LLAMA_BUILD_UI" false)
+          (lib.cmakeBool "LLAMA_USE_PREBUILT_UI" false)
+        ];
     });
 }

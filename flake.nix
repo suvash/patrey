@@ -43,7 +43,7 @@
     };
 
     llama-cpp = {
-      url = "github:ggml-org/llama.cpp/b11435";
+      url = "github:ggml-org/llama.cpp/b12675";
       flake = false;
     };
 
