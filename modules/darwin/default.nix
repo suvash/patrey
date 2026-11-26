@@ -1,3 +1,2 @@
 {
-  skhd = import ./skhd.nix;
 }

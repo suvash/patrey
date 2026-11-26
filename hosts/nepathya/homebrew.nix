@@ -14,8 +14,6 @@
       # extraFlags = [ "--verbose" ];
     };
 
-    taps = [];
-
     caskArgs = {
       appdir = "~/Applications/Casks";
       require_sha = true;
@@ -44,7 +42,7 @@
     };
 
     casks = [
-      "amethyst"
+      "nikitabobko/tap/aerospace"
       "anki"
       "bambu-studio"
       "blender"

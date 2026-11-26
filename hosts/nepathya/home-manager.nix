@@ -49,6 +49,11 @@
     ".colima/default/colima.yaml" = {
       source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/${config.settings.patreydir}/modules/impure/${config.settings.hostname}/colima_default.yaml";
     };
+
+    # Aerospace WM
+    ".config/aerospace/aerospace.toml" = {
+      source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/${config.settings.patreydir}/modules/impure/${config.settings.hostname}/aerospace.toml";
+    };
   };
 
   # Impure link
